@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.constant01.mapper.ReserveMapper">
+
+	<insert id="write">
+		insert into reserve values(#{sitePath},#{resvIdx},#{hspCd},#{memYn},#{userId},#{userType},#{resvType},#{userNm},#{gender},#{ptNo},#{userBirthDt},#{phone},#{zipCd},#{addr},#{detlAddr},#{selDeptNo},#{selDeptCd},#{selDeptNm},#{emrDeptCd},#{emrCenterCd},#{selProfNo},#{selEmpNo},#{selProfNm},#{selProfUuidNm},#{emrProfCd},#{resvAdultYn},#{schYear},#{schMonth},#{schDate},#{resvDd},#{resvHh},0);
+	</insert>
+
+	<select id="list" resultType="com.constant01.model.ReserveDTO">
+		select * from reserve where userId=#{userId} and resvIdx=#{resvIdx} order by resvDd;
+	</select>
+	
+	<select id="list2" resultType="com.constant01.model.ReserveDTO">
+		select * from reserve where selProfNo=#{selProfNo} order by resvDd;
+	</select>
+	
+	<select id="list3" resultType="com.constant01.model.ReserveDTO">
+		select * from reserve where num=#{num} order by resvDd;
+	</select>
+	
+	<insert id="write2">
+		insert into map values(#{resvIdx},#{userNm},#{userLat},#{userLon},0,default);
+	</insert>
+	
+	<select id="maplist" resultType="com.constant01.model.MapDTO">
+		select * from map where resvIdx=#{resvIdx} order by num desc;
+	</select>
+	
+	<delete id="delete">
+	<![CDATA[
+		delete from map where resvIdx = #{resvIdx} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
+	]]>
+	</delete>
+
+</mapper>

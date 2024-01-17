@@ -1,0 +1,479 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+Content Style Sheet(GM)
+Version : 1.0   
+Author :
+Last update : 2022. 04. 18.
+-------------------------------------------------*/
+
+
+/********** content **********/
+/* 버튼 */
+.btn_reset{display:inline-block;width: 24px;height: 24px;background: url(/common/front/home/images/icon/ico_reset01.png)  no-repeat center center;vertical-align: top;}
+.btn_step_prev{display:inline-block;position:relative;width:170px;height:70px;background:#fff;color: #222;font-weight:700;font-size:20px;line-height:70px;text-align:center;border-radius:70px;}
+.btn_step_prev:before{display:block;position: absolute;top: 50%;left: 0;width:14px;height:12px;margin-top: -7px;background:url(/common/front/home/images/icon/arw_sty2_off.png) no-repeat 0 0;content:"";transform: rotate(180deg);}
+.btn_step_next{display:inline-block; width:170px; height:70px; background:#01b3b0; color:#fff; font-weight:700; font-size:20px; line-height:70px; text-align:center; border-radius:70px;}
+.btn_select{display:inline-block;width: calc(100% - 52px);height:52px;padding:17px 0;background:#0171bf;text-align:center;vertical-align: top;box-sizing:border-box; transition:all .3s;}
+.btn_select span{display:inline-block; color:#ffffff; font-weight:500; font-size:18px; line-height:18px; }
+.btn_select:hover{background:#003681;}
+.btn_detail{display:inline-block; width:52px; height:52px; border:1px solid #ddd; background:url(/common/front/home/images/icon/ico_search.png) no-repeat center center; box-sizing:border-box; cursor:pointer;}
+.btn_heart{display:inline-block;width:35px;height:35px;border:0;background:url(/common/front/home/images/icon/ico_heart_off.png) no-repeat center center;cursor:pointer;}
+.btn_box_card{display:inline-block;width:35px;height:35px;border: 1px solid #ddd;background: #fff url(/common/front/home/images/icon/ico_card_off.png) no-repeat center center;border-radius:3px;}
+.btn_box_card.on{border: 1px solid #002863;background: #002863 url(/common/front/home/images/icon/ico_card_on.png) no-repeat center center;}
+.btn_box_card:hover{border: 1px solid #002863;background: #002863 url(/common/front/home/images/icon/ico_card_on.png) no-repeat center center;}
+.btn_box_list{display:inline-block;width:35px;height:35px;border: 1px solid #ddd;background: #fff url(/common/front/home/images/icon/ico_list_off.png) no-repeat center center;border-radius:3px;}
+.btn_box_list.on{border: 1px solid #002863;background: #002863 url(/common/front/home/images/icon/ico_list_on.png) no-repeat center center;}
+.btn_box_list:hover{border: 1px solid #002863;background: #002863 url(/common/front/home/images/icon/ico_list_on.png) no-repeat center center;}
+
+
+.reservation_wrap{position:relative;background: linear-gradient(180deg, #003681 290px, #fff 290px);/*overflow: hidden;*/}
+.reservation_wrap:before{display:block;position:absolute;top: 210px;left:50%;width:555px;height:466px;margin-left: 420px;background:url(/common/front/home/images/common/bg_logo01.png) no-repeat 0 0;content:"";z-index:1;}
+.reservation_wrap .inner{width:1600px;margin:0 auto;background: linear-gradient(180deg, #003681 290px, #fff 290px);}
+.reservation_header{position:relative; height:135px; padding:27px 0; box-sizing:border-box;}
+.reservation_header .tit{position:relative;height: 55px;padding: 0 0 0 247px;background: url(/common/front/home/images/common/logo_g_white.png) no-repeat 0 0;color:#fff;font-weight:700;font-size:22px;line-height: 60px;letter-spacing:-0.25px;}
+.reservation_header .tit:before{display:block;position:absolute;top: 21px;left: 232px;width:2px;height:20px;background:rgba(255,255,255,0.25);content:"";}
+.reservation_header .btn_close{display: inline-block; position: absolute; top: 50%; right: 20px; width: 30px; height: 30px; margin-top:-15px; transform:translateY(-50%);}
+.reservation_header .btn_close:before { display: block; position: absolute; top: 50%; left: 50%; width: 100%; height: 2px; background: #fff; content: ""; transform: translate(-50%, -50%) rotate(45deg);}
+.reservation_header .btn_close:after {display: block; position: absolute; top: 50%; left: 50%; width: 100%; height: 2px; background: #fff; content: ""; transform: translate(-50%, -50%) rotate(-45deg);}
+
+
+.reservation_content{position:relative;width:100%;height:840px;padding-bottom: 80px;}
+.reservation_content .patient_wrap{position:absolute;top:0;right:0;width:470px;height:395px;padding:30px;background:#0271c0;box-sizing:border-box;box-shadow: 10px 0 10px rgba(0,0,0,0.15);}
+.reservation_content .content_wrap{width: calc(100% - 520px);min-height: 720px;}
+.reservation_content .result_wrap{position:absolute;top:395px;right:0;width:470px;height:445px;padding:30px;background:#0268b9;box-sizing:border-box;box-shadow: 10px 0 10px rgba(0,0,0,0.15);}
+.reservation_content .reservation_btn_wrap{width:calc(100% - 520px);}
+
+/* 환자정보 */
+.reservation_content .patient_wrap .p_name{display:block; margin-bottom:20px; color:#fff; font-weight:700; font-size:32px; letter-spacing:0; letter-spacing:-0.25px;}
+.reservation_content .patient_wrap .p_num{display:block;max-width: 245px;height:36px;padding:0 24px;background:#0756a0;color:#fff;font-weight:400;font-size:18px;line-height:36px;text-align:center;border-radius:30px;box-sizing:border-box;}
+.reservation_content .patient_wrap .p_num span{ padding:0 10px;font-family: 'Spoqa Han Sans Neo', sans-serif;}
+
+.reservation_content .dec_list_wrap{position:relative; margin:24px 0 0; z-index:10;}
+.reservation_content .dec_list_wrap dl{display:table; width:100%; height:50px; border-bottom:1px solid rgba(255,255,255,0.15); text-align:left;}
+.reservation_content .dec_list_wrap dl dt{display:table-cell;  width:115px; color:#fff; font-weight:400; font-size:18px; letter-spacing:-0.25px; vertical-align:middle;}
+.reservation_content .dec_list_wrap dl dd{display:table-cell; color:#fff;  font-family: 'Spoqa Han Sans Neo', sans-serif; font-weight:500; font-size:22px; letter-spacing:-0.25px;  vertical-align:middle;}
+.reservation_content .dec_list_wrap .empty_txt{color:rgba(255,255,255,0.3);}
+
+/* 예약정보확인 */
+.reservation_content .result_wrap .tit{ color:#fff; font-weight:500;font-size:24px; line-height:18px; letter-spacing:-0.25px; }
+.reservation_content .result_wrap .result_state_sec{ padding:45px 0;text-align:center;}
+.reservation_content .result_wrap .result_state_sec li{position:relative; display:inline-block;padding:65px 15px 0 15px;color:rgba(255,255,255,0.35);font-weight:500;font-size:16px;letter-spacing:-0.25px;}
+.reservation_content .result_wrap .result_state_sec li:before{position:absolute;top: 20px;left: -10px;display:block;width:21px;height:6px;content:"";background:url(/common/front/home/images/icon/bg_arw_next01.png) no-repeat 0 0;}
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(1):before{display:none;}
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(1){background:url(/common/front/home/images/icon/ico_step_reservation01_off.png)  no-repeat 50% 0; }
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(2){background:url(/common/front/home/images/icon/ico_step_reservation02_off.png)  no-repeat 50% 0; }
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(3){background:url(/common/front/home/images/icon/ico_step_reservation03_off.png)  no-repeat 50% 0; }
+.reservation_content .result_wrap .result_state_sec li em{font-family: 'Spoqa Han Sans Neo', sans-serif; }
+
+.reservation_content .result_wrap .result_state_sec li.on{color:rgba(255,255,255,1);}
+.reservation_content .result_wrap .result_state_sec li.on:nth-of-type(1){background:url(/common/front/home/images/icon/ico_step_reservation01_on.png)  no-repeat 50% 0; }
+.reservation_content .result_wrap .result_state_sec li.on:nth-of-type(2){background:url(/common/front/home/images/icon/ico_step_reservation02_on.png)  no-repeat 50% 0; }
+.reservation_content .result_wrap .result_state_sec li.on:nth-of-type(3){background:url(/common/front/home/images/icon/ico_step_reservation03_on.png)  no-repeat 50% 0; }
+
+
+/* 예약과정 - 진료과 선택 */
+/* .reservation_content .header_tit_area{height:210px; } */
+.reservation_content .header_tit_area .tit_area{background: url(/common/front/home/images/sub/pt_dot01.png) repeat-x 0 60px;}
+.reservation_content .header_tit_area .tit_area .state_now{float:left;}
+.reservation_content .header_tit_area .tit_area .state_now dt{font-family: 'SCDream';color:#58e2e5;font-weight:500;font-size:22px;line-height: 24px;letter-spacing:-0.25px;}
+.reservation_content .header_tit_area .tit_area .state_now dd{padding: 15px 0;color:rgba(255,255,255,1);font-weight:700;font-size:45px;line-height:1;letter-spacing:-0.25px;}
+
+.reservation_content .header_tit_area .tit_area .step_next{float:right;padding: 50px 0 0;background: #003681;}
+.reservation_content .header_tit_area .tit_area .step_next dt{display:inline-block;padding: 0 10px;color:rgba(255,255,255,0.2);font-weight:500;font-size:22px;line-height:1;letter-spacing:-0.25px;vertical-align:middle;}
+.reservation_content .header_tit_area .tit_area .step_next dd{display:inline-block; color:#fff; color:rgba(255,255,255,0.2); font-weight:700; font-size:24px; line-height:1; letter-spacing:-0.25px; vertical-align:middle;}
+
+.reservation_content .header_tit_area .tab_area ul{display:flex;}
+.reservation_content .header_tit_area .tab_area ul > li{flex:1 1; border-radius:10px 10px 0 0;}
+.reservation_content .header_tit_area .tab_area ul > li > a{display:table; width:100%; height:100%; text-align:center;}
+.reservation_content .header_tit_area .tab_area ul > li > a span{display: table-cell; padding:20px 0; color:#fff;font-weight: 500;font-size: 18px;line-height: 20px;letter-spacing: -0.25px;vertical-align: middle;}
+.reservation_content .header_tit_area .tab_area ul > li.on a{ background:#fff;border-radius:10px 10px 0 0; }
+.reservation_content .header_tit_area .tab_area ul > li.on a span{color:#002761; }
+
+
+.sec_tit_area{position:relative;background: #fff;border-radius:10px 10px 0 0;}
+.sec_tit_area .tit{display:table; width:100%; height:100%; text-align:center;}
+.sec_tit_area .tit span{display: table-cell;padding:20px 0;color: #002761;font-weight: 700;font-size: 18px;line-height: 20px;letter-spacing: -0.25px;vertical-align: middle;}
+.sec_tit_area .btn_area{position:absolute;top: 15px;right: 30px;padding: 0;}
+
+/* 초성검색 */
+.chosung_area{display:flex; padding:100px 0 40px;}
+.chosung_area > li{flex:1 1 auto; }
+.chosung_area > li > a{display:block; width:42px; height:42px; background:#eef1f4; color:#666; font-weight:500; font-size:16px; line-height:42px; text-align:center; border-radius:42px;}
+.chosung_area > li.on > a{background:#002761; color:#fff;}
+.chosung_area > li > a.btn_all{ padding:0 30px;background:#002761; color:#fff;}
+
+/* 진료과 */
+.dept_area .dept_inner{height:430px;overflow-y:scroll;}
+.dept_area .dept_inner ul{position: relative;display:flex;flex-wrap:wrap;overflow: hidden;left: -5px;}
+.dept_area .dept_inner ul > li{min-width: 167px;margin: 5px;transition:all .3s;}
+.dept_area .dept_inner ul > li > a{display:table; width:100%; height:130px; border:1px solid #dddddd; text-align:center;box-sizing: border-box;}
+.dept_area .dept_inner ul > li > a > span{display:table-cell;padding-top:50px;color:#222222;font-weight:500;font-size:17px;line-height:34px;vertical-align:middle;} /*justify-content: center; align-items: center; display: flex;/
+.dept_area .dept_inner ul > li:hover{background:#0070bf; box-shadow:10px 0 10px rgba(0,0,0,0.15);}
+.dept_area .dept_inner ul > li:hover a > span{color:#fff; }
+.dept_area .dept_inner ul > li.on{background:#0070bf; box-shadow:10px 0 10px rgba(0,0,0,0.15);}
+.dept_area .dept_inner ul > li.on a > span{color:#fff; }
+
+
+/* 의료진선택 */
+.con_header_wrap{padding:30px 0; }
+.con_header_wrap .lft_con{float:left;}
+.con_header_wrap .rgt_con{float:right;}
+
+.con_header_wrap .dept_tit{display:inline-block; color:#222; font-weight:700; font-size:28px; line-height:40px; }
+.con_header_wrap .doctor_count{display:inline-block;color:#1571bb;font-family: 'Spoqa Han Sans Neo', sans-serif;font-weight:700;font-size:28px;margin: 0 10px 0 0;}
+.con_header_wrap .doctor_tit{display:inline-block;color:#222;font-weight:400;font-size:28px;line-height:40px;vertical-align: middle;}
+.con_header_wrap .doctor_tit strong{font-weight:700;}
+.con_header_wrap .doctor_img{display:inline-block;position:relative;width:72px;height:72px;margin-right: 10px;border-radius:72px;overflow:hidden;vertical-align: middle;}
+.con_header_wrap .doctor_img img{position:absolute; top:50%; left:50%; width:100%; transform:translate(-50%, -50%);}
+
+.reserv_noitce_box{position:relative;background: #007BC9;padding: 10px 20px;border-radius: 5px;margin-bottom: 10px;box-shadow: 5px 0 15px rgb(0 0 0 / 25%);}
+.reserv_noitce_box:before{position:absolute;top: -11px;left: 8px;display:block;width: 19px;height: 19px;content:"";background: url(/common/front/home/images/icon/ico_noti01.png) no-repeat 0 3px;}
+.reserv_noitce_box .txt{color: #fff;font-weight:400;font-size:16px;line-height:18px;letter-spacing:-0.25px;text-align: left;}
+
+.con_header_wrap .index_info_wrap{padding: 12px 20px;background:#eef1f4;border-radius:25px;}
+.con_header_wrap .index_info_wrap.sty2{margin-top: 15px;}
+.con_header_wrap .index_info_wrap li{ display:inline-block;position:relative;position:relative; padding:0 0 0 20px; margin:0 10px; color:#222; font-weight:400; font-size:16px; line-height:18px; vertical-align:middle;}
+.con_header_wrap .index_info_wrap li.ico_outpatient{background:url(/common/front/home/images/icon/ico_outpatient.png) no-repeat 0 center; }
+.con_header_wrap .index_info_wrap li.ico_clinic{background:url(/common/front/home/images/icon/ico_clinic01.png) no-repeat 0 center; }
+.con_header_wrap .index_info_wrap li.ico_operation{background:url(/common/front/home/images/icon/ico_operation.png) no-repeat 0 center; }
+.con_header_wrap .index_info_wrap li.ico_today:before{ display:block;position:absolute; top:50%; left:0; width:12px; height:12px; margin-top:-6px; background:#dcdcdc; content:""; border-radius:12px; box-sizing:border-box; }
+
+/*여기 수정함*/
+.con_header_wrap .index_info_wrap li.ico_available:before{ display:block;position:absolute; top:50%; left:0; width:12px; height:12px; margin-top:-6px; border:2px solid #fff; background:#fff; content:""; border-radius:12px;  box-sizing:border-box; }
+
+/*여기 수정함*/
+.con_header_wrap .index_info_wrap li.ico_select:before{display:block;position:absolute; top:50%; left:0; width:12px; height:12px;  margin-top:-6px; background:#fbedaa; border:2px solid #fbedaa; content:""; border-radius:12px; box-sizing:border-box; }
+
+
+.doctor_list_wrap .doc_inner{position:relative; height:430px; overflow-y:scroll;}
+.doctor_list_wrap ul{display:flex;position: relative;flex-wrap: wrap;width: 100%;padding: 3px;box-sizing: border-box;}
+.doctor_list_wrap ul li{position:relative; width:calc((100% / 2 ) - 10px); max-width: none !important;padding: 30px 30px 110px;margin: 0 0 10px 0;border:1px solid #ddd;box-sizing: border-box;}
+.doctor_list_wrap ul li:nth-child(2n + 1 ){margin:0 10px 10px 0;}
+.doctor_list_wrap ul li:hover{outline: 3px solid #0171bf;box-shadow:10px 0 10px rgba(0,0,0,0.15);border-color: #fff;}
+.doctor_list_wrap ul li.on{outline: 3px solid #0171bf;box-shadow:10px 0 10px rgba(0,0,0,0.15);border-color: #fff;}
+.doctor_list_wrap .doc_info .doc_img_wrap{position:relative;float:left;width:128px;height:128px;border-radius:128px;overflow:hidden;}
+.doctor_list_wrap .doc_info .doc_img_wrap img{position:absolute; top:50%; left:50%; max-width:100%; transform:translate(-50%, -50%);}
+.doctor_list_wrap .doc_info .doc_txt{float:left;width: calc(100% - 130px);padding:0 0 0 25px;box-sizing:border-box;}
+.doctor_list_wrap .doc_info .doc_txt .doc_name{display:block; padding:15px 0 10px 0; color:#222; font-weight:500; font-size:24px; }
+.doctor_list_wrap .doc_info .doc_txt .doc_explain{display: -webkit-box;color:#666;font-weight:400;font-size:16px;line-height:24px;letter-spacing:-0.25px;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;word-break: keep-all;}
+
+.doctor_list_wrap .sche_table_wrap{display: block;position: relative;padding-top: 15px;box-sizing: border-box;}
+.doctor_list_wrap .sche_table_wrap table{width: 100%; padding-top: 25px; border:2px solid #eceef1; box-sizing: border-box; }
+.doctor_list_wrap .sche_table_wrap thead{width: 100%;background: #fff;color: #fff;text-align: center;}
+.doctor_list_wrap .sche_table_wrap thead th{height: 30px;border:0;border-bottom: 1px solid #d7dadf;color: #333;font-size: 14px;line-height:1;box-sizing: border-box;}
+.doctor_list_wrap .sche_table_wrap tbody{width:100%;background: #f1f4fa;text-align: center}
+.doctor_list_wrap .sche_table_wrap tbody td{height: 30px;border: 0; padding:5px; box-sizing:border-box; border-bottom: 1px solid #e3e4e6;background:#f9f9f9;color:#333;font-size: 14px;line-height:1;box-sizing: border-box;}
+.doctor_list_wrap .sche_table_wrap tbody td span{display:block; position:relative; width:100%; padding:5px 0; box-sizing:border-box; background:#0db334; color:#fff; text-align:center; font-size:13px; font-weight:500; border-radius:23px;}
+.doctor_list_wrap .sche_table_wrap tbody td span.am{background:#01b3b0;}
+.doctor_list_wrap .sche_table_wrap tbody td span.pm{background:#0066ff;}
+.doctor_list_wrap .sche_table_wrap tbody th{border:0; border-bottom: 1px solid #e3e4e6; background:#fff;color: #333; font-size: 14px; line-height:1;box-sizing: border-box;}
+.doctor_list_wrap .doc_btm_area{position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:calc(100% - 60px);}
+
+.doctor_list_wrap ul.list_view{display:flex;position: relative;flex-wrap: wrap;}
+.doctor_list_wrap ul.list_view li{position:relative;min-width: calc(100% - 18px);padding: 20px 30px;margin: 10px 10px;border:1px solid #ddd;flex: 1 1;box-sizing: border-box;}
+.doctor_list_wrap ul.list_view li:hover{outline: 3px solid #0171bf;box-shadow:10px 0 10px rgba(0,0,0,0.15);border-color: #fff;}
+.doctor_list_wrap ul.list_view .doc_info .doc_img_wrap{position:relative;float:left;width: 84px;height: 84px;border-radius:128px;overflow:hidden;}
+.doctor_list_wrap ul.list_view .doc_info .doc_img_wrap img{position:absolute; top:50%; left:50%; max-width:100%; transform:translate(-50%, -50%);}
+.doctor_list_wrap ul.list_view .doc_info .doc_txt{float:left;width: calc(100% - 240px);padding:0 0 0 25px;box-sizing:border-box;}
+.doctor_list_wrap ul.list_view .doc_info .doc_txt .doc_name{display:block;padding: 0px 0 10px 0;color:#222;font-weight:500;font-size:24px;}
+.doctor_list_wrap ul.list_view .doc_info .doc_txt .doc_explain{color:#666;font-weight:400;font-size:16px;line-height:24px;letter-spacing:-0.25px;-webkit-line-clamp: 2;}
+
+.doctor_list_wrap ul.list_view .sche_table_wrap{display: block;display: none;position: relative;padding-top: 40px;box-sizing: border-box;}
+.doctor_list_wrap ul.list_view .sche_table_wrap table{width: 100%; padding-top: 25px; border:2px solid #eceef1; box-sizing: border-box; }
+.doctor_list_wrap ul.list_view .sche_table_wrap thead{width: 100%;background: #fff;color: #fff;text-align: center;}
+.doctor_list_wrap ul.list_view .sche_table_wrap thead th{height: 30px;border:0;border-bottom: 1px solid #d7dadf;color: #333;font-size: 14px;line-height:1;box-sizing: border-box;}
+.doctor_list_wrap ul.list_view .sche_table_wrap tbody{width:100%;background: #f1f4fa;text-align: center}
+.doctor_list_wrap ul.list_view .sche_table_wrap tbody td{height: 30px;border: 0;border-bottom: 1px solid #e3e4e6;background:#f9f9f9;color:#333;font-size: 14px;line-height:1;box-sizing: border-box;}
+.doctor_list_wrap ul.list_view .sche_table_wrap tbody th{border:0; border-bottom: 1px solid #e3e4e6; background:#fff;color: #333; font-size: 14px; line-height:1;box-sizing: border-box;}
+.doctor_list_wrap ul.list_view .doc_btm_area{position: absolute;top: 45px;right: 30px;width: 150px;padding: 0;}
+.doctor_list_wrap ul.list_view .doc_btm_area a.btn_select{width:60%;}
+.doctor_list_wrap ul.list_view .doc_btm_area a.btn_detail{width:35%;}
+
+
+.timetable_wrap{display: flex;height: 400px;border: 1px solid #ddd;box-sizing: border-box;}
+.timetable_wrap .sel_cal{min-width: 340px;padding: 30px;border-right: 1px solid #ddd;box-sizing: border-box;}
+.timetable_wrap .sel_cal .cal_top{display: block;position: relative;width: 100%; font-family: 'Spoqa Han Sans Neo', sans-serif;text-align: center;}
+.timetable_wrap .sel_cal .cal_top li{display: inline-block;color: #000;font-weight: 500;font-size: 26px;letter-spacing: -0.5px;text-align: center;vertical-align: middle;}
+.timetable_wrap .sel_cal .cal_top li a{display: inline-block;position:relative;width: 35px;height: 35px;font-family: 'Spoqa Han Sans Neo', sans-serif;}
+.timetable_wrap .sel_cal .cal_top li a:before{display:block;position:absolute;top: 50%;left: 50%;width: 7px;height: 12px;margin: -6px 0 0 -3.5px;background: url(/common/front/home/images/icon/ico_depth2_arr.png)no-repeat 0 0;content:"";transform: rotate(180deg);}
+.timetable_wrap .sel_cal .cal_top li:nth-of-type(3) a:before{transform: rotate(0deg);}
+.timetable_wrap .sel_cal .cal_cont{width: 100%;padding: 10px 0 0;}
+.timetable_wrap .sel_cal .cal_cont table{width: 100%;text-align: center;}
+.timetable_wrap .sel_cal .cal_cont th{font-weight: 400;font-size: 16px;line-height: 25px;}
+.timetable_wrap .sel_cal .cal_cont th a{color: #000;}
+.timetable_wrap .sel_cal .cal_cont td{font-size: 17px;line-height: 40px;}
+.timetable_wrap .sel_cal .cal_cont td a{color: #000;font-family: 'Spoqa Han Sans Neo', sans-serif;}
+.timetable_wrap .sel_cal .cal_cont td a.sel_possible{display: inline-block;width: 35px;height: 35px;margin: 5px 0;border: 2px solid #0070bf;line-height: 32px;border-radius: 50%;box-sizing: border-box;}
+.timetable_wrap .sel_cal .cal_cont td a.sel_date{display: inline-block;width: 35px;height: 35px;margin: 5px 0;color: #fff;line-height: 33px;background-color: #1659ca;border-radius: 50%; }
+.timetable_wrap .sel_cal .cal_cont td a.cal_today{display: inline-block;width: 35px;height: 35px;margin: 5px 0; background: #dcdcdc; line-height: 35px;border-radius: 50%;box-sizing: border-box;}
+.timetable_wrap .sel_cal .cal_cont td a.cal_today span{position: absolute;bottom: -11px;left: 50%;width: 41px;height: 10px;background: url(../../images_brmh_new/sub/text_today.png)no-repeat center;color: transparent;font-size: 1px;text-indent: -9999px;transform: translateX(-50%);background-size: 90%;}
+.timetable_wrap .sel_cal .cal_cont tr td:first-child a{opacity: 0.3;}
+
+
+.timetable_wrap .sel_time{width: calc(100% - 340px);padding: 30px;box-sizing: border-box;overflow-y: scroll; text-align:center;}
+.timetable_wrap .sel_time_tit{ margin-top:30px; color:#fff; font-weight:500;font-size:20px; letter-spacing:-0.25px; text-align:center; line-height:40px; background:#0070bf;}
+.timetable_wrap .sel_time > .sel_time_tit:first-of-type{margin-top:0;}
+.timetable_wrap .slot_wrap{display:block; position:relative; box-sizing:border-box; padding-top:20px; margin-top:20px; border-top:1px dashed #ddd;}
+.timetable_wrap .slot_wrap .time_slot_list{display:flex; flex-wrap:wrap;}
+.timetable_wrap .slot_wrap .time_slot_list li{text-align:center;width:72px; margin:5px;}
+.timetable_wrap .slot_wrap .time_slot_list li a{display:inline-block; width:100%; height:33px; box-sizing:border-box; color:#222; font-weight:400; font-size:18px; line-height:33px; border-radius:33px; border:1px solid #ddd;}
+.timetable_wrap .slot_wrap .time_slot_list li.on a{background:#0070bf; color:#fff; font-weight:700;}
+.timetable_wrap .slot_wrap .time_slot_list li:hover a{background:#0070bf; color:#fff; font-weight:700;}
+
+.timetable_wrap .slot_wrap .day_tit{ display:block; height:40px;margin:0 0 10px 0; border:1px solid #ccc; color:#222; font-weight:400; font-size:16px; line-height:40px; letter-spacing:-0.25px; text-align:center; box-sizing:border-box;}
+.timetable_wrap .slot_wrap.sty2 .day_tit{border:2px solid #eeeeee; background:#f5f5f5;}
+.timetable_wrap .slot_wrap .empty_txt{color:#aaaaaa; text-align:center;}
+
+.timetable_wrap .sel_time .agree_check{display:inline-block; position:relative; padding:10px 25px; margin:0 !important; box-sizing:border-box; border-radius:54px; background:#eef1f4;}
+.timetable_wrap .sel_time label.ch{line-height:24px;}
+.timetable_wrap .sel_time label.ch input[type="radio"] + span{display:inline-block; line-height:24px; font-size:22px;}
+/* .timetable_wrap .sel_time label.ch input[type="radio"] + span:before{width:18px; height:18px; background-size:cover;} */
+.timetable_wrap .sel_time label.ch input[type="radio"]:checked + span:before{}
+
+/* 진료예약 - 빠른일정조회 */
+.quick_reserv_wrap{display:table; table-layout:fixed; width:100%;}
+.quick_reserv_wrap .quick_reserv_tit{display:table-cell; position:relative; vertical-align:middle; width:340px; padding:15px; box-sizing:border-box; border:1px solid #ddd; border-top:0; border-right:0; text-align:center;}
+.quick_reserv_wrap .quick_reserv_tit .btn_quick_list{display:inline-block; position:relative; padding:15px 20px; box-sizing:border-box; border:0; border-radius:30px; background:#0171bf; text-align:center; color:#fff; font-size:17px; font-weight:500; letter-spacing:-0.25px; line-height:1.4; cursor:pointer; transition:all .3s;}
+.quick_reserv_wrap .quick_reserv_tit .btn_quick_list span{display:inline-block; position:relative; padding-right:25px; box-sizing:border-box; background:url(/common/front/home/images/icon/arw_sty6_on.png)no-repeat right 5px center; transition:all .3s;}
+.quick_reserv_wrap .quick_reserv_tit .btn_quick_list:hover{background:#003681;}
+.quick_reserv_wrap .quick_reserv_tit .btn_quick_list:hover span{background-position:right center;}
+.quick_reserv_wrap .quick_reserv_con{display:table-cell; position:relative; vertical-align:top; width:calc(100% - 340px); padding:15px; box-sizing:border-box; border:1px solid #ddd; border-top:0;}
+.quick_reserv_wrap .quick_reserv_con .quick_reserv_list{display:block; position:relative; max-height:70px; overflow:auto;}
+.quick_reserv_wrap .quick_reserv_con .quick_reserv_list li{display:block; position:relative; text-align:left; color:#222; font-size:16px; font-weight:400; letter-spacing:-0.25px; line-height:30px;}
+.quick_reserv_wrap .quick_reserv_con .quick_reserv_list li + li{margin-top:10px;}
+.quick_reserv_wrap .quick_reserv_con .quick_reserv_list li .btn_quick_reserv{display:inline-block; position:relative; padding:0 10px; margin-left:5px; vertical-align:top; box-sizing:border-box; background:#01b3b0; border-radius:30px; border:1px solid #01b3b0; cursor:pointer; text-align:center; color:#fff; font-size:16px; font-weight:500; letter-spacing:-0.5px; line-height:28px; transition:all .3s;}
+.quick_reserv_wrap .quick_reserv_con .quick_reserv_list li .btn_quick_reserv:hover{background:#fff; color:#01b3b0;}
+
+
+/* 진료예약 - 하단 진행버튼 */
+.reservation_btn_wrap{padding:30px 0;}
+.reservation_btn_wrap .btn_step_prev{float:left;}
+.reservation_btn_wrap .btn_step_next{float:right;}
+
+
+.reservation_popup_wrap {display: block;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 10000;}
+.reservation_popup_wrap .popup_dim {display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index:9999;}
+.reservation_popup_wrap .popup_inner {display: block;position: relative;top: 50%;left: 50%;width: 80%;max-width: 520px;background: #fff;z-index:10000;transform: translate(-50%, -50%);box-shadow: 10px 0 25px rgb(0 0 0 / 25%);}
+.reservation_popup_wrap .popup_inner:before{position:absolute;top: -64px;left: 50%;margin-left: -63px;display:block;width:126px;height:126px;border-radius:126px;background: url(/common/front/home/images/icon/ico_circle_notice.png) no-repeat 0 0;content:"";}
+.reservation_popup_wrap .popup_header{position:relative; padding:15px;}
+.reservation_popup_wrap .popup_content{padding: 45px;}
+.reservation_popup_wrap .popup_content .con_txt{font-size:28px; font-weight:400; color:#222; line-height:46px; letter-spacing:-0.75px; text-align:center;}
+.reservation_popup_wrap .popup_content .con_txt strong{font-weight:600; font-family: 'Spoqa Han Sans Neo', sans-serif;}
+.reservation_popup_wrap .btn_area{display:table; width:100%; position:relative; bottom:0; left:0; padding:0; box-sizing:border-box; text-align:center;}
+.reservation_popup_wrap .btn_area a{display:table-cell; height:70px; width:calc(100% / 2); vertical-align:middle; background:#01b3b0; text-align:center; font-size:20px; font-weight:700; color:#fff;}
+.reservation_popup_wrap .btn_area a.btn_pop_sty0{background:#dddddd; color:#222;}
+
+
+/* 진료예약 - 하단 진행버튼 */
+.reservation_btn_wrap{padding:30px 0;}
+.reservation_btn_wrap .btn_step_prev{float:left;}
+.reservation_btn_wrap .btn_step_next{float:right;}
+
+
+.reservation_popup_wrap {display: block;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 10000;}
+.reservation_popup_wrap .popup_dim {display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index:9999;}
+.reservation_popup_wrap .popup_inner {display: block;position: relative;top: 50%;left: 50%;width: 80%;max-width: 520px;background: #fff;z-index:10000;transform: translate(-50%, -50%);box-shadow: 10px 0 25px rgb(0 0 0 / 25%);}
+.reservation_popup_wrap .popup_inner:before{position:absolute;top: -64px;left: 50%;margin-left: -63px;display:block;width:126px;height:126px;border-radius:126px;background: url(/common/front/home/images/icon/ico_circle_notice.png) no-repeat 0 0;content:"";}
+.reservation_popup_wrap .popup_header{position:relative; padding:15px;}
+.reservation_popup_wrap .popup_content{padding: 45px;}
+.reservation_popup_wrap .popup_content .con_txt{font-size:28px; font-weight:400; color:#222; line-height:46px; lettre-spacing:-0.75px; text-align:center;}
+.reservation_popup_wrap .popup_content .con_txt strong{font-weight:600; font-family: 'Spoqa Han Sans Neo', sans-serif;}
+.reservation_popup_wrap .btn_area{display:table; width:100%; position:relative; bottom:0; left:0; padding:0; box-sizing:border-box; text-align:center;}
+.reservation_popup_wrap .btn_area a{display:table-cell; height:70px; width:calc(100% / 2); vertical-align:middle; background:#01b3b0; text-align:center; font-size:20px; font-weight:700; color:#fff;}
+.reservation_popup_wrap .btn_area a.btn_pop_sty0{background:#dddddd; color:#222;}
+
+/********** //content **********/
+
+.info_area .dim_div{display:none;}
+.info_area .dim_logo{display:none;}
+
+
+@media (max-width: 2051px){
+.reservation_wrap:before{margin: 0;right: 0;left: auto;}
+}
+@media (max-width: 1560px){
+    /* 진료과 선택 */
+    .reservation_wrap .inner{width:100%;padding: 0 8%;box-sizing: border-box;}
+    .reservation_content .content_wrap{width: calc((100% - 500px) - 4%);}
+    .reservation_content .patient_wrap{width: 500px;padding: 60px 40px;}
+    .reservation_content .result_wrap{width: 500px;padding: 60px 40px;}
+    .reservation_content .reservation_btn_wrap{width: calc((100% - 500px) - 4%);}
+    .chosung_area{display:flex; flex-wrap:wrap; text-align: left;justify-content: center;}
+    .chosung_area li{margin: 0 3px;}
+
+    .dept_area .dept_inner ul > li{width:calc((100% / 3) - 18px)}
+}
+@media (max-width: 1450px){
+    .timetable_wrap .sel_cal{min-width: 60%;}
+    .timetable_wrap .sel_time{width:40%;}
+
+    .quick_reserv_wrap .quick_reserv_tit{width:30%;}
+    .quick_reserv_wrap .quick_reserv_con{width:70%;}
+
+}
+@media (max-width: 1300px){
+
+}
+@media (max-width: 1280px) {
+
+
+    .reservation_content .header_tit_area .tit_area .step_next{padding:0;}
+    .reservation_content .header_tit_area .tit_area .step_next dt{padding: 55px 0 0;display: block;}
+
+    .info_area .dim_div{width:100%; position:absolute; top:54px; left:0; height:calc(100% - 34px); opacity:0.65; display:block; background:#000; z-index:2;}
+    .info_area .dim_logo{background:url(/common/front/home/images/sub/bg_scroll_x.png) center center no-repeat; z-index:3; width:100%; height:100%; position:absolute; top:0; left:0; display:block;}
+
+    .doctor_list_wrap ul li{width: 100%;margin: 0 0 10px 0 !important;}
+
+    .timetable_wrap{height: auto;display: block;}
+    .timetable_wrap .sel_cal{min-width:100%;border: 0;}
+    .timetable_wrap .sel_time_tit{text-align:left; }
+    .timetable_wrap .sel_time{border-top: 1px solid #ddd;min-width:100%}
+
+    .timetable_wrap .sel_cal{min-width: 340px;}
+    .timetable_wrap .sel_time{width:calc(100% - 340px);}
+
+    .quick_reserv_wrap .quick_reserv_tit .btn_quick_list{padding:10px; font-size:14px; border-radius:20px;}
+
+}
+@media (max-width: 1180px){
+
+    .dept_area .dept_inner ul > li{width:calc((100% / 2) - 18px); min-width:auto;}
+    .reservation_content .header_tit_area .tit_area .step_next{}
+    .reservation_content .header_tit_area .tit_area .step_next dt{display: block;}
+    .reservation_content .header_tit_area .tit_area .step_next dd{}
+
+
+
+    .reservation_wrap:before{display:none;}
+    .reservation_content .header_tit_area .tit_area .step_next{padding: 0;text-align: right;}
+    .reservation_content .header_tit_area .tit_area .step_next dt{display:block;}
+
+    .reservation_content .content_wrap{width:100%;min-height: auto;margin-bottom: 20px;}
+    .reservation_content .patient_wrap{position: relative; display:none;width: 100%;height: auto;background: #0271c0 url(/common/front/home/images/common/bg_logo01.png) no-repeat right bottom / auto 80%;box-shadow: none;}
+    .reservation_content .result_wrap{position:relative; width: 100%;height: auto;top: auto;right: auto;margin: 0px 0 0 0;box-shadow: none;}
+    .reservation_content .reservation_btn_wrap{width:100%;}
+
+}
+@media (max-width: 1024px) {
+
+
+    /********** content **********/
+    /********** // content **********/
+
+}
+@media (max-width: 880px) {
+/********** content **********/
+    .con_header_wrap{padding:20px 0;}
+    .reservation_wrap .inner{padding: 0 6%;background: linear-gradient(180deg, #003681 318px, #fff 318px);}
+    .reservation_header{height: 110px;}
+
+    .doctor_list_wrap .doc_inner{height: 480px;}
+
+    .chosung_area{padding:150px 0 40px;}
+/********** // content **********/
+}
+@media (max-width: 768px) {
+
+    /********** content **********/
+    /********** //content **********/
+
+}
+
+@media (max-width: 740px) {
+/********** content **********/
+/********** // content **********/
+}
+@media (max-width: 640px) {
+    .btn_step_next{width:150px;}
+    /* 진료과선택 */
+    .reservation_wrap .inner{padding: 0 4%;background: linear-gradient(180deg, #003681 225px, #fff 225px);}
+    .reservation_header{padding:24px 0 0; height:auto; }
+    .reservation_header .tit{background-size: auto 30px;padding: 0px 0 0 155px;line-height: 34px;font-size: 16px;height: 34px;}
+    .reservation_header .tit:before{left: 145px;top: 9px;height: 16px;}
+    .reservation_header .btn_close{height: 24px;width: 24px;margin: 0;top: 28px;right: 0;}
+    .reservation_content .header_tit_area{height:auto;}
+
+    .info_area .dim_div{top:59px; height:calc(100% - 39px);}
+    .info_area .dim_logo{background-size:auto 80px;}
+
+    .dept_area{padding-top:80px;}
+    .dept_area .dept_inner{height:240px;}
+    .dept_area .dept_inner ul > li > a{height:50px}
+    .dept_area .dept_inner ul > li > a > span{background: none !important;padding: 0;line-height: 1;word-break: break-word;}
+
+    .reservation_content .header_tit_area .tit_area{background-position: 0 70px;margin: 0 0 20px 0;}
+    .reservation_content .header_tit_area .tit_area .state_now dt{padding: 25px 0 0 0;font-size:14px;line-height: 24px;}
+    .reservation_content .header_tit_area .tit_area .state_now dd{padding: 5px 0 0 0;font-size:24px;line-height: 34px;}
+
+    .reservation_content .header_tit_area .tit_area .step_next{padding: 0; }
+    .reservation_content .header_tit_area .tit_area .step_next dt{padding: 25px 0 0 0;font-size:14px;line-height: 24px;}
+    .reservation_content .header_tit_area .tit_area .step_next dd{padding: 5px 0 0 0; font-size:24px; line-height:34px;}
+
+    .search_index_area{display:none;}
+    .reservation_content{height:auto;}
+
+
+    .reservation_content .patient_wrap .p_name{display: inline-block;font-size:20px;margin: 0 10px 0 0;line-height: 30px;vertical-align: middle;}
+    .reservation_content .patient_wrap .p_num{display: inline-block;font-size:14px;padding: 0 12px;height: 30px;line-height: 30px;max-width: none;vertical-align: middle;}
+
+    .reservation_content .result_wrap{padding:30px;}
+    .reservation_content .result_wrap .tit{font-size:20px;}
+    .reservation_content .dec_list_wrap{margin: 12px 0 0;}
+    .reservation_content .dec_list_wrap dl dt{font-size:16px;width: 85px;}
+    .reservation_content .dec_list_wrap dl dd{font-size: 15px;line-height: 24px;}
+
+    .reservation_content .result_wrap .result_state_sec{display:none;}
+    .reservation_content .reservation_btn_wrap {position: fixed; display: flex; padding:0; left: 0; bottom: 0; z-index: 10;}
+    .reservation_content .reservation_btn_wrap a{flex:1 0; border-radius:0; height:60px; line-height:60px;}
+    .reservation_btn_wrap .btn_step_prev{background:#ddd;}
+    .reservation_btn_wrap .btn_step_prev:before{left:24px}
+
+
+    /* 의료진선택 */
+    .con_header_wrap{padding: 10px 0; }
+    .con_header_wrap .doctor_count{font-size:20px;}
+    .con_header_wrap .dept_tit{font-size:20px}
+    .con_header_wrap .index_info_wrap{padding:10px; }
+    .con_header_wrap .index_info_wrap li{font-size:14px;}
+
+    .doctor_list_wrap ul li{padding: 10px 10px 80px; }
+    .doctor_list_wrap .doc_info .doc_img_wrap{width: 80px;height: 80px;border-radius: 80px;}
+    .doctor_list_wrap .doc_info .doc_txt{padding:0 0 0 15px;}
+    .doctor_list_wrap .doc_info .doc_txt .doc_name{padding: 10px 0 5px 0; font-size:20px;}
+    .doctor_list_wrap .doc_info .doc_txt .doc_explain{font-size:14px; line-height: 20px;}
+    .doctor_list_wrap .doc_btm_area{bottom:10px;width: calc(100% - 20px);}
+    .doctor_list_wrap .doc_inner{height:240px;}
+
+
+    .doctor_list_wrap .sche_table_wrap{display:none;}
+    .con_header_wrap .index_info_wrap{display:none;}
+
+    /*진료일정 */
+    .timetable_wrap .sel_cal{padding: 30px;}
+    .timetable_wrap .sel_time{padding: 30px;}
+    .con_header_wrap .doctor_tit{font-size:20px;}
+
+
+    /*예약확정*/
+    .reservation_popup_wrap .popup_content{padding: 15px;}
+    .reservation_popup_wrap .popup_content .con_txt{font-size:20px;line-height: 30px;}
+
+
+
+
+}
+@media (max-width: 540px) {
+    .timetable_wrap .sel_time label.ch input[type="radio"] + span{font-size:18px;}
+
+    .quick_reserv_wrap .quick_reserv_tit{display:block; width:100%; border-right:1px solid #ddd;}
+    .quick_reserv_wrap .quick_reserv_con{display:block; width:100%;}
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 414px) {
+}
+@media (max-width: 320px) {
+
+}

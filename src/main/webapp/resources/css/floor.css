@@ -1,0 +1,685 @@
+@charset "UTF-8";
+
+.floor_guide_wrap .container_wrapper {position:relative;overflow:hidden;min-width: 1890px; min-height:100%;}
+.floor_guide_wrap .container_wrapper:after {content:"";display:block;position:absolute;width:38%;height:100%;background:#f9f9f9;top:0;left:0;z-index:-1;max-width: 720px;}
+.floor_guide_wrap .container_wrapper:before {content:"";display:block;position:absolute;width:100%;height:100%;background:#062c51; top:0; left:0; z-index:-20;}
+
+/***** header wrapper *****/
+.floor_guide_wrap .header_wrapper {position:relative; width:100%; margin-top:23px; margin-left:2.5%;}
+.floor_guide_wrap .close_wrapper {position:absolute; top:40px; right:2.5%; cursor: pointer;}
+.floor_guide_wrap .close_btn{    position: absolute;width: 270px;height: 85px; z-index: 10;}
+
+/***** contents wrapper *****/
+.floor_guide_wrap .contents_wrapper {position:relative;overflow:hidden;width:95%;margin:0 auto;padding-top: 0;padding-bottom:200px;background: transparent;}
+
+.floor_guide_wrap .contents_wrapper .tt_wrap {position:relative;overflow:hidden;width:28%;height:152px;max-width: 600px;}
+.floor_guide_wrap .contents_wrapper .tt_wrap .tt {position:absolute; top:85px; left:0;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul {position:relative; overflow:hidden; float:right; width:251px; height:152px;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li {float:left;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li a{display:block; position:relative; width:100%; height:100%;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(1) {position:relative; overflow:hidden; width:81px; height:152px; background:url(/common/front/home/images/floor/tab01.png) center 42px no-repeat;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(2) {position:relative; overflow:hidden; width:170px; height:152px; background:url(/common/front/home/images/floor/tab02.png) center 42px no-repeat;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(1):hover:before {content:"";display:block;position:absolute;width:100%;height:100%;background:url(/common/front/home/images/floor/tab01_t.png) 0 0 no-repeat; top:0; left:0;-webkit-animation:bottom_top 0.5s 1 ease-out; animation:bottom_top 0.5s 1 ease-out;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(2):hover:before {content:"";display:block;position:absolute;width:100%;height:100%;background:url(/common/front/home/images/floor/tab02_t.png) 0 0 no-repeat; top:0; left:0;-webkit-animation:bottom_top 0.5s 1 ease-out; animation:bottom_top 0.5s 1 ease-out;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(1):hover {background:url(/common/front/home/images/floor/tab01_ov.png) center 42px no-repeat; cursor:pointer; transition: all 0.25s;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(2):hover {background:url(/common/front/home/images/floor/tab02_ov.png) center 42px no-repeat; cursor:pointer; transition: all 0.25s;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li.on:nth-child(2) {background:url(/common/front/home/images/floor/tab02_ov.png) center 42px no-repeat; cursor:pointer; transition: all 0.25s;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li.on:nth-child(2):before {content:"";display:block;position:absolute;width:100%;height:100%;background:url(/common/front/home/images/floor/tab02_t.png) 0 0 no-repeat; top:0; left:0;-webkit-animation:bottom_top 0.5s 1 ease-out; animation:bottom_top 0.5s 1 ease-out;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li.on:nth-child(1) {background:url(/common/front/home/images/floor/tab01_ov.png) center 42px no-repeat; cursor:pointer; transition: all 0.25s;}
+.floor_guide_wrap .contents_wrapper .tt_wrap ul li.on:nth-child(1):before {content:"";display:block;position:absolute;width:100%;height:100%;background:url(/common/front/home/images/floor/tab01_t.png) 0 0 no-repeat; top:0; left:0;-webkit-animation:bottom_top 0.5s 1 ease-out; animation:bottom_top 0.5s 1 ease-out;}
+
+
+.floor_guide_wrap .contents_wrapper .info_wrap1 {position:relative; width:100%; min-height:100px; margin-top:54px;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl {display: flex; flex-wrap: wrap; position:relative; font-family:'Noto Sans Korean',sans-serif; color:#222; font-size:16px; line-height: 1.8;letter-spacing: -0.25px;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl dt {float:left; width:4%; background:#fff; font-weight:600; text-align:center; border-top:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl dt p {display:table; display:block;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl dt p em {display:table-cell; vertical-align:middle; display:block; padding:10px 0;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl dd {float:left;width:23%;font-weight:300;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;padding:10px 20px;min-width: 508px;max-width: 508px;}
+.floor_guide_wrap .contents_wrapper [class^="info_wrap"] dl dd a{color:inherit;}
+.floor_guide_wrap .contents_wrapper [class^="info_wrap"] dl dd a:hover{color:#12e7ea; text-decoration:underline; font-weight:500;}
+.floor_guide_wrap .contents_wrapper [class^="info_wrap"] dl dd a.on{color:#12e7ea; text-decoration:underline; font-weight:500;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl:after {content:"";display:block;position:absolute;width:66%;height:265px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-95px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl:hover:after {height:365px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-115px; z-index:5}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl:before {content:"";display:block;position:absolute;width:66%;height:1px;background:url(/common/front/home/images/floor/bg_line.png) 0 0 repeat-x;top:0;left:34%;z-index: -20; :600px;opacity:0.2;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl.last dt {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl.last dd {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl:hover dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl:hover dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl.on dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1 dl.on dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 {position:relative; width:100%; min-height:100px; margin-top:54px;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl {display: flex; flex-wrap: wrap; position:static; font-family:'Noto Sans Korean',sans-serif; color:#222; font-size:16px; line-height: 1.8;letter-spacing: -0.25px;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl dt {float:left; width:4%; background:#fff; font-weight:600; text-align:center; border-top:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl dt p {display:table; display:block;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl dt p em {display:table-cell; vertical-align:middle; display:block; padding:10px 0;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl dd {float:left;width:23%;font-weight:300;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;padding:10px 20px;min-width: 508px;max-width: 508px;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl.last dt {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl.last dd {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl.on dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl.on dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl:hover dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl:hover dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.engine:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_engine.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.wood:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_wood.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.beauti:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_beauti.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.generator:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_generator.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.electrical_office:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_electrical_office.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.electrical:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_electrical.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b3f.parking:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b3f_parking.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.funeral:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_funeral.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.nurse_cloth:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_nurse_cloth.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.linen:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_linen.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.hos_drug:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_hos_drug.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.vitamin:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_vitamin.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.medical_record:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_medical_record.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.sience:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_sience.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.clinical_trial:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_clinical_trial.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.cafe02:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_cafe02.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b2f.irb:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b2f_irb.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.emergency_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_emergency_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.radiologist:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_radiologist.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.radiation_oncology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_radiation_oncology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.nuclear_medicine:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_nuclear_medicine.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.restaurant:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_restaurant.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.cafe:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_cafe.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.store:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_store.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.medical_appliance:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_medical_appliance.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.cash:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_cash.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.conven_fac:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_conven_fac.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.conven_fac02:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_conven_fac02.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.funeral_hall:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_funeral_hall.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#b1f.bicycle_cont:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/b1f_bicycle_cont.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.heartbrain:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_heartbrain.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.joint_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_joint_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.spine:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_spine.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.urology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_urology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.obstetrics:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_obstetrics.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.otolaryngology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_otolaryngology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.refer:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_refer.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.administration:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_administration.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.blood:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_blood.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.foreign_drug:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_foreign_drug.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.socialteam:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_socialteam.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.anesthesia:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_anesthesia.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.neurology_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_neurology_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.heartbrain_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_heartbrain_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.inpatient_explain:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_inpatient_explain.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.information_lounge:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_information_lounge.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f1.refer_international:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/1f_refer_international.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+
+
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.cancer:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_cancer.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.oldage:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_oldage.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.digestive_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_digestive_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.respiratorycenter:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_respiratorycenter.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.family_medicine:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_family_medicine.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.Infectious_diseases:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_Infectious_diseases.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.endocrine_medicine:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_endocrine_medicine.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.cosmetic:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_cosmetic.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.nephrology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_nephrology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.eyes:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_eye.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.surgery:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_surgery.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.mental:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_mental.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.dentist:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_dentist.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.dermatology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_dermatology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.inject:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_inject.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.transplant_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_transplant_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.home_nursing:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_home_nursing.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.digestive_endoscope_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_digestive_endoscope_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f2.endoscope_center:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/2f_endoscope_center.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.pediatrics:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_pediatrics.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.rehabilitation:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_rehabilitation.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.brain_intensive:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_brain_intensive.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.heart_intensive:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_heart_intensive.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.heartcenter:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_heartcenter.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.intervention:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_intervention.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.artificial_kidney:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_artificial_kidney.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.pathology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_pathology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f3.diagnostic:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/3f_diagnostic.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.operation:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_operation.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.nowoperation:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_nowoperation.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.recovery:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_recovery.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.bronchoscopy:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_bronchoscopy.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.intensive_internal:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_intensive_internal.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f4.intensive_outternal:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/4f_intensive_outternal.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.busubhall:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_busubhall.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.bigmeeting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_bigmeeting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.sponlounge:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_sponlounge.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.staffkitchen:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_staffkitchen.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.supply:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_supply.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.newlight:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_newlight.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f5.ceo_wrap:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/5f_ceo_wrap.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.delivery:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_delivery.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.neonatalroom:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_neonatalroom.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.neonatal:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_neonatal.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.maternity_treatmentroom:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_maternity_treatmentroom.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.data:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_data.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f6.rooftop_garden:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/6f_rooftop_garden.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f7.prolab:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/7f_prolab_230911.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f7.infolibraryA:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/7f_infolibraryA_230911.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f7.infolibraryB:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/7f_infolibraryB_230911.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl#f7.orthodontics:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/7f_orthodontics_230911.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2 {position:relative; width:100%; min-height:100px; margin-top:54px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl {display: flex; flex-wrap: wrap; position:relative; font-family:'Noto Sans Korean',sans-serif; color:#222; font-size:16px; line-height: 1.5;letter-spacing: -0.25px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl dt {float:left; width:4%; background:#fff; font-weight:600; text-align:center; border-top:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl dt p {display:table; display:block;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl dt p em {display:table-cell; vertical-align:middle; display:block; padding:10px 0;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl dd {float:left;width:23%;font-weight:300;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;padding:10px 20px;min-width: 508px;max-width: 508px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl:after {content:"";display:block;position:absolute;width:66%;height:265px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-95px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl:hover:after {height:365px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-115px; z-index:5}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl:before {content:"";display:block;position:absolute;width:66%;height:1px;background:url(/common/front/home/images/floor/bg_line.png) 0 0 repeat-x;top:0;left:34%;z-index: -20; :600px;opacity:0.2;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.last dt {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.last dd {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl:hover dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl:hover dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.on dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.on dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 {position:relative; width:100%; min-height:100px; margin-top:54px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl {display: flex; flex-wrap: wrap; position:static; font-family:'Noto Sans Korean',sans-serif; color:#222; font-size:16px; line-height: 1.5;letter-spacing: -0.25px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl dt {float:left; width:4%; background:#fff; font-weight:600; text-align:center; border-top:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl dt p {display:table; display:block;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl dt p em {display:table-cell; vertical-align:middle; display:block; padding:10px 0;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl dd {float:left;width:23%;font-weight:300;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;padding:10px 20px;min-width: 508px;max-width: 508px;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl.last dt {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl.last dd {border-bottom:1px solid #d9d9d9;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl.on dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl.on dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl:hover dt {color:#fff; background:#0067be; transition: all 0.35s;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl:hover dd {color:#fff; background:#0067be; border-left:1px solid #0067be; transition: all 0.35s;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.tuberculosis:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_tuberculosis.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.fitting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_fitting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.info:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_info.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.allergy:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_allergy.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.treatment1:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_treatment1.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.treatment2:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_treatment2.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.treatment3:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_treatment3.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.lung:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_lung.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.lungallergy:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_lungallergy.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.respiratory:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_respiratory.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f1.respiratorycenter:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d1f_respiratorycenter.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.ct:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_ct.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.mri:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_mri.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.bone:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_1/f1_bone.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.nurse:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_nurse.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.game:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_game.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.training:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_training.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.edu:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_edu.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.multidisciplinary:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_multidisciplinary.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.waiting1:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_waiting1.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.waiting2:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_waiting2.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.waiting3:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_waiting3.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.waiting4:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_waiting4.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.consulting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_consulting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.nutrition:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_nutrition.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.mammography:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_mammography.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.scanner:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_scanner.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.receipt:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_receipt.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.reception:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_reception.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.control:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_control.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.injection:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_injection.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.preparation:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_preparation.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.treatment7:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_treatment7.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.treatment56:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_treatment56.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.treatment89:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_treatment89.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.treatment1234:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_treatment1234.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.blood:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_blood.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.ultrasound:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_ultrasound.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.coordinator:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_coordinator.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.fitting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_fitting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.rest:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_rest.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.fluoroscopy:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_fluoroscopy.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.viewing:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_viewing.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f2.meeting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d2f_meeting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.vipconsulting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_vipconsulting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.vipfitting_man:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_vipfitting_man.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.vipfitting_woman:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_vipfitting_woman.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.inspectionwaiting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_inspectionwaiting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.costomerwaiting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_costomerwaiting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.bonedensimetry:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_bonedensimetry.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.endoscopy:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_endoscopy.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.endoscopypreparation:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_endoscopypreparation.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.arteriosclerosis:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_arteriosclerosis.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.work:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_work.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.gynecology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_gynecology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.office:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_office.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.consulting:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_consulting.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.washing:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_washing.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.stress:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_stress.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.echocardiography:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_echocardiography.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.ecg:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_ecg.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.ophthalmology:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_ophthalmology.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.nutrition:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_nutrition.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.mammography:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_mammography.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.receipt:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_receipt.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.staff:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_staff.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.blood:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_blood.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.hearing:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_hearing.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.ultrasound:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_ultrasound.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.dentist:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_dentist.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.fitting_man:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_fitting_man.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.fitting_woman:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_fitting_woman.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.viewing:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_viewing.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.inbody:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_inbody.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.recovery:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_recovery.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl#f3.chestxray:after {content:"";display:block;position:absolute;width:66%;height:749px; background:url(/common/front/home/images/floor/floor_2/d3f_chestxray.png) 50% 0 no-repeat; top:50%; left:34%; transform:translateY(-50%); z-index:-1;}
+
+.tip_list{display:none; position:absolute; bottom:20%; left:44%; width:50%; padding:20px 0; text-align:center; border:1px solid rgba(255, 255, 255, 0.6); box-sizing:border-box;}
+.tip_list ul{display:inline-block; position:relative;}
+.tip_list ul li{display:inline-block; float:left; position:relative; padding-left:35px; margin-left:50px; text-align:left; color:#fff; font-size:16px; font-weight:400; letter-spacing:-0.25px; line-height:27px;}
+.tip_list ul li:first-of-type{margin-left:0;}
+.tip_list ul li:before{display:block; position:absolute; top:0; left:0; width:27px; height:27px; border-radius:27px; box-shadow:0 5px 10px rgba(0, 0, 0, 0.3); content:"";}
+.tip_list ul li.information:before{background:url(/common/front/home/images/floor/tip_information.png)no-repeat center center;}
+.tip_list ul li.stairs:before{background:url(/common/front/home/images/floor/tip_stairs.png)no-repeat center center;}
+.tip_list ul li.escalator:before{background:url(/common/front/home/images/floor/tip_escalator.png)no-repeat center center;}
+.tip_list ul li.elevator:before{background:url(/common/front/home/images/floor/tip_elevator.png)no-repeat center center;}
+.tip_list ul li.toilet:before{background:url(/common/front/home/images/floor/tip_toilet.png)no-repeat center center;}
+.floor_guide_wrap .contents_wrapper .info_wrap1_1 .tip_list{display:inline-block;}
+.floor_guide_wrap .contents_wrapper .info_wrap2_1 .tip_list{display:inline-block; bottom:0;}
+
+.c_blue{color: #12e7ea;text-decoration: underline;font-weight: 500;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(1):after {content:"";display:block;position:absolute;width:66%;height:360px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:8;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(1):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(2):after {content:"";display:block;position:absolute;width:66%;height:360px;background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat;top: -123px;left:34%;z-index:7;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(2):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(3):after {content:"";display:block;position:absolute;width:66%;height:360px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:6;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(3):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(4):after {content:"";display:block;position:absolute;width:66%;height:348px; background:url(/common/front/home/images/floor/bg04.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:5;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(4):hover:after {height:365px; background:url(/common/front/home/images/floor/bg04_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(5):after {content:"";display:block;position:absolute;width:66%;height:348px; background:url(/common/front/home/images/floor/bg03.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:4;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(5):hover:after {height:365px; background:url(/common/front/home/images/floor/bg03_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(6):after {content:"";display:block;position:absolute;width:66%;height:405px; background:url(/common/front/home/images/floor/bg02.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:3;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(6):hover:after {height:365px; background:url(/common/front/home/images/floor/bg02_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(7):after {content:"";display:block;position:absolute;width:66%;height:348px; background:url(/common/front/home/images/floor/bg01.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:2;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(7):hover:after {height:365px; background:url(/common/front/home/images/floor/bg01_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(8):after {content:"";display:block;position:absolute;width:66%;height:360px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:1;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(8):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(9):after {content:"";display:block;position:absolute;width:66%;height:360px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:0;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(9):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(10):after {content:"";display:block;position:absolute;width:66%;height:360px; background:url(/common/front/home/images/floor/bg.png) 50% 0 no-repeat; top:-123px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap dl:nth-of-type(10):hover:after {height:331px; background:url(/common/front/home/images/floor/bg_ov.png) 50% 0 no-repeat; transition: all 0.35s; top:-143px; z-index:10}
+
+
+
+.floor_guide_wrap .contents_wrapper .btnn {position:relative; overflow:hidden; width:1720px; margin:0 auto; padding-bottom:50px; margin-bottom:70px;}
+.floor_guide_wrap .contents_wrapper .btnn li {float:left; position:relative; overflow:hidden;}
+.floor_guide_wrap .contents_wrapper .btnn li:hover {background:#fff; cursor:pointer; border-radius:10px; box-shadow:5px 5px 20px rgba(0,53,90,0.15); transition: all 0.35s;}
+
+.floor_guide_wrap .contents_wrapper .sec01 {position:relative; overflow:hidden; width:1720px; margin:0 auto; height:820px;}
+.floor_guide_wrap .contents_wrapper .sec01 .c01 {position:absolute; left:0; top:0;}
+.floor_guide_wrap .contents_wrapper .sec01 .c02 {position:absolute; left:50%; top:0; margin-left:20px;}
+.floor_guide_wrap .contents_wrapper .sec01 .c03 {position:absolute; left:50%; top:360px; margin-left:20px;}
+.floor_guide_wrap .contents_wrapper .sec01 .c04 {position:absolute; left:50%; top:360px; margin-left:450px;}
+.floor_guide_wrap .contents_wrapper .sec01 .sdw {border-radius:10px; box-shadow:5px 5px 30px rgba(0,53,90,0.15);}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star04{position: unset;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star04.ov:after {content:"";display:block;position:absolute;width:66%;height:750px; background:url(/common/front/home/images/floor/on_04.png) 50% 0 no-repeat; top:-104px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star04.ov:before {content:"";display:block;position:absolute;width:66%;height:750px;top:95px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star04.ov:before {
+	animation-fill-mode:forwards;
+	animation-duration: 1.5s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star04;}
+@-webkit-keyframes star04 {
+ 0%{background:url(/common/front/home/images/floor/bg04_ov_01.png) 50% 0 no-repeat;}
+ 100%{background:url(/common/front/home/images/floor/bg04_ov_02.png) 50% 0 no-repeat;}
+}
+
+.stair_cont .stair04{position: absolute;width: 66%;height: 750px;top: 275px;left: 34%;}
+.stair_cont .stair04_cont{left: 50%;transform: translateX(-50%);position: absolute;}
+.stair_cont .stair04 img{opacity: 0;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star04_img;}
+@-webkit-keyframes star04_img {
+ 0% {opacity: 0;}
+ 100% {opacity: 1}
+}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star03{position: unset;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star03.ov:after {content:"";display:block;position:absolute;width:66%;height:750px; background:url(/common/front/home/images/floor/on_03.png) 50% 0 no-repeat; top:-104px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star03.ov:before {content:"";display:block;position:absolute;width:66%;height:750px;top:95px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star03.ov:before {
+	animation-fill-mode:forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star03;}
+@-webkit-keyframes star03 {
+ 0%{background:url(/common/front/home/images/floor/bg03_ov_01.png) 50% 0 no-repeat;}
+ 100%{background:url(/common/front/home/images/floor/bg03_ov_02.png) 50% 0 no-repeat;}
+}
+
+.stair_cont .stair03{position: absolute;width: 66%;height: 750px;top: 275px;left: 34%;}
+.stair_cont .stair03_cont{left: 50%;transform: translateX(-50%);position: absolute;}
+.stair_cont .stair03 img{opacity: 0;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star03_img;}
+@-webkit-keyframes star03_img {
+ 0% {opacity: 0;}
+ 100% {opacity: 1}
+}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star02{position: unset;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star02.ov:after {content:"";display:block;position:absolute;width:66%;height:750px; background:url(/common/front/home/images/floor/on_02.png) 50% 0 no-repeat; top:-104px; left:34%; z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star02.ov:before {content:"";display:block;position:absolute;width:66%;height: 750px;top: 95px;left:34%;z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star02.ov:before {
+	animation-fill-mode:forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star02;}
+@-webkit-keyframes star02 {
+ 0%{background:url(/common/front/home/images/floor/bg02_ov_01.png) 50% 0 no-repeat;}
+ 100%{background:url(/common/front/home/images/floor/bg02_ov_02.png) 50% 0 no-repeat;}
+}
+
+.floor_guide_wrap .stair_cont .stair02{position: absolute;width: 66%;height: 750px;top: 245px;left: 34%;}
+.floor_guide_wrap .stair_cont .stair02_cont{left: 50%;transform: translateX(-50%);position: absolute;}
+.floor_guide_wrap .stair_cont .stair02 img{opacity: 0;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star02_img;}
+@-webkit-keyframes star02_img {
+ 0% {opacity: 0;}
+ 100% {opacity: 1}
+}
+
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star01{position: unset;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star01.ov:after {content:"";display:block;position:absolute;width:66%;height:750px;background:url(/common/front/home/images/floor/on_01.png) 50% 0 no-repeat;top:-104px;left:34%;z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star01.ov:before {content:"";display:block;position:absolute;width:66%;height: 750px;top: 125px;left:34%;z-index:-1;}
+.floor_guide_wrap .contents_wrapper .info_wrap2 dl.star01.ov:before {
+	animation-fill-mode:forwards;
+	animation-duration: 1.5s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star01;}
+@-webkit-keyframes star01 {
+ 0%{background:url(/common/front/home/images/floor/bg01_ov_01.png) 50% 0 no-repeat;}
+ 100%{background:url(/common/front/home/images/floor/bg01_ov_02.png) 50% 0 no-repeat;}
+}
+
+.floor_guide_wrap .stair_cont .stair01{position: absolute;width: 66%;height: 750px;top: 245px;left: 34%;}
+.floor_guide_wrap .stair_cont .stair01_cont{left: 50%;transform: translateX(-50%);position: absolute;}
+.floor_guide_wrap .stair_cont .stair01 img{opacity: 0;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+	animation-timing-function:ease-in-out;
+	animation-delay:0s;
+	animation-iteration-count: 1;
+	animation-name: star01_img;}
+
+@-webkit-keyframes star01_img {
+ 0% {opacity: 0;}
+ 100% {opacity: 1}
+}
+
+
+@-webkit-keyframes bottom_top {
+ 0% {margin-top:10px;}
+ 100% {margin-top:0px;}
+}
+
+@keyframes bottom_top {
+ 0% {margin-top:10px;}
+ 100% {margin-top:0px;}
+}
+
+
+@-webkit-keyframes left_right {
+ 0% {margin-left:-200px;}
+ 100% {margin-left:-120px;}
+}
+
+@keyframes left_right {
+ 0% {margin-left:-200px;}
+ 100% {margin-left:-120px;}
+}
+
+
+@-webkit-keyframes right_left {
+ 0% {opacity:0}
+ 20% {margin-left:250px; opacity:0}
+ 100% {margin-left:200px; opacity:1}
+}
+
+@keyframes right_left {
+ 0% {opacity:0}
+ 20% {margin-left:250px; opacity:0}
+ 100% {margin-left:200px; opacity:1}
+}
+
+@-webkit-keyframes zzan {
+ 0% {opacity:0}
+ 80% {opacity:0}
+ 100% {opacity:1}
+}
+
+@keyframes zzan {
+ 0% {opacity:0}
+ 80% {opacity:0}
+ 100% {opacity:1}
+}
+
+
+
+/* --------------*/
+.stair_font { fill:#fff;}
+.stair_normal { max-width:1100px; height:100%; position: relative;}
+.stair_normal svg {width:1100px; height:100%;}
+.stair_normal .text_svg { position: absolute; left:50%; top:50%; transform: translate(-50%,-50%);}
+
+.floor_guide_wrap .text_svg circle {
+    opacity: 0;
+    transform: scale(0);
+    animation-name: pulse;
+    animation-duration: 0.8s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.floor_guide_wrap .stair01 .text_svg circle {transform-origin: 53% 18%;}
+.floor_guide_wrap .stair02 .text_svg circle {transform-origin: 34% 26%;}
+.floor_guide_wrap .stair03 .text_svg circle {transform-origin: 64% 32.7%;}
+.floor_guide_wrap .stair04 .text_svg circle {transform-origin: 38% 22%;}
+
+.floor_guide_wrap .stair01 .stair_normal > img { position: absolute; left:31px; top:30px; }
+.floor_guide_wrap .stair02 .stair_normal > img { position: absolute; left:-333px; top:88px; }
+.floor_guide_wrap .stair03 .stair_normal > img { position: absolute; left:150px; top:40px; }
+.floor_guide_wrap .stair04 .stair_normal > img { position: absolute; left:-134px; top:-40px; }
+
+
+.floor_right{display: none;} 
+
+
+@keyframes pulse {
+
+	25% {
+        transform: scale(3.75);
+		opacity: 1;
+	}
+
+	100% {
+        transform: scale(1);
+        opacity: 1;
+
+	}
+
+}
+
+@media(max-width : 1300px){
+	.floor_guide_wrap .contents_wrapper .tt_wrap{display: table; table-layout: fixed; width: 37.5%; max-width: auto;}
+	.floor_guide_wrap .contents_wrapper .tt_wrap .tt {/* position:absolute; */ /* margin-top: 85px; */ left:0;display: table-cell;width: 50%;vertical-align: bottom;}
+	.floor_guide_wrap .contents_wrapper .tt_wrap ul {position:relative; overflow:hidden; /* float:right; */ width: 50%; height:152px;display: table-cell;vertical-align: bottom;}
+	.floor_guide_wrap .contents_wrapper .tt_wrap ul li:nth-child(2){width: 50%;}
+	.floor_guide_wrap .container_wrapper{min-width: auto; overflow:visible; background:#062c51; z-index:2;}
+	.floor_guide_wrap .container_wrapper:before{content:none;}
+	.floor_guide_wrap .contents_wrapper .info_wrap1 dl:after{background-size: 100% auto !important; left: 38%;}
+	.floor_guide_wrap .contents_wrapper .info_wrap1 dl:hover:after{background-size: 100% auto !important;}
+	.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl:after{background-size:100% auto !important;}
+	
+	.floor_guide_wrap .contents_wrapper .info_wrap1 dl dd{width: 30%; max-width: auto; min-width: auto;}
+	.floor_guide_wrap .contents_wrapper .info_wrap1_1 dl dd{width: 30%; max-width: auto; min-width: auto;}
+	.floor_guide_wrap .contents_wrapper .info_wrap2 dl dd{width: 30%; max-width: auto; min-width: auto;}
+	.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl dd{width: 30%; max-width: auto; min-width: auto;}
+	.floor_guide_wrap .contents_wrapper .info_wrap2 dl:after{background-size: 100% auto !important;}
+	.floor_guide_wrap .contents_wrapper .info_wrap2_1 dl:after{background-size: 100% auto !important;}
+	.floor_guide_wrap .contents_wrapper .info_wrap2 dl:hover:after{background-size: 100% auto !important;}
+
+	.floor_guide_wrap .header_wrapper{margin:0 !important; padding:23px 0 0 2.5%; box-sizing:border-box;}
+}
+
+@media screen and (max-width: 1200px) {
+	
+	.m_floor_top{display: block !important;}
+	.floor_right{display: block;}
+	.floor_guide_wrap .container_wrapper .contents_wrapper{display: none;}
+	.floor_guide_wrap .container_wrapper:after{width: 100%; height: 20%; max-width: none; min-height: 260px; }
+	.body_wrap .common_wrap{display: block;}
+	
+	.m_top_menu{width: 100%;display: block;height: 65px;position: fixed;top: 0;z-index: 1000;background-color: #fff;}
+	.m_top_menu .m_btn_menu{background: url(../../images/ico_menu.png)no-repeat;width: 33px;height: 25px;display: block;background-size: 75%;position: absolute;left: 20px;top: 50%;transform: translateY(-50%);}
+	.m_top_menu .m_btn_menu > span{font-size: 0px;color: transparent;}
+	.m_top_logo{position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
+	.m_top_logo > a{display: block;}
+	.m_top_logo > a > img{}
+	.m_btn_search{background: url(../../images/ico_search.png)no-repeat;width: 33px;height: 33px;display: block;background-size: 75%;position: absolute;right: 20px;top: 50%;transform: translateY(-50%);}
+	.m_btn_search > span{font-size: 0px;color: transparent;}
+	
+	.m_top_lnb{position: relative;top: 65px;display: table;border-bottom: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;padding: 5px 20px;height: 65px;box-sizing: border-box;width: 100%;background-color: #f2f3f5;}
+	.m_top_lnb > a{font-family: 'SCDream';font-size: 26px;line-height: 1;color: #000;letter-spacing: -0.25px;display: table-cell;height: 100%;vertical-align: middle;position: relative;}
+	.m_top_lnb > a:after{position:absolute;content:'';display:block;width:30px;height:30px;right:0;top:50%;transform:translateY(-50%);border:1px solid #e1e1e1;background:#fff url(../../images/ico_lnb.png) no-repeat center;}
+	.m_top_lnb > a.on:after{background:#fff url(../../images/ico_lnb_on.png) no-repeat center;}
+	.lnb_inner{background-color: #fff;position: absolute;width: 100%;z-index: 80;left: 0;top: 65px;}
+	.lnb_inner > li{border-bottom: 1px solid #ddd;}
+	.lnb_inner > li > a{display: block;font-size: 16px;font-weight: 400;color: #000;padding: 12px 12px 12px 20px;line-height: 1;letter-spacing: -0.75px;}
+	.lnb_inner > li > a > span{display: inline-block;position: relative;}
+	/*.lnb_inner > li > a > span:after{position: absolute;content: '';display: block;width: 0;height: 1px;background-color: #0075bc;left: 0;bottom: -4px;transition: all 0.3s;}
+	.lnb_inner > li > a:hover > span:after{width: 100%;transition: all 0.3s;}*/
+	
+	.m_floor_top{position: relative;padding: 20px;box-sizing: border-box;}
+	.m_floor_top .radio_box{line-height: 1;margin-bottom: 15px;}
+	.m_floor_top .radio_box{}
+	.m_floor_top .select_box{}
+	.m_floor_top .select_box select{margin-top: 5px;display: block;background: #fff url(/common/front/home/images/icon/ico_select_down01.png) no-repeat calc(100% - 20px) 50%;font-size: 20px;color: #000;line-height: 1;padding: 5px 20px;border: 0;width: 100%;height: 45px;box-sizing: border-box;font-family: 'SpoqaHanSansNeo';font-weight: 500;border: 1px solid #dbdbdb;background-size: 11px 6px;}
+	.m_floor_top .select_box select:nth-of-type(1){margin-top:0;}
+	
+	.radio_box input[type="radio"]{display: none;}
+	.radio_box input[type="radio"] + label{display: inline-block;cursor: pointer;vertical-align: middle;font-size: 20px;font-weight: 500;line-height: 28px;color: #000;font-family: 'SpoqaHanSansNeo';}
+	.radio_box input[type="radio"] + label span{display: inline-block;height: 26px;background: url(/common/front/home/images/icon/ico_radio1_off.png) no-repeat left 50%;vertical-align: middle;transition: all ease-out 0.2s;padding-left: 30px;margin-right: 10px;background-size: 22px;}
+	.radio_box input[type="radio"]:checked + label span{background: url(/common/front/home/images/icon/ico_radio1_on.png) no-repeat left 50%;background-size: 22px;}
+	.floor_img_wrap{padding: 20px;}
+	.floor_right{position:relative;padding-top:65px;float: none;}
+	.floor_right .btn_close{display: none;}
+	.floor_list_con{margin-top:0;height: calc(100vh - 28px);padding-bottom: 0;}
+	.floor_list_con > li:nth-of-type(1){top: 0px;}
+	.floor_list_con > li:nth-of-type(2){top: 40px;}
+	.floor_list_con > li:nth-of-type(3){top: 80px;}
+	.floor_list_con > li:nth-of-type(4){top: 120px;}
+	.floor_list_con > li:nth-of-type(5){top: 160px;}
+	.floor_list_con > li:nth-of-type(6){top: 200px;}
+	.floor_list_con > li:nth-of-type(7){top: 240px;}
+	.floor_list_con > li:nth-of-type(8){top: 280px;}
+	.floor_list_con > li:nth-of-type(9){top: 320px;}
+	.floor_list_con > li:nth-of-type(10){top: 360px;}
+	.floor_list_con > li:nth-of-type(11){top: 400px;}
+
+	.floor_right_info{border: 1px solid #385674;box-sizing: border-box;padding: 28px 83px;width: 100%;display: table;margin-top: 70px;}
+.floor_right_info > li:nth-of-type(1),
+.floor_right_info > li:nth-of-type(2),
+.floor_right_info > li:nth-of-type(3),
+.floor_right_info > li:nth-of-type(4),
+.floor_right_info > li:nth-of-type(5){margin-top: 0;}
+.floor_right_info > li{margin-top: 23px;font-size: 17px;font-weight: 300;color: #fff;letter-spacing: 0;line-height: 27px;display: table-cell;width: calc(100% / 5);float: left;}
+.floor_right_info > li > span{display: inline-block;position: relative;padding-left: 40px;}
+.floor_right_info > li > span:before{position: absolute;content: '';display: block;width: 27px;height: 27px;left: 0;top: 50%;transform: translateY(-50%);}
+.floor_right_info > li.ico01 > span:before{background: url(/common/front/home/images/floor/tip_information.png) no-repeat;}
+.floor_right_info > li.ico02 > span:before{background: url(/common/front/home/images/floor/tip_stairs.png) no-repeat;}
+
+.floor_right_info > li.ico04 > span:before{background: url(/common/front/home/images/floor/tip_escalator.png) no-repeat;}
+.floor_right_info > li.ico05 > span:before{background: url(/common/front/home/images/floor/tip_elevator.png )no-repeat;}
+.floor_right_info > li.ico06 > span:before{background: url(/common/front/home/images/floor/tip_toilet.png) no-repeat;}
+
+
+
+
+
+}
+
+@media screen and (max-width: 970px) {
+	
+	.floor_right_info{padding: 25px 20px;}
+	.floor_right_info > li:nth-of-type(4),
+	.floor_right_info > li:nth-of-type(5){margin-top: 15px;}
+	.floor_right_info > li{margin-top: 15px;font-size: 16px;width: calc(100% / 3);float: left;}
+	.floor_right_info > li > span{padding-left: 35px;}
+	.floor_right_img{margin: 0 auto;overflow: auto;display: block;padding: 130px 0 50px 0;}
+	
+	.floor_right_tit > span{font-size: 48px;}
+	.floor_right_tit > em{font-size: 28px;}
+	.floor_right_tit > em:before{bottom: -42px;}
+	
+	.floor_img_cont{display: none;}
+	.floor_img_tit {display: none;}
+	.m_floor_img{display: block;}
+	.m_floor_img > img{width: 100%;}
+	.m_noti{display: block;margin-bottom: 10px;}
+	.m_noti > span{font-size: 15px;font-weight: 400;color: #fff;letter-spacing: -0.75px;line-height: 1.3;position: relative;padding-left: 22px;display: block;}
+	.m_noti > span:before{position: absolute;content: '';display: block;background: url(../../images/ico_noti.png)no-repeat left center;width: 18px;height: 18px;top: 0px;background-size: 16px 16px;left: 0;}
+	
+	
+	
+}
+@media (max-width: 460px){
+
+	.radio_box input[type="radio"] + label{font-size: 16px;}
+
+	.floor_right_info > li{width: 50%; font-size: 12px;}
+	.floor_right_info > li:nth-of-type(1),
+	.floor_right_info > li:nth-of-type(2),
+	.floor_right_info > li:nth-of-type(3),
+	.floor_right_info > li:nth-of-type(4),
+	.floor_right_info > li:nth-of-type(5){margin-top: 15px;}
+}

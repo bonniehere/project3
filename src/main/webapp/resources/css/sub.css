@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+Content Style Sheet(GM)
+Version : 1.0
+Author :
+Last update : 2021. 01.
+-------------------------------------------------*/
+
+
+
+
+/********** common **********/
+.inner{display:block; width:1280px; margin:0 auto;}
+.contents_wrap{display:block; position:relative; padding:70px 0 150px; background:#fff;}
+
+/********** //common **********/
+
+
+
+/********** location **********/
+.location_wrap{display:block; position:relative; width:100%; height:55px; background:#2759ae; line-height:55px; text-align:right; z-index:100;}
+.location_wrap .inner{background:#2759ae;}
+.location_wrap .location{display:inline-block; position:relative; float:left; line-height:55px;}
+.location_wrap .location > li{display:inline-block; position:relative; float:left;}
+.location_wrap .location > li > a{display:block; position:relative; height:100%; padding:0 135px 0 30px; border-right:1px solid rgba(255, 255, 255, 0.2); background:#2759ae; color:#fff; font-weight:400; font-size:17px; letter-spacing:-0.25px;}
+.location_wrap .location > li:last-of-type > a{background:#3478c1;}
+.location_wrap .location > li.home > a{display:block; position:relative; width:60px; height:55px; padding:0; border:0; background:#fff url(/common/front/group/images/icon/ico_home.png)no-repeat center center;}
+.location_wrap .location > li > a span.location_icon{display:block; position:absolute; top:50%; right:20px; width:9px; height:11px; transform:translateY(-50%);}
+.location_wrap .location > li > a span.location_icon:before{display:block; position:absolute; top:-3px; left:0; width:100%; height:5px; background:url(/common/front/group/images/icon/ico_location_top.png)no-repeat; content:""; animation:location_icon 1s alternate ease-in-out infinite;}
+.location_wrap .location > li > a span.location_icon:after{display:block; position:absolute; bottom:0; left:0; width:100%; height:2px; background:url(/common/front/group/images/icon/ico_location_bott.png)no-repeat; content:"";}
+.location_wrap .location > li > .location_down{display:none; position:absolute; top:100%; left:0; width:100%; padding:10px 0; border:1px solid #ccc; border-top:0; background:#fff; line-height:45px; text-align:left; border-radius:0 0 15px 15px; box-sizing:border-box; overflow:hidden;}
+.location_wrap .location > li > .location_down li{display:block; position:relative;}
+.location_wrap .location > li > .location_down li:before{display:block; position:absolute; top:0; left:50%; width:80%; height:0; border-top:1px dashed #ccc; content:""; transform:translateX(-50%);}
+.location_wrap .location > li > .location_down li:first-of-type:before{content:none;}
+.location_wrap .location > li > .location_down li a{display:block; position:relative; padding-left:30px; color:#222; font-weight:400; font-size:17px; letter-spacing:-0.25px; box-sizing:border-box;}
+.location_wrap .location > li > .location_down li a:hover{text-decoration:underline;}
+
+.location_wrap .location_quick{display:inline-block; position:relative; vertical-align:middle; }
+.location_wrap .location_quick li{display:inline-block; position:relative; float:left; padding-left:30px;}
+.location_wrap .location_quick li:before{display:block; position:absolute; top:50%; left:13px; width:4px; height:4px; background:#fff; content:""; transform:translateY(-50%); border-radius:4px;}
+.location_wrap .location_quick li a{display:block; position:relative; color:#fff; font-weight:400; font-size:14px; line-height:20px; letter-spacing:-0.25px;}
+.location_wrap .location_quick li a:hover{text-decoration:underline;}
+.location_wrap .location_quick li:last-child{display:none;}
+
+.location_wrap .location_btn{display:inline-block; position:relative; float:right; margin-left:30px; line-height:55px;}
+.location_wrap .location_btn a{margin-left:20px;}
+.location_wrap .location_btn a:first-of-type{margin-left:0;}
+/********** //location **********/
+
+
+/********** title **********/
+.title{display:block; position:relative; width:100%; height:120px; background:#fff;}
+.title .inner{display:block; position:relative; height:100%; border-bottom:1px solid #ddd; text-align:center; box-sizing:border-box;}
+.title .inner h2{display: block;position:relative;color:#000;font-weight:500;font-size:40px;line-height:120px;font-family:"SCDream", sans-serif;letter-spacing:-0.5px;text-align: center;}
+.title .inner .title_prev{display:inline-block; position:absolute; z-index:2; top:50%; left:0; height:36px; padding-left:36px; background:url(/common/front/group/images/icon/ico_title_prev.png)no-repeat left center; color:#000; font-weight:500; font-size:16px; line-height:36px; font-family:"SCDream", sans-serif; letter-spacing:-0.5px; transform:translateY(-50%);}
+.title .inner .title_next{display:inline-block; position:absolute; top:50%; right:0; height:36px; padding-right:36px; background:url(/common/front/group/images/icon/ico_title_next.png)no-repeat right center; color:#000; font-weight:500; font-size:16px; line-height:36px; font-family:"SCDream", sans-serif; letter-spacing:-0.5px; transform:translateY(-50%);}
+/********** //title **********/
+
+
+/********** button **********/
+.btn_print{display:inline-block; position:relative; width:16px; height:12px; background:url(/common/front/group/images/icon/ico_mail.png)no-repeat center center; vertical-align:middle;}
+.btn_share{display:inline-block; position:relative; width:12px; height:16px; background:url(/common/front/group/images/icon/ico_share.png)no-repeat center center; vertical-align:middle;}
+.btn_mail{display:inline-block; position:relative; width:16px; height:15px; background:url(/common/front/group/images/icon/ico_print.png)no-repeat center center; vertical-align:middle;}
+.eye{display: inline-block;    min-width: 140px;    height: 40px;    padding: 0 10px;    background: #ff5722;	cursor: pointer;    color: #fff;    font-weight: 400;    font-size: 17px;    line-height: 39px;    text-align: center;    vertical-align: middle;    box-sizing: border-box;}
+/********** //button **********/
+
+
+
+/********** content **********/
+
+/********** //content **********/

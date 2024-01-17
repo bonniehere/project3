@@ -1,0 +1,408 @@
+@charset "UTF-8"; /*-------------------------------------------------
+Content Style Sheet
+Version : 1.0
+Author : CME
+First update : 2022. 03. 21.
+-------------------------------------------------*/
+/********** 통합검색 **********/
+.search_tit {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    margin: 30px 0 0 0;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 25px 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.search_tit strong {
+    color: #2d58b6;
+    font-weight: 600;
+}
+
+.highlight {
+    font-weight: 800;
+    color: #2d58b6;
+}
+
+.title_section > .btn_pre, .btn_nxt {
+    display: none;
+}
+
+/* 탭 */
+.tab.sty01 {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+.tab.sty01 > ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.tab.sty01 > ul > li {
+    box-sizing: border-box;
+    flex-grow: 1;
+    margin-left: -1px;
+}
+
+.tab.sty01 > ul > li a {
+    display: block;
+    color: #999;
+    font-size: 18px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 13px 0;
+    text-align: center;
+}
+
+.tab.sty01 > ul > li.on a {
+    background: #fff;
+    color: #0056bc;
+    border: 0;
+    border-top: 3px solid #115abb;
+    border-left: 1px solid #ddd;
+}
+
+.tab.sty01 > ul > li:last-child.on a {
+    border-right: 1px solid #ddd;
+}
+
+/* 공통 통합검색 */
+.search_box_section {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,15,48,0.8);
+    transition: all .3s;
+}
+
+.search_box_section.active {
+    display: block;
+}
+
+.group_main .search_box_section.active {
+    display: block;
+}
+
+.group_main .banner_close .search_box_section.active {
+    display: block;
+}
+
+.search_box_section .search_box_inner {
+    position: relative;
+    top: 50%;
+    width: 840px;
+    margin: -140px auto 0 auto;
+    text-align: center;
+    font-size: 0;
+}
+
+.search_box_section .tit {
+    display: inline-block;
+    position: relative;
+    padding-left: 62px;
+    font-size: 42px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.search_box_section .tit:before {
+    display: block;
+    position: absolute;
+    top: 8.5px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    content: "";
+    background: url(../images/common/ico_feel02.png) no-repeat 0 center;
+}
+
+.search_box_section .search_field {
+    margin: 30px 0;
+}
+
+.search_box_section .input_search {
+    display: inline-block;
+    width: 760px;
+    height: 80px;
+    padding: 0 30px;
+    border: 2px solid #fff;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+.search_box_section .input_search::placeholder {
+    color: #fff;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.search_box_section .btn_search {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 0;
+    background: url(../images/sub/btn_search02.png) no-repeat center center;
+    text-indent: -9999px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+.search_box_section .search_tag li {
+    text-align: center;
+}
+
+.search_box_section .search_tag li a {
+    display: inline-block;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+    line-height: 40px;
+}
+
+.search_box_section .search_tag li a:first-child {
+    margin-left: 0;
+}
+
+.search_box_section .search_close {
+    position: absolute;
+    top: 17px;
+    right: 0;
+}
+
+/* 통합검색 페이지*/
+.sub_section .search_box_section {
+    position: fixed;
+    top: -50px;
+    z-index: 1;
+    width: 100%;
+    background: #f3f6fa;
+    transition: top 0.3s;
+}
+
+.sub_section .search_box_section .search_box_inner {
+    width: 1200px;
+    padding: 50px 0;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0;
+}
+
+.sub_section .search_box_section .tit {
+    display: inline-block;
+    padding: 0 35px 0 50px;
+    background: url(../images/common/ico_feel01.png) no-repeat 0 center;
+    font-size: 32px;
+    font-weight: 500;
+    color: #01418f;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.sub_section .search_box_section .input_search {
+    display: inline-block;
+    width: 640px;
+    height: 60px;
+    padding: 0 30px;
+    border: 2px solid #01418f;
+    font-size: 20px;
+    font-weight: 300;
+    color: #666;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.sub_section .search_box_section .btn_search {
+    display: inline-block;
+    width: 65px;
+    height: 60px;
+    border: 0;
+    background: url(../images/sub/btn_search01.png) no-repeat 0 0;
+    text-indent: -9999px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search_section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+.search_section .search_result_area {
+    position: relative;
+    padding: 0 0 70px 0;
+}
+
+.search_section .search_result_area .sub_cont_tit {
+    margin: 0 0 15px 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #000;
+    line-height: 50px;
+}
+
+.search_section .search_result_area .sub_cont_tit .num {
+    display: inline-block;
+    height: 30px;
+    padding: 0 20px;
+    line-height: 30px;
+    border-radius: 30px;
+    background: #fa5080;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.search_section .search_result_area .btn_more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 22px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+}
+
+.search_section .search_result_area .btn_more span {
+    display: block;
+    padding: 0 22px 0 0;
+    background: url(../images/sub/arw_next01.png) no-repeat right center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    text-align: Left;
+}
+
+.search_section .result_list_sty01 {
+    border-top: 3px solid #444444;
+}
+
+.search_section .result_list_sty01 li {
+    padding: 30px 0;
+    border-bottom: 1px solid #cccccc;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+}
+
+.search_section .result_list_sty01 .result_item {
+    text-align: left;
+}
+
+.search_section .result_list_sty01 .result_item .item_tit a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    line-height: 22px;
+}
+
+.search_section .result_list_sty01 .result_item .item_tit a:hover {
+    color: #0041a6;
+    text-decoration: underline;
+}
+
+.search_section .result_list_sty01 .result_item .item_text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.search_section .result_list_sty01 .result_item .item_link a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+}
+
+.m_search_form {
+    margin: 30px 0;
+    border: 2px solid #214eb9;
+    background: #fff;
+    position: relative;
+}
+
+.m_search_form input.text_search {
+    border: 0;
+    font-size: 18px;
+    height: 80px;
+    padding: 0 20px;
+    width: 1120px;
+}
+
+.m_search_form input.btn_search {
+    width: 53px;
+    height: 53px;
+    background: none;
+    margin: 0;
+    padding: 15px;
+}
+
+.m_search_form .btn_total_search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    margin-right: -1px;
+    background: #214eb9;
+}
+
+.m_search_form ul {
+    border-top: 1px solid #ddd;
+    background: #efefef;
+    padding: 15px 20px;
+}
+
+.m_search_form ul li {
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.m_search_form ul li a {
+    color: #000;
+}
+
+.bh_ts_result_box {
+    margin-bottom: 35px;
+    letter-spacing: -0.25px;
+    text-align: center;
+}
+
+.bh_ts_result_tit.bh_ts_main_tit {
+    font-size: 24px;
+    margin-bottom: 38px;
+    margin-top: 10px;
+    text-align: center;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+/********** //통합검색 **********/

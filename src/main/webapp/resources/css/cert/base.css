@@ -1,0 +1,83 @@
+@charset "euc-kr";
+
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textare
+a,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family: 'Noto Sans','맑은 고딕', 'Malgun gothic', '돋움', dotum, Arial, Sans-serif;font-size:100%;color:#000;}
+img,fieldset{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{text-decoration:none;color:inherit;}
+a:hover,a:active,a:focus{text-decoration:none;}
+.blind, .hidden {overflow: hidden; position: absolute; width: 1px; height: 1px; clip: rect(0 0 0 0);}
+button{border:none;cursor:pointer;background:none;}
+div,article,section{box-sizing:border-box;}
+h4,h3 {background:none;color:inherit;}
+iframe html, iframe body {overflow-y:auto;}
+
+*:focus {outline: 2px solid #a8d1ff;}
+input:focus { }
+input{ -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-text-size-adjust:none; }
+
+/* input */
+.inputTxt {height:38px;padding:0 10px;font-size:12px;line-height:35px;border:1px solid #c3c3c3;box-sizing:border-box;}
+.inputTxt::placeholder {font-size:12px;line-height:35px;color:#c3c3c3;letter-spacing:-0.05em;}
+.inputTxt::-webkit-input-placeholder {font-size:12px;line-height:35px;color:#c3c3c3;letter-spacing:-0.05em;}
+.inputTxt:-ms-input-placeholder {font-size:12px;line-height:35px;color:#c3c3c3;letter-spacing:-0.05em;}
+
+/* 20211101 공동인증서 전체동의 checkbox */
+.checkboxWithTxt .checkbox,
+#pubCertAgree {position: absolute; top: 50%; left: 1px; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px; overflow: hidden; outline: 0;}   
+#pubCertAgree:focus + .checkboxWithTxt {outline: 2px solid #a8d1ff;}
+#pubCertAgree + .checkboxWithTxt {display: inline-block; width: 13px; height: 13px; margin: -2px 2px 0 0; border: 1px solid #999; border-radius: 3px; box-sizing: border-box; vertical-align: middle;}
+#pubCertAgree:checked~.checkboxWithTxt {border: none; background: #2d3339 url('../../images/cert/chkbox_on.png') 50% 50% no-repeat; background-size: 8px;}
+
+.checkboxWithTxt .txt {display: inline-block; ; vertical-align: middle;}
+.checkboxWithTxt .txt::before {content: ""; display: inline-block; width: 13px; height: 13px; margin: -4px 7px 0 0; border: 1px solid #999; border-radius: 3px; box-sizing: border-box; vertical-align: middle;}
+.checkboxWithTxt .checkbox:checked~.txt::before {border: none; background: #2d3339 url('../../images/cert/chkbox_on.png') 50% 50% no-repeat; background-size: 8px;}
+.checkboxNoText .checkbox {display: inline-block; width: 13px; height: 13px; margin: 0 7px 0 0; border: 1px solid #999; border-radius: 3px; box-sizing: border-box; opacity: 0.7;}
+.checkboxNoText .txt {display: inline-block; font-size: 12px; color: #888; text-decoration: underline;}
+.checkboxNoText .checkbox {position: absolute; top: 50%; left: 1px; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px; overflow: hidden; outline: 0;}
+.checkboxNoText .checkbox:focus + .label {outline: 2px solid #a8d1ff;}
+.checkboxNoText .label {display: inline-block; width: 13px; height: 13px; margin: -2px 2px 0 0; border: 1px solid #999; border-radius: 3px; box-sizing: border-box; vertical-align: middle;}
+.checkboxNoText .checkbox:checked~.label {border: none; background: #2d3339 url('../../images/cert/chkbox_on.png') 50% 50% no-repeat; background-size: 8px;}
+
+.agreeAll .checkbox {position: absolute; top: 50%; left: 1px; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px; overflow: hidden; outline: 0;}   
+.agreeAll .checkbox:focus + .label .checkboxWithTxt {outline: 2px solid #a8d1ff;}
+.agreeAll .checkbox + .label .checkboxWithTxt {display: inline-block; width: 13px; height: 13px; margin: -2px 2px 0 0; border: 1px solid #999; border-radius: 3px; box-sizing: border-box; vertical-align: middle;}
+.agreeAll .checkbox:checked ~ .label .checkboxWithTxt {border: none; background: #2d3339 url('../../images/cert/chkbox_on.png') 50% 50% no-repeat; background-size: 8px;}
+
+/* buttons */
+.btn {display:inline-block;}
+.btnBasic {width:100%;height:40px;font-weight:bold;font-size:14px;line-height:37px;color:#fff;text-align:center;border-radius:3px;background:#2d3339;}
+.btnBorderType {border:1px solid #000;color:#000;background-color:#fff;}
+
+/* tabs */
+.tabs {font-size:0;margin:0 0 15px;}
+.tabs > .item {display:inline-block;width:33.3%;height:30px;position:relative;border:1px solid #e5e5e5;border-bottom:1px solid #d8d8d8;font-size:12px;line-height:30px;text-align:center;background-color:#e5e5e5;box-sizing:border-box}
+.tabs > .item a { display:block;}
+.tabs > .item::before {content:"";display:inline-block;width:1px;height:11px;position:absolute;top:10px;left:0;background-color:#d8d8d8;}
+.tabs > .item.on {color:#333;border:1px solid #d8d8d8;border-bottom-color:#fff;background-color:#fff;}
+.tabs > .item.on::before, .tabs > .item:first-child::before, .tabs > .item.on + .item::before {display:none;}
+.tabs.one > .item {width:100%;}
+.tabs.two > .item {width:50%;}
+.tabs.none {height:0;margin:0;overflow:hidden;}
+
+/* modal */
+.modalWrap {display:none;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,0.8);overflow:hidden;z-index:99;}
+.modal {position:absolute;margin:0 auto;width:calc(100% - 40px);max-height:70%;min-height:auto;height:486px;padding:20px;background-color:#fff;box-sizing:border-box;z-index:9009;}
+.modalTit {margin:0 0 20px;font-weight:900;font-size:16px;line-height:16px;}
+.modalWrap .btnClose {display:block;position:absolute;top:15px;right:15px;width:30px;height:30px;background:none;}
+.modalWrap .btnClose::before, .modalWrap .btnClose::after {width:2px;height:20px;top:5px;border-radius:5px;}
+.modalBottom .btnArea {margin:0;}
+.modalCont {display:block;position:relative;margin:0 0 25px;height:345px;overflow:hidden;overflow-y:auto;}
+.agreePop { position: fixed; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; }
+.agreePop .addInputPopBody { position: absolute; top: 50px; left: 8%; width: 74%; background-color: #fff; z-index: 10; text-align: center; padding: 0 5%; box-sizing: content-box; }
+.agreePop .addInputPopBody .popTitle { padding-top: 30px; font-size: 18px; font-weight: 700; letter-spacing: -1px; }
+.agreePop .addInputPopBody .popInpArea { padding: 20px 0 0 0; text-align: left; overflow: hidden; }
+.agreePop .addInputPopBody .popBtnArea { padding: 30px 0; }
+.agreePop .addInputPopBody .popBtnArea .popBtnright { float: right; width: 50%; text-align: left; }
+.agreePop .addInputPopBody .popBtnArea .popBtnleft { float: none; width: 50%; margin: 0 auto; text-align: right; }
+.agreePop .addInputPopBody .popBtnArea .popBtnleft .btnCancel { margin-right: 5px; display: inline-block; width: 120px; height: 42px; line-height: 42px; border: 1px solid #b6b6b6; color: #6f7884; background-color: #fff; font-size: 14px; font-weight: 700; text-align: center; border-radius: 2px }
+.agreePop .addInputPopBody .popBtnArea .popBtnleft .btnCancel { background: #0054a6; color: #fff; border: none; border-radius: 2px; margin-right: 10px; }
+.agreePop .dimmed { z-index: 1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); }

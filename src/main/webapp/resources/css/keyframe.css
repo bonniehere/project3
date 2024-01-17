@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+Content Style Sheet (Keyframe)
+Version : 1.0
+Author : 
+Last update : 2021. 00. 00.
+-------------------------------------------------*/
+
+@keyframes location_icon {
+    0% {
+        top:-3px;
+    }
+    100% {
+        top:0;
+    }
+}
+
+@keyframes moveTop {
+    0% {
+        background:#999 url(/common/front/health/images/icon/ico_btn_top.png)no-repeat top 18px center;
+    }
+    100% {
+        background:#999 url(/common/front/health/images/icon/ico_btn_top.png)no-repeat top 25px center;
+    }
+}
+

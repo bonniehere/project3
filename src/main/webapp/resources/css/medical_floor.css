@@ -1,0 +1,809 @@
+@charset "UTF-8"; /*-------------------------------------------------
+Medical Floor Style Sheet (HOME - GM)
+Version : 1.0
+Author :
+Last update : 
+-------------------------------------------------*/
+.map {
+    display: block;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    margin-top: 20px;
+}
+
+/* 가정의학과 */
+.map .floor01 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_familymedicine.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor01 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 내분비배과 */
+.map .floor02 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_endocrine.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor02 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 비뇨의학과 */
+.map .floor03 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_urology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor03 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 69%;
+    left: 44%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 산부인과 */
+.map .floor04 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_Obstetrics.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor04 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 72%;
+    left: 48.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 성형외과 */
+.map .floor05 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_Plastic.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor05 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 소아청소년과 */
+.map .floor06 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_3f_adolescents.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor06 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 42%;
+    left: 57.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 소화기내과 */
+.map .floor07 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_Gastroenterology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor07 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 신경과 */
+.map .floor08 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_neurology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor08 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 27%;
+    left: 55.6%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 신경외과 */
+.map .floor09 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_neurosurgery.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor09 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 36%;
+    left: 54.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 안과 */
+.map .floor10 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_Ophthalmology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor10 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 71%;
+    left: 46%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 영상의학과 */
+.map .floor11 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_b1_Radiology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor11 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 26%;
+    left: 39%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 외과 */
+.map .floor12 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_surgery.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor12 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 14%;
+    left: 61.6%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 응급의학과*/
+.map .floor13 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_Surgery.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor13 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 75%;
+    left: 57%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 이비인후과*/
+.map .floor14 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_Otorhinolaryngology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor14 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 52%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 재활의학과*/
+.map .floor15 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_3f_rehabilitation.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor15 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 25%;
+    left: 61.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*정신건강의학과*/
+.map .floor16 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_mentalhealth.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor16 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*정형외과*/
+.map .floor17 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_Orthopedics.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor17 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 73%;
+    left: 34.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*진단검사의학과*/
+.map .floor18 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_3f_diagnostic.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor18 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 68.5%;
+    left: 47.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*피부과*/
+.map .floor19 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_Dermatology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor19 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*심장뇌혈관병원*/
+.map .floor20 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_cardiocerebrovascular.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor20 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 28.5%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+.map .floor20_1 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_3f_cardiocerebrovascular_0526.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor20_1 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 40.5%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*방사선종양학과*/
+.map .floor21 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_b1_radiation.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor21 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 78%;
+    left: 36%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*병리과*/
+.map .floor22 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_3f_pathology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor22 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 11%;
+    left: 61.7%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*핵의학과*/
+.map .floor23 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_b1_nuclearmedicine.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor23 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 64%;
+    left: 47.8%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*호흡기알레르기내과*/
+.map .floor24 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_respiratory.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor24 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*신장내과*/
+.map .floor25 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_nephrology.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor25 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*감염내과*/
+.map .floor26 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_infection.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor26 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*마취통증의학과*/
+.map .floor27 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_anesthesia.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor27 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 58%;
+    left: 41.8%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*류마티스내과*/
+.map .floor28 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_rheumatism.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor28 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 41%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*심장뇌혈관(신경과)*/
+.map .floor29 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_cardiovascular.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor29 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 29%;
+    left: 40%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*암병원*/
+.map .floor30 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_cancer.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor30 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 26.5%;
+    left: 61.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*응급의학과*/
+.map .floor31 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_b1_emergency.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor31 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 26.5%;
+    left: 56%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/* 내분비내과 - 갑상선암*/
+.map .floor33 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/d1_2f_thyroid_cancer.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor33 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 11%;
+    left: 35.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+.map .floor33 .marker02 {
+    display: inline-block;
+    position: absolute;
+    top: 11%;
+    left: 44.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+/*노년수술전문지원센터*/
+.map .floor34 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_2f_oldagecenter.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor34 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 8.5%;
+    left: 52.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+.map .floor35 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_1f_welfare.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor35 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 23.5%;
+    left: 46.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+.map .floor36 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_4f_dailys_1027.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 740px;
+}
+
+.map .floor36 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 25.5%;
+    left: 59%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+.map .floor37 {
+    display: block;
+    position: relative;
+    background: url(/common/front/home/images/medical_floor/01_7f_orthodontics.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    min-height: 790px;
+}
+
+.map .floor37 .marker {
+    display: inline-block;
+    position: absolute;
+    top: 71.5%;
+    left: 46.5%;
+    background: url(/common/front/home/images/medical_floor/floor_marker.png) no-repeat top center;
+    width: 21px;
+    height: 21px;
+    animation: up-down 1s alternate ease-in-out infinite;
+}
+
+@keyframes up-down {
+    from {
+        transform: translatey(0px);
+    }
+
+    to {
+        transform: translatey(-5px);
+    }
+}

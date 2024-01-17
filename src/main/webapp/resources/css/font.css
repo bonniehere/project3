@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Noto Sans Korean Thin'), local('Noto Sans Korean Thin'), local('Noto Sans Korean Thin');
+    src: url(/common/front/home/fonts/notokr-thin.eot);
+    src: url(/common/front/home/fonts/notokr-thin.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-thin.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-thin.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-thin.otf) format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans Korean Light'), local('Noto Sans Korean Light'), local('Noto Sans Korean Light');
+    src: url(/common/front/home/fonts/notokr-light.eot);
+    src: url(/common/front/home/fonts/notokr-light.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-light.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-light.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-light.otf) format('opentype');
+
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans Korean Regular'), local('Noto Sans Korean Regular'), local('Noto Sans Korean Regular');
+    src: url(/common/front/home/fonts/notokr-regular.eot);
+    src: url(/common/front/home/fonts/notokr-regular.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-regular.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-regular.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Noto Sans Korean Medium'), local('Noto Sans Korean Medium'), local('Noto Sans Korean Medium');
+    src: url(/common/front/home/fonts/notokr-medium.eot);
+    src: url(/common/front/home/fonts/notokr-medium.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-medium.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-medium.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-medium.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans Korean Bold'), local('Noto Sans Korean Bold'), local('Noto Sans Korean Bold');
+    src: url(/common/front/home/fonts/notokr-bold.eot);
+    src: url(/common/front/home/fonts/notokr-bold.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-bold.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-bold.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-bold.otf) format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Noto Sans Korean Black'), local('Noto Sans Korean Black'), local('Noto Sans Korean Black');
+    src: url(/common/front/home/fonts/notokr-black.eot);
+    src: url(/common/front/home/fonts/notokr-black.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/notokr-black.woff2) format('woff2'),
+    url(/common/front/home/fonts/notokr-black.woff) format('woff'),
+    url(/common/front/home/fonts/notokr-black.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 100;
+    src: local('SCDream1'), local('SCDream1'), local('SCDream1');
+    src: url(/common/front/home/fonts/SCDream1.eot);
+    src: url(/common/front/home/fonts/SCDream1.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream1.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream1.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream1.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 200;
+    src: local('SCDream2'), local('SCDream2'), local('SCDream2');
+    src: url(/common/front/home/fonts/SCDream2.eot);
+    src: url(/common/front/home/fonts/SCDream2.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream2.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream2.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream2.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 300;
+    src: local('SCDream3'), local('SCDream3'), local('SCDream3');
+    src: url(/common/front/home/fonts/SCDream3.eot);
+    src: url(/common/front/home/fonts/SCDream3.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream3.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream3.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream3.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SCDream4'), local('SCDream4'), local('SCDream4');
+    src: url(/common/front/home/fonts/SCDream4.eot);
+    src: url(/common/front/home/fonts/SCDream4.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream4.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream4.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream4.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 500;
+    src: local('SCDream5'), local('SCDream5'), local('SCDream5');
+    src: url(/common/front/home/fonts/SCDream5.eot);
+    src: url(/common/front/home/fonts/SCDream5.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream5.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream5.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream5.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 600;
+    src: local('SCDream6'), local('SCDream6'), local('SCDream6');
+    src: url(/common/front/home/fonts/SCDream6.eot);
+    src: url(/common/front/home/fonts/SCDream6.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream6.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream6.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream6.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 700;
+    src: local('SCDream7'), local('SCDream7'), local('SCDream7');
+    src: url(/common/front/home/fonts/SCDream7.eot);
+    src: url(/common/front/home/fonts/SCDream7.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream7.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream7.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream7.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 800;
+    src: local('SCDream8'), local('SCDream8'), local('SCDream8');
+    src: url(/common/front/home/fonts/SCDream8.eot);
+    src: url(/common/front/home/fonts/SCDream8.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream8.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream8.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream8.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'SCDream';
+    font-style: normal;
+    font-weight: 900;
+    src: local('SCDream9'), local('SCDream9'), local('SCDream9');
+    src: url(/common/front/home/fonts/SCDream9.eot);
+    src: url(/common/front/home/fonts/SCDream9.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SCDream9.woff) format('woff'),
+    url(/common/front/home/fonts/SCDream9.otf) format('opentype'),
+    url(/common/front/home/fonts/SCDream9.ttf) format('truetype');
+}
+
+/* Spoqa Han Sans Neo */
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo');
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Bold.eot);
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Bold.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Bold.woff) format('woff'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Bold.otf) format('opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Bold.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo');
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Medium.eot);
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Medium.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Medium.woff) format('woff'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Medium.otf) format('opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo');
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Regular.eot);
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Regular.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Regular.woff) format('woff'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Regular.otf) format('opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo');
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Light.eot);
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Light.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Light.woff) format('woff'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Light.otf) format('opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Light.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo'), local('Spoqa Han Sans Neo');
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Thin.eot);
+    src: url(/common/front/home/fonts/SpoqaHanSansNeo-Thin.eot?#iefix) format('embedded-opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Thin.woff) format('woff'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Thin.otf) format('opentype'),
+    url(/common/front/home/fonts/SpoqaHanSansNeo-Thin.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Montserrat SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    src: url(/common/front/home/fonts/Montserrat-SemiBold.eot);
+    src: url(/common/front/home/fonts/Montserrat-SemiBold.eot?#iefix) format('embedded-opentype'),
+         url(/common/front/home/fonts/Montserrat-SemiBold.woff2) format('woff2'),
+         url(/common/front/home/fonts/Montserrat-SemiBold.woff) format('woff'),
+         url(/common/front/home/fonts/Montserrat-SemiBold.ttf) format('truetype');
+  }
+

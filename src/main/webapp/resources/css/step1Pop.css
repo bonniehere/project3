@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*
+
+.dept_area .dept_inner ul > li:hover{
+	 background: #2759ae;
+}
+*/
+.dept_area .dept_inner ul > li:hover,
+.dept_area .dept_inner ul > li:active{
+	 background: #2759ae;
+}
+.dept_area .dept_inner ul > li:visited{
+	 background: #2759ae;
+}

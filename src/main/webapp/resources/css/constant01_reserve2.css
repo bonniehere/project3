@@ -1,0 +1,415 @@
+@charset "UTF-8";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans Korean', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림',sans-serif;
+    -webkit-text-size-adjust: none;
+}
+
+.reservation_content .header_tit_area .tit_area {
+    background: url(/common/front/home/images/sub/pt_dot01.png) repeat-x 0 60px;
+}
+
+div {
+    display: block;
+}
+
+body {
+    font-size: 16px;
+    word-break: break-all;
+    line-height: 1.1;
+}
+
+.fix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+}
+
+.sec_tit_area .tit span {
+    display: table-cell;
+    padding: 20px 0;
+    color: #002761;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.25px;
+    vertical-align: middle;
+}
+
+.sec_tit_area .tit {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+:root {
+    --swiper-navigation-size: 44px;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+:not(switch):before, :not(switch):after {
+    display: none;
+    content: '';
+}
+:not(switch):before, :not(switch):after {
+    display: none;
+    content: '';
+}
+
+.con_header_wrap {
+    padding: 30px 0;
+}
+
+.doctor_list_wrap ul li:hover {
+    outline: 3px solid #0171bf;
+    box-shadow: 10px 0 10px rgba(0,0,0,0.15);
+    border-color: #fff;
+}
+
+.doctor_list_wrap ul li:nth-child(2n + 1 ) {
+    margin: 0 10px 10px 0;
+}
+.doctor_list_wrap ul li {
+    position: relative;
+    width: calc((100% / 2 ) - 10px);
+    max-width: none !important;
+    padding: 30px 30px 110px;
+    margin: 0 0 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+ul, ol, li {
+    list-style: none;
+}
+
+.doctor_list_wrap .doc_info .doc_img_wrap img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+
+img, fieldset, iframe {
+    border: none;
+}
+img {
+    vertical-align: middle;
+}
+a, address, blockquote, br, fieldset, legend, label, form, input, select, textarea, button, table, th, td caption, cite, code, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, div, iframe, ul, ol, li, hr, img {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.doctor_list_wrap .doc_info .doc_txt .doc_name {
+    display: block;
+    padding: 15px 0 10px 0;
+    color: #222;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.doctor_list_wrap .doc_info .doc_txt .doc_explain {
+    display: -webkit-box;
+    color: #666;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.25px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+}
+
+.doctor_list_wrap .sche_table_wrap {
+    display: block;
+    position: relative;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.doctor_list_wrap .sche_table_wrap thead th {
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #d7dadf;
+    color: #333;
+    font-size: 14px;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: initial;
+}
+
+.doctor_list_wrap .sche_table_wrap tbody th {
+    border: 0;
+    border-bottom: 1px solid #e3e4e6;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.doctor_list_wrap .sche_table_wrap tbody {
+    width: 100%;
+    background: #f1f4fa;
+    text-align: center;
+}
+
+.doctor_list_wrap .sche_table_wrap tbody td span.am {
+    background: #01b3b0;
+}
+.doctor_list_wrap .sche_table_wrap tbody td span {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 23px;
+}
+
+.btn_select:hover {
+    background: #003681;
+}
+a:active, a:hover {
+    text-decoration: none;
+}
+
+.btn_select {
+    display: inline-block;
+    width: calc(100% - 52px);
+    height: 52px;
+    padding: 17px 0;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.btn_detail {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    border: 1px solid #ddd;
+    background: url(/common/front/home/images/icon/ico_search.png) no-repeat center center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.reservation_btn_wrap .btn_step_prev {
+    float: left;
+}
+
+.btn_step_prev {
+    display: inline-block;
+    position: relative;
+    width: 170px;
+    height: 70px;
+    background: #fff;
+    color: #222;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 70px;
+}
+
+
+
+.btn_step_prev:before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 12px;
+    margin-top: -7px;
+    background: url(/common/front/home/images/icon/arw_sty2_off.png) no-repeat 0 0;
+    content: "";
+    transform: rotate(180deg);
+.reservation_content .reservation_btn_wrap {
+    width: calc(100% - 520px);
+}
+
+.reservation_btn_wrap {
+    padding: 30px 0;
+}
+
+.btn_step_next {
+    display: inline-block;
+    width: 170px;
+    height: 70px;
+    background: #01b3b0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 70px;
+}
+
+.reservation_content .patient_wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 470px;
+    height: 395px;
+    padding: 30px;
+    background: #0271c0;
+    box-sizing: border-box;
+    box-shadow: 10px 0 10px rgba(0,0,0,0.15);
+}
+
+.con_header_wrap .index_info_wrap {
+    padding: 12px 20px;
+    background: #eef1f4;
+    border-radius: 25px;
+}
+
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.con_header_wrap .index_info_wrap li {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 20px;
+    margin: 0 10px;
+    color: #222;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+element.style {
+    background: url(../../../../resources/img/ico_outpatient_am.png) no-repeat 0 center !important;
+}
+
+
+element.style {
+    background: url(../../../../resources/img/ico_outpatient_all.png) no-repeat 0 center !important;
+}
+
+
+element.style {
+    background: url(../../../../resources/img/ico_outpatient_pm.png) no-repeat 0 center !important;
+}
+
+.reservation_content .result_wrap .result_state_sec {
+    padding: 45px 0;
+    text-align: center;
+}
+
+ol {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(1) {
+    background: url(/common/front/home/images/icon/ico_step_reservation01_off.png) no-repeat 50% 0;
+}
+.reservation_content .result_wrap .result_state_sec li {
+    position: relative;
+    display: inline-block;
+    padding: 65px 15px 0 15px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.25px;
+}
+
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(1):before {
+    display: none;
+}
+.reservation_content .result_wrap .result_state_sec li:before {
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    display: block;
+    width: 21px;
+    height: 6px;
+    content: "";
+    background: url(/common/front/home/images/icon/bg_arw_next01.png) no-repeat 0 0;
+}
+
+.reservation_content .result_wrap .result_state_sec li.on:nth-of-type(2) {
+    background: url(/common/front/home/images/icon/ico_step_reservation02_on.png) no-repeat 50% 0;
+}
+
+.reservation_content .result_wrap .result_state_sec li.on {
+    color: rgba(255,255,255,1);
+}
+
+.reservation_content .result_wrap .result_state_sec li:nth-of-type(3) {
+    background: url(/common/front/home/images/icon/ico_step_reservation03_off.png) no-repeat 50% 0;
+}
+.reservation_content .result_wrap .result_state_sec li {
+    position: relative;
+    display: inline-block;
+    padding: 65px 15px 0 15px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.25px;
+}

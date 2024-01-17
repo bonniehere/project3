@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+#userNm {
+  width: 150px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+#authType {
+	width: 130px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+	margin-left: 15px;
+	margin-right: 10px;
+}
+
+#userDi {
+  width: 130px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+  	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#mine{
+	display: flex;
+	margin-left: 80px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#userNm{
+	margin-left: 50px;
+	
+}
+
+#mine2{
+	margin-top: 10px;
+	display: flex;
+	margin-left: 80px;
+	text-align: center;
+}
+
+
+
+#aa{
+	font-weight: bold;
+}
+
+#n, #ju, #aa {
+	margin-top: 7px;
+	font-weight: bold;
+	
+	
+	
+}
