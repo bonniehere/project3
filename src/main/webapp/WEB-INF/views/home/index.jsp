@@ -1027,7 +1027,7 @@
 						
 						<div class="top_link_menu">
 							
-		                		
+		                			<a href="/company/homelog.do"><span>C-market</span></a>
 									<a href="/home/member/userMypageCheck.do"><span>마이페이지</span></a>
 		                			<a href="/home/member/userInfoCheck.do">회원정보수정</a>
 		                			<a href="/home/member/loginOut.do">로그아웃</a>

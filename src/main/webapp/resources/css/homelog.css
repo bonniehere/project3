@@ -1,0 +1,396 @@
+@charset "UTF-8";
+/*Variables*/
+$font-stack: 'Roboto', Helvetica, sans-serif;
+$lighter-primary-color: #1E88E5;
+$primary-color: #2196F3; // blue
+$darker-primary-color: #1976D2;
+$very-dark-grey: #37474F;
+$dark-grey:  #607D8B;
+$medium-grey: #CFD8DC;
+$light-grey: #F5F5F5;
+$card-white: #FFFFFF;
+$invalid-color: #D81B60;
+$valid-color: #00BFA5;
+
+/*Mixins*/
+@mixin border_radius ($radius) {
+  border-radius: $radius;
+}
+
+html,body {
+  margin: 0;
+  padding: 0;
+  background-color: light-grey;
+  font-family: font-stack;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { 
+  color: card-white;
+}
+
+h1, h2, h3, h4 {
+    color: #2196F3;
+}
+
+p { color: dark-grey;
+}
+
+
+/*
+section 1 -  login with Nesting and Mixins
+-----------------------------------*/
+
+.centering-container {
+  height: 100vh;
+  display: flex;
+}
+
+.flex-container {
+  margin: auto;
+  background-color: card-white;
+  display: flex;
+  text-align: center;
+}
+
+.form-container {
+  width: 380px;
+  margin: auto;
+  padding: 0 30px 30px 30px;
+  text-align: center;
+  border: 1px solid #2196F3;
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: block;*/
+}	
+.form-container h2 {
+    padding-top:20px;
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+/* media 사용 안 할 생각임여
+@media screen and (max-width: 400px) {
+  .form-container {
+    max-width: 340px;
+  } 
+}
+
+@media screen and (max-width: 320px) {
+  .form-container {
+    max-width: 310px;
+  } 
+}
+*/
+.form-row {
+  padding: 10px 0;
+  background-color: card-white;
+  display: flex;
+ /*label {
+  //   padding-right: 10px;
+  // }*/
+}
+
+.form-row  input {
+    /*child element */
+    flex: 1;
+  }
+
+
+label{
+  font-size:12px;
+  flex: 2;
+}
+
+
+/* -----------------------------------
+section 1 -  Buttons 
+----------------------------------- */
+
+.btn {
+    border-color: #2196F3;
+    border-width: 2px;
+    margin: 20px 4px 0px 0px;
+    padding: 8px 16px;
+    line-height: normal;
+    min-width: 40%;
+    border-radius: 5px;
+}
+
+/*
+@media screen and (max-width: 400px) {
+  .btn {
+    min-width: 100%;
+    margin: 20px 0px 0px 0px;
+  } 
+}
+*/
+/*btn styles*/
+
+.btn-solid {
+  color: card-white;
+  background-color: #2196F3; 
+}
+
+.btn-hollow {
+    color: #607D8B;
+    background-color: #FFFFFF;
+}
+
+ .hover-properties {
+   background-color: darker-primary-color;
+   border-color: darker-primary-color;
+   color: card-white;  
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+.bg-animation {
+  transition-duration: 200ms;  
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease-out;
+}
+
+
+/*
+ button click animations
+----------------------------------- */ 
+
+.btn-click-move-scale-down { 
+  transform: scale(.965);
+  transition: all 200ms ease;
+}
+
+.btn-hover:hover{
+  border-color: darker-primary-color;
+  @extend .hover-properties;
+  @extend .bg-animation;
+}
+
+.btn:focus{
+  /*border-color: $card-white;*/
+  outline: 0;
+}
+
+.btn-solid {
+    color: #FFFFFF;
+    background-color: #2196F3;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.btn:active, 
+.btn-solid:active,
+.btn-hollow:active {
+  border-color: darker-primary-color;
+  background-color: darker-primary-color;
+  color: card-white;
+  @extend .btn-click-move-scale-down;
+}
+
+
+/*
+inputs
+-------------------------------- */
+
+input {
+  font-size: 1.2em;
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid medium-grey;
+  color: #2196F3;
+}
+
+input:focus {
+  margin-bottom: -1px;
+  border-bottom: 2px solid #2196F3;
+  transition:  margin-bottom 100ms ease-out,
+    border-bottom 100ms ease-out;
+}
+
+/*overwrite bootstrap styles*/
+input:focus, .btn:focus {
+  outline: 0;
+  box-shadow: inset 0 0px 0px rgba(10,0,0,1), 0 0 0px rgba(29,233,182, .0);
+}
+
+/*placeholder*/
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: medium-grey;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: medium-grey;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: medium-grey;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: medium-grey;
+}
+
+input:focus::-moz-placeholder {
+  /* FF 4-18 */
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  /* FF 19+ */
+  color: transparent;
+}
+
+
+/*
+check box
+-------------------------------- */
+
+.checkbox-container {
+  margin: 20px auto -10px auto;
+}
+
+.styled-checkbox {
+  position: absolute; /* take it out of document flow */
+  opacity: 0; /*hide it */
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0px;
+    color: dark-grey;
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  /*Box. */
+  .styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border: 2px solid medium-grey;
+    margin-top: 1px;
+  }
+
+  /*Box hover*/
+  .styled-checkbox:hover + label:before {
+    /*optional*/
+    background-color: light-grey;
+  }
+  
+  /* Box active*/
+  .styled-checkbox:active + label:before {
+    /*optional*/
+    @extend .bg-animation;
+  }
+
+  /*Box checked*/
+  .styled-checkbox:checked + label:before {
+    background-color: #2196F3;
+    border: 2px solid #2196F3;
+    animation: (bounce 150ms ease);
+  }
+  
+  /*Disabled state label.*/
+  .styled-checkbox:disabled + label {
+    color: light-grey;
+    cursor: auto;
+  }
+
+  /*Disabled box*/
+  .styled-checkbox:disabled + label:before {
+    box-shadow: none;
+    background-color: card-white;
+  }
+  
+  /*Checkmark. Could be replaced with an image*/
+  .styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 9px;
+    background-color: $card-white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+      2px 0 0 card-white,
+      4px 0 0 card-white,
+      4px -2px 0 card-white,
+      4px -4px 0 card-white,
+      4px -6px 0 card-white,
+      4px -8px 0 card-white;
+    transform: rotate(45deg);
+  }
+}
+
+/*check box animation*/
+@keyframes bounce {
+   0% {
+     transform: scale(.6);
+   }
+   90% {
+     transform: scale(1.03);
+   }
+   100% {
+     transform: scale(1);
+   }
+}
+
+/* input animation
+--------------------------------*/
+.form-row {
+  position: relative;
+}
+
+.form-row input:focus {
+  outline: none;
+}
+
+.form-row .placeholder {
+  font: font-stack;
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  margin-top: -8px;
+  color: medium-grey;
+  background-color: inherit;
+  transition: all .1s linear;
+  pointer-events: none;
+  /*hides invalid type*/
+  background: card-white;
+  padding: 3px 80px 3px 0px;
+}
+
+.form-row input:focus + .placeholder, .form-row input:not(:invalid) + .placeholder {
+  color: dark-grey;
+  top: 0%;
+  margin-top: -2px;
+  background: none;
+  padding: 0px 0px 0px 0px;
+}
+
+.label {
+ color: invalid-color; 
+}
+
+.valid-placeholder {
+ color: valid-color; 
+}
