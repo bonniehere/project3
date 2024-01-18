@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberns">
+	<!-- 아이디로 검색 -->
+	<select id="select" parameterType="string" resultType="Cmember">
+		select *
+		from Member where M_email=#{m_email}
+	</select>
+
+	<!-- 회원가입 --> <!-- table img default값 지우기 -->
+	<insert id="insert" parameterType="Cmember">
+		insert into Member(M_email,
+		M_name, M_tel, M_password, M_img, M_birth, M_addr, M_addr_detail,
+		join_date, del, amount)
+		values(#{m_email},
+		#{m_name}, #{m_tel},
+		#{m_password},
+		#{m_img},
+		#{m_birth}, #{m_addr}, #{m_addr_detail},
+		sysdate, 'n', '0')
+	</insert>
+	<!-- 아이디 찾기 -->
+	<select id="selectFindId" parameterType="map"
+		resultType="Cmember">
+		select * from Member where m_tel=#{m_tel} and
+		m_name=#{m_name}
+	</select>
+	<!-- 비밀번호 찾기 -->
+	<select id="selectFindPw" parameterType="string"
+		resultType="Cmember">
+		select * from Member where M_email=#{m_email}
+	</select>
+	<update id="updateFindPw" parameterType="string">
+		update Member set
+		M_password=#{m_password}
+		where M_email=#{m_email}
+	</update>
+
+
+	<!-- 회원 탈퇴 -->
+	<update id="delete" parameterType="string">
+		update member set del='y'
+		where M_email=#{m_email}
+	</update>
+
+	<!-- 회원 정보 수정 -->
+	<update id="update" parameterType="Cmember">
+		update member set
+		M_password=#{m_password}, M_tel=#{m_tel},
+		M_addr=#{m_addr}, M_addr_detail=#{m_addr_detail},
+		M_birth=#{m_birth}
+		<if test="m_img != null and m_img != ''">
+			,M_img=#{m_img}
+		</if>
+		where M_email=#{m_email}
+	</update>
+	<!-- 프로필 상세 -->
+	<select id="selectNum" parameterType="string"
+		resultType="Cmember">
+		select * from member where M_email=#{m_email}
+	</select>
+
+	<!-- 주문 취소 -->
+	<update id="refund" parameterType="integer">
+		update M_order set
+		refund_chk='y', status='취소완료'
+		where order_no=#{order_no}
+	</update>
+
+	<!-- 관리자 회원 정보 삭제 -->
+	<update id="adminMbDelete" parameterType="string">
+		update member set
+		del='Y' where m_email=#{m_email}
+	</update>
+
+	<!-- 관리자 회원 수 확인 -->
+	<select id="getMbTotal" parameterType="Cmember"
+		resultType="integer">
+		select count(*) from member	<!-- member 행 갯수 -->
+		<!-- 회원 검색 기능 추가 -->
+	</select>
+	<!-- 관리자 회원 목록 -->
+	<select id="mbList" parameterType="Cmember" resultType="Cmember">
+		select * from (select a.*, rowNum rn from (select * from member
+		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
+			|| #{keyword} || '%' </if> </where> -->
+		order by m_email desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+
+	<update id="updateAmount" parameterType="Cmember">
+		update member set
+		amount=#{amount} where m_email=#{m_email}
+	</update>
+
+	<update id="updateAmount2" parameterType="Cmember">
+		update member set
+		amount=#{amount} where m_email=#{m_email}
+	</update>
+</mapper> 
