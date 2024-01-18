@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="affins">
+	<!-- 제휴 등록 -->
+	<insert id="insert" parameterType="affi">
+		insert into affi(af_no,
+		af_name, af_tel, af_email, af_title, af_content, af_file)
+		values((select nvl(max(af_no), 0)+1 from affi),
+		#{af_name}, #{af_tel},
+		#{af_email}, #{af_title}, #{af_content}, #{af_file})
+	</insert>
+
+	<select id="selectAF" parameterType="integer" resultType="affi">
+		select
+		* from affi where af_no=#{af_no}
+	</select>
+	<select id="getAFTotal" parameterType="affi"
+		resultType="integer">
+		select count(*) from affi
+	</select>
+	<!-- 제휴/광고 목록 -->
+	<select id="afList" parameterType="affi" resultType="affi">
+		select * from (select a.*, rowNum rn from (select * from affi
+		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
+			|| #{keyword} || '%' </if> </where> -->
+		order by af_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+
+</mapper> 
