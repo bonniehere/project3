@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+#wholewrap{
+	width:90%;
+	height:900px;
+}
+
+#topwrap{
+	width:100%;
+	height:100px;
+	border:black 1px solid;
+	
+}
+
+#leftwrap{
+	margin-top:15px;
+	margin-right:15px;
+	width:15%;
+	height:700px;
+	float:left;
+	
+}
+
+
+#tabViewer {
+	margin-top:15px;
+	width:75%;
+	height:700px;
+	border:black 1px solid;
+	padding: 3rem;
+	float:left;
+	
+}
+
+.tabViewer-tabMenu {
+	position: relative;
+	display: flex;
+	z-index: 2;
+}
+
+.tabViewer-tab.active:hover,
+.tabViewer-tab.active:focus,
+.tabViewer-tab.active {
+	background: #FFD9EC;
+}
+
+.tabViewer-tab {
+	padding: .75rem 1.5rem;
+	background: #eee;
+	margin-right: .375rem;
+	font-size: 1.2rem;
+	transition: background .2s ease-out, color .2s ease-out;
+	text-align: center;
+	flex-grow: 1;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+a.tabViewer-tab {
+	text-decoration: none;
+}
+
+.tabViewer-tab:last-child {
+	margin-right: 0;
+}
+
+.tabViewer-tab:hover,
+.tabViewer-tab:focus {
+	background: #e6e6e6;
+}
+
+.tabViewer-tabContent {
+	position: relative;
+	z-index: 1;
+	background: white;
+	margin-bottom: 1.5rem;
+	padding: 1rem;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.tabViewer-content {
+	display: none;
+}
+
+.tabViewer-content.active {
+	display: block;
+}
+
+@media all and (max-width:36.063em) {
+	.tabViewer-tabMenu {
+		flex-direction: column;
+	}
+
+	.tabViewer-tab {
+		margin-right: 0;
+		&:not(:first-child) {
+			border-radius: 0;
+		}
+	}
+}
