@@ -32,7 +32,7 @@ public class ChomeController {
 	// 게시판 목록 리스트                                기본생성자 호출
 	public String homelog () {
 		return "company/homelog";
-		// list.jsp 실행 할 때 select 된 결과를 가져와라!!
+		// list.jsp 실행 할 때 select 된 결과를 가져와라!!!!
 	}
 	
 	//@RequestMapping(value = "/company/homelog.do", method = RequestMethod.POST)

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>테스트 페이지입니다람쥐</h1>
+<h1>테스트 페이지입니다람쥐!</h1>
  <%--
 	<% 
 		CustomerDTO customer = (CustomerDTO)session.getAttribute("login");

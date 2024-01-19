@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	return cm.list();
 	}
 	*/
-	// 로그인
+	// 로그인입디다 
 	public CustomerDTO login(CustomerDTO customer) {
 	return cm.login(customer);
 	}

@@ -357,7 +357,7 @@
 				$("#frm").attr("action","/home/reserve/resvOfflineWriteProc.do");
 				$("#frm").attr("target","_self");
 				$("#frm").submit();
-				/*
+				/*  
 				$.ajax({
 					url         : "/home/reserve/resvOfflineWriteProc.do",
 					type        : "POST",
