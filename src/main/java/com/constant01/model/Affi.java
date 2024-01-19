@@ -2,10 +2,10 @@ package com.constant01.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Data;
-import lombok.Setter;
+//import lombok.Data;
+//import lombok.Setter;
 
-@Data
+//@Data
 public class Affi {
 	private int af_no;
 	private String af_name;
