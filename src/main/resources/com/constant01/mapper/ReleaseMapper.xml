@@ -22,12 +22,96 @@
 			) as boardlist
 			<![CDATA[
 			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]> 
+    </select>
+    
+    <select id="boardpage2" resultType="com.constant01.model.BoardDTO">
+    
+      select *
+			from( 
+				select @rownum:=@rownum+1 rownum, b.*
+				from board b , (select @rownum:=0) as tmp
+				where classificationcode= 'a'
+				
+			    order by bno desc
+			   
+			) as boardlist2
+			 <!-- 
+			<![CDATA[
+			where (rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount})
+						]]> -->
+    </select>
+    
+    <select id="boardpage3" resultType="com.constant01.model.BoardDTO">
+    
+      select *
+			from( 
+				select @rownum:=@rownum+1 rownum, b.*
+				from board b, (select @rownum:=0) as tmp
+				where classificationcode= 'b'
+			    order by bno desc
+			) as boardlist
+			<![CDATA[
+			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
+    </select>
+    
+    <select id="boardpage4" resultType="com.constant01.model.BoardDTO">
+    
+      select *
+			from( 
+				select @rownum:=@rownum+1 rownum, b.*
+				from board b, (select @rownum:=0) as tmp
+				
+				
+				where classificationcode= 'c'
+			    order by bno desc
+			) as boardlist
+			<![CDATA[
+			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]>
+    </select>
+    
+    <select id="boardpage5" resultType="com.constant01.model.BoardDTO">
+    
+      select *
+			from( 
+				select @rownum:=@rownum+1 rownum, b.*
+				from board b, (select @rownum:=0) as tmp
+				where classificationcode= 'd'
+			    order by bno desc
+			) as boardlist
+			<![CDATA[
+			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
 			]]>
     </select>
     
     <select id="getTotal" resultType="int">
     
         select count(*) from board
+    
+    </select>
+    <select id="getTotal2" resultType="int">
+    
+        select count(*) from board where classificationcode= 'a'
+    
+    </select>
+    
+    <select id="getTotal3" resultType="int">
+    
+        select count(*) from board  where classificationcode= 'b'
+    
+    </select>
+    
+    <select id="getTotal4" resultType="int">
+    
+        select count(*) from board  where classificationcode= 'c'
+    
+    </select>
+    
+    <select id="getTotal5" resultType="int">
+    
+        select count(*) from board  where classificationcode= 'd'
     
     </select>
   

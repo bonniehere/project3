@@ -25,11 +25,70 @@ public class ReleaseController {
 	public String main1 (Model model, Criteria cri) {
 		
 		model.addAttribute("boardlist", rs.boardpage(cri) );
+		System.out.println("aaaaaaaaaaaaaaa");
+		System.out.println("cri="+cri);
+		System.out.println(rs.boardpage(cri));
+		System.out.println("aaaaaaaaaaaaaaa");
 		int total = rs.getTotal();
 		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
 		model.addAttribute("pageMaker",pagemake);
 		
 		return "company/release/ReleaseMain";
+	}
+	
+	@RequestMapping(value = "table2", method = RequestMethod.GET)
+	public String main2 (Model model, Criteria cri) {
+		
+		System.out.println("bbbbbbbbbbbbbbbb");
+		System.out.println("cri="+cri);
+		System.out.println(rs.boardpage2(cri));
+		System.out.println("bbbbbbbbbbbbbbbb");
+	
+		model.addAttribute("boardlist2", rs.boardpage2(cri) );
+		int total = rs.getTotal2();
+		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
+		model.addAttribute("pageMaker",pagemake);
+		
+		return "company/release/table2";
+	}
+	
+	@RequestMapping(value = "table3", method = RequestMethod.GET)
+	public String main3 (Model model, Criteria cri) {
+		
+		System.out.println("cccccccccccccccc");
+		model.addAttribute("boardlist3", rs.boardpage3(cri) );
+		System.out.println("cccccccccccccccc");
+		int total = rs.getTotal3();
+		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
+		model.addAttribute("pageMaker",pagemake);
+		
+		return "company/release/table3";
+	}
+	
+	@RequestMapping(value = "table4", method = RequestMethod.GET)
+	public String main4 (Model model, Criteria cri) {
+		
+		
+		model.addAttribute("boardlist4", rs.boardpage4(cri) );
+		
+		int total = rs.getTotal4();
+		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
+		model.addAttribute("pageMaker",pagemake);
+		
+		return "company/release/table4";
+	}
+	
+	@RequestMapping(value = "table5", method = RequestMethod.GET)
+	public String main5 (Model model, Criteria cri) {
+		
+		
+		model.addAttribute("boardlist5", rs.boardpage5(cri) );
+		
+		int total = rs.getTotal5();
+		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
+		model.addAttribute("pageMaker",pagemake);
+		
+		return "company/release/table5";
 	}
 	
 	//왼쪽 사이드 메뉴2
