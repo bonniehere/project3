@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="affins">
+<mapper namespace="com.constant01.mapper.AffiMapper">
 	<!-- 제휴 등록 -->
-	<insert id="insert" parameterType="affi">
+	<insert id="insert">
 		insert into affi(af_no,
 		af_name, af_tel, af_email, af_title, af_content, af_file)
 		values((select nvl(max(af_no), 0)+1 from affi),
@@ -11,16 +11,15 @@
 		#{af_email}, #{af_title}, #{af_content}, #{af_file})
 	</insert>
 
-	<select id="selectAF" parameterType="integer" resultType="affi">
+	<select id="selectAF" resultType="com.constant01.model.Affi">
 		select
 		* from affi where af_no=#{af_no}
 	</select>
-	<select id="getAFTotal" parameterType="affi"
-		resultType="integer">
+	<select id="getAFTotal" resultType="com.constant01.model.Affi">
 		select count(*) from affi
 	</select>
 	<!-- 제휴/광고 목록 -->
-	<select id="afList" parameterType="affi" resultType="affi">
+	<select id="afList" resultType="com.constant01.model.Affi">
 		select * from (select a.*, rowNum rn from (select * from affi
 		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
 			|| #{keyword} || '%' </if> </where> -->

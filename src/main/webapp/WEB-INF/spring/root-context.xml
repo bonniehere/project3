@@ -28,4 +28,7 @@
 	
 	<context:component-scan base-package="com.constant01.service"></context:component-scan>
 	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+   		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
 </beans>

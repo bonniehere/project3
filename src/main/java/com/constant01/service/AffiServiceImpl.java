@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.constant01.mapper.AffiDao;
+import com.constant01.mapper.AffiMapper;
 import com.constant01.model.Affi;
-import com.constant01.model.M_order;
+
 @Service
 public class AffiServiceImpl implements AffiService {
 	@Autowired
-	private AffiDao ad;
+	private AffiMapper ad;
 
 	@Override
 	public int insert(Affi affi) {

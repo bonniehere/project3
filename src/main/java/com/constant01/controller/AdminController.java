@@ -48,7 +48,7 @@ public class AdminController {
 		
 		if (pageNum == null || pageNum.equals("")) {
 			pageNum = "1";
-		}/*
+		}
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage = 10; // 한 화면에 보여주는 제휴/광고문의 갯수
 		int total = as.getAFTotal(affi);
@@ -60,12 +60,12 @@ public class AdminController {
 		int num = total - startRow + 1;
 		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
 		String[] title = { "이름", "내용", "제목+내용" };
-
+		
 		model.addAttribute("title", title);
 		model.addAttribute("pb", pb);
 		model.addAttribute("afList", afList);
 		model.addAttribute("num", num);
-		*/
+		
 		return "/company/shipment/admin/contactResultList";
 	}
 	@RequestMapping(value = "contactResultView.do", method = RequestMethod.GET)
@@ -79,13 +79,13 @@ public class AdminController {
 	}
 	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
 	public String orderList(M_order m_order, String pageNum, Model model) {
-		/*
+		
 		if (pageNum == null || pageNum.equals("")) {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage = 5;
-		int total = os.getODTotal(m_order);
+		int total = os.getODTotal(m_order);/*
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
 		m_order.setStartRow(startRow);
