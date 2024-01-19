@@ -11,19 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.constant01.model.CustomerDTO;
 import com.constant01.service.CustomerService;
+/*
 import com.constant01.service.MemberService;
 import com.constant01.service.ProfService;
 import com.constant01.service.ReserveService;
-
+*/
 
 @Controller
 public class ChomeController {
+	/*
 	@Autowired
 	MemberService ms;
 	@Autowired
 	ProfService ps;
 	@Autowired
 	ReserveService rs;
+	*/
 	@Autowired
 	CustomerService cs;
 	

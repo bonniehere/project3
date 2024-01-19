@@ -9,6 +9,9 @@
 </head>
 <body>
 <h1>테스트 페이지입니다람쥐!</h1>
+
+
+<a href="/company/shipper/ship_Driver.do"><span>움직여라...</span></a>
  <%--
 	<% 
 		CustomerDTO customer = (CustomerDTO)session.getAttribute("login");
