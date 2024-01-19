@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../resources/css/release/ReleaseMain.css">
 
 <link rel="stylesheet" href="../../resources/css/release/table.css">
-<script type="text/javascript" src="../../../../resources/js/release/ReleaseMain.js"></script>
+<!-- <script type="text/javascript" src="../../../../resources/js/release/table.js"></script> -->
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -46,7 +46,7 @@
 <!-- 분류코드 추가 -->
 
 </tr>
-<c:forEach items="${boardlist}" var="boardlist">
+<c:forEach items="${boardlist2}" var="boardlist">
 <tr>
 <td>${boardlist.productcode}</td>
 <td>${boardlist.productname}</td>
@@ -61,9 +61,6 @@
 </c:forEach>
 <%-- <td class="subject"><a href="http://localhost:8080/board/detail?bno=${boardlist.bno}">${boardlist.title}</a></td> --%>
 </table><br>
-
-
-
 <div class="paging">
 <!-- prev(이전)이 true이면 이전버튼 활성화 -->
 <c:if test="${pageMaker.prev}">

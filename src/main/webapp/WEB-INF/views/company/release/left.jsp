@@ -18,9 +18,9 @@
         <li><a href="release" class="item"><div>제품주문</div></a></li>
         <li><a href="test1" class="item"><div>주문현황</div></a></li>
         <li><a href="test2" class="item"><div>배송관리</div></a></li>
-        <li><a href="test3" class="item"><div>재고관리(관리자용)</div></a></li>
-        <li><a href="#" class="item"><div>입고내역</div></a></li>
-        <li><a href="#" class="item"><div>출고내역</div></a></li>
+        <li><a href="test3" class="item"><div></div></a></li>
+        <li><a href="#" class="item"><div></div></a></li>
+        <li><a href="#" class="item"><div></div></a></li>
     </ul>
 </div>
     
