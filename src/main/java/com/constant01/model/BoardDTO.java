@@ -1,52 +1,86 @@
 package com.constant01.model;
 
-import java.sql.Date;
+
 
 public class BoardDTO {
 
-	// 게시판번호 (bno)
+		//등록번호 (등록순서대로 번호부여)
 		private int bno;
-		// 제목 (title)
-		private String title;
-		// 내용 (content)
-		private String content;
-		// 작성일자 (regdate)
-		private Date regdate;
-
-		
-		// 아이디 (id)
-		private String id;
+		//	제품코드 
+		private String productcode;
+		//분류코드
+		private String classificationcode;
+		//품목명
+		private String productname;
+		//규격
+		private String standard;
+		//단위
+		private String unit;
+		//수량
+		private int quantity;
+		//단가
+		private String price;
+		//제조원
+		private String manufacturer;
 		public int getBno() {
 			return bno;
 		}
 		public void setBno(int bno) {
 			this.bno = bno;
 		}
-		public String getTitle() {
-			return title;
+		public String getProductcode() {
+			return productcode;
 		}
-		public void setTitle(String title) {
-			this.title = title;
+		public void setProductcode(String productcode) {
+			this.productcode = productcode;
 		}
-		public String getContent() {
-			return content;
+		public String getClassificationcode() {
+			return classificationcode;
 		}
-		public void setContent(String content) {
-			this.content = content;
+		public void setClassificationcode(String classificationcode) {
+			this.classificationcode = classificationcode;
 		}
-		public Date getRegdate() {
-			return regdate;
+		public String getProductname() {
+			return productname;
 		}
-		public void setRegdate(Date regdate) {
-			this.regdate = regdate;
+		public void setProductname(String productname) {
+			this.productname = productname;
+		}
+		public String getStandard() {
+			return standard;
+		}
+		public void setStandard(String standard) {
+			this.standard = standard;
+		}
+		public String getUnit() {
+			return unit;
+		}
+		public void setUnit(String unit) {
+			this.unit = unit;
+		}
+		public int getQuantity() {
+			return quantity;
+		}
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+		public String getPrice() {
+			return price;
+		}
+		public void setPrice(String price) {
+			this.price = price;
+		}
+		public String getManufacturer() {
+			return manufacturer;
+		}
+		public void setManufacturer(String manufacturer) {
+			this.manufacturer = manufacturer;
 		}
 		
-		public String getId() {
-			return id;
+		@Override
+		public String toString() {
+			return "BoardDTO [bno=" + bno + ", productcode=" + productcode + ", classificationcode="
+					+ classificationcode + ", productname=" + productname + ", standard=" + standard + ", unit=" + unit
+					+ ", quantity=" + quantity + ", price=" + price + ", manufacturer=" + manufacturer + "]";
 		}
-		public void setId(String id) {
-			this.id = id;
-		}
-		
-	
 }
