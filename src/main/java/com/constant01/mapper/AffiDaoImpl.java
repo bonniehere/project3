@@ -26,7 +26,7 @@ public class AffiDaoImpl implements AffiDao {
 	}
 
 	@Override
-	public List<Affi> afList(Affi affi) { // 제휴광고 목록
+	public ArrayList<Affi> afList(Affi affi) { // 제휴광고 목록
 		// TODO Auto-generated method stub
 		return sst.selectList("affins.afList", affi);
 	}
