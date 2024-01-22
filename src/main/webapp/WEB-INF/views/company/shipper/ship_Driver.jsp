@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,28 +9,19 @@
 <link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css">
 <script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script>
+
+<script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 </head>
 <body>
 
 
-	<script type="text/javascript" src="../../../../../resources/js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/design.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/swiper.min.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/rolling.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/scrolloverflow.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/fullpage.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/common.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/frameLayer.js"></script>
-	<script type="text/javascript" src="../../../../../resources/js/calendar.js"></script>
-	<!-- <script type="text/javascript" src="../../../../../resources/CommonUtil.c3r-custom.js"></script>  -->
 	
-	<h2>택배 기사가 띄우고 있어야 되는 지도 페이지</h2>
-	<!--<h2>기사 이름 뜰까용? ${list[0].driverIdx} </h2>
+	<h2>택배 기사가 띄우고 있어야 되는 지도 페이지렁이</h2>
+	<h2>기사 이름 뜰까용? ${list[0].driverNm} </h2>
 
- 출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
+ <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
 	<input type="hidden" name="driverIdx" value="${list[0].driverIdx}">
 	<input type="hidden" name="driverNm" value="${list[0].driverNm}">
 
@@ -116,20 +108,21 @@
 			    
 			    
 			 // 마커 생성후 마커 위도,경도,이름,패스워드 DB저장위한 폼
-				//var driverIdx = $('input[name=driverIdx]').val();
-				//var driverNm = $('input[name=driverNm]').val();
+				var driverIdx = $('input[name=driverIdx]').val();
+				var driverNm = $('input[name=driverNm]').val();
 				
-				//console.log(driverIdx);
-				//console.log(driverNm);
+				console.log(driverIdx);
+				console.log(driverNm);
 				console.log(driverLat);
 				console.log(driverLon);
 				
+				
 				$.ajax({
 					type : "POST",
-					url  : "/company/shipper/ship_Driver.do",
+					url  : "/company/shipper/Drivermap.do",
 					data : {
-						//"driverIdx"		: driverIdx,
-						//"driverNm" 		: driverNm,
+						"driverIdx"		: driverIdx,
+						"driverNm" 		: driverNm,
 						"driverLat" 	: driverLat,
 						"driverLon"   	: driverLon
 					},
@@ -148,13 +141,19 @@
 			}
 			   
 			
-	</script>		 
+	</script>		
+	 
+	
 					 
 					 
 					 
 	</div>
 
 </div>
+
+
+
+
 
 </body>
 </html>

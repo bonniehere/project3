@@ -4,7 +4,7 @@ public class DeliveryDTO {
 	
 	private String driverIdx;	//기본키 비밀번호
 	private String driverNm;	//배달 기사이름
-	private String driverLat;	//
+	private String driverLat;	//  
 	private String driverLon;	//
 	
 	public String getDriverIdx() {

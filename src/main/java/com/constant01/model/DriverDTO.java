@@ -2,7 +2,7 @@ package com.constant01.model;
 
 public class DriverDTO {
 	private String driverIdx;	//기본키 비밀번호
-	private String driverNm;	//배달 기사이름
+	private String driverNm;	//배달 기사이름 1
 	
 	public String getDriverIdx() {
 		return driverIdx;

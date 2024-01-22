@@ -7,7 +7,7 @@
 
 	<!--ship_driver로 보내기 위한 list -->
 	<select id="list" resultType="com.constant01.model.DriverDTO">
-		select * from driver where driverIdx=#{driverIdx};
+		select * from driver;
 	</select>
 	
 	<!-- 배달기사 위치 db에 insert -->
@@ -16,10 +16,16 @@
 	</insert>
 	
 	
-	
-	<select id="dlist" resultType="com.constant01.model.DriverDTO">
-		select * from driver where driverIdx=#{driverIdx} and driverNm=#{driverNm};
+	<!-- 기사 위치임 -->
+	<select id="dlist" resultType="com.constant01.model.DeliveryDTO">
+		select * from customermap order by num desc;
 	</select>
+	
+	<delete id="delete">
+	<![CDATA[
+		delete from customermap where driverIdx = #{driverIdx} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
+	]]>
+	</delete>
 	
 
 </mapper>
