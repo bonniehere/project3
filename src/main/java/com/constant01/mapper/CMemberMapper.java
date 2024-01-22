@@ -6,7 +6,7 @@ import com.constant01.model.CMember;
 
 
 
-public interface CMemberDao {
+public interface CMemberMapper {
 
 	CMember select(String m_email);
 

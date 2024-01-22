@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="couponns">
+<mapper namespace="com.constant01.mapper.CouponMapper">
 	<!-- 관리자가 쿠폰 부여하기 -->
-	<insert id="insert" parameterType="coupon">
+	<insert id="insert">
 		insert into coupon(coupon_no,
 		coupon_type, coupon_use, coupon_max_date,
 		use_price, m_email)
@@ -13,12 +13,11 @@
 		#{use_price}, #{m_email})
 	</insert>
 
-	<select id="getWLTotal" parameterType="wishList"
-		resultType="integer">
+	<select id="getWLTotal" resultType="int">
 		select count(*) from wishList
 	</select>
 	<!-- 쿠폰 목록 -->
-	<select id="cpList" parameterType="string" resultType="coupon">
+	<select id="cpList" resultType="com.constant01.model.Coupon">
 		<!-- select * from (select a.*, rowNum rn from (select * from coupon <where> 
 			<if test="keyword!=null and keyword!=''"> ${search} like '%' || #{keyword} 
 			|| '%' </if> </where> order by coupon_no desc) a) where M_email = #{m_email} 
@@ -40,7 +39,7 @@
 		select use_price from coupon where coupon_no = #{coupon_no}
 	</select>
 	<!-- 회원가입 쿠폰 -->
-	<insert id="insertME" parameterType="coupon">
+	<insert id="insertME" parameterType="com.constant01.model.Coupon">
 		<selectKey keyProperty="coupon_no" order="BEFORE"
 			resultType="integer">
 			(select nvl(max(coupon_no), 0) + 1 coupon_no from coupon)
@@ -58,17 +57,17 @@
 		count(*) from coupon where coupon_use='n' and m_email=#{m_email}
 	</select>
 
-	<select id="select" parameterType="integer" resultType="coupon">
+	<select id="select" parameterType="integer" resultType="com.constant01.model.Coupon">
 		select *
 		from coupon where coupon_no=#{coupon_no}
 	</select>
 
-	<update id="update" parameterType="coupon">
+	<update id="update" parameterType="com.constant01.model.Coupon">
 		update coupon set coupon_use =
 		'y' where coupon_no = #{coupon_no}
 	</update>
 
-	<select id="cpList2" parameterType="string" resultType="coupon">
+	<select id="cpList2" parameterType="string" resultType="com.constant01.model.Coupon">
 		select *
 		from (select a. *, rowNum rn from (select * from
 		Coupon where

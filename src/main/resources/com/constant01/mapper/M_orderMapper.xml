@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="m_orderns">
+<mapper namespace="com.constant01.mapper.M_orderMapper">
 
-	<select id="getODTotal" parameterType="m_order"
-		resultType="integer">
+	<select id="getODTotal" parameterType="com.constant01.model.M_order" resultType="integer">
 		select count(*) from m_order
 	</select>
 
-	<select id="selectMAX" resultType="integer">
-		select nvl( max(order_no),0 )
+	<select id="selectMAX" resultType="com.constant01.model.M_order">
+		select ifnull(max(order_no),0)
 		from m_order
 	</select>
 
-	<select id="odList" parameterType="m_order" resultType="m_order">
-		select * from (select a.*, rowNum rn from (select * from m_order
-		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
-			|| #{keyword} || '%' </if> </where> -->
-		order by order_no desc) a)
-		where rn between #{startRow} and #{endRow}
+	<select id="odList" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from affi a, (select @rownum:=0) as tmp
+             order by AF_no desc) as boardlist where rn between #{startRow} and #{endRow};
 	</select>
 
 	<select id="selectOD" parameterType="integer"
-		resultType="m_order">
+		resultType="com.constant01.model.M_order">
 		select * from m_order where order_no=#{order_no}
 	</select>
 
-	<update id="updateOD" parameterType="m_order">
+	<update id="updateOD" parameterType="com.constant01.model.M_order">
 		update m_order set
 		status='발송완료(택배사이동중)'
 		where order_no=#{order_no}
@@ -37,10 +35,10 @@
 		nvl(max(order_no), 0) + 1 from m_order), sysdate, '상품준비중', su_name=#{su_name}, 
 		su_tel=#{su_tel}, su_addr=#{su_addr}, su_addr_detail=#{su_addr_detail}) </insert> -->
 
-	<insert id="insert" parameterType="m_order">
+	<insert id="insert" parameterType="com.constant01.model.M_order">
 		<selectKey keyProperty="order_no" order="BEFORE"
-			resultType="integer">
-			(select nvl(max(order_no), 0) + 1 order_no from m_order)
+			resultType="int">
+			(select ifnull(max(order_no), 0) + 1 order_no from m_order)
 		</selectKey>
 		insert into m_order(order_no, m_email, order_date, status,
 		order_quantity, refund_chk, total_price,
@@ -59,49 +57,49 @@
 	</insert>
 
 	<select id="selectME" parameterType="String"
-		resultType="m_order">
+		resultType="com.constant01.model.M_order">
 		select o.*, m.* from m_order o join member m on o.m_email =
 		m.m_email where o.m_email=#{m_email}
 	</select>
 
 	<!-- 주문용 리스트 뽑기 -->
-	<select id="orderList" parameterType="m_order"
-		resultType="m_order">
+	<select id="orderList" parameterType="com.constant01.model.M_order"
+		resultType="com.constant01.model.M_order">
 		select * from (select a. *, rowNum rn from (select * from
 		M_order where M_email=#{m_email} and refund_chk ='n' order by order_no
-		desc) a)
+		desc) a) b
 		where rn between #{startRow} and #{endRow}
 	</select>
 
-	<select id="select" parameterType="integer" resultType="m_order">
+	<select id="select" parameterType="integer" resultType="com.constant01.model.M_order">
 		select *
 		from m_order where order_no=#{num}
 	</select>
 
 	<!-- 취소용 리스트 뽑기 -->
-	<select id="orderList2" parameterType="m_order"
-		resultType="m_order">
+	<select id="orderList2" parameterType="com.constant01.model.M_order"
+		resultType="com.constant01.model.M_order">
 		select * from (select a. *, rowNum rn from (select * from
 		M_order where M_email=#{m_email} and refund_chk ='y' order by order_no
-		desc) a)
+		desc) a) b
 		where rn between #{startRow} and #{endRow}
 	</select>
 
-	<select id="getTotal" parameterType="m_order"
+	<select id="getTotal" parameterType="com.constant01.model.M_order"
 		resultType="integer">
 		select count(*) from m_order where order_no in
 		(select
 		order_no from m_order where M_email=#{m_email}) and refund_chk='n'
 	</select>
 
-	<select id="getTotal2" parameterType="m_order"
+	<select id="getTotal2" parameterType="com.constant01.model.M_order"
 		resultType="integer">
 		select count(*) from m_order where order_no in
 		(select
 		order_no from m_order where M_email=#{m_email}) and refund_chk='y'
 	</select>
 
-	<update id="updateCC" parameterType="m_order">
+	<update id="updateCC" parameterType="com.constant01.model.M_order">
 		update m_order set
 		status='취소완료'
 		where order_no=#{order_no}
@@ -109,7 +107,7 @@
 
 	<select id="selectTotal" parameterType="string"
 		resultType="integer">
-		SELECT nvl(SUM(total_price), 0) AS total_price
+		SELECT ifnull(SUM(total_price), 0) AS total_price
 		FROM M_order
 		WHERE
 		M_email=#{m_email} and refund_chk='n'

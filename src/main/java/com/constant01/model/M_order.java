@@ -2,9 +2,6 @@ package com.constant01.model;
 
 import java.sql.Date;
 
-import lombok.Data;
-
-@Data
 public class M_order {
 	private int order_no;
 	private String m_email;

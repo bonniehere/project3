@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.constant01.model.Coupon;
 
-public interface CouponDao {
+public interface CouponMapper {
 
 	int insert(Coupon coupon);
 

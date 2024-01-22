@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.constant01.mapper.M_orderDao;
+import com.constant01.mapper.M_orderMapper;
 import com.constant01.model.M_order;
 
 @Service
 public class M_orderServiceImpl implements M_orderService {
 	@Autowired
-	private M_orderDao od;
+	private M_orderMapper od;
 	
 	@Override
 	public int getODTotal(M_order m_order) {

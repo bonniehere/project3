@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.constant01.model.QnAr;
 
-public interface QnArDao {
+public interface QnArMapper {
 
 	int insert(QnAr qnar);
 

@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.constant01.mapper.QnADao;
+import com.constant01.mapper.QnAMapper;
 import com.constant01.model.QnA;
 
 @Service
 public class QnAServiceImpl implements QnAService {
 	@Autowired
-	private QnADao qad;
+	private QnAMapper qad;
 
 	@Override
 	public int getMaxNum() {
