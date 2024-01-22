@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.constant01.model.M_order;
 
-public interface M_orderDao {
+public interface M_orderMapper {
 
 	int getODTotal(M_order m_order);
 

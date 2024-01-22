@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.constant01.mapper.CMemberDao;
+import com.constant01.mapper.CMemberMapper;
 import com.constant01.model.CMember;
 
 @Service
 public class CMemberServiceImpl implements CMemberService{
 	@Autowired
-	private CMemberDao md;
+	private CMemberMapper md;
 
 	@Override
 	public CMember select(String m_email) {// 회원가입 아이디 중복체크, 로그인할때 사용하는 로직

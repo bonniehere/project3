@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.constant01.model.QnA;
 
-public interface QnADao {
+public interface QnAMapper {
 
 	int getMaxNum(); // qna 마지막 번호
 
