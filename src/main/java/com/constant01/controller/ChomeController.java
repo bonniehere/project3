@@ -57,7 +57,7 @@ public class ChomeController {
 			// 구매 화면으로 이동
 			model.addAttribute("list", ds.list(driver));
 			return "/company/testpage";
-		} else {	// 그렇지 않으면 메인화면으로 이동
+		} else {	// 그렇지 않으면 메인화면으로 이동...
 			System.out.println("회원 로그인");
 			model.addAttribute("dlist", ds.dlist(delivery));
 			return "/company/customertestpage";

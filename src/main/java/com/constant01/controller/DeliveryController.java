@@ -32,7 +32,7 @@ public class DeliveryController {
 	
 	
 	
-	//여기서부터 기사 위치 가져와서 customer2로 보내기~!~!!~!
+	//여기서부터 기사 위치 가져와서 customer2로 보내기~!~!!~!~!!
 	// ship_Driver에서 배달기사 위치 가져오기------------------------------------------------
 	@RequestMapping(value = "/company/shipper/Drivermap.do", method = RequestMethod.POST)
 	public String driverLocSave(DeliveryDTO delivery,Model model) {

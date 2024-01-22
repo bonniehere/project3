@@ -16,7 +16,7 @@
 	</insert>
 	
 	
-	<!-- 기사 위치 -->
+	<!-- 기사 위치임 -->
 	<select id="dlist" resultType="com.constant01.model.DeliveryDTO">
 		select * from customermap order by num desc;
 	</select>

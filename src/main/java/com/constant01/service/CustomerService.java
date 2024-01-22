@@ -8,7 +8,7 @@ public interface CustomerService {
 	
 	//public ArrayList<CustomerDTO> list(CustomerDTO customer);
 	
-	// 로그인입디다
+	// 로그인입디다 
 	public CustomerDTO login(CustomerDTO customer);
 
 }

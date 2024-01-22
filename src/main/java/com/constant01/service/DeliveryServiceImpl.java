@@ -23,7 +23,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 		return dm.list(driver);
 	}
 	
-	//여기에 최종 기사 위치 저장
+	//여기에 최종 기사 위치 저장 1
 	public ArrayList<DriverDTO> dlist(DeliveryDTO delivery) {
 
 		return dm.dlist(delivery);
