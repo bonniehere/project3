@@ -10,15 +10,8 @@
 <body>
  
  
- 	<script type="text/javascript" src="../../../../resources/js/common.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/design.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/fullpage.js"></script>
 	<script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/rolling.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/scrolla.jquery.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/scrolloverflow.js"></script>
-	<script type="text/javascript" src="../../../../resources/js/swiper.min.js"></script>
 	<script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 
 <script type="text/javascript">
@@ -65,10 +58,12 @@ function fn_CheckForm(){
         <button class="btn btn-hollow btn-hover" type="reset" value="Reset" form="loginform" >Sign Up</button>
         <input type="button" class="btn_login" value="Sing in" href="javascript:void(0);" onclick="javascript:fn_CheckForm();">
        <!--  <button id="login" class="btn btn-solid btn-hover" type="submit" value="Submit" form="loginform" onclick="javascript:fn_CheckForm(); return false;">Sign In</button>  -->
+       <!-- 
        <div class="checkbox-container">
         <input class="styled-checkbox" id="remember" type="checkbox" value="Remenber me">
         <label for="remember">Remember me</label>
-      </div> 
+      </div>
+       --> 
     </div>
   </div>
 </div>
