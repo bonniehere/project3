@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+body{
+	background-color:#EBF5FF;
+}
+
+.productname:hover{
+	background-color:#FFBEFF;
+	color:black;
+	
+}
+
 #wholewrap{
 	width:90%;
 	height:900px;
@@ -23,13 +33,18 @@
 
 
 #tabViewer {
+	background:white;
 	margin-top:15px;
 	width:75%;
-	height:700px;
-	border:black 1px solid;
+	height:720px;
+	border:none;
 	padding: 3rem;
 	float:left;
 	
+}
+
+.paging{
+	text-align:center;
 }
 
 .tabViewer-tabMenu {
@@ -39,16 +54,27 @@
 }
 
 .tabViewer-tab.active:hover,
-.tabViewer-tab.active:focus,
+.tabViewer-tab.active:focus
+{
+	border:1px black solid;
+	background: #5B86EF;
+	color:white;
+}
+
+
+
 .tabViewer-tab.active {
-	background: #FFD9EC;
+	background: #5B86EF;
+	color:white;
+	border: 1px rgba(131, 244, 180, 0.3) solid;
 }
 
 .tabViewer-tab {
-	padding: .75rem 1.5rem;
+	
+	padding: .75rem 1.3rem;
 	background: #eee;
-	margin-right: .375rem;
-	font-size: 1.2rem;
+	margin-right: .3rem;
+	font-size: 1.1rem;
 	transition: background .2s ease-out, color .2s ease-out;
 	text-align: center;
 	flex-grow: 1;
