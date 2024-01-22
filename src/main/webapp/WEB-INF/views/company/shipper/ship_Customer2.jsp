@@ -25,15 +25,15 @@
 
 
 <body>
-<h2>클라이언트가 배송자의 위치를 볼 수 있는 페이지</h2>
+<h2>클라이언트가 배송자의 위치를 볼 수 있는 페이지임</h2>
 
 <!-- 여기서는 ship_Driver의 위도, 경도, 배달기사의 이름을 받아와서 보여준다 -->
+<h2>배달 기사 : ${dlist[0].driverNm} </h2>
 
-
-<input type="hidden" name="driverIdx" id="driverIdx" value="${maplist[0].driverIdx}">
-<input type="hidden" name="driverNm" value="${maplist[0].driverNm}">
-<input type="hidden" name="driverLat" id="driverLat" value="${maplist[0].driverLat}">
-<input type="hidden" name="driverLon" id="driverLon" value="${maplist[0].driverLon}">
+<input type="hidden" name="driverIdx" id="driverIdx" value="${dlist[0].driverIdx}">
+<input type="hidden" name="driverNm" value="${dlist[0].driverNm}">
+<input type="hidden" name="driverLat" id="driverLat" value="${dlist[0].driverLat}">
+<input type="hidden" name="driverLon" id="driverLon" value="${dlist[0].driverLon}">
 
 
 
@@ -112,7 +112,7 @@
 			   marker.setMap(map);
 			   flag=true;
 			        
-			   
+			   map.setCenter(locPosition);
 			}
 			
 			
@@ -121,6 +121,7 @@
 			//위치 정보 가져오기
 
 			// 마커를 생성합니다
+			/*
 			var hsp = new kakao.maps.LatLng(35.54297, 129.33657); //병원 중심좌표
 			var hspmarker = new kakao.maps.Marker({
 			    position: hsp
@@ -140,8 +141,8 @@
 			var mppositionlat = (35.54297+parseFloat(positionlat))/2;
 			var mppositionlon = (129.33657+parseFloat(positionlon))/2;
 			var mapposition = new kakao.maps.LatLng(mppositionlat, mppositionlon);
+			*/
 			
-			map.setCenter(mapposition);
 			
 		
 			 
@@ -158,7 +159,7 @@ function autoChase(){
 	var driverIdx = $('input[name=driverIdx]').val();
 	$.ajax({
 		type : "POST",
-		url  : "/home/reserveNew/UserLocLoad.do",
+		url  : "/company/shipper/DriverLoad.do",
 		data : {
 			"driverIdx"		: driverIdx
 		},
@@ -183,6 +184,7 @@ function autoChase(){
 	
 }
 setInterval('autoChase()', 3000); // 3초 마다 함수실행
+
 </script>
 </body>
 </html>
