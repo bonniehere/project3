@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 .menu {
+	margin-top:50px;
     display: block;
     overflow: hidden;
     width: 200px;

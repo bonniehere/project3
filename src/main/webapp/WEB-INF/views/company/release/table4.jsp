@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>주문 메인 페이지</title>
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="../../resources/css/release/ReleaseMain.css">
 
 <link rel="stylesheet" href="../../resources/css/release/table.css">
-<!-- <script type="text/javascript" src="../../../../resources/js/release/table.js"></script> -->
+<script type="text/javascript" src="../../../../resources/js/release/table.js"></script>
 
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
 </head>
 <body>
@@ -33,16 +33,17 @@
 		<input type="button" value="소독/의약제품" class="tabViewer-tab active" onclick="location.href='/table5';">
 	
 	</div>
-	<table border="1">
+	<table class="rwd-table" border="1">
+	<tbody>
 <tr>
-<td>제품코드</td>
-<td>품목명</td>
-<td>이미지</td>
-<td>규격</td>
-<td>단위</td>
-<td>수량</td>
-<td>단가</td>
-<td>제조원</td>
+<th>제품코드</th>
+<th>품목명</th>
+<th>이미지</th>
+<th>규격</th>
+<th>단위</th>
+<th>주문수량</th>
+<th>단가</th>
+<th>제조원</th>
 <!-- 분류코드 추가 -->
 
 </tr>
@@ -53,28 +54,39 @@
 <td>이미지</td>
 <td>${boardlist.standard}</td>
 <td>${boardlist.unit}</td>
-<td>${boardlist.quantity}</td>
+<td class="table_row">
+
+       
+          <button class="product_plus">+</button>
+          <span class="ammount">0</span>
+          <button class="product_minus">-</button>
+				
+
+</td>
 <td>${boardlist.price}</td>
 <td>${boardlist.manufacturer}</td>
 
 </tr>
 </c:forEach>
 <%-- <td class="subject"><a href="http://localhost:8080/board/detail?bno=${boardlist.bno}">${boardlist.title}</a></td> --%>
+</tbody>
 </table><br>
+
+
 <div class="paging">
 <!-- prev(이전)이 true이면 이전버튼 활성화 -->
 <c:if test="${pageMaker.prev}">
-	<a href="/release?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}">이전</a>
+	<a href="/table4?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}">이전</a>
 </c:if>
 
 <!-- begin(1)이 end(10)될 동안 반복(1일 10일 될 동안 반복) -->
 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
- 	<a href="/release?pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
+ 	<a href="/table4?pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
 </c:forEach>
 
 <!-- next(다음)이 true이면 다음버튼 활성화 -->
 <c:if test="${pageMaker.next}">
-	<a href="/release?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
+	<a href="/table4?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
 </c:if>
 
 
@@ -87,5 +99,39 @@
 </div>
 
 </div>
+
+<script>
+const plusButtons = document.querySelectorAll('.product_plus')
+const minusButtons = document.querySelectorAll('.product_minus')
+
+plusButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const parent = button.closest('.table_row') // 버튼의 부모 요소인 .table_row를 찾음
+    const amountElement = parent.querySelector('.ammount') // 부모 요소 내에서 .ammount 요소를 찾음
+
+    // 현재 ammount 값을 가져와서 1을 더한 후 다시 적용
+    let amount = parseInt(amountElement.textContent)
+    amount += 1
+    amountElement.textContent = amount
+  })
+})
+
+minusButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const parent = button.closest('.table_row') // 버튼의 부모 요소인 .table_row를 찾음
+    const amountElement = parent.querySelector('.ammount') // 부모 요소 내에서 .ammount 요소를 찾음
+
+    
+    let amount = parseInt(amountElement.textContent)
+    if(amount>0){
+    amount -= 1
+    amountElement.textContent = amount
+    }
+  })
+})
+
+
+
+</script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   
   <select id="boarddetail" resultType="com.constant01.model.BoardDTO">
   select * from board
-  where bno=#{bno}
+  where productcode=#{productcode};
   
   </select>
   
@@ -36,10 +36,10 @@
 			    order by bno desc
 			   
 			) as boardlist2
-			 <!-- 
+			 
 			<![CDATA[
 			where (rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount})
-						]]> -->
+						]]>
     </select>
     
     <select id="boardpage3" resultType="com.constant01.model.BoardDTO">

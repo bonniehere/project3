@@ -109,6 +109,19 @@ public class ReleaseController {
 		return "company/release/test3";
 	}
 	
+	@RequestMapping(value = "popup", method = RequestMethod.GET)
+	public String popup (Model model, BoardDTO detail) {
+		
+	
+		
+		
+		System.out.println("abc");
+		model.addAttribute("detail", rs.boarddetail(detail));
+		System.out.println("detail="+detail);
+		System.out.println("abc");
+		return "company/release/popup";
+	}
+	
 	
 	
 	
