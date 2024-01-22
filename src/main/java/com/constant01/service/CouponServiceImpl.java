@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.constant01.mapper.CouponDao;
+import com.constant01.mapper.CouponMapper;
 import com.constant01.model.Coupon;
 
 @Service
 public class CouponServiceImpl implements CouponService{
 	@Autowired
-	private CouponDao cpd;
+	private CouponMapper cpd;
 
 	@Override
 	public int insert(Coupon coupon) {

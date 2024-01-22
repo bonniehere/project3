@@ -15,15 +15,25 @@
 		select
 		* from affi where af_no=#{af_no}
 	</select>
-	<select id="getAFTotal" resultType="com.constant01.model.Affi">
+	<select id="getAFTotal" resultType="int">
 		select count(*) from affi
 	</select>
 	<!-- 제휴/광고 목록 -->
 	<select id="afList" resultType="com.constant01.model.Affi">
-		select * from (select a.*, rowNum rn from (select * from affi
-		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
-			|| #{keyword} || '%' </if> </where> -->
-		order by af_no desc) a)
+		<!--
+		select * from (select a.*, @rownum:=@rownum+1 rownum rn from (select * from affi
+		
+		 <where> <if test="keyword!=null and keyword!=''"> 
+		 			${search} like '%'  || #{keyword} || '%'
+		 		 </if> 
+		 </where> 
+		
+		order by af_no desc) a) b
+		-->
+		select *
+         from(select  b.*, @rownum:=@rownum+1 rn
+            from affi b, (select @rownum:=0) as tmp
+             order by AF_no desc) as boardlist
 		where rn between #{startRow} and #{endRow}
 	</select>
 
