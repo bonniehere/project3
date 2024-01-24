@@ -20,7 +20,7 @@
 		G_Util.newFormSubmit({
 			"action" : "/company/shipper/ship_Customer.do",
 			"param"  : {
-				"driverIdx"      : oTd.find("input[name=driverIdx]").val(),
+				"userPw"      : oTd.find("input[name=userPw]").val(),
 				"driverNm"      : oTd.find("input[name=driverNm]").val(),
 				"driverLat"      : oTd.find("input[name=driverLat]").val(),
 				"driverLon"      : oTd.find("input[name=driverLon]").val()
@@ -40,10 +40,10 @@
 <div>
 <c:forEach items="${dlist}" var="dlist" varStatus="status">
 
-<input type="hidden" name="driverIdx" value="${dlist.driverIdx}">
+<input type="hidden" name="userPw" value="${dlist.userPw}">
 <input type="hidden" name="driverNm" value="${dlist.driverNm}">
-<input type="hidden" name="driverNm" value="${dlist.driverLat}">
-<input type="hidden" name="driverNm" value="${dlist.driverLon}">
+<input type="hidden" name="driverLat" value="${dlist.driverLat}">
+<input type="hidden" name="driverLon" value="${dlist.driverLon}">
 
 <a href="javascript:void(0);" onclick="javascript:hohoho(this);">고객P</a>
 </c:forEach>
