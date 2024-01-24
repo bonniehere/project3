@@ -47,12 +47,15 @@
 <th>제조원</th>
 <!-- 분류코드 추가 -->
 
+
+
+
 </tr>
 <c:forEach items="${boardlist}" var="boardlist">
 <tr>
 <td>${boardlist.productcode}
 </td>
-<td class="productname" onClick="popup()">${boardlist.productname}
+<td><a href="javascript:void(window.open('/release/detail?productcode=${boardlist.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">${boardlist.productname}</a>
 </td>
 <td>이미지</td>
 <td>${boardlist.standard}</td>
@@ -132,6 +135,8 @@ minusButtons.forEach((button) => {
     }
   })
 })
+
+
 
 
 
