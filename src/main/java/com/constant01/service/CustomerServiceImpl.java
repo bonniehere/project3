@@ -1,6 +1,6 @@
 package com.constant01.service;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	return cm.list();
 	}
 	*/
-	// 로그인입디다 !!
+	// 회원 로그인입디다 !!
 	public CustomerDTO login(CustomerDTO customer) {
 	return cm.login(customer);
 	}

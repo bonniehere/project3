@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css">
 <script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script>
+<!-- 내가 추가한 css -->
+
+<link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Customer2.css">
+
+
 </head>
 
 <script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
@@ -24,22 +29,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+
 <body>
 <h2>클라이언트가 배송자의 위치를 볼 수 있는 페이지임</h2>
 
 <!-- 여기서는 ship_Driver의 위도, 경도, 배달기사의 이름을 받아와서 보여준다 -->
 <h2>배달 기사 : ${dlist[0].driverNm} </h2>
 
-<input type="hidden" name="driverIdx" id="driverIdx" value="${dlist[0].driverIdx}">
+<input type="hidden" name="userId" id="userId" value="${dlist[0].userId}">
+<input type="hidden" name="userPw" id="userPw" value="${dlist[0].userPw}">
 <input type="hidden" name="driverNm" value="${dlist[0].driverNm}">
+<input type="hidden" name="driverPhone" value="${dlist[0].driverPhone}">
 <input type="hidden" name="driverLat" id="driverLat" value="${dlist[0].driverLat}">
 <input type="hidden" name="driverLon" id="driverLon" value="${dlist[0].driverLon}">
 
 
 
 
-<div class="map_area">
-				<div class="map" id="map" style="width:100%;height:350px;">					 
+<div class="map_area" style="width:400px;height:400px;">
+				<div class="map" id="map" style="width:400px;height:400px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -156,12 +164,12 @@
 
 <script type="text/javascript">
 function autoChase(){
-	var driverIdx = $('input[name=driverIdx]').val();
+	var driverIdx = $('input[name=userPw]').val();
 	$.ajax({
 		type : "POST",
 		url  : "/company/shipper/DriverLoad.do",
 		data : {
-			"driverIdx"		: driverIdx
+			"driverPw"		: driverPw
 		},
 		dataType : "json",
 		success  : function(data){
@@ -186,5 +194,28 @@ function autoChase(){
 setInterval('autoChase()', 3000); // 3초 마다 함수실행
 
 </script>
+
+<div class="driver_profile">
+<table border="1">
+
+<tr>
+<td rowspan="3"><img src="../../../../resources/img/company/default_profile.png"> </td>
+<td colspan="2">배송 기사 이름 : ${dlist[0].driverNm}</td>
+</tr>
+<tr>
+<td colspan="2">배송 기사 연락처 : ${dlist[0].driverPhone}</td>
+
+</tr>
+<tr>
+<td>흠</td>
+<td>일단 추가함</td>
+</tr>
+
+</table>
+
+</div>
+
+
+
 </body>
 </html>
