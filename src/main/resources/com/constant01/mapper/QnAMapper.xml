@@ -4,7 +4,7 @@
 <mapper namespace="com.constant01.mapper.QnAMapper">
 	<!-- qna 마지막 번호 -->
 	<select id="getMaxNum" resultType="integer">
-		select nvl(max(qa_no),0)+1
+		select ifnull(max(qa_no),0)+1
 		from QnA
 	</select>
 
@@ -39,11 +39,22 @@
 
 	<!-- qna 리스트 -->
 	<select id="list" parameterType="com.constant01.model.QnA" resultType="com.constant01.model.QnA">
+		SELECT * FROM (
+    SELECT b.*, @rownum:=@rownum+1 AS rn
+    FROM qna b, (SELECT @rownum:=0) AS tmp
+    WHERE qa_ref IN (
+        SELECT qa_ref FROM qna WHERE M_email = #{m_email}
+    )
+    ORDER BY qa_ref DESC, qa_refStep
+	) AS boardlist
+	WHERE rn BETWEEN #{startRow} and #{endRow}
+		<!-- 
 		select * from
-		(select a.*, rowNum rn from (select * from QnA where qa_ref in
+		(select a.*, @rownum:=@rownum+1 rn from (select * from QnA where qa_ref in
 		(select qa_ref from QnA where M_email=#{m_email}) order by qa_ref desc,
-		qa_refStep) a)
+		qa_refStep) a) b
 		where rn between #{startRow} and #{endRow}
+		 -->
 	</select>
 
 	<!-- qna 선택 -->
@@ -58,16 +69,22 @@
 		where qa_ref=#{num}
 	</update>
 
-	<select id="getQnATotal" parameterType="com.constant01.model.QnA"
-		resultType="integer">
+	<select id="getQnATotal" resultType="int">
 		select count(*) from qna
 	</select>
 	
 	<select id="qnaList" parameterType="string" resultType="com.constant01.model.QnA">
+		<!--
 		select * from (select a.*, rowNum rn from (select * from qna
-		<!-- <where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
-			|| #{keyword} || '%' </if> </where> -->
+		<where> <if test="keyword!=null and keyword!=''"> ${search} like '%' 
+			|| #{keyword} || '%' </if> </where> 
 		order by qa_no desc) a)
+		where rn between 1 and 20
+		-->
+		select *
+         from(select  b.*, @rownum:=@rownum+1 rn
+            from qna b, (select @rownum:=0) as tmp
+             order by QA_no desc) as boardlist
 		where rn between 1 and 20
 	</select>
 	

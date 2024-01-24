@@ -137,7 +137,7 @@ public class AdminController {
 
 		return "/company/shipment/admin/adminCoupon";
 	}
-	@RequestMapping(value = "couponInsert.do", method = RequestMethod.GET)
+	@RequestMapping(value = "couponInsert.do", method = RequestMethod.POST)
 	public String couponInsert(Coupon coupon, Model model) {
 		int result = 0;
 		result = cps.insert(coupon);
@@ -147,7 +147,7 @@ public class AdminController {
 	}
 	@RequestMapping(value = "adminMbList.do", method = RequestMethod.GET)
 	public String adminMbList(CMember member, String pageNum, Model model) {
-		/*
+		
 		if (pageNum == null || pageNum.equals("")) {
 			pageNum = "1";
 		}
@@ -167,7 +167,7 @@ public class AdminController {
 		model.addAttribute("pb", pb); // paginbean pb
 		model.addAttribute("mbList", mbList);
 		model.addAttribute("num", num); // 목록 번호 생성 위한 num
-		*/
+		
 		return "/company/shipment/admin/adminMbList";
 	}
 	@RequestMapping(value = "adminMbView.do", method = RequestMethod.GET)
@@ -186,13 +186,13 @@ public class AdminController {
 	}
 	@RequestMapping(value = "adminQnAList.do", method = RequestMethod.GET)
 	public String adminQnAList(QnA qna, Model model, String pageNum, HttpSession session) {
-		/*
+		
 		if (pageNum == null || pageNum.equals("")) {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage = 10; // 한 화면에 보여주는 게시글 갯수
-		int total = qs.getQnATotal(qna);
+		int total = qs.getTotal(qna);
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
 		qna.setStartRow(startRow);
@@ -206,7 +206,7 @@ public class AdminController {
 		model.addAttribute("pb", pb); // paginbean pb
 		model.addAttribute("qnaList", qnaList);
 		model.addAttribute("num", num); // 목록 번호 생성 위한 num
-		*/
+		
 		return "/company/shipment/admin/adminQnAList";
 	}
 	@RequestMapping(value = "adminQnAView.do", method = RequestMethod.GET)

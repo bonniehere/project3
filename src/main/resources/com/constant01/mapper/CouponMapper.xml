@@ -7,7 +7,7 @@
 		insert into coupon(coupon_no,
 		coupon_type, coupon_use, coupon_max_date,
 		use_price, m_email)
-		values((select nvl(max(coupon_no), 0)+1 from coupon),
+		values(0,
 		#{coupon_type},
 		#{coupon_use}, #{coupon_max_date},
 		#{use_price}, #{m_email})

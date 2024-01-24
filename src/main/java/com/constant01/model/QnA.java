@@ -4,9 +4,7 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Data;
 
-@Data
 public class QnA {
 	private int qa_no;
 	private String qa_subject;
