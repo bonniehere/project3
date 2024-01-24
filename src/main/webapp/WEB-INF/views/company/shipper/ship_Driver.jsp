@@ -22,16 +22,19 @@
 	<h2>기사 이름 뜰까용? ${list[0].driverNm} </h2>
 
  <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
-	<input type="hidden" name="driverIdx" value="${list[0].driverIdx}">
+	<input type="hidden" name="userId" value="${list[0].userId}">
+	<input type="hidden" name="userPw" value="${list[0].userPw}">
 	<input type="hidden" name="driverNm" value="${list[0].driverNm}">
-
+	<input type="hidden" name="driverPhone" value="${list[0].driverPhone}">
 
 
 	 <!-- 내가 가져온 지도 constant 지도-->
 
 					 
 					 
-<div class="map_area">
+
+<!--  <div class="map_area">  -->
+
 <div class="map" id="map" style="width:100% ;height:380px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
@@ -108,11 +111,16 @@
 			    
 			    
 			 // 마커 생성후 마커 위도,경도,이름,패스워드 DB저장위한 폼
-				var driverIdx = $('input[name=driverIdx]').val();
+			 	var userId = $('input[name=userId]').val();
+				var userPw = $('input[name=userPw]').val();
 				var driverNm = $('input[name=driverNm]').val();
+				var driverPhone = $('input[name=driverPhone]').val();
 				
-				console.log(driverIdx);
+				
+				console.log(userId);
+				console.log(userPw);
 				console.log(driverNm);
+				console.log(driverPhone);
 				console.log(driverLat);
 				console.log(driverLon);
 				
@@ -121,8 +129,10 @@
 					type : "POST",
 					url  : "/company/shipper/Drivermap.do",
 					data : {
-						"driverIdx"		: driverIdx,
+						"userId"		: userId,
+						"userPw"		: userPw,
 						"driverNm" 		: driverNm,
+						"driverPhone"	: driverPhone,
 						"driverLat" 	: driverLat,
 						"driverLon"   	: driverLon
 					},
@@ -149,7 +159,7 @@
 					 
 	</div>
 
-</div>
+<!--  </div>  -->
 
 
 

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.map_area{
+	display: inline-block;
+	
+}
+
+.driver_profile{
+	display: inline-block;
+	margin: 50px;
+}

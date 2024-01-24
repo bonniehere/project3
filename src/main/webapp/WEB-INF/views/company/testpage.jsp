@@ -18,7 +18,8 @@ function yaho(obj){
 	G_Util.newFormSubmit({
 		"action" : "/company/shipper/ship_Driver.do",
 		"param"  : {
-			"driverIdx"      : oTd.find("input[name=driverIdx]").val(),
+			"userId"      : oTd.find("input[name=userId]").val(),
+			"userPw"      : oTd.find("input[name=userPw]").val(),
 			"driverNm"      : oTd.find("input[name=driverNm]").val()
 		}
 	
@@ -36,12 +37,39 @@ function yaho(obj){
 <a href="/company/shipper/ship_Driver.do">
  -->
 
+<div>
+<table border="1">
+<tr>
+<th>배달 기사</th>
+<th>어케하노</th>
+</tr>
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+</div>
+
+
+
+
+
+
 
 <div>
 <c:forEach items="${list}" var="list" varStatus="status">
 
-
-<input type="hidden" name="driverIdx" value="${list.driverIdx}">
+<input type="hidden" name="userId" value="${list.userId}">
+<input type="hidden" name="userPw" value="${list.userPw}">
 <input type="hidden" name="driverNm" value="${list.driverNm}">
 
 <a href="javascript:void(0);" onclick="javascript:yaho(this);">기사P</a>

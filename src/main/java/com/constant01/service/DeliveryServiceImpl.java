@@ -14,6 +14,11 @@ public class DeliveryServiceImpl implements DeliveryService{
 	@Autowired
 	DeliveryMapper dm;
 	
+	// 기사 로그인입디다 
+	public DriverDTO login(DriverDTO driver) {
+		return dm.login(driver);
+		
+	}
 	public void write(DeliveryDTO delivery) {
 		dm.write(delivery);
 	}
