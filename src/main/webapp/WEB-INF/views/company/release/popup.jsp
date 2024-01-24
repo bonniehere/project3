@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-123
-<c:forEach items="${detail}" var="detail">
+
+
+<table>
 <tr>
 <td>${detail.productcode}
 </td>
@@ -20,8 +21,9 @@
 <td>${detail.unit}</td>
 <td>${detail.price}</td>
 <td>${detail.manufacturer}</td>
-
 </tr>
-</c:forEach>
+</table>
+
+
 </body>
 </html>

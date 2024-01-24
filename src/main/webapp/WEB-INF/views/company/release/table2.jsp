@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../../resources/css/release/ReleaseMain.css">
 
 <link rel="stylesheet" href="../../resources/css/release/table.css">
+<script type="text/javascript" src="../../../../resources/js/release/ReleaseMain.js"></script>
 <script type="text/javascript" src="../../../../resources/js/release/table.js"></script>
 
 
@@ -46,11 +47,16 @@
 <th>제조원</th>
 <!-- 분류코드 추가 -->
 
+
+
+
 </tr>
 <c:forEach items="${boardlist2}" var="boardlist">
 <tr>
-<td>${boardlist.productcode}</td>
-<td>${boardlist.productname}</td>
+<td>${boardlist.productcode}
+</td>
+<td><a href="javascript:void(window.open('/release/detail?productcode=${boardlist.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">${boardlist.productname}</a>
+</td>
 <td>이미지</td>
 <td>${boardlist.standard}</td>
 <td>${boardlist.unit}</td>
@@ -73,6 +79,7 @@
 </table><br>
 
 
+
 <div class="paging">
 <!-- prev(이전)이 true이면 이전버튼 활성화 -->
 <c:if test="${pageMaker.prev}">
@@ -81,12 +88,12 @@
 
 <!-- begin(1)이 end(10)될 동안 반복(1일 10일 될 동안 반복) -->
 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
- 	<a href="/table2?pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
+ 	<a href="/table2?&pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
 </c:forEach>
 
 <!-- next(다음)이 true이면 다음버튼 활성화 -->
 <c:if test="${pageMaker.next}">
-	<a href="/table2?pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
+	<a href="/table2?&pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
 </c:if>
 
 
@@ -99,7 +106,7 @@
 </div>
 
 </div>
-<script>
+ <script>
 const plusButtons = document.querySelectorAll('.product_plus')
 const minusButtons = document.querySelectorAll('.product_minus')
 
@@ -131,7 +138,8 @@ minusButtons.forEach((button) => {
 
 
 
-</script>
 
+
+</script>
 </body>
 </html>
