@@ -13,6 +13,10 @@ import com.constant01.model.Criteria;
 import com.constant01.model.PageMakerDTO;
 import com.constant01.service.ReleaseService;
 
+
+
+
+
 @Controller
 public class ReleaseController {
 
@@ -109,15 +113,15 @@ public class ReleaseController {
 		return "company/release/test3";
 	}
 	
-	@RequestMapping(value = "popup", method = RequestMethod.GET)
+	@RequestMapping(value = "release/detail", method = RequestMethod.GET)
 	public String popup (Model model, BoardDTO detail) {
 		
-	
+		
 		
 		
 		System.out.println("abc");
 		model.addAttribute("detail", rs.boarddetail(detail));
-		System.out.println("detail="+detail);
+		System.out.println("detail="+rs.boarddetail(detail));
 		System.out.println("abc");
 		return "company/release/popup";
 	}
