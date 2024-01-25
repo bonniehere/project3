@@ -20,7 +20,7 @@
         <li><a href="test2" class="item"><div>배송관리</div></a></li>
         <li><a href="test3" class="item"><div>제휴/광고</div></a></li>
         <li><a href="#" class="item"><div>Q&A</div></a></li>
-        <li><a href="#" class="item"><div></div></a></li>
+        <li><a href="list" class="item"><div>장바구니</div></a></li>
     </ul>
 </div>
     
