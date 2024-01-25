@@ -524,34 +524,31 @@ function fn_gogo(){
 	//alert("gdgd");	
 	
 		if(flag){
+						
+			marker[0].setMap(null);
 			
-			for(i=0; i < driverLat.lenth; i++){
-			
-			marker[i].setMap(null);
-			
-			}
 			
 		}
 
 	
-		for(j=0; j < driverLat.length; j++){
+		
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
-		drivercontent[j] = driverNm[j];
+		drivercontent[0] = driverNm[0];
 
 		// 커스텀 오버레이가 표시될 위치입니다 
-		driverposition[j] = new kakao.maps.LatLng(driverLat[j], driverLon[j]);  
+		driverposition[0] = new kakao.maps.LatLng(driverLat[0], driverLon[0]);  
 
 		// 커스텀 오버레이를 생성합니다
-		marker[j] = new TooltipMarker(driverposition[j], driverNm[j]);
-		marker[j].setMap(map);
+		marker[0] = new TooltipMarker(driverposition[0], driverNm[0]);
+		marker[0].setMap(map);
 		
-		markerTracker[j] = new MarkerTracker(map, marker[j]);
+		markerTracker[0] = new MarkerTracker(map, marker[0]);
 
-		markerTracker[j].run();
+		markerTracker[0].run();
 		//alert(drivercontent[j]);
 		
-	}
+	
 		flag = true;
     
 	
