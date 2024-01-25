@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.constant01.mapper.cartMapper">
+  
+  <select id="cart_list" resultType="com.constant01.model.cartVO">
+  select * from cart
+  </select>
+  
+  <delete id="cart_delete">
+  
+  delete from cart where no=#{no};
+  
+  </delete>
+  
+  <insert id="cart_add">
+  insert into cart( productcode, quantity, price) values(#{productcode},#{quantity},#{price});
+  
+  </insert>
+  
+  </mapper>

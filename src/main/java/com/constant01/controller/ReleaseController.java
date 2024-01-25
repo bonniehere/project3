@@ -1,17 +1,23 @@
 package com.constant01.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.constant01.model.BoardDTO;
 import com.constant01.model.Criteria;
 import com.constant01.model.PageMakerDTO;
+import com.constant01.model.cartVO;
 import com.constant01.service.ReleaseService;
+import com.constant01.service.cartService;
 
 
 
@@ -23,6 +29,10 @@ public class ReleaseController {
 	
 	@Autowired
 	ReleaseService rs;
+	
+	@Autowired
+	cartService cs;
+	
 	
 	//메인 겸 주문 페이지, 왼쪽 사이드 메뉴1
 	@RequestMapping(value = "release", method = RequestMethod.GET)
@@ -113,7 +123,7 @@ public class ReleaseController {
 		return "company/release/test3";
 	}
 	
-	
+	//----------------------------------------------------------------
 	//상품 디테일 페이지	
 	@RequestMapping(value = "release/detail", method = RequestMethod.GET)
 	public String popup (Model model, BoardDTO detail) {
@@ -143,5 +153,46 @@ public class ReleaseController {
 		
 	}
 	
+	//----------------------------------------------------------------
 	
+	
+	//장바구니 보여주기
+	 @GetMapping("list")
+	    public String list(cartVO list, Model model) {
+	        model.addAttribute("list", cs.cart_list(list));
+	        return "company/release/basket";
+	    }
+	
+	 //장바구니 상품삭제
+	 @PostMapping(value = "cart_delete", consumes = "application/json")
+	 @ResponseBody
+	 public ResponseEntity<String> delete(@RequestBody cartVO list) {
+	     try {
+	         cs.cart_delete(list);
+	         System.out.println("aaaa");
+	         System.out.println("list="+list);
+	         System.out.println("aaaa");
+	         return new ResponseEntity<>("success", HttpStatus.OK);
+	     } catch (Exception e) {
+	         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	     }
+	 }
+	 
+//	 //장바구니 담기
+//	 @PostMapping("cart_add")
+//	 public void addcart(cartVO list) {
+//		 cs.cart_add(list);
+//	 }
+	 
+	 @PostMapping("cart_add")
+	 public ResponseEntity<String> addcart(@RequestBody cartVO list) {
+	     try {
+	         cs.cart_add(list);
+	         return new ResponseEntity<>("Product added to cart successfully", HttpStatus.OK);
+	     } catch (Exception e) {
+	         e.printStackTrace();
+	         return new ResponseEntity<>("Error adding product to cart: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	     }
+	 }
+	 
 }

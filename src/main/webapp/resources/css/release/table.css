@@ -4,7 +4,7 @@
 width:25%;
 }
 
-.price{
+.price,.product_name{
 	display:none;
 }
 
