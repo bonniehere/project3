@@ -18,6 +18,7 @@
 </head>
 <body>
 <div id="wholewrap">
+<%@ include file="basket.jsp" %>
 <div id="topwrap">
 <%@ include file="top.jsp" %>
 </div>
@@ -57,7 +58,7 @@
 </td>
 <td><a href="javascript:void(window.open('/release/detail?productcode=${boardlist.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">${boardlist.productname}</a>
 </td>
-<td>이미지</td>
+<td><img src="../../resources/img/release/${boardlist.productcode}.png" style="width:40px;height:40px;"></td>
 <td>${boardlist.standard}</td>
 <td>${boardlist.unit}</td>
 <td class="table_row">
@@ -66,7 +67,9 @@
           <button class="product_plus">+</button>
           <span class="ammount">0</span>
           <button class="product_minus">-</button>
-				
+          <button class="product_add">담기</button>
+		  <span class="price">${boardlist.price}</span>	
+		  <span class="total">0</span>	
 
 </td>
 <td>${boardlist.price}</td>
@@ -107,35 +110,58 @@
 
 </div>
  <script>
-const plusButtons = document.querySelectorAll('.product_plus')
-const minusButtons = document.querySelectorAll('.product_minus')
+ const plusButtons = document.querySelectorAll('.product_plus');
+ const minusButtons = document.querySelectorAll('.product_minus');
+ const amounts = document.querySelectorAll('.ammount');
+ const prices = document.querySelectorAll('.price');
+ const totals = document.querySelectorAll('.total');
 
-plusButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const parent = button.closest('.table_row') // 버튼의 부모 요소인 .table_row를 찾음
-    const amountElement = parent.querySelector('.ammount') // 부모 요소 내에서 .ammount 요소를 찾음
+ plusButtons.forEach((button, index) => {
+   button.addEventListener('click', () => {
+     const amountElement = amounts[index];
+     const priceElement = prices[index];
+     const totalElement = totals[index];
 
-    // 현재 ammount 값을 가져와서 1을 더한 후 다시 적용
-    let amount = parseInt(amountElement.textContent)
-    amount += 1
-    amountElement.textContent = amount
-  })
-})
+     // 현재 amount 값을 가져와서 1을 더한 후 다시 적용
+     let amount = parseInt(amountElement.textContent);
+     amount += 1;
+     amountElement.textContent = amount;
 
-minusButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const parent = button.closest('.table_row') // 버튼의 부모 요소인 .table_row를 찾음
-    const amountElement = parent.querySelector('.ammount') // 부모 요소 내에서 .ammount 요소를 찾음
+     let price = parseInt(priceElement.textContent);
+     let total = amount * price;
 
-    
-    let amount = parseInt(amountElement.textContent)
-    if(amount>0){
-    amount -= 1
-    amountElement.textContent = amount
-    }
-  })
-})
+     // 총 가격을 형식에 맞게 표시하거나 필요한 작업을 수행
+     totalElement.textContent = formatCurrency(total);
+   });
+ });
 
+ // 통화 표시 함수 (예시)
+ function formatCurrency(amount) {
+   return new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(amount);
+ }
+
+
+
+ minusButtons.forEach((button, index) => {
+	  button.addEventListener('click', () => {
+	    const parent = button.closest('.table_row');
+	    const amountElement = amounts[index];
+	    const priceElement = prices[index];
+	    const totalElement = totals[index];
+
+	    let amount = parseInt(amountElement.textContent);
+	    if (amount > 0) {
+	      amount -= 1;
+	      amountElement.textContent = amount;
+
+	      let price = parseInt(priceElement.textContent);
+	      let total = amount * price;
+
+	      // 총 가격을 형식에 맞게 표시하거나 필요한 작업을 수행
+	      totalElement.textContent = formatCurrency(total);
+	    }
+	  });
+	});
 
 
 
