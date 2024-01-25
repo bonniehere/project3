@@ -75,16 +75,22 @@
 <input type="hidden" name="driverLat" id="driverLat" value="${dlist[0].driverLat}">
 <input type="hidden" name="driverLon" id="driverLon" value="${dlist[0].driverLon}">
  -->
- 
+ <input type="hidden" name="userPw" id="userPw" value="${dlist.userPw}">
  <!-- 여기가 이전 거 가져온 스크립트 -->
 <script type="text/javascript">
 
+$(document).ready(function(){
+	setInterval('autoChase()', 3000); // 3초 마다 함수실행	
+	
+})
+
+var driverLat=[];
+var driverLon=[];
+var driverNm=[];
 
 function autoChase(){
-	//var userPw = $('input[name=userPw]').val();
-	var driverLat[];
-	var driverLon[];
-	var driverNm[];
+	//alert("dddd");
+	var userPw = $('input[name=userPw]').val();
 	$.ajax({
 		type : "POST",
 		url  : "/company/shipper/AdminLocLoad.do",
@@ -96,11 +102,11 @@ function autoChase(){
 			
 			
 			for(var i=0;i<data.length;i++){
-				driverLat[] = data[i].driverLat;
-				driverLon[] = data[i].driverLon;
-				driverNm[] = data[i].driverNm;
+				driverLat[i] = data[i].driverLat;
+				driverLon[i] = data[i].driverLon;
+				driverNm[i] = data[i].driverNm;
 				
-				console.log("우효오오오");
+				
 				
 			}
 			
@@ -129,7 +135,7 @@ function autoChase(){
 
 
 
-setInterval('autoChase()', 3000); // 3초 마다 함수실행
+
 </script>
  
  
@@ -478,14 +484,16 @@ function MarkerTracker(map, target) {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
-    center: new kakao.maps.LatLng(37.402054, 127.1082099), // 지도의 중심좌표
+    center: new kakao.maps.LatLng(35.54345186511035, 129.3388901998258), // 지도의 중심좌표
     level: 5 // 지도의 확대 레벨
 };
 
 // 지도를 생성합니다.
 var map = new kakao.maps.Map(mapContainer, mapOption);
 
-
+//지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 /*
 var flag1=false;
@@ -509,23 +517,13 @@ var driverLat[];
 var marker = [];
 var markerTracker = [];
 var driverposition = [];
-
+var drivercontent = [];
 
 function fn_gogo(){
-	
-	/*if(flag1){
-		hspcustomOverlay[0].setMap(null);
-		hspcustomOverlay[1].setMap(null);
-		hspcustomOverlay[2].setMap(null);
-		hspcustomOverlay[3].setMap(null);
-		hspcustomOverlay[4].setMap(null);
-		hspcustomOverlay[5].setMap(null);
+	//alert("gdgd");	
 
-		$("#labelMap").remove();
-	}
-	if(i==1){
-      */ 
-        
+		
+	
 		for(j=0; j < driverLat.length; j++){
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
@@ -536,12 +534,12 @@ function fn_gogo(){
 
 		// 커스텀 오버레이를 생성합니다
 		marker[j] = new TooltipMarker(driverposition[j], driverNm[j]);
-		marker[i].setMap(map);
+		marker[j].setMap(map);
 		
-		markerTracker[i] = new MarkerTracker(map, marker[i]);
+		markerTracker[j] = new MarkerTracker(map, marker[j]);
 
-		markerTracker[i].run();
-		
+		markerTracker[j].run();
+		//alert(drivercontent[j]);
 		//flag1 = true;
 	}
       
