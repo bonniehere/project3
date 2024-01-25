@@ -1436,7 +1436,7 @@
 						</div>
 						<div class="btn_area">
 							<a href="javascript:void(0);" onclick="javascript:fn_Regist();" class="btn_ty01_sty01"><span>가입하기</span></a>
-							<a href="/home/" class="btn_ty01_sty0"><span>취소</span></a>
+							<a href="/home.do" class="btn_ty01_sty0"><span>취소</span></a>
 						</div>
 					</div>
 				</div>

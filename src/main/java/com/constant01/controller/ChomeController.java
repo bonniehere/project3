@@ -75,7 +75,7 @@ public class ChomeController {
 		}else {	// 그렇지 않으면 메인화면으로 이동...
 			System.out.println("회원 로그인");
 			model.addAttribute("dlist", ds.dlist(delivery));
-			return "/home/index";
+			return "/company/homelog2";
 		}	
 	}
 	

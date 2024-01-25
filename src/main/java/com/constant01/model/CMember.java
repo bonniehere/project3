@@ -6,18 +6,22 @@ import lombok.Data;
 
 @Data
 public class CMember {
-	private String m_email;
-	private String m_name;
-	private String m_tel;
+	private String m_email; //담당자 email
+	private String m_name; // 담당자 이름
 	private String m_password;
-	private String m_img;
-	private Date m_birth;
-	private String m_addr;
-	private String m_addr_detail;
-	private Date join_date;
-	private String del;
-	private String recommend_code;
-	private int mileage;
+	private String m_img; // 사용안함
+	private Date m_birth; // 사용안함
+	private String m_hspname; // 병원명
+	private String m_userStat; // 회원구분
+	private String m_phone; // 담당자 휴대폰번호
+	private String m_tel; // 담당자 전화번호
+	private String m_zipCd; //우편번호
+	private String m_addr; // 주소
+	private String m_addr_detail; //주소 상세
+	private Date join_date; // 가입일
+	private String del; // 회원탈퇴 여부
+	private String recommend_code; // 영업사원 추천인
+	private int mileage; // 적립금
 	private int amount;
 
 	// 업로드
@@ -46,14 +50,6 @@ public class CMember {
 		this.m_name = m_name;
 	}
 
-	public String getM_tel() {
-		return m_tel;
-	}
-
-	public void setM_tel(String m_tel) {
-		this.m_tel = m_tel;
-	}
-
 	public String getM_password() {
 		return m_password;
 	}
@@ -76,6 +72,46 @@ public class CMember {
 
 	public void setM_birth(Date m_birth) {
 		this.m_birth = m_birth;
+	}
+
+	public String getM_hspname() {
+		return m_hspname;
+	}
+
+	public void setM_hspname(String m_hspname) {
+		this.m_hspname = m_hspname;
+	}
+
+	public String getM_userStat() {
+		return m_userStat;
+	}
+
+	public void setM_userStat(String m_userStat) {
+		this.m_userStat = m_userStat;
+	}
+
+	public String getM_phone() {
+		return m_phone;
+	}
+
+	public void setM_phone(String m_phone) {
+		this.m_phone = m_phone;
+	}
+
+	public String getM_tel() {
+		return m_tel;
+	}
+
+	public void setM_tel(String m_tel) {
+		this.m_tel = m_tel;
+	}
+
+	public String getM_zipCd() {
+		return m_zipCd;
+	}
+
+	public void setM_zipCd(String m_zipCd) {
+		this.m_zipCd = m_zipCd;
 	}
 
 	public String getM_addr() {
@@ -168,12 +204,14 @@ public class CMember {
 
 	@Override
 	public String toString() {
-		return "CMember [m_email=" + m_email + ", m_name=" + m_name + ", m_tel=" + m_tel + ", m_password=" + m_password
-				+ ", m_img=" + m_img + ", m_birth=" + m_birth + ", m_addr=" + m_addr + ", m_addr_detail="
+		return "CMember [m_email=" + m_email + ", m_name=" + m_name + ", m_password=" + m_password + ", m_img=" + m_img
+				+ ", m_birth=" + m_birth + ", m_hspname=" + m_hspname + ", m_userStat=" + m_userStat + ", m_phone="
+				+ m_phone + ", m_tel=" + m_tel + ", m_zipCd=" + m_zipCd + ", m_addr=" + m_addr + ", m_addr_detail="
 				+ m_addr_detail + ", join_date=" + join_date + ", del=" + del + ", recommend_code=" + recommend_code
 				+ ", mileage=" + mileage + ", amount=" + amount + ", file=" + file + ", startRow=" + startRow
 				+ ", endRow=" + endRow + ", vCode=" + vCode + "]";
 	}
 
+	
 	
 }

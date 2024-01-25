@@ -52,7 +52,8 @@
             <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;"><!-- 중앙 정렬 추가 -->
                 <h2 class="mt-5 text-start" id="join">관리자 페이지</h2>
                 <ul class="custom-list">
-                    <li><div onclick="location.href='contactResultList.do'">제휴/광고문의 리스트</div></li>
+                    <li><div onclick="location.href='contactResultList.do'">제휴문의 리스트</div></li>
+                    <li><div onclick="location.href='/company/CJoin.do'">제휴회원 ID 발급</div></li>
                     <li><div onclick="location.href='orderList.do'">주문 리스트</div></li>
                     <li><div onclick="location.href='adminMbList.do'">회원 리스트</div></li>
                     <li><div onclick="location.href='adminQnAList.do'">1:1문의리스트</div></li>
