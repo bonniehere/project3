@@ -518,11 +518,21 @@ var marker = [];
 var markerTracker = [];
 var driverposition = [];
 var drivercontent = [];
+var flag = false;
 
 function fn_gogo(){
 	//alert("gdgd");	
+	
+		if(flag){
+			
+			for(i=0; i < driverLat.lenth; i++){
+			
+			marker[i].setMap(null);
+			
+			}
+			
+		}
 
-		
 	
 		for(j=0; j < driverLat.length; j++){
 		// 커스텀 오버레이에 표시할 내용입니다     
@@ -540,9 +550,10 @@ function fn_gogo(){
 
 		markerTracker[j].run();
 		//alert(drivercontent[j]);
-		//flag1 = true;
+		
 	}
-      
+		flag = true;
+    
 	
 }//gogo()함수 종료
 
