@@ -41,7 +41,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 	}
 	
 	public void delete(DeliveryDTO delivery) {
-		dm.write(delivery);
+		dm.delete(delivery);
 	}
 
 }
