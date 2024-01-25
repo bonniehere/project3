@@ -164,12 +164,12 @@
 
 <script type="text/javascript">
 function autoChase(){
-	var driverIdx = $('input[name=userPw]').val();
+	var userPw = $('input[name=userPw]').val();
 	$.ajax({
 		type : "POST",
 		url  : "/company/shipper/DriverLoad.do",
 		data : {
-			"driverPw"		: driverPw
+			"userPw"		: userPw
 		},
 		dataType : "json",
 		success  : function(data){

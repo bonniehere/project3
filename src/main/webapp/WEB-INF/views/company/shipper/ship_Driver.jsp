@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.constant01.model.DriverDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +16,24 @@
 <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 </head>
 <body>
-
+		
+		<% 
+			DriverDTO driver = (DriverDTO)session.getAttribute("login");
+			String userId = request.getParameter("userId");
+			String userPw = request.getParameter("userPw");
+			String driverNm = request.getParameter("driverNm");
+			String driverPhone = request.getParameter("driverPhone");
+		%>
 
 	
 	<h2>택배 기사가 띄우고 있어야 되는 지도 페이지렁이</h2>
-	<h2>기사 이름 뜰까용? ${list[0].driverNm} </h2>
+	<h2>기사 이름 뜰까용? <%=driver.getDriverNm()%> </h2>
 
  <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
-	<input type="hidden" name="userId" value="${list[0].userId}">
-	<input type="hidden" name="userPw" value="${list[0].userPw}">
-	<input type="hidden" name="driverNm" value="${list[0].driverNm}">
-	<input type="hidden" name="driverPhone" value="${list[0].driverPhone}">
+	<input type="hidden" name="userId" value="<%=driver.getUserId()%>">
+	<input type="hidden" name="userPw" value="<%=driver.getUserPw()%>">
+	<input type="hidden" name="driverNm" value="<%=driver.getDriverNm()%>">
+	<input type="hidden" name="driverPhone" value="<%=driver.getDriverPhone()%>">
 
 
 	 <!-- 내가 가져온 지도 constant 지도-->

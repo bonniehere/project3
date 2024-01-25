@@ -65,5 +65,25 @@ public class DeliveryController {
 	
 	}
 	
+	//ship_Master으로 가기 위한 값 받아오기 -------------------
+	// ship_Driver에서 Master로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
+	@RequestMapping(value = "company/shipper/ship_Master.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String admin(DeliveryDTO delivery,Model model) {
+		System.out.println("admin맵");
+		model.addAttribute("dlist", ds.dlist(delivery));
+		System.out.println(ds.dlist(delivery));
+		return "company/shipper/ship_Master";
+			
+		}
+	
+	@ResponseBody
+	
+	@RequestMapping(value = "company/shipper/AdminLocLoad.do", method = RequestMethod.POST)
+	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery, Model model, HttpSession session) {
+		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
+	
+	}
+	
+	
 	
 }
