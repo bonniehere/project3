@@ -1,4 +1,12 @@
 
+.table_row{
+	
+width:25%;
+}
+
+.price{
+	display:none;
+}
 
 #tabViewer-tabMenu{
 	
@@ -68,7 +76,7 @@
 
 .rwd-table th,
 .rwd-table td {
-    padding: .5em 1em;
+/*     padding: .5em 1em; */
 }
 @media screen and (max-width: 601px) {
     .rwd-table tr:nth-child(2) {
@@ -110,10 +118,10 @@
     .rwd-table td:last-child {
         padding-right: 0;
     }
-    .rwd-table th,
-    .rwd-table td {
-        padding: 1em !important;
-    }
+/*     .rwd-table th, */
+/*     .rwd-table td { */
+/*         padding: 0.3em !important; */
+/*     } */
 }
 
 .quantity_input{

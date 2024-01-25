@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif;
+   
+}
+
+.cart {
+    flex: 1;
+    position: fixed;
+    top: 200px;
+    right: 20px;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-content {
+    padding: 20px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-items li {
+    margin-bottom: 10px;
+}
+
+.cart a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.total {
+    font-size: 16px;
+    font-weight: bold;
+}

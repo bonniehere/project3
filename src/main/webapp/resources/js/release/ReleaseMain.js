@@ -1,110 +1,57 @@
-
-
-
-
-
-//(function(tabViewer) {
 //
-//	var options = {
-//			tabClass: 'tabViewer-tab',
-//			contentPanelClass: 'tabViewer-content',
-//			indexAttr: 'data-index',
-//			activeClass: 'active'
-//		},
-//		elements = {
-//			tabs: [],
-//			contentPanels: []
-//		},
-//		
-//	init = function() {
-//		elements.tabs = document.getElementsByClassName(options.tabClass);
-//		elements.contentPanels = document.getElementsByClassName(options.contentPanelClass);
+// const plusButtons = document.querySelectorAll('.product_plus');
+// const minusButtons = document.querySelectorAll('.product_minus');
+// const amounts = document.querySelectorAll('.ammount');
+// const prices = document.querySelectorAll('.price');
+// const totals = document.querySelectorAll('.total');
 //
-//		activateTab(0);
+// plusButtons.forEach((button, index) => {
+//   button.addEventListener('click', () => {
+//     const amountElement = amounts[index];
+//     const priceElement = prices[index];
+//     const totalElement = totals[index];
 //
-//		addClickListener();
-//	},
+//     // 현재 amount 값을 가져와서 1을 더한 후 다시 적용
+//     let amount = parseInt(amountElement.textContent);
+//     amount += 1;
+//     amountElement.textContent = amount;
 //
-//	addClickListener = function() {
-//		document.getElementById('tabViewer-tabMenu').addEventListener('click', function(e) {
-//			var tab = e.target;
+//     let price = parseInt(priceElement.textContent);
+//     let total = amount * price;
 //
-//			if(!myCore.hasClass(tab, options.tabClass)) return;
+//     // 총 가격을 형식에 맞게 표시하거나 필요한 작업을 수행
+//     totalElement.textContent = formatCurrency(total);
+//   });
+// });
 //
-//			var tabIndex = tab.getAttribute(options.indexAttr);
+// // 통화 표시 함수 (예시)
+// function formatCurrency(amount) {
+//   return new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(amount);
+// }
 //
-//			if(tabIndex === null) return;
 //
-//			activateTab(tabIndex);
-//		});
-//	},
 //
-//	activateTab = function(index) {
-//		updateElementsClassNames(elements.tabs, index);
-//		updateElementsClassNames(elements.contentPanels, index);
-//	},
+// minusButtons.forEach((button, index) => {
+//	  button.addEventListener('click', () => {
+//	    const parent = button.closest('.table_row');
+//	    const amountElement = amounts[index];
+//	    const priceElement = prices[index];
+//	    const totalElement = totals[index];
 //
-//	updateElementsClassNames = function(elements, index) {
-//		for (var i = 0; i < elements.length; i++) {
-//			if(i == index) {
-//				myCore.addClassName(elements[i], options.activeClass);
-//			} else {
-//				myCore.removeClassName(elements[i], options.activeClass);
-//			}
-//		}
-//	};
+//	    let amount = parseInt(amountElement.textContent);
+//	    if (amount > 0) {
+//	      amount -= 1;
+//	      amountElement.textContent = amount;
 //
-//	window.addEventListener('DOMContentLoaded', function() {
-//		init();
+//	      let price = parseInt(priceElement.textContent);
+//	      let total = amount * price;
+//
+//	      // 총 가격을 형식에 맞게 표시하거나 필요한 작업을 수행
+//	      totalElement.textContent = formatCurrency(total);
+//	    }
+//	  });
 //	});
-//	
-//}(window.tabViewer = window.tabViewer || {}));
 //
 //
-//(function(myCore) {
 //
-//	myCore.addClassName = function(elem, className) {
-//		if (elem) {
-//			var classes = elem.className.split(' ');
-//			var classesToAdd = className.split(' ');
 //
-//			var added = false;
-//			for (var i = 0, l = classesToAdd.length; i < l; i++) {
-//				if (!myCore.hasClass(elem, classesToAdd[i])) {
-//					classes.push(classesToAdd[i]);
-//					added = true;
-//				}
-//			}
-//
-//			if (added) {
-//				elem.className = classes.join(' ');
-//			}
-//		}
-//	};
-//
-//	myCore.removeClassName = function(elem, className) {
-//		if (elem) {
-//			var classes = elem.className.split(' ');
-//			var classesToRemove = className.split(' ');
-//
-//			var removed = false;
-//			for (var i = 0, l = classesToRemove.length; i < l; i++) {
-//				var index = classes.indexOf(classesToRemove[i]);
-//				if (index != -1) {
-//					classes.splice(index, 1); // remove the class from the array
-//					removed = true;
-//				}
-//			}
-//
-//			if (removed) {
-//				elem.className = classes.join(' ');
-//			}
-//		}
-//
-//	};
-//
-//	myCore.hasClass = function(elem, className) {
-//		return (' ' + elem.className + ' ').indexOf(' ' + className + ' ') > -1;
-//	};
-//
-//}(window.myCore = window.myCore || {}));

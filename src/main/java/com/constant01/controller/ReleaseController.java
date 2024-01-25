@@ -113,6 +113,8 @@ public class ReleaseController {
 		return "company/release/test3";
 	}
 	
+	
+	//상품 디테일 페이지	
 	@RequestMapping(value = "release/detail", method = RequestMethod.GET)
 	public String popup (Model model, BoardDTO detail) {
 		
@@ -129,21 +131,8 @@ public class ReleaseController {
 	
 	
 	
-	//---------------------------------------------------------------------------- table
 	
-//	//전체 리스트 받아오기
-//	@RequestMapping(value = "board", method = RequestMethod.GET)
-//	public String zzzzzz(Model model, Criteria cri) {	
-//		
-//		model.addAttribute("boardlist", rs.boardpage(cri) );
-//		int total = rs.getTotal();
-//		PageMakerDTO pagemake = new PageMakerDTO(cri, total);
-//		model.addAttribute("pageMaker",pagemake);
-//		// model.addAttribute("pageMaker",new PageMakeDTO(cri, total);
-//		
-//return "";
-//	}
-//	
+	
 	//디테일
 	@GetMapping("board/detail")
 	public void detail(BoardDTO detail, Model model) {
