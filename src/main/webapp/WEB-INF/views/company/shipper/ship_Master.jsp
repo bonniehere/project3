@@ -522,33 +522,40 @@ var flag = false;
 
 function fn_gogo(){
 	//alert("gdgd");	
-	
+		let trackerElements = document.querySelectorAll('.tracker');
 		if(flag){
-						
-			marker[0].setMap(null);
+			for(j=0; j<marker.length; j++){
+				marker[j].setMap(null);
+				//var tracker = trackerElements[j];
+				//tracker.parantNode.removeChild(tracker);
 			
-			
+				
+			}
 		}
 
-	
-		
+	  
+
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
 		drivercontent[0] = driverNm[0];
 
 		// 커스텀 오버레이가 표시될 위치입니다 
 		driverposition[0] = new kakao.maps.LatLng(driverLat[0], driverLon[0]);  
-
-		// 커스텀 오버레이를 생성합니다
-		marker[0] = new TooltipMarker(driverposition[0], driverNm[0]);
-		marker[0].setMap(map);
 		
-		markerTracker[0] = new MarkerTracker(map, marker[0]);
+		
+		
+		
+		for(i=0; i < driverLat.length; i++){
+		// 커스텀 오버레이를 생성합니다
+		marker[i] = new TooltipMarker(driverposition[0], driverNm[0]);
+		marker[i].setMap(map);
+		
+		markerTracker[i] = new MarkerTracker(map, marker[i]);
 
-		markerTracker[0].run();
+		markerTracker[i].run();
+		}
 		//alert(drivercontent[j]);
 		
-	
 		flag = true;
     
 	
