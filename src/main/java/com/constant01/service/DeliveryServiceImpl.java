@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.constant01.mapper.DeliveryMapper;
+import com.constant01.model.AdminDTO;
 import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
 
@@ -19,6 +20,11 @@ public class DeliveryServiceImpl implements DeliveryService{
 		return dm.login(driver);
 		
 	}
+	
+	public AdminDTO login2(AdminDTO admin) {
+		return dm.login2(admin);
+	}
+	
 	public void write(DeliveryDTO delivery) {
 		dm.write(delivery);
 	}
