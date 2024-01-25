@@ -44,18 +44,7 @@ function yaho(obj){
 <th>어케하노</th>
 </tr>
 
-
-
-
-
-
-
-
 </table>
-
-
-
-
 
 </div>
 
