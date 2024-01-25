@@ -78,6 +78,16 @@ public class AdminController {
 
 		return "/company/shipment/admin/contactResultView";
 	}
+	@RequestMapping(value = "/company/CJoin.do", method = RequestMethod.GET)
+	public String CJoin() {
+		return "/company/shipment/admin/CJoin";
+	}
+	@RequestMapping(value = "/company/CJoinResult.do", method = RequestMethod.POST)
+	public String CJoinResult(CMember member,Model model) {
+		ms.insert(member);
+		model.addAttribute("insert", ms.insert(member));
+		return "/company/shipment/admin/CJoinResult";
+	}
 	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
 	public String orderList(M_order m_order, String pageNum, Model model) {
 		
