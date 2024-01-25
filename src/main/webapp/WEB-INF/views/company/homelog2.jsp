@@ -16,6 +16,9 @@
 
 <script type="text/javascript">
 //로그인
+$(document).ready(function(){
+	alert("아이디 혹은 패스워드를 확인바랍니다.")
+})
 function fn_CheckForm(){
 	if( $("#userId").val() == "" ){
 		alert("아이디를 입력해 주세요");
@@ -58,7 +61,7 @@ function fn_CheckForm(){
         </div>
       </form>
         
-        <input type="button" class="btn btn-hollow btn-hover" value="Login" href="javascript:void(0);" onclick="javascript:fn_CheckForm();">
+       <input type="button" class="btn btn-hollow btn-hover" value="Login" href="javascript:void(0);" onclick="javascript:fn_CheckForm();">
        <!--  <button id="login" class="btn btn-solid btn-hover" type="submit" value="Submit" form="loginform" onclick="javascript:fn_CheckForm(); return false;">Sign In</button>  -->
        <!-- 
        <div class="checkbox-container">
