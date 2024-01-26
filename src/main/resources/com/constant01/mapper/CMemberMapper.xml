@@ -10,15 +10,15 @@
 
 	<!-- 회원가입 --> <!-- table img default값 지우기 -->
 	<insert id="insert">
-		insert into CMember(M_email,
-		M_name, M_tel, M_password, M_img, M_birth, M_addr, M_addr_detail,
-		join_date, del, amount)
-		values(#{m_email},
-		#{m_name}, #{m_tel},
-		#{m_password},
-		#{m_img},
-		#{m_birth}, #{m_addr}, #{m_addr_detail},
-		sysdate, 'n', '0')
+		insert into CMember(
+		m_userStat, m_email, m_userId, m_userPw, 
+		m_hspNm, m_name, m_phone, m_tel,
+		m_zipCd, m_addr, m_addr_detail)
+		values(
+		#{m_userStat}, #{m_email}, #{m_userId}, #{m_userPw},
+		#{m_hspNm}, #{m_name}, #{m_phone}, #{m_tel}, 
+		#{m_zipCd}, #{m_addr}, #{m_addr_detail}
+		)
 	</insert>
 	<!-- 아이디 찾기 -->
 	<select id="selectFindId" resultType="com.constant01.model.CMember">

@@ -10,7 +10,7 @@ public interface CMemberService {
 
 	CMember select(String m_email);
 
-	int insert(CMember member);
+	void insert(CMember member);
 	
 	CMember selectFindId(String m_tel, String m_name); // 아이디 찾기
 
