@@ -43,7 +43,8 @@
                     <c:forEach items="${boardlist}" var="board">
                         <tr>
                             <td class="productcode" data-productcode="${board.productcode}">${board.productcode}</td>
-                            <td>
+                            <td class="productname" data-productname="${board.productname}" style="display:none;">${board.productname}</td>
+                            <td class="product_link">
                                 <a href="javascript:void(window.open('/release/detail?productcode=${board.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">
                                     ${board.productname}
                                 </a>
@@ -57,7 +58,7 @@
                                 <button class="product_plus">+</button>
                                 <span class="ammount">0</span>
                                 <button class="product_minus">-</button>
-                                <button class="product_add" data-index="${loop.index}">담기</button>
+                                <button class="product_add" data-productcode="${board.productcode}">담기</button>
                                 <span class="price">${board.price}</span>
                                 <span class="product_name">${board.productname}</span>
                                 <span class="total">0</span>
@@ -94,8 +95,9 @@
         const amounts = document.querySelectorAll('.ammount');
         const prices = document.querySelectorAll('.price');
         const totals = document.querySelectorAll('.total');
-        const productNames = document.querySelectorAll('.productname');
+        
         const productCodes = document.querySelectorAll('.productcode');
+        const productNames = document.querySelectorAll('.productname');
 
         plusButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
@@ -145,14 +147,15 @@
 
                 let amount = parseInt(amountElement.textContent);
                 let price = parseInt(priceElement.textContent);
-                let total = amount * price;
+                
 
                 // 이제 해당 행의 productcode를 읽어올 수 있습니다.
-                let productcode = productCodes[index].getAttribute('data-productcode');
+                const productcode = productCodes[index].getAttribute('data-productcode');
+                const productname = productNames[index].getAttribute('data-productname');
                 
 
                 addToCart({
-                	
+                	productname: productname,
                     productcode: productcode,
                     quantity: amount,
                     price: price

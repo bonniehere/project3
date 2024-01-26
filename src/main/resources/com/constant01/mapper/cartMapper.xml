@@ -16,7 +16,11 @@
   </delete>
   
   <insert id="cart_add">
-  insert into cart( productcode, quantity, price) values(#{productcode},#{quantity},#{price});
+  insert into cart( productname, productcode, quantity, price) values(#{productname},#{productcode},#{quantity},#{price});
+  
+  </insert>
+  <insert id="orderItem">
+  insert into cartorder( productname, productcode, quantity, price, subtotal) values(#{productname},#{productcode},#{quantity},#{price}, #{subtotal});
   
   </insert>
   
