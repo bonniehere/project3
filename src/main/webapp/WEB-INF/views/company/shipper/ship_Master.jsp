@@ -67,21 +67,14 @@
 <body>
 <h2>공급사가 배송자의 온도와 위치를 볼 수 있는 페이지</h2>
 
-<!-- 
-<input type="hidden" name="userId" id="userId" value="${dlist[0].userId}">
-<input type="hidden" name="userPw" id="userPw" value="${dlist[0].userPw}">
-<input type="hidden" name="driverNm" id="driverNm" value="${dlist[0].driverNm}">
-<input type="hidden" name="driverPhone" id="driverPhone" value="${dlist[0].driverPhone}">
-<input type="hidden" name="driverLat" id="driverLat" value="${dlist[0].driverLat}">
-<input type="hidden" name="driverLon" id="driverLon" value="${dlist[0].driverLon}">
- -->
- <input type="hidden" name="userPw" id="userPw" value="${dlist.userPw}">
+
+ <input type="hidden" name="userPw" id="userPw" value="${dlist[0].userPw}">
  <!-- 여기가 이전 거 가져온 스크립트 -->
 <script type="text/javascript">
 
 $(document).ready(function(){
 	setInterval('autoChase()', 3000); // 3초 마다 함수실행	
-	
+	setInterval('fn_gogo()', 3000); // 3초 마다 함수실행
 })
 
 var driverLat=[];
@@ -149,7 +142,8 @@ function autoChase(){
  * AbstractOverlay를 상속받을 객체를 선언합니다.
  */
 function TooltipMarker(position, tooltipText) {
-    this.position = position;
+	
+	this.position = position;
     var node = this.node = document.createElement('div');
     node.className = 'node';
 
@@ -166,6 +160,8 @@ function TooltipMarker(position, tooltipText) {
     node.onmouseout = function() {
         tooltip.style.display = 'none';
     };
+    
+    flag1 = true;
 }
 
 // AbstractOverlay 상속. 프로토타입 체인을 연결합니다.
@@ -522,19 +518,20 @@ var flag = false;
 
 function fn_gogo(){
 	//alert("gdgd");	
-		let trackerElements = document.querySelectorAll('.tracker');
+		//let trackerElements = document.querySelectorAll('.tracker');
 		if(flag){
 			for(j=0; j<marker.length; j++){
 				marker[j].setMap(null);
+				//markerTracker[j].stop();
 				//var tracker = trackerElements[j];
 				//tracker.parantNode.removeChild(tracker);
-			
+				$(".tracker").remove();
 				
 			}
 		}
 
 	  
-
+		
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
 		drivercontent[0] = driverNm[0];
@@ -545,23 +542,22 @@ function fn_gogo(){
 		
 		
 		
-		for(i=0; i < driverLat.length; i++){
+		//for(i=0; i < driverLat.length; i++){
 		// 커스텀 오버레이를 생성합니다
-		marker[i] = new TooltipMarker(driverposition[0], driverNm[0]);
-		marker[i].setMap(map);
+		marker[0] = new TooltipMarker(driverposition[0], driverNm[0]);
+		marker[0].setMap(map);
 		
-		markerTracker[i] = new MarkerTracker(map, marker[i]);
+		markerTracker[0] = new MarkerTracker(map, marker[0]);
 
-		markerTracker[i].run();
-		}
-		//alert(drivercontent[j]);
+		markerTracker[0].run();
+		
 		
 		flag = true;
     
 	
 }//gogo()함수 종료
 
-setInterval('fn_gogo()', 3000); // 3초 마다 함수실행
+
 
 /*
 // 본사

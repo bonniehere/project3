@@ -40,7 +40,7 @@ public class DeliveryController {
 		ds.write(delivery);
 		ds.delete(delivery);
 		model.addAttribute("dlist", ds.dlist(delivery));
-		//System.out.println(ds.dlist(delivery));
+		System.out.println(ds.dlist(delivery));
 		return "/company/shipper/ship_Driver";
 		
 	}
@@ -65,6 +65,9 @@ public class DeliveryController {
 	
 	}
 	
+	
+	
+	
 	//ship_Master으로 가기 위한 값 받아오기 -------------------
 	// ship_Driver에서 Master로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "company/shipper/ship_Master.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -80,6 +83,7 @@ public class DeliveryController {
 	
 	@RequestMapping(value = "company/shipper/AdminLocLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery, Model model, HttpSession session) {
+		model.addAttribute("dlist", ds.dlist(delivery));
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
