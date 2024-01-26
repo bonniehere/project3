@@ -4,11 +4,12 @@ body{
 	background-color:#EBF5FF;
 }
 
-.productname:hover{
+.product_link:hover{
 	background-color:#FFBEFF;
 	color:black;
 	
 }
+
 
 #wholewrap{
 	width:90%;

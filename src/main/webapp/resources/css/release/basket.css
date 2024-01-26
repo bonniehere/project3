@@ -9,7 +9,7 @@
 /* 	display:none; */
 /* } */
         .cart {
-            max-width: 600px;
+            max-width: 900px;
             margin: 20px auto;
             background-color: #fff;
             border-radius: 8px;
@@ -33,12 +33,31 @@
         }
 
         .cart-items li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-items li span {
+    flex: 1; /* 각 항목이 동일한 너비를 가지도록 설정 */
+    margin-right: 10px;
+}
+.cart-items li button.remove-from-cart {
+    background-color: #2ecc71; /* 녹색 배경색 */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 변경 시 부드러운 전환 효과 */
+}
+
+.cart-items li button.remove-from-cart:hover {
+    background-color: #27ae60; /* 마우스 호버 시 더 진한 녹색으로 변경 */
+}
+
 
         .total1 {
             text-align: right;
@@ -62,4 +81,14 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+        }
+        
+         #orderButton {
+            background-color: #3498db; /* 배경색 */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            
         }
