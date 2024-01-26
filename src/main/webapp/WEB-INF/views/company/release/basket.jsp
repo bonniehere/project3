@@ -16,19 +16,30 @@
     <div class="cart">
         <div class="cart-content">
             <h3>장바구니</h3>
+            
             <ul class="cart-items" id="cartItems">
-                <c:forEach items="${list}" var="item">
-                    <li id="item-${item.no}">
-             제품명: ${item.productname} 
-                        코드: ${item.productcode} 
-                        수량: ${item.quantity} 
-                        단가: ${item.price}
-                        금액: <span class="subtotal">${item.quantity * item.price}</span>
-                        <button class="remove-from-cart" onclick="removeFromCart(${item.no}, '${item.productcode}', ${item.quantity * item.price})">삭제</button>
-                    </li>
-                </c:forEach>
-            </ul>
-            <p class="total1">총 가격: <span id="totalAmount">0.00</span></p>
+    <c:forEach items="${list}" var="item">
+        <li id="item-${item.no}">
+            <span>제품명: ${item.productname}</span>
+            <span>코드: ${item.productcode}</span>
+            <span>수량: ${item.quantity}</span>
+            <span>단가: ${item.price}</span>
+            <span>금액: <span class="subtotal">${item.quantity * item.price}</span></span>
+            <input type="hidden" name="productname" value="${item.productname}">
+            <input type="hidden" name="productcode" value="${item.productcode}">
+            <input type="hidden" name="quantity" value="${item.quantity}">
+            <input type="hidden" name="price" value="${item.price}">
+            <input type="hidden" name="subtotal" value="${item.quantity * item.price}">
+            
+            <button class="remove-from-cart" onclick="removeFromCart(${item.no}, '${item.productcode}', ${item.quantity * item.price})">삭제</button>
+        </li>
+    </c:forEach>
+</ul>
+            
+            <p class="total1">
+          
+            총 가격: <span id="totalAmount">0.00</span>&nbsp;&nbsp;원&nbsp;&nbsp;  <button id="orderButton" onclick="placeOrder()" > 주문</button></p>
+            
         </div>
     </div>
 
@@ -39,13 +50,13 @@
         });
 
         // 삭제 버튼 클릭 시 실행되는 함수
-        function removeFromCart(no, productcode, subtotal) {
+        function removeFromCart(no,productname, productcode, subtotal) {
             // AJAX를 사용하여 서버에 정보 전송
         	$.ajax({
         	    type: "POST",
         	    url: "cart_delete",
         	    contentType: "application/json", // 추가된 부분
-        	    data: JSON.stringify({ no: no, productcode: productcode, subtotal: subtotal }),
+        	    data: JSON.stringify({ no: no,productname:productname, productcode: productcode, subtotal: subtotal }),
         	    success: function(response) {
         	        console.log(`Product ${productcode} removed successfully`);
         	        $(`#item-${no}`).remove();
@@ -68,6 +79,41 @@
             $('#totalAmount').text(totalAmount.toFixed(2));
             
         }
+        
+        //---------------------------------------------주문
+        
+        //주문하기 함수
+        function placeOrder() {
+            // 장바구니에 있는 각 상품의 정보를 가져와서 배열에 담습니다.
+            var cartItems = [];
+            $('.cart-items li').each(function() {
+                var item = {
+                    productname: $(this).find('input[name="productname"]').val(),
+                    productcode: $(this).find('input[name="productcode"]').val(),
+                    quantity: $(this).find('input[name="quantity"]').val(),
+                    price: $(this).find('input[name="price"]').val(),
+                    subtotal: $(this).find('input[name="subtotal"]').val()
+                };
+                cartItems.push(item);
+            });
+
+            // AJAX를 사용하여 서버에 주문 정보를 전송합니다.
+            $.ajax({
+                type: "POST",
+                url: "order",
+                contentType: "application/json",
+                data: JSON.stringify(cartItems),
+                success: function(response) {
+                    console.log("Order placed successfully");
+                    // 주문 성공 후, 페이지를 새로고침하거나 다른 작업을 수행할 수 있습니다.
+                },
+                error: function(error) {
+                    console.error("Error placing order:", error);
+                }
+            });
+        }
+        
+        
     </script>
 </body>
 </html>

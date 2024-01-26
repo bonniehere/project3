@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.constant01.model.BoardDTO;
 import com.constant01.model.Criteria;
 
+
 public interface ReleaseService {
 
 	public BoardDTO boarddetail(BoardDTO detail);

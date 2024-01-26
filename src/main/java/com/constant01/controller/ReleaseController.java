@@ -1,5 +1,7 @@
 package com.constant01.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -178,21 +180,26 @@ public class ReleaseController {
 	     }
 	 }
 	 
-//	 //장바구니 담기
-//	 @PostMapping("cart_add")
-//	 public void addcart(cartVO list) {
-//		 cs.cart_add(list);
-//	 }
+	 //장바구니 담기
 	 
 	 @PostMapping("cart_add")
-	 public ResponseEntity<String> addcart(@RequestBody cartVO list) {
-	     try {
+	 @ResponseBody
+	 public void addcart(@RequestBody cartVO list) {
+	     
 	         cs.cart_add(list);
-	         return new ResponseEntity<>("Product added to cart successfully", HttpStatus.OK);
-	     } catch (Exception e) {
-	         e.printStackTrace();
-	         return new ResponseEntity<>("Error adding product to cart: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-	     }
+	        	    
 	 }
 	 
+	 //장바구니주문
+	 @PostMapping("/order")
+	    @ResponseBody
+	    public ResponseEntity<String> placeOrder(@RequestBody List<cartVO> orderItems) {
+	        // 주문 항목 처리 로직
+	        for (cartVO orderItem : orderItems) {
+	            System.out.println(orderItem.toString());
+	        }
+	        cs.orderItem(orderItems);		
+	        return ResponseEntity.ok("Order placed successfully");
+	    }
 }
+
