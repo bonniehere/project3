@@ -30,7 +30,7 @@ function yaho(obj){
 
 
 <body>
-<h1>테스트 페이지입니다람쥐!!</h1>
+<h1>페이지입니다람쥐!!</h1>
 
 
 <!-- 
@@ -47,9 +47,6 @@ function yaho(obj){
 </table>
 
 </div>
-
-
-
 
 
 

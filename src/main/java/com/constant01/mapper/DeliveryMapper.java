@@ -15,6 +15,7 @@ public interface DeliveryMapper {
 	public AdminDTO login2(AdminDTO admin);
 	
 	public void write(DeliveryDTO delivery);
+
 	//여기가 ship_driver로 가는 리스트
 	public ArrayList<DriverDTO> list(DriverDTO driver);
 	
@@ -22,4 +23,6 @@ public interface DeliveryMapper {
 	public ArrayList<DriverDTO> dlist(DeliveryDTO delivery);
 	
 	public void delete(DeliveryDTO delivery);
+	
+
 }

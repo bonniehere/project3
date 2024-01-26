@@ -24,11 +24,18 @@
 	<insert id="write">
 		insert into customermap values(#{userId},#{userPw},#{driverNm},#{driverPhone},#{driverLat},#{driverLon},0,default);
 	</insert>
-	
-	
+
 	<!-- 기사 위치임 -->
 	<select id="dlist" resultType="com.constant01.model.DeliveryDTO">
-		select * from customermap order by num desc;
+		SELECT *
+FROM customermap
+WHERE (drivernm = '홍배달' OR drivernm = '나배달')
+AND num IN (
+    SELECT MAX(num)
+    FROM customermap
+    WHERE drivernm = '홍배달' OR drivernm = '나배달'
+    GROUP BY drivernm
+)ORDER BY num DESC;
 	</select>
 	
 	<delete id="delete">

@@ -65,6 +65,7 @@ public class ChomeController {
 			System.out.println("관리자 로그인");
 			session.setAttribute("login2", ds.login2(admin));
 			model.addAttribute("login2");
+			model.addAttribute("dlist", ds.dlist(delivery)); //list select한 값
 			// 구매 화면으로 이동
 			
 			//model.addAttribute("dlist", ds.dlist(delivery));
@@ -75,6 +76,7 @@ public class ChomeController {
 		}else {	// 그렇지 않으면 메인화면으로 이동...
 			System.out.println("회원 로그인");
 			model.addAttribute("dlist", ds.dlist(delivery));
+			//model.addAttribute("list", ds.list(driver));
 			return "/company/homelog2";
 		}	
 	}

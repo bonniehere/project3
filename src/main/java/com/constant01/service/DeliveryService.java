@@ -21,4 +21,6 @@ public interface DeliveryService {
 	public ArrayList<DriverDTO> dlist(DeliveryDTO delivery); //여기에 최종 기사 위치 저장 1
 	
 	public void delete(DeliveryDTO delivery);
+	
+
 }
