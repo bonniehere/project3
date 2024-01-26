@@ -82,8 +82,8 @@
         #birthDt1,
         #birthDt2,
         #birthDt3,
-        #userId,
-        #userPw,
+        #m_userId,
+        #m_userPw,
         #hpNo2,
         #hpNo3,
         #telNo2,
@@ -93,7 +93,7 @@
         #email4,
         #zipCd,
         #addr,
-        #detlAddr {
+        #detladdr {
             width: 100%;
             max-width: 300px; /* 입력 필드의 최대 너비 설정 */
         }
@@ -123,32 +123,32 @@
 				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
 				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-				var fullAddr = ''; // 최종 주소 변수
-				var extraAddr = ''; // 조합형 주소 변수
+				var fulladdr = ''; // 최종 주소 변수
+				var extraaddr = ''; // 조합형 주소 변수
 				// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
 				if( data.userSelectedType === 'R' ){ // 사용자가 도로명 주소를 선택했을 경우
-				    fullAddr = data.roadAddress;
+				    fulladdr = data.roadaddress;
 				}else{ // 사용자가 지번 주소를 선택했을 경우(J)
-				    fullAddr = data.jibunAddress;
+				    fulladdr = data.jibunaddress;
 				}
 				// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
 				if( data.userSelectedType === 'R' ){
 					//법정동명이 있을 경우 추가한다.
 					if( data.bname !== '' ){
-						extraAddr += data.bname;
+						extraaddr += data.bname;
 					}
 					// 건물명이 있을 경우 추가한다.
 					if( data.buildingName !== '' ){
-						extraAddr += (extraAddr !== '' ? ', '+data.buildingName : data.buildingName);
+						extraaddr += (extraaddr !== '' ? ', '+data.buildingName : data.buildingName);
 					}
 					// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-					fullAddr += (extraAddr !== '' ? ' ('+extraAddr+')' : '');
+					fulladdr += (extraaddr !== '' ? ' ('+extraaddr+')' : '');
 				}
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
 				document.getElementById('zipCd').value = data.zonecode; //5자리 새우편번호 사용
-				document.getElementById('addr').value = fullAddr;
+				document.getElementById('addr').value = fulladdr;
 				// 커서를 상세주소 필드로 이동한다.
-				document.getElementById('detlAddr').focus();
+				document.getElementById('detladdr').focus();
 				}
 			}).open();
 		}
@@ -165,9 +165,9 @@
 		}
 		
 		function fn_Regist(){
-			if( $("input[name=userStat]:checked").length == 0 ){
+			if( $("input[name=m_userStat]:checked").length == 0 ){
 				alert("회원구분을 선택해 주세요.");
-				$("input[name=userStat]").eq(0).focus();
+				$("input[name=m_userStat]").eq(0).focus();
 				return false;
 			}
 			
@@ -178,15 +178,19 @@
 				return false;
 				}
 			}
+			if( $("#email1").val() == "" ){alert("이메일을 입력해 주세요.");$("#email1").focus();return false;}
+			if( $("#email2").val() == "" ){alert("이메일을 입력해 주세요.");$("#email2").focus();return false;}
 			$("#userId").val($("#userId").val().trim().replaceAll(" ",""));
+			if( $("#userId").val() == "" ){alert("아이디를 입력해 주세요.");$("#userId").focus();return false;}
+			if( $("#userPw").val() == "" ){alert("초기 비밀번호를 부여해 주세요.");$("#userPw").focus();return false;}
 			if( $("#subName").length > 0 ){
 				if( $("#subName").val() == "" ){
 					alert("병원명을 입력해 주세요.");
-					$("#userNm").focus();
+					$("#hspNm").focus();
 					return false;
 				}
 			}
-			if( $("#userNm").val() == "" ){alert("병원명을 입력해 주세요.");$("#userNm").focus();return false;}
+			if( $("#hspNm").val() == "" ){alert("병원명을 입력해 주세요.");$("#hspNm").focus();return false;}
 			
 			
 			
@@ -248,30 +252,20 @@
 				$("#zipCdBtn").focus();
 				return false;
 			}
-			if( $("#detlAddr").val() == "" ){
+			if( $("#detladdr").val() == "" ){
 				alert("상세 주소를 입력해 주세요.");
-				$("#detlAddr").focus();
+				$("#detladdr").focus();
 				return false;
 			}
 			
-			
-			
-			
-			
-			
 			$("#zipCd").val($("#zipCd").val().replaceAll(" ",""));
 			if( $("#telNo1").val() != "" && $("#telNo2").val() != "" && $("#telNo3").val() != ""  ){
-            	$("#telNo").val($("#telNo1").val()+"-"+$("#telNo2").val()+"-"+$("#telNo3").val());
+            	$("#tel").val($("#telNo1").val()+"-"+$("#telNo2").val()+"-"+$("#telNo3").val());
             }
 			
-			$("#hpNo").val($("#hpNo1").val()+"-"+$("#hpNo2").val()+"-"+$("#hpNo3").val());
-			if( $("input:radio[name=userStat]:checked").val() != "PROF" ){
-				$("#email").val($("#email1").val().replaceAll(" ","")+"@"+$("#email2").val().replaceAll(" ",""));
-			}else{
-				$("#email").val($("#email1").val().replaceAll(" ","")+"@"+$("#email4").val().replaceAll(" ",""));
-			}
+			$("#phone").val($("#hpNo1").val()+"-"+$("#hpNo2").val()+"-"+$("#hpNo3").val());
 			
-			$("#profEmpNo").val( $("#empNo_1").val() == "" ? $("#profEmpNo_2").val() : $("#empNo_1").val() );
+			$("#email").val($("#email1").val().replaceAll(" ","")+"@"+$("#email2").val().replaceAll(" ",""));
 			
 			$("#frm").attr("action","/company/CJoinResult.do").submit();
 			
@@ -284,47 +278,56 @@
 	            // 생성된 패스워드를 input 필드에 삽입
 	            document.getElementById("userPw").value = password;
 	     }
-		 
-		//다음 메일 호출
-		function fn_DaumPostcode(){
-				new daum.Postcode({
-				oncomplete: function(data ){
-					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-					var fullAddr = ''; // 최종 주소 변수
-					var extraAddr = ''; // 조합형 주소 변수
-					// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-					if( data.userSelectedType === 'R' ){ // 사용자가 도로명 주소를 선택했을 경우
-					    fullAddr = data.roadAddress;
-					}else{ // 사용자가 지번 주소를 선택했을 경우(J)
-					    fullAddr = data.jibunAddress;
-					}
-					// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-					if( data.userSelectedType === 'R' ){
-						//법정동명이 있을 경우 추가한다.
-						if( data.bname !== '' ){
-							extraAddr += data.bname;
-						}
-						// 건물명이 있을 경우 추가한다.
-						if( data.buildingName !== '' ){
-							extraAddr += (extraAddr !== '' ? ', '+data.buildingName : data.buildingName);
-						}
-						// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-						fullAddr += (extraAddr !== '' ? ' ('+extraAddr+')' : '');
-					}
-					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					document.getElementById('zipCd').value = data.zonecode; //5자리 새우편번호 사용
-					document.getElementById('addr').value = fullAddr;
-					// 커서를 상세주소 필드로 이동한다.
-					document.getElementById('detlAddr').focus();
-					}
-				}).open();
+		//이메일
+		function fn_ChangeEmail(obj){
+			var $this = obj;
+			if( $this.val() != "" ){
+				$("#email2").val($this.val());
+			}else{
+				$("#email2").val("");
 			}
+		} 
+		//다음 메일 호출
+		function fn_DaumPostcode( ){
+			new daum.Postcode({
+			oncomplete: function(data ){
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullAddr = ''; // 최종 주소 변수
+				var extraAddr = ''; // 조합형 주소 변수
+				// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if( data.userSelectedType === 'R' ){ // 사용자가 도로명 주소를 선택했을 경우
+				    fullAddr = data.roadAddress;
+				}else{ // 사용자가 지번 주소를 선택했을 경우(J)
+				    fullAddr = data.jibunAddress;
+				}
+				// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+				if( data.userSelectedType === 'R' ){
+					//법정동명이 있을 경우 추가한다.
+					if( data.bname !== '' ){
+						extraAddr += data.bname;
+					}
+					// 건물명이 있을 경우 추가한다.
+					if( data.buildingName !== '' ){
+						extraAddr += (extraAddr !== '' ? ', '+data.buildingName : data.buildingName);
+					}
+					// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+					fullAddr += (extraAddr !== '' ? ' ('+extraAddr+')' : '');
+				}
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				document.getElementById('zipCd').value = data.zonecode; //5자리 새우편번호 사용
+				document.getElementById('addr').value = fullAddr;
+				// 커서를 상세주소 필드로 이동한다.
+				document.getElementById('detlAddr').focus();
+				}
+			}).open();
+		}
 		
 	</script>
 </head>
 <body>
+<form id="frm" name="frm" method="post" action="/company/CJoinResult.do">
 <div class="con_sec">
 						<div class="tit_area fix">
 							<h4 class="con_tit" style="display:inline-block">
@@ -333,20 +336,13 @@
 									회원정보
 								
 							</h4>
-							<form id="frm" name="frm" method="post" action="/home/member/joinProcEnd.do">
-								<input type="hidden" id="accessTermsYn" name="accessTermsYn" value="Y">
-								<input type="hidden" id="accessPerYn" name="accessPerYn" value="Y">
-								<input type="hidden" id="loginType" name="loginType" value="S">
-								<input type="hidden" id="userTp" name="userTp" value="Y">
-								<input type="hidden" id="profEmpNo" name="profEmpNo" value="">
+							
 								
-								<input type="hidden" id="authType" name="authType">
-								<input type="hidden" id="telNo" name="telNo">
-								<input type="hidden" id="hpNo" name="hpNo">
-								<input type="hidden" id="email" name="email">
-								<input type="hidden" id="authIvTp" name="authIvTp" value="">
-								<input type="hidden" id="statusCd" name="statusCd">
-							</form>
+									<input type="hidden" id="tel" name="m_tel">
+									<input type="hidden" id="phone" name="m_phone">
+									<input type="hidden" id="email" name="m_email">
+								
+							
 							<p class="bul_point1"><em class="m_color2"></em></p>
 						</div>
 						<div class="content_table_wrap">
@@ -360,23 +356,24 @@
 										<tr>
 										<th><em class="m_color2"></em> 회원구분</th>
 										<td>
-											<label for="userStat1" class="ch">
-												<input type="radio" id="userStat1" name="userStat" class="" value="NORMAL">
+
+											<label for="m_userStat1" class="ch">
+												<input type="radio" id="m_userStat1" name="m_userStat" class="" value="NORMAL">
 												<span>일반회원</span>
 											</label>
 											
-												<label for="userStat2" class="ch">
-													<input type="radio" id="userStat2" name="userStat" class="" value="VIP">
+												<label for="m_userStat2" class="ch">
+													<input type="radio" id="m_userStat2" name="m_userStat" class="" value="VIP">
 													<span>우수회원</span>
 												</label>
-												<label for="userStat3" class="ch">
-													<input type="radio" id="userStat3" name="userStat" class="" value="VVIP">
+												<label for="m_userStat3" class="ch">
+													<input type="radio" id="m_userStat3" name="m_userStat" class="" value="VVIP">
 													<span>VIP</span>
 												</label>
 												
 												
 											
-											<span class="bul_point1 userStatDesc" style="display: none;">병원직원,간호부의 경우 이메일주소는 사내메일주소로 입력 부탁드립니다.</span>
+											<span class="bul_point1 m_userStatDesc" style="display: none;">병원직원,간호부의 경우 이메일주소는 사내메일주소로 입력 부탁드립니다.</span>
 										</td>
 									</tr>
 								
@@ -401,24 +398,21 @@
 												<option value="naver.com">naver.com</option>
 												<option value="nate.com">nate.com</option>
 											</select>
-											<select id="email4" name="email4" class="select_cell" style="display: none;">
-												<option value="cau.ac.kr">cau.ac.kr</option>
-												<option value="cauhs.or.kr">cauhs.or.kr</option>
-											</select>
+											
 										</td>
 									</tr>
 										<tr>
 										<th><em class="m_color2"></em>아이디 부여<br>(ex : CenterhspG001)</th>
 										<td>
-											<input type="text" class="input_text" placeholder="" id="userId" name="userId" style="ime-mode:disabled;" maxlength="16">
-											<!-- <a href="javascript:void(0);" id="userIdBtn" onclick="javascript:fn_CheckDupl(this); return false;" class="btn1_sty1">중복확인</a> -->
+											<input type="text" class="input_text" placeholder="" id="userId" name="m_userId" style="ime-mode:disabled;" maxlength="16">
+											<!-- <a href="javascript:void(0);" id="m_userIdBtn" onclick="javascript:fn_CheckDupl(this); return false;" class="btn1_sty1">중복확인</a> -->
 											<!-- <span class="bul_point1">(아이디는 6~16자 사이 영문,숫자만 가능)</span> -->
 										</td>
 									</tr>
 									<tr>
 										<th><em class="m_color2"></em> 비밀번호 부여</th>
 										<td>
-											<input type="text" class="input_text" placeholder="자동부여 버튼을 눌러주세요." id="userPw" name="userPw" maxlength="20">
+											<input type="text" class="input_text" placeholder="자동부여 버튼을 눌러주세요." id="userPw" name="m_userPw" maxlength="20">
 											<button type="button" class="btn1_sty1 eye" href="javascript:void(0);" onclick="javascript:generateRandomPassword()">자동부여</button>
 										</td>
 									</tr>
@@ -430,26 +424,37 @@
 												<td>
 												
 													
-													<input type="text" class="input_text" id="userNm" name="userNm">
+													<input type="text" class="input_text" id="hspNm" name="m_hspNm">
 													
 													
 
-													<p>
-														<!-- <input type="hidden" class="input_text" id="birthDt" name="birthDt"> <span class="bar"></span> -->
-													</p>
+													
 												</td>
 													
 												
 											</tr>
 											
-									
+											<tr>
+												<th><em class="m_color2"></em> 담당자 이름<br></th>
+												<td>
+												
+													
+													<input type="text" class="input_text" id="name" name="m_name">
+													
+													
+
+												
+												</td>
+													
+												
+											</tr>
 									
 									
 									<!-- 
 									<tr>
 										<th><em class="m_color2">*</em> 비밀번호확인</th>
 										<td>
-											<input type="password" class="input_text" id="userPwConfirm" name="userPwConfirm" placeholder="비밀번호를 한번더 입력해 주세요." maxlength="20">
+											<input type="password" class="input_text" id="m_userPwConfirm" name="m_userPwConfirm" placeholder="비밀번호를 한번더 입력해 주세요." maxlength="20">
 											<button type="button" class="btn1_sty1 eye">비밀번호 보기</button>
 											<p class="bul_point1 mt10">(비밀번호는 8~20자 사이 <span class="m_color2">영대문자, 영소문자, 숫자, 특수문자 중 3종류 이상의 조합</span>)<br>
 												※ 특수문자 예 : @ # $ % ^ &amp; * ( ) _  |  ? </p>
@@ -520,13 +525,13 @@
 										<th>주소</th>
 										<td>
 											<p>
-												<input type="text" id="zipCd" name="zipCd" class="input_text" style="max-width:120px;" readonly="readonly">
-												<a href="javascript:void(0)" class="btn1_sty1" title="새 창 열림" id="zipCdBtn" onclick="javascript:fn_DaumPostcode();" style="text-decoration-line: none;">우편번호 검색</a>
+												<input type="text" id="zipCd" name="m_zipCd" class="input_text" style="max-width:120px;" readonly="readonly">
+												<a href="javascript:void(0)" class="btn1_sty1" title="새 창 열림" id="zipCdBtn" onclick="javascript:fn_DaumPostcode();">우편번호 검색</a>
 												<span class="bul_point1"></span>
 											</p>
 											<p class="mt10">
-												<input type="text" id="addr" name="addr" class="input_text" maxlength="100" readonly="readonly">
-												<input type="text" id="detlAddr" name="detlAddr" class="input_text" placeholder="상세주소를 입력해 주세요." maxlength="100">
+												<input type="text" id="addr" name="m_addr" class="input_text" maxlength="100" readonly="readonly">
+												<input type="text" id="detlAddr" name="m_addr_detail" class="input_text" placeholder="상세주소를 입력해 주세요." maxlength="100">
 											</p>
 										</td>
 									</tr>
@@ -539,6 +544,6 @@
 							<a href="/adminPage.do" class="btn_ty01_sty0"><span>취소</span></a>
 						</div>
 					</div>
-
+</form>
 </body>
 </html>
