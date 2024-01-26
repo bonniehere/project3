@@ -19,8 +19,8 @@ public class CMemberServiceImpl implements CMemberService{
 	}
 
 	@Override
-	public int insert(CMember member) { // 회원가입
-		return md.insert(member);
+	public void insert(CMember member) { // 회원가입
+		md.insert(member);
 	}
 
 	@Override

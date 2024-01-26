@@ -84,8 +84,8 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/company/CJoinResult.do", method = RequestMethod.POST)
 	public String CJoinResult(CMember member,Model model) {
+		System.out.println(member);
 		ms.insert(member);
-		model.addAttribute("insert", ms.insert(member));
 		return "/company/shipment/admin/CJoinResult";
 	}
 	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)

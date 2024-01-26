@@ -6,22 +6,21 @@ import lombok.Data;
 
 @Data
 public class CMember {
-	private String m_email; //담당자 email
-	private String m_name; // 담당자 이름
-	private String m_password;
-	private String m_img; // 사용안함
-	private Date m_birth; // 사용안함
-	private String m_hspname; // 병원명
 	private String m_userStat; // 회원구분
+	private String m_email; //담당자 email
+	private String m_userId; // 회원구분
+	private String m_userPw; // 회원구분
+	private String m_hspNm; // 병원명
+	private String m_name; // 담당자 이름
 	private String m_phone; // 담당자 휴대폰번호
 	private String m_tel; // 담당자 전화번호
 	private String m_zipCd; //우편번호
 	private String m_addr; // 주소
 	private String m_addr_detail; //주소 상세
-	private Date join_date; // 가입일
 	private String del; // 회원탈퇴 여부
-	private String recommend_code; // 영업사원 추천인
-	private int mileage; // 적립금
+	
+	private Date join_date; // 가입일
+	
 	private int amount;
 
 	// 업로드
@@ -34,6 +33,14 @@ public class CMember {
 	// 비밀번호 변경 임시번호
 	private int vCode;
 
+	public String getM_userStat() {
+		return m_userStat;
+	}
+
+	public void setM_userStat(String m_userStat) {
+		this.m_userStat = m_userStat;
+	}
+
 	public String getM_email() {
 		return m_email;
 	}
@@ -42,52 +49,36 @@ public class CMember {
 		this.m_email = m_email;
 	}
 
+	public String getM_userId() {
+		return m_userId;
+	}
+
+	public void setM_userId(String m_userId) {
+		this.m_userId = m_userId;
+	}
+
+	public String getM_userPw() {
+		return m_userPw;
+	}
+
+	public void setM_userPw(String m_userPw) {
+		this.m_userPw = m_userPw;
+	}
+
+	public String getM_hspNm() {
+		return m_hspNm;
+	}
+
+	public void setM_hspNm(String m_hspNm) {
+		this.m_hspNm = m_hspNm;
+	}
+
 	public String getM_name() {
 		return m_name;
 	}
 
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
-	}
-
-	public String getM_password() {
-		return m_password;
-	}
-
-	public void setM_password(String m_password) {
-		this.m_password = m_password;
-	}
-
-	public String getM_img() {
-		return m_img;
-	}
-
-	public void setM_img(String m_img) {
-		this.m_img = m_img;
-	}
-
-	public Date getM_birth() {
-		return m_birth;
-	}
-
-	public void setM_birth(Date m_birth) {
-		this.m_birth = m_birth;
-	}
-
-	public String getM_hspname() {
-		return m_hspname;
-	}
-
-	public void setM_hspname(String m_hspname) {
-		this.m_hspname = m_hspname;
-	}
-
-	public String getM_userStat() {
-		return m_userStat;
-	}
-
-	public void setM_userStat(String m_userStat) {
-		this.m_userStat = m_userStat;
 	}
 
 	public String getM_phone() {
@@ -130,14 +121,6 @@ public class CMember {
 		this.m_addr_detail = m_addr_detail;
 	}
 
-	public Date getJoin_date() {
-		return join_date;
-	}
-
-	public void setJoin_date(Date join_date) {
-		this.join_date = join_date;
-	}
-
 	public String getDel() {
 		return del;
 	}
@@ -146,20 +129,12 @@ public class CMember {
 		this.del = del;
 	}
 
-	public String getRecommend_code() {
-		return recommend_code;
+	public Date getJoin_date() {
+		return join_date;
 	}
 
-	public void setRecommend_code(String recommend_code) {
-		this.recommend_code = recommend_code;
-	}
-
-	public int getMileage() {
-		return mileage;
-	}
-
-	public void setMileage(int mileage) {
-		this.mileage = mileage;
+	public void setJoin_date(Date join_date) {
+		this.join_date = join_date;
 	}
 
 	public int getAmount() {
@@ -204,13 +179,13 @@ public class CMember {
 
 	@Override
 	public String toString() {
-		return "CMember [m_email=" + m_email + ", m_name=" + m_name + ", m_password=" + m_password + ", m_img=" + m_img
-				+ ", m_birth=" + m_birth + ", m_hspname=" + m_hspname + ", m_userStat=" + m_userStat + ", m_phone="
-				+ m_phone + ", m_tel=" + m_tel + ", m_zipCd=" + m_zipCd + ", m_addr=" + m_addr + ", m_addr_detail="
-				+ m_addr_detail + ", join_date=" + join_date + ", del=" + del + ", recommend_code=" + recommend_code
-				+ ", mileage=" + mileage + ", amount=" + amount + ", file=" + file + ", startRow=" + startRow
+		return "CMember [m_userStat=" + m_userStat + ", m_email=" + m_email + ", m_userId=" + m_userId + ", m_userPw="
+				+ m_userPw + ", m_hspNm=" + m_hspNm + ", m_name=" + m_name + ", m_phone=" + m_phone + ", m_tel=" + m_tel
+				+ ", m_zipCd=" + m_zipCd + ", m_addr=" + m_addr + ", m_addr_detail=" + m_addr_detail + ", del=" + del
+				+ ", join_date=" + join_date + ", amount=" + amount + ", file=" + file + ", startRow=" + startRow
 				+ ", endRow=" + endRow + ", vCode=" + vCode + "]";
 	}
+
 
 	
 	

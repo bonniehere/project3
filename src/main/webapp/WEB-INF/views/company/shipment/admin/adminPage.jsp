@@ -50,7 +50,7 @@
         <div class="row">
             
             <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;"><!-- 중앙 정렬 추가 -->
-                <h2 class="mt-5 text-start" id="join">관리자 페이지</h2>
+                <h2 class="mt-5 text-start" id="join">　관리자 페이지<br>　</h2>
                 <ul class="custom-list">
                     <li><div onclick="location.href='contactResultList.do'">제휴문의 리스트</div></li>
                     <li><div onclick="location.href='/company/CJoin.do'">제휴회원 ID 발급</div></li>
