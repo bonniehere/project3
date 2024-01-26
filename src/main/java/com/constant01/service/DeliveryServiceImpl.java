@@ -28,8 +28,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 	public void write(DeliveryDTO delivery) {
 		dm.write(delivery);
 	}
-	
-	
+
 	public ArrayList<DriverDTO> list(DriverDTO driver){
 		return dm.list(driver);
 	}
@@ -43,5 +42,6 @@ public class DeliveryServiceImpl implements DeliveryService{
 	public void delete(DeliveryDTO delivery) {
 		dm.delete(delivery);
 	}
+
 
 }
