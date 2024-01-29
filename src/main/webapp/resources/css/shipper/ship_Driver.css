@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* 상단 메뉴 스타일 */
+.header {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+body {
+    margin: 0;
+}
+

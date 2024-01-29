@@ -8,7 +8,7 @@
 <script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>C-Market</title>
 </head>
 <body>
 <h2>관계자 페이지임</h2>

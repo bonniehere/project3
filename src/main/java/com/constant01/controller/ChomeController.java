@@ -56,7 +56,7 @@ public class ChomeController {
 			
 			model.addAttribute("list", ds.list(driver)); //list select한 값
 			
-			return "/company/testpage";
+			return "/company/Driver_main";
 			
 		}else if(cs.login2(customer).getM_userStat().equals("출고직원")){
 			System.out.println("Staff 출고직원 페이지 로그인");
