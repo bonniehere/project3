@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.constant01.mapper.CustomerMapper;
+import com.constant01.model.CMember;
 import com.constant01.model.CustomerDTO;
 
 @Service
@@ -20,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	*/
 	// 회원 로그인입디다 !!
-	public CustomerDTO login(CustomerDTO customer) {
+	public CMember login(CMember customer) {
 	return cm.login(customer);
 	}
 
