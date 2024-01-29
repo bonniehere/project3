@@ -6,7 +6,7 @@
   <mapper namespace="com.constant01.mapper.cartMapper">
   
   <select id="cart_list" resultType="com.constant01.model.cartVO">
-  select * from cart
+  select * from cart where m_userId = #{m_userId}
   </select>
   
   <delete id="cart_delete">
@@ -16,11 +16,11 @@
   </delete>
   
   <insert id="cart_add">
-  insert into cart( productname, productcode, quantity, price) values(#{productname},#{productcode},#{quantity},#{price});
+  insert into cart(m_userId, productname, productcode, quantity, price) values(#{m_userId},#{productname},#{productcode},#{quantity},#{price});
   
   </insert>
   <insert id="orderItem">
-  insert into cartorder( productname, productcode, quantity, price, subtotal) values(#{productname},#{productcode},#{quantity},#{price}, #{subtotal});
+  insert into cartorder(m_userId, productname, productcode, quantity, price, subtotal) values(#{m_userId},#{productname},#{productcode},#{quantity},#{price}, #{subtotal});
   
   </insert>
   

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.constant01.mapper.cartMapper;
 import com.constant01.model.BoardDTO;
 import com.constant01.model.CMember;
 import com.constant01.model.Criteria;
@@ -219,12 +220,20 @@ public class ReleaseController {
 	//장바구니 보여주기
 	 @GetMapping("list")
 	    public String list(cartVO list, Model model,HttpServletRequest request) {
-	        model.addAttribute("list", cs.cart_list(list));
-	       
-
-	        HttpSession session = request.getSession();
+		 
+		 HttpSession session = request.getSession();
 	        Object loginAttribute = session.getAttribute("login");
 	        model.addAttribute("login", loginAttribute);
+	        
+		 
+		    
+	        model.addAttribute("list", cs.cart_list(list));
+	       
+	      
+	        
+
+
+	        
 	        
 	        
 	        if(loginAttribute != null) {

@@ -17,6 +17,10 @@
         <div class="cart-content">
             <h3>${sessionScope.login.m_name}님의 장바구니</h3>
             
+            
+            
+            
+            
             <ul class="cart-items" id="cartItems">
     <c:forEach items="${list}" var="item">
         <li id="item-${item.no}">
@@ -30,6 +34,7 @@
             <input type="hidden" name="quantity" value="${item.quantity}">
             <input type="hidden" name="price" value="${item.price}">
             <input type="hidden" name="subtotal" value="${item.quantity * item.price}">
+            <input type="hidden" name="m_userId" value="${item.m_userId}">
             
             <button class="remove-from-cart" onclick="removeFromCart(${item.no}, '${item.productcode}', ${item.quantity * item.price})">삭제</button>
         </li>
@@ -46,7 +51,10 @@
     <script>
         // 페이지 로드 시 총 가격 계산
         $(document).ready(function () {
-            updateTotalAmount();
+        	
+        	
+        	updateTotalAmount();
+            
         });
 
         // 삭제 버튼 클릭 시 실행되는 함수
@@ -88,7 +96,9 @@
             var cartItems = [];
             $('.cart-items li').each(function() {
                 var item = {
+                    m_userId: $(this).find('input[name="m_userId"]').val(),
                     productname: $(this).find('input[name="productname"]').val(),
+
                     productcode: $(this).find('input[name="productcode"]').val(),
                     quantity: $(this).find('input[name="quantity"]').val(),
                     price: $(this).find('input[name="price"]').val(),

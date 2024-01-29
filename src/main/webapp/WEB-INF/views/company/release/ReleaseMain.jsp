@@ -21,7 +21,8 @@
         <c:choose>
     <c:when test="${not empty sessionScope.login}">
         <p>${sessionScope.login.m_name}님 환영합니다.</p>
-        <input type="hidden" value="${sessionScope.login.m_name}">
+        
+        <input type="hidden" name="sessionId" value="${sessionScope.login.m_userId}">
     </c:when>
     <c:otherwise>
         로그인을 해주세요.
@@ -111,6 +112,17 @@
         const productCodes = document.querySelectorAll('.productcode');
         const productNames = document.querySelectorAll('.productname');
 
+        const sessionId = document.querySelector('input[name="sessionId"]').value;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         plusButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 const amountElement = amounts[index];
@@ -167,6 +179,7 @@
                 
 
                 addToCart({
+                	m_userId: sessionId,
                 	productname: productname,
                     productcode: productcode,
                     quantity: amount,
