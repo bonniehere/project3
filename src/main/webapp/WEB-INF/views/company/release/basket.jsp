@@ -15,7 +15,7 @@
 <body>
     <div class="cart">
         <div class="cart-content">
-            <h3>장바구니</h3>
+            <h3>${sessionScope.login.m_name}님의 장바구니</h3>
             
             <ul class="cart-items" id="cartItems">
     <c:forEach items="${list}" var="item">
