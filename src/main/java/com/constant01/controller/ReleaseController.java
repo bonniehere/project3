@@ -40,6 +40,7 @@ public class ReleaseController {
 	@Autowired
 	ReleaseService rs;
 	
+	
 	@Autowired
 	cartService cs;
 	
@@ -262,8 +263,7 @@ public class ReleaseController {
 	 }
 	 
 	 //장바구니 담기
-	 
-	 @PostMapping("cart_add")
+	 	 @PostMapping("cart_add")
 	 @ResponseBody
 	 public void addcart(@RequestBody cartVO list) {
 	     

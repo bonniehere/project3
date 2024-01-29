@@ -7,8 +7,7 @@ public class Criteria {
 	private String type;	
 	private String m_userId;
 	
-	
-	
+		
 	
 	public String getM_userId() {
 		return m_userId;

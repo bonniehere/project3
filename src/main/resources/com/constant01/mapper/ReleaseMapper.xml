@@ -9,6 +9,7 @@
   select * from board
   where productcode=#{productcode};
   
+  
   </select>
   
    <select id="boardpage" resultType="com.constant01.model.BoardDTO">

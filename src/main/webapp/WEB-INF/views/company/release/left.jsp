@@ -22,6 +22,7 @@
         <li><a href="test3" class="item"><div>#</div></a></li>
         <li><a href="#" class="item"><div>Q&A</div></a></li>
         <li><a href="list?m_userId=${sessionScope.login.m_userId}" class="item"><div>장바구니</div></a></li>
+        
     </ul>
 </div>
     

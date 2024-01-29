@@ -24,6 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public CMember login(CMember customer) {
 	return cm.login(customer);
 	}
+	
 	public CMember login2(CMember customer) {
 		return cm.login2(customer);
 	}

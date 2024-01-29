@@ -78,6 +78,7 @@
                             </td>
                             <td>${board.price}</td>
                             <td>${board.manufacturer}</td>
+                            //
                         </tr>
                     </c:forEach>
                 </tbody>
