@@ -11,5 +11,7 @@ public interface CustomerService {
 	
 	// 회원 로그인입디다 
 	public CMember login(CMember customer);
+	
+	public CMember login2(CMember customer);
 
 }

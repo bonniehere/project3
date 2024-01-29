@@ -23,7 +23,7 @@
 function del() {
 	var cf = confirm("회원을 탈퇴시키겠습니까?");
 	if(cf) {
-		location.href="adminMbDelete.do?m_email=${member.m_email }";
+		location.href="adminMbDelete.do?m_userId=${member.m_userId }";
 		
 	} else {
 		alert("탈퇴가 취소 되었습니다");
@@ -52,13 +52,10 @@ function del() {
 						<tr><th>이메일</th><td>${member.m_email }</td></tr>
 						<tr><th>이름</th><td>${member.m_name }</td></tr>
 						<tr><th>전화번호</th><td>${member.m_tel }</td></tr>
-						<tr><th>생일</th><td>${member.m_birth }</td></tr>
 						<tr><th>주소</th><td>${member.m_addr }</td></tr>
 						<tr><th>상세주소</th><td>${member.m_addr_detail }</td></tr>
 						<tr><th>가입일</th><td>${member.join_date }</td></tr>
 						<tr><th>탈퇴여부</th><td>${member.del }</td></tr>
-						<tr><th>추천인</th><td>${member.recommend_code }</td></tr>
-						<tr><th>마일리지</th><td>${member.mileage }</td></tr>
 						<tr><th>누적금액</th><td>${amonut }</td></tr>
 						<tr><th>탈퇴시키기</th><td><button type="button" class="btn btn-danger" 
 						onclick="del()">

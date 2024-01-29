@@ -229,23 +229,10 @@ function takeScreenshotAndSaveAsImage() {
 										
 										
 										
-											<tr>
-												<th><em class="m_color2"></em> 병원명<br></th>
-												<td>
-												
-													
-													<input type="text" class="input_text" id="hspNm" name="m_hspNm" value="${cmember.m_hspNm}">
-													
-													
-
-													
-												</td>
-													
-												
-											</tr>
+											
 											
 											<tr>
-												<th><em class="m_color2"></em> 담당자 이름<br></th>
+												<th><em class="m_color2"></em> Staff 이름<br></th>
 												<td>
 												
 													
@@ -264,14 +251,14 @@ function takeScreenshotAndSaveAsImage() {
 									
 									
 									<tr>
-										<th><em class="m_color2"></em> 담당자 휴대전화번호</th>
+										<th><em class="m_color2"></em> Staff 휴대전화번호</th>
 										<td>
 											<input type="text" class="input_text" id="phone" name="m_phone" readonly value="${cmember.m_phone}">
 											
 										</td>
 									</tr>
 									<tr>
-										<th><em class="m_color2"></em>병원 전화번호</th>
+										<th><em class="m_color2"></em> Staff 전화번호</th>
 										<td>
 											<input type="text" class="input_text" id="tel" name="m_tel" value="${cmember.m_tel}">
 										</td>

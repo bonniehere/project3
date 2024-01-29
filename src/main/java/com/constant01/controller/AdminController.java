@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.constant01.model.Affi;
 import com.constant01.model.Coupon;
@@ -39,7 +41,7 @@ public class AdminController {
 	@Autowired
 	private QnArService qrs;
 	
-	@RequestMapping(value = "adminPage.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/adminPage.do", method = RequestMethod.POST)
 	public String adminPage() {
 		return "/company/shipment/admin/adminPage";
 	}
@@ -85,9 +87,18 @@ public class AdminController {
 	@RequestMapping(value = "/company/CJoinResult.do", method = RequestMethod.POST)
 	public String CJoinResult(CMember member,Model model) {
 		System.out.println(member);
+		model.addAttribute("cmember", member);
 		ms.insert(member);
 		return "/company/shipment/admin/CJoinResult";
 	}
+	@RequestMapping(value = "/company/CJoinResult2.do", method = RequestMethod.POST)
+	public String CJoinResult2(CMember member,Model model) {
+		System.out.println(member);
+		model.addAttribute("cmember", member);
+		ms.insert2(member);
+		return "/company/shipment/admin/CJoinResult2";
+	}
+
 	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
 	public String orderList(M_order m_order, String pageNum, Model model) {
 		
@@ -162,7 +173,7 @@ public class AdminController {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		int rowPerPage = 2; // 한 화면에 보여주는 게시글 갯수
+		int rowPerPage = 5; // 한 화면에 보여주는 게시글 갯수
 		int total = ms.getMbTotal(member);
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
@@ -181,16 +192,16 @@ public class AdminController {
 		return "/company/shipment/admin/adminMbList";
 	}
 	@RequestMapping(value = "adminMbView.do", method = RequestMethod.GET)
-	public String adminMbView(String m_email, String pageNum, Model model) {
-		CMember member = ms.select(m_email);
+	public String adminMbView(String m_userId, String pageNum, Model model) {
+		CMember member = ms.select(m_userId);
 
 		model.addAttribute("member", member);
 
 		return "/company/shipment/admin/adminMbView";
 	}
 	@RequestMapping(value = "adminMbDelete.do", method = RequestMethod.GET)
-	public String adminMbDelete(String m_email, String pageNum, Model model) {
-		int result = ms.adminMbDelete(m_email);
+	public String adminMbDelete(String m_userId, String pageNum, Model model) {
+		int result = ms.adminMbDelete(m_userId);
 		model.addAttribute("result", result);
 		return "/company/shipment/admin/adminMbDelete";
 	}

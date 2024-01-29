@@ -8,5 +8,8 @@
 <select id="login" parameterType="String" resultType="com.constant01.model.CMember">
 	select * from CMember where m_userId=#{m_userId} and m_userPw =#{m_userPw};	
 </select>
+<select id="login2" parameterType="String" resultType="com.constant01.model.CMember">
+	select * from Staff where m_userId=#{m_userId} and m_userPw =#{m_userPw};	
+</select>
 
 </mapper>

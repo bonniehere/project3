@@ -116,7 +116,19 @@
     </style>
     <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script><script charset="UTF-8" type="text/javascript" src="//t1.daumcdn.net/postcode/api/core/221018/1666013742754/221018.js"></script>
 <script type="text/javascript">
-		
+$(document).ready(function(){
+	$("input:checkbox[name=clone]").click(function(){
+		if( $("input[name=clone]").is(":checked")){
+			$("#telNo1").val($("#hpNo1").val());
+			$("#telNo2").val($("#hpNo2").val());
+			$("#telNo3").val($("#hpNo3").val());
+		}else{
+			$("#telNo1").val("");
+			$("#telNo2").val("");
+			$("#telNo3").val("");
+		}
+	});
+});
 		function fn_DaumPostcode( ){
 			new daum.Postcode({
 			oncomplete: function(data ){
@@ -270,7 +282,104 @@
 			$("#frm").attr("action","/company/CJoinResult.do").submit();
 			
 		}
-		
+		function fn_Regist2(){
+			if( $("input[name=m_userStat]:checked").length == 0 ){
+				alert("회원구분을 선택해 주세요.");
+				$("input[name=m_userStat]").eq(0).focus();
+				return false;
+			}
+			
+			if( $("#email1").val() != "" && $("#email2").val() != "" ){
+				if( !fn_VerificationEmail($("#email1").val()+"@"+$("#email2").val()) ){
+				alert("이메일주소가 유효하지 않습니다.");
+				$("#email1").focus();
+				return false;
+				}
+			}
+			if( $("#email1").val() == "" ){alert("이메일을 입력해 주세요.");$("#email1").focus();return false;}
+			if( $("#email2").val() == "" ){alert("이메일을 입력해 주세요.");$("#email2").focus();return false;}
+			$("#userId").val($("#userId").val().trim().replaceAll(" ",""));
+			if( $("#userId").val() == "" ){alert("아이디를 입력해 주세요.");$("#userId").focus();return false;}
+			if( $("#userPw").val() == "" ){alert("초기 비밀번호를 부여해 주세요.");$("#userPw").focus();return false;}
+			
+			
+
+			
+			if( $("#hpNo1").val() == "" || $("#hpNo2").val() == "" || $("#hpNo3").val() == "" ){
+				alert("휴대전화를 입력해 주세요.");
+				if( $("#hpNo1").val() == "" ){
+					$("#hpNo1").focus();
+				} else if( $("#hpNo2").val() == "" ){
+					$("#hpNo2").focus();
+				}else{
+					$("#hpNo3").focus();
+				}
+				return false;
+			}
+			if( $("#hpNo2").val() != "" ){
+				if( $("#hpNo2").val().length < 3 ){
+					alert("휴대전화 중간번호를 3~4자리로 입력해 주세요.");
+					$("#hpNo2").focus();
+					return false;
+				}
+			}
+			if( $("#hpNo3").val() != "" ){
+				if( $("#hpNo3").val().length != 4 ){
+					alert("휴대전화 마지막번호를 4자리로 입력해 주세요.");
+					$("#hpNo3").focus();
+					return false;
+				}
+			}
+			if( $("#telNo1").val() == "" || $("#telNo2").val() == "" || $("#telNo3").val() == "" ){
+				alert("전화번호를 입력해 주세요.");
+				if( $("#telNo1").val() == "" ){
+					$("#telNo1").focus();
+				} else if( $("#telNo2").val() == "" ){
+					$("#telNo2").focus();
+				}else{
+					$("#telNo3").focus();
+				}
+				return false;
+			}
+			if( $("#telNo1").val() != "" && $("#telNo2").val() != "" ){
+				if( $("#telNo2").val().length < 3 ){
+					alert("전화번호 중간번호를 3~4자리로 입력해 주세요.");
+					$("#telNo2").focus();
+					return false;
+				}
+			}
+			if( $("#telNo1").val() != "" && $("#telNo2").val() != "" && $("#telNo3").val() != "" ){
+				if( $("#telNo3").val().length != 4 ){
+					alert("전화번호 마지막번호를 4자리로 입력해 주세요.");
+					$("#telNo3").focus();
+					return false;
+				}
+			}
+			
+			
+			if( $("#zipCd").val() == "" || $("#addr").val() == "" ){
+				alert("주소를 검색해 주세요.");
+				$("#zipCdBtn").focus();
+				return false;
+			}
+			if( $("#detladdr").val() == "" ){
+				alert("상세 주소를 입력해 주세요.");
+				$("#detladdr").focus();
+				return false;
+			}
+			
+			$("#zipCd").val($("#zipCd").val().replaceAll(" ",""));
+			if( $("#telNo1").val() != "" && $("#telNo2").val() != "" && $("#telNo3").val() != ""  ){
+            	$("#tel").val($("#telNo1").val()+"-"+$("#telNo2").val()+"-"+$("#telNo3").val());
+            }
+			
+			$("#phone").val($("#hpNo1").val()+"-"+$("#hpNo2").val()+"-"+$("#hpNo3").val());
+			
+			$("#email").val($("#email1").val().replaceAll(" ","")+"@"+$("#email2").val().replaceAll(" ",""));
+			
+			$("#frm").attr("action","/company/CJoinResult2.do").submit();
+			
+		}
 		function generateRandomPassword() {
 	            // 8자리의 랜덤 숫자 생성
 	            const password = Math.floor(10000000 + Math.random() * 90000000).toString();
@@ -364,16 +473,24 @@
 											
 												<label for="m_userStat2" class="ch">
 													<input type="radio" id="m_userStat2" name="m_userStat" class="" value="VIP">
-													<span>우수회원</span>
+													<span>VIP</span>
 												</label>
 												<label for="m_userStat3" class="ch">
 													<input type="radio" id="m_userStat3" name="m_userStat" class="" value="VVIP">
-													<span>VIP</span>
+													<span>VVIP</span>
+												</label>
+												<label for="m_userStat4" class="ch">
+													<input type="radio" id="m_userStat4" name="m_userStat" class="" value="출고직원">
+													<span>출고직원</span>
+												</label>
+												<label for="m_userStat5" class="ch">
+													<input type="radio" id="m_userStat5" name="m_userStat" class="" value="출하직원">
+													<span>출하직원</span>
 												</label>
 												
 												
 											
-											<span class="bul_point1 m_userStatDesc" style="display: none;">병원직원,간호부의 경우 이메일주소는 사내메일주소로 입력 부탁드립니다.</span>
+											
 										</td>
 									</tr>
 								
@@ -420,7 +537,7 @@
 										
 										
 											<tr>
-												<th><em class="m_color2"></em> 병원명<br>(ex : 중앙대학교병원 광명)</th>
+												<th><em class="m_color2"></em> 병원명<br>(ex : 중앙대학교병원 광명 / 직원의경우 공백)</th>
 												<td>
 												
 													
@@ -435,7 +552,7 @@
 											</tr>
 											
 											<tr>
-												<th><em class="m_color2"></em> 담당자 이름<br></th>
+												<th><em class="m_color2"></em>이름<br></th>
 												<td>
 												
 													
@@ -464,7 +581,7 @@
 									
 									
 									<tr>
-										<th><em class="m_color2"></em> 담당자 휴대전화번호</th>
+										<th><em class="m_color2"></em>휴대전화번호</th>
 										<td>
 											<select id="hpNo1" name="hpNo1" class="input_text">
 												<option value="">선택</option>
@@ -482,7 +599,7 @@
 										</td>
 									</tr>
 									<tr>
-										<th><em class="m_color2"></em>병원 전화번호</th>
+										<th><em class="m_color2"></em>전화번호</th>
 										<td>
 											<select id="telNo1" name="telNo1" class="input_text">
 												<option value="">선택</option>
@@ -526,7 +643,7 @@
 										<td>
 											<p>
 												<input type="text" id="zipCd" name="m_zipCd" class="input_text" style="max-width:120px;" readonly="readonly">
-												<a href="javascript:void(0)" class="btn1_sty1" title="새 창 열림" id="zipCdBtn" onclick="javascript:fn_DaumPostcode();">우편번호 검색</a>
+												<a href="javascript:void(0)" class="btn1_sty1" title="새 창 열림" id="zipCdBtn" onclick="javascript:fn_DaumPostcode();" style="text-decoration: none;">우편번호 검색</a>
 												<span class="bul_point1"></span>
 											</p>
 											<p class="mt10">
@@ -540,7 +657,8 @@
 							</table>
 						</div>
 						<div class="btn_area">
-							<a href="javascript:void(0);" onclick="javascript:fn_Regist();" class="btn_ty01_sty01"><span>가입하기</span></a>
+							<a href="javascript:void(0);" onclick="javascript:fn_Regist();" class="btn_ty01_sty01"><span>제휴회원 회원가입</span></a>
+							<a href="javascript:void(0);" onclick="javascript:fn_Regist2();" class="btn_ty01_sty01"><span>직원 회원가입</span></a>
 							<a href="/adminPage.do" class="btn_ty01_sty0"><span>취소</span></a>
 						</div>
 					</div>
