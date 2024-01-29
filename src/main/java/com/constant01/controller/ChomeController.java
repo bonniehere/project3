@@ -19,32 +19,25 @@ import com.constant01.service.DeliveryService;
 
 @Controller
 public class ChomeController {
-	/*
-	@Autowired
-	MemberService ms;
-	@Autowired
-	ProfService ps;
-	@Autowired
-	ReserveService rs;
-	*/
+	
 	@Autowired
 	CustomerService cs;
 	@Autowired
 	DeliveryService ds;
 	
 	@RequestMapping(value = "company/homelog.do", method = RequestMethod.GET)
-	// 게시판 목록 리스트                                기본생성자 호출
 	public String homelog () {
 		return "company/homelog";
-		// list.jsp 실행 할 때 select 된 결과를 가져와라!!!!
+
 	}
 	
-	//@RequestMapping(value = "/company/homelog.do", method = RequestMethod.POST)
+	
 	@PostMapping("/company/homelog.do")
 	public String login(DriverDTO driver, DeliveryDTO delivery, CMember customer,AdminDTO admin, HttpSession session, Model model) {
 		System.out.println("회원로그인콘솔체크");
 		System.out.println(cs.login(customer));
-		System.out.println("CMember="+customer);
+		System.out.println(cs.login2(customer));
+		System.out.println(cs.login2(customer).getM_userStat());
 		if(cs.login(customer) != null) {
 			// 로그인 해라 (session에 select값 저장)
 			System.out.println("회원 로그인");
@@ -57,24 +50,19 @@ public class ChomeController {
 
 			
 			//배달 기사 로그인
-		}else if(ds.login(driver) != null){
-			System.out.println("기사로그인");
-			session.setAttribute("login", ds.login(driver)); //로그인한 세션 값
+		}else if(cs.login2(customer).getM_userStat().equals("출하직원")){
+			System.out.println("Staff 출하직원 페이지 로그인");
+			session.setAttribute("login", cs.login2(customer)); //로그인한 세션 값
 			
 			model.addAttribute("list", ds.list(driver)); //list select한 값
 			
 			return "/company/testpage";
 			
-		}else if(ds.login2(admin) != null){
-			System.out.println("관리자 로그인");
-			session.setAttribute("login2", ds.login2(admin));
-			model.addAttribute("login2");
-			model.addAttribute("dlist", ds.dlist(delivery)); //list select한 값
-			// 구매 화면으로 이동
+		}else if(cs.login2(customer).getM_userStat().equals("출고직원")){
+			System.out.println("Staff 출고직원 페이지 로그인");
+			session.setAttribute("login", cs.login2(customer)); //로그인한 세션 값
 			
-			//model.addAttribute("dlist", ds.dlist(delivery));
-			
-			return "/company/adminPage.do";
+			return "/company/shipment/admin/adminPage";
 		
 		
 		}else {	// 그렇지 않으면 메인화면으로 이동...

@@ -5,7 +5,7 @@
 	<!-- 아이디로 검색 -->
 	<select id="select" resultType="com.constant01.model.CMember">
 		select *
-		from CMember where M_email=#{m_email}
+		from CMember where m_userId=#{m_userId}
 	</select>
 
 	<!-- 회원가입 --> <!-- table img default값 지우기 -->
@@ -17,6 +17,17 @@
 		values(
 		#{m_userStat}, #{m_email}, #{m_userId}, #{m_userPw},
 		#{m_hspNm}, #{m_name}, #{m_phone}, #{m_tel}, 
+		#{m_zipCd}, #{m_addr}, #{m_addr_detail}
+		)
+	</insert>
+	<insert id="insert2">
+		insert into Staff(
+		m_userStat, m_email, m_userId, m_userPw, 
+		m_name, m_phone, m_tel,
+		m_zipCd, m_addr, m_addr_detail)
+		values(
+		#{m_userStat}, #{m_email}, #{m_userId}, #{m_userPw},
+		#{m_name}, #{m_phone}, #{m_tel}, 
 		#{m_zipCd}, #{m_addr}, #{m_addr_detail}
 		)
 	</insert>
@@ -39,7 +50,7 @@
 	<!-- 회원 탈퇴 -->
 	<update id="delete">
 		update Cmember set del='y'
-		where M_email=#{m_email}
+		where m_userId=#{m_userId}
 	</update>
 
 	<!-- 회원 정보 수정 -->
@@ -68,7 +79,7 @@
 	<!-- 관리자 회원 정보 삭제 -->
 	<update id="adminMbDelete" parameterType="string">
 		update Cmember set
-		del='Y' where m_email=#{m_email}
+		del='Y' where m_userId=#{m_userId}
 	</update>
 
 	<!-- 관리자 회원 수 확인 -->
@@ -80,8 +91,8 @@
 	<select id="mbList" resultType="com.constant01.model.CMember">
 		select *
          from(select  b.*, @rownum:=@rownum+1 rn
-            from affi b, (select @rownum:=0) as tmp
-             order by AF_no desc) as boardlist
+            from Cmember b, (select @rownum:=0) as tmp
+             order by m_hspNm desc) as boardlist
 		where rn between #{startRow} and #{endRow}
 	</select>
 

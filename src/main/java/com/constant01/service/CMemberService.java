@@ -2,6 +2,7 @@ package com.constant01.service;
 
 import java.util.List;
 
+
 import com.constant01.model.CMember;
 
 
@@ -11,6 +12,8 @@ public interface CMemberService {
 	CMember select(String m_email);
 
 	void insert(CMember member);
+	
+	void insert2(CMember member);
 	
 	CMember selectFindId(String m_tel, String m_name); // 아이디 찾기
 

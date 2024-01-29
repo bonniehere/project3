@@ -53,10 +53,11 @@
                 <h2 class="mt-5 text-start" id="join">　관리자 페이지<br>　</h2>
                 <ul class="custom-list">
                     <li><div onclick="location.href='contactResultList.do'">제휴문의 리스트</div></li>
-                    <li><div onclick="location.href='/company/CJoin.do'">제휴회원 ID 발급</div></li>
-                    <li><div onclick="location.href='orderList.do'">주문 리스트</div></li>
+                    <li><div onclick="location.href='adminQnAList.do'">1:1문의 리스트</div></li>
+                    <li><div onclick="location.href='/company/CJoin.do'">ID 발급</div></li>
                     <li><div onclick="location.href='adminMbList.do'">회원 리스트</div></li>
-                    <li><div onclick="location.href='adminQnAList.do'">1:1문의리스트</div></li>
+                    <li><div onclick="location.href='orderList.do'">주문 리스트</div></li>
+                    <li><div onclick="location.href='#'">재고 현황</div></li>
                     <li><div onclick="location.href='adminCoupon.do'">쿠폰발급창</div></li>
                 </ul>
             </div>

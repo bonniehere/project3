@@ -12,6 +12,8 @@ public interface CMemberMapper {
 	CMember select(String m_email);
 
 	void insert(CMember member);
+	
+	void insert2(CMember member);
 
 	CMember selectFindId(String m_tel, String m_name);
 
