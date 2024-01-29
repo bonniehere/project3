@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Master.css">
 <style>
 .node {
     position: absolute;
@@ -67,14 +68,31 @@
 <body>
 <h2>공급사가 배송자의 온도와 위치를 볼 수 있는 페이지</h2>
 
+<div>
+<c:forEach items="${dlist}" var="dlist" varStatus="status">
 
+<input type="hidden" name="userPw" value="${dlist.userPw}">
+<input type="hidden" name="driverNm" value="${dlist.driverNm}">
+<input type="hidden" name="driverLat" value="${dlist.driverLat}">
+<input type="hidden" name="driverLon" value="${dlist.driverLon}">
+
+</c:forEach>
+</div>
+
+
+
+
+
+
+<!-- 여까지 지우기
  <input type="hidden" name="userPw" id="userPw" value="${dlist[0].userPw}">
+  -->
  <!-- 여기가 이전 거 가져온 스크립트 -->
 <script type="text/javascript">
 
 $(document).ready(function(){
-	setInterval('autoChase()', 3000); // 3초 마다 함수실행	
-	setInterval('fn_gogo()', 3000); // 3초 마다 함수실행
+   setInterval('autoChase()', 3000); // 3초 마다 함수실행   
+   setInterval('fn_gogo()', 3000); // 3초 마다 함수실행
 })
 
 var driverLat=[];
@@ -82,47 +100,47 @@ var driverLon=[];
 var driverNm=[];
 
 function autoChase(){
-	//alert("dddd");
-	var userPw = $('input[name=userPw]').val();
-	$.ajax({
-		type : "POST",
-		url  : "/company/shipper/AdminLocLoad.do",
-		data : {
-			"userPw"		: userPw
-		},
-		dataType : "json",
-		success  : function(data){
-			
-			
-			for(var i=0;i<data.length;i++){
-				driverLat[i] = data[i].driverLat;
-				driverLon[i] = data[i].driverLon;
-				driverNm[i] = data[i].driverNm;
-				
-				
-				
-			}
-			
-			
-			/*document.querySelector("#driverLat").value = data[0].driverLat;
-			document.querySelector("#driverLon").value = data[0].driverLon;
-			qq = document.querySelector("#driverLat").value; //갱신 위도
-			ww = document.querySelector("#driverLon").value; //갱신 경도
-			console.log("성공");
-			var locPosition = new kakao.maps.LatLng(qq, ww), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	         message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
-	         
-	           // 마커와 인포윈도우를 표시합니다
-	           displayMarker(locPosition, message);
-			//술먹어서 생각이안남 함수발동을 위한 트리거
-			*/
-		},
-		error:function(request,status,error){
-			console.log("실패");
-			alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
-		}
-	});
-	
+   //alert("dddd");
+   var userPw = $('input[name=userPw]').val();
+   $.ajax({
+      type : "POST",
+      url  : "/company/shipper/AdminLocLoad.do",
+      data : {
+         "userPw"      : userPw
+      },
+      dataType : "json",
+      success  : function(data){
+         
+         
+         for(var i=0;i<data.length;i++){
+            driverLat[i] = data[i].driverLat;
+            driverLon[i] = data[i].driverLon;
+            driverNm[i] = data[i].driverNm;
+            
+            
+            
+         }
+         
+         
+         /*document.querySelector("#driverLat").value = data[0].driverLat;
+         document.querySelector("#driverLon").value = data[0].driverLon;
+         qq = document.querySelector("#driverLat").value; //갱신 위도
+         ww = document.querySelector("#driverLon").value; //갱신 경도
+         console.log("성공");
+         var locPosition = new kakao.maps.LatLng(qq, ww), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+            message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
+            
+              // 마커와 인포윈도우를 표시합니다
+              displayMarker(locPosition, message);
+         //술먹어서 생각이안남 함수발동을 위한 트리거
+         */
+      },
+      error:function(request,status,error){
+         console.log("실패");
+         alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
+      }
+   });
+   
 }
 
 
@@ -142,8 +160,8 @@ function autoChase(){
  * AbstractOverlay를 상속받을 객체를 선언합니다.
  */
 function TooltipMarker(position, tooltipText) {
-	
-	this.position = position;
+   
+   this.position = position;
     var node = this.node = document.createElement('div');
     node.className = 'node';
 
@@ -504,11 +522,11 @@ var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과"
 
 /* 내가 쓸 값들
 var driverLat[];
-	var driverLon[];
-	var driverNm[];
-	*/
+   var driverLon[];
+   var driverNm[];
+   */
 
-	
+   
 //내가 가져옴여
 var marker = [];
 var markerTracker = [];
@@ -517,45 +535,45 @@ var drivercontent = [];
 var flag = false;
 
 function fn_gogo(){
-	//alert("gdgd");	
-		//let trackerElements = document.querySelectorAll('.tracker');
-		if(flag){
-			for(j=0; j<marker.length; j++){
-				marker[j].setMap(null);
-				//markerTracker[j].stop();
-				//var tracker = trackerElements[j];
-				//tracker.parantNode.removeChild(tracker);
-				$(".tracker").remove();
-				
-			}
-		}
+   //alert("gdgd");   
+      //let trackerElements = document.querySelectorAll('.tracker');
+      if(flag){
+         for(j=0; j<marker.length; j++){
+            marker[j].setMap(null);
+            //markerTracker[j].stop();
+            //var tracker = trackerElements[j];
+            //tracker.parantNode.removeChild(tracker);
+            $(".tracker").remove();
+            
+         }
+      }
 
-	  
-		
-		// 커스텀 오버레이에 표시할 내용입니다     
-		// HTML 문자열 또는 Dom Element 입니다 
-		drivercontent[0] = driverNm[0];
+     
+      
+      for(i=0; i < driverLat.length; i++){
+      // 커스텀 오버레이에 표시할 내용입니다     
+      // HTML 문자열 또는 Dom Element 입니다 
+      drivercontent[i] = driverNm[i];
 
-		// 커스텀 오버레이가 표시될 위치입니다 
-		driverposition[0] = new kakao.maps.LatLng(driverLat[0], driverLon[0]);  
-		
-		
-		
-		
-		//for(i=0; i < driverLat.length; i++){
-		// 커스텀 오버레이를 생성합니다
-		marker[0] = new TooltipMarker(driverposition[0], driverNm[0]);
-		marker[0].setMap(map);
-		
-		markerTracker[0] = new MarkerTracker(map, marker[0]);
+      // 커스텀 오버레이가 표시될 위치입니다 
+      driverposition[i] = new kakao.maps.LatLng(driverLat[i], driverLon[i]);  
+      
+      
+      
 
-		markerTracker[0].run();
-		
-		
-		flag = true;
-    
-	
-}//gogo()함수 종료
+      // 커스텀 오버레이를 생성합니다
+      marker[i] = new TooltipMarker(driverposition[i], driverNm[i]);
+      marker[i].setMap(map);
+      
+      markerTracker[i] = new MarkerTracker(map, marker[i]);
+
+      markerTracker[i].run();
+      
+      
+      
+      }
+       flag=true;
+   } //gogo()함수 종료
 
 
 
@@ -589,7 +607,327 @@ markerTracker3.run();
 */
 </script>
 
+<script>
+jQuery(function() {
+	  jQuery('#myTab a:first').tab('show')
+	})
 
+	$(".btn-danger").click(function() {
+	  $('#cust-wrap').animate({
+	    width: 50 + '%',
+	    marginLeft: 0
+	  }, {
+	    duration: 1000
+	  });
+	  $("#cust-table").css("display", "inline-table")
+	  $("#loc-wrap").fadeIn(2000)
+	  // $("#loc-table").fadeIn(2000)
+	  $("#loc-wrap").css("display", "inline-table")
+	  $("#loc-table").css("display", "inline-table")
+	})
+
+	$(".ex").click(function() {
+	  $("#loc-table").fadeOut(1000)
+	  $('#cust-wrap').animate({
+	    width: 100 + '%',
+	    marginLeft: 0
+	  }, {
+	    duration: 1000
+	  });
+	  $("#loc-wrap").css("display", "none")
+	})
+
+
+</script>
+
+<div class="container-fluid">
+  <div id="cust-wrap">
+    <h2 id="title">Customers</h2>
+    <table id="cust-table" class="table table-fixed">
+      <thead>
+        <th class="col-xs-3">First Name</th>
+        <th class="col-xs-3">Last Name</th>
+        <th class="col-xs-3">Email</th>
+        <th class="col-xs-3">Phone</th>
+        <th class="col-xs-3">Details</th>
+      </thead>
+      <tbody>
+        <div class="scroll">
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Jill</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">John</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+
+            <td class="col-xs-3" contentEditable="true">Robert</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Sam</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Jill</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">John</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Robert</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Sam</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Jill</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">John</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Robert</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-3" contentEditable="true">Sam</td>
+            <td class="col-xs-3" contentEditable="true">Smith</td>
+            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
+            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
+            <td class="col-xs-3">
+              <button class="btn btn-danger">+</button>
+            </td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+  <!-- Cust Wrap -->
+  <div id="loc-wrap">
+    <h2>Location: 222 <button class="btn btn-info ex">x</button></h2>
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active" id="loctab"><a data-target="#home" data-toggle="tab">Details</a></li>
+      <li><a data-target="#profile" data-toggle="tab">Users</a></li>
+      <li><a data-target="#settings" data-toggle="tab">Notes</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+        <table id="loc-table" class="table table-fixed">
+          <thead>
+            <th class="col-xs-4">Number</th>
+            <th class="col-xs-4">Location</th>
+            <th class="col-xs-4">Address</th>
+            <th class="col-xs-4">Account</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">1</td>
+              <td class="col-xs-4" contentEditable="true">Apple</td>
+              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Bloop</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">2</td>
+              <td class="col-xs-4" contentEditable="true">Microsoft</td>
+              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
+              <td class="col-xs-4" contentEditable="true">Beep</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">3</td>
+              <td class="col-xs-4" contentEditable="true">Linux</td>
+              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Beeoo</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">4</td>
+              <td class="col-xs-4" contentEditable="true">Sony</td>
+              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
+              <td class="col-xs-4" contentEditable="true">Bleep</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">5</td>
+              <td class="col-xs-4" contentEditable="true">Apple</td>
+              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Bloop</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">6</td>
+              <td class="col-xs-4" contentEditable="true">Microsoft</td>
+              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
+              <td class="col-xs-4" contentEditable="true">Beep</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">7</td>
+              <td class="col-xs-4" contentEditable="true">Linux</td>
+              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Beeoo</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">8</td>
+              <td class="col-xs-4" contentEditable="true">Sony</td>
+              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
+              <td class="col-xs-4" contentEditable="true">Bleep</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">9</td>
+              <td class="col-xs-4" contentEditable="true">Apple</td>
+              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Bloop</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">10</td>
+              <td class="col-xs-4" contentEditable="true">Microsoft</td>
+              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
+              <td class="col-xs-4" contentEditable="true">Beep</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">11</td>
+              <td class="col-xs-4" contentEditable="true">Linux</td>
+              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
+              <td class="col-xs-4" contentEditable="true">Beeoo</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">12</td>
+              <td class="col-xs-4" contentEditable="true">Sony</td>
+              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
+              <td class="col-xs-4" contentEditable="true">Bleep</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td>
+            </td>
+          </tfoot>
+        </table>
+      </div>
+      <div class="tab-pane" id="profile">
+        <table id="user-table" class="table table-fixed">
+          <thead>
+            <th class="col-xs-4">User</th>
+            <th class="col-xs-4">Name</th>
+            <th class="col-xs-4">Email</th>
+            <th class="col-xs-4">Phone</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">1</td>
+              <td class="col-xs-4" contentEditable="true">Bob Ross</td>
+              <td class="col-xs-4" contentEditable="true">bobbyr@gmail.com</td>
+              <td class="col-xs-4" contentEditable="true">(202)432-6752</td>
+            </tr>
+            <tr>
+              <td class="col-xs-4" contentEditable="true">1</td>
+              <td class="col-xs-4" contentEditable="true">Betsy Ross</td>
+              <td class="col-xs-4" contentEditable="true">bossross@gmail.com</td>
+              <td class="col-xs-4" contentEditable="true">(202)222-2222</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <td>
+              <button class="btn btn-info ex">x</button>
+            </td>
+          </tfoot>
+        </table>
+      </div>
+      <div class="tab-pane" id="settings">
+        <h4><ul>
+        <li>Follow up about issue 22.</li>
+           <li>Just purchased 300 new machines.</li>
+        <li>Schedule Lunch Meeting.</li></h4>
+        </ul>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">New Note</span>
+          <input type="text" class="form-control" aria-describedby="sizing-addon1">
+          <table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Loc Wrap -->
+<!-- END CONTAINER-->
+<!-- 
+<div>
+<table border="1">
+<tr>
+<th>기사 이름</th>
+<th>기사 번호</th>
+<th>배달 목적지</th>
+</tr>
+<tr>
+<td>dd</td>
+<td>dd</td>
+<td>dd</td>
+</tr>
+
+</table>
+
+</div>
+-->
 
 </body>
 </html>
