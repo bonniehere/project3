@@ -20,6 +20,7 @@ public class ReleaseServiceImpl implements ReleaseService{
 	public BoardDTO boarddetail(BoardDTO detail) {
 		return rm.boarddetail(detail);
 	}
+	
 	public ArrayList<BoardDTO> boardpage(Criteria cri){
 		return rm.boardpage(cri);
 	}

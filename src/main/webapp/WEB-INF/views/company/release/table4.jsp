@@ -25,6 +25,7 @@
         로그인을 해주세요.
     </c:otherwise>
 </c:choose>
+
             <%@ include file="left.jsp" %>
         </div>
 

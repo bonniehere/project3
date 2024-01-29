@@ -8,8 +8,15 @@ public class cartVO {
 	int quantity;
 	int price;
 	int subtotal;
+	String m_userId;
 	
 	
+	public String getM_userId() {
+		return m_userId;
+	}
+	public void setM_userId(String m_userId) {
+		this.m_userId = m_userId;
+	}
 	public int getSubtotal() {
 		return subtotal;
 	}
@@ -49,8 +56,9 @@ public class cartVO {
 	@Override
 	public String toString() {
 		return "cartVO [no=" + no + ", productname=" + productname + ", productcode=" + productcode + ", quantity="
-				+ quantity + ", price=" + price + ", subtotal=" + subtotal + "]";
+				+ quantity + ", price=" + price + ", subtotal=" + subtotal + ", m_userId=" + m_userId + "]";
 	}
+	
 	
 	
 	

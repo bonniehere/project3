@@ -17,7 +17,6 @@ public interface ReleaseService {
 	public ArrayList<BoardDTO> boardpage5(Criteria cri);
 	
 	
-
 	
 	public int getTotal();
 	public int getTotal2();

@@ -12,4 +12,5 @@
 	select * from Staff where m_userId=#{m_userId} and m_userPw =#{m_userPw};	
 </select>
 
+
 </mapper>

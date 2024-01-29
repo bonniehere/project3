@@ -9,6 +9,7 @@
   select * from board
   where productcode=#{productcode};
   
+  
   </select>
   
    <select id="boardpage" resultType="com.constant01.model.BoardDTO">
@@ -115,13 +116,15 @@
     
     </select>
   
+  
+  
    <select id="orderlist" resultType="com.constant01.model.cartVO">
     
       select *
 			from( 
 				select @rownum:=@rownum+1 rownum, b.*
 				from cartorder b, (select @rownum:=0) as tmp
-				
+				where m_userId=#{m_userId}
 			    order by no desc
 			) as orderlist
 			<![CDATA[

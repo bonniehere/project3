@@ -21,7 +21,7 @@
         </div>
 
         <div id="tabViewer" class="tabViewer">
-            
+            //
             <table class="rwd-table" border="1">
                 <tbody>
                     <tr>
@@ -33,7 +33,7 @@
                     </tr>
                     <c:forEach items="${orderlist}" var="board">
                         <tr>
-                            <th>${board.no}</th>
+                            <th>${board.m_userId}</th>
                         <th>${board.productname}</th>
                         <th>${board.subtotal}</th>
                         <th>승인버튼</th>
