@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Master.css">
+
 <style>
 .node {
     position: absolute;
@@ -66,6 +67,18 @@
 </head>
 </head>
 <body>
+   <!-- 상단 메뉴 추가 -->
+    <div class="header">
+        <!-- 여기에 메뉴 내용 추가 -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
 <h2>공급사가 배송자의 온도와 위치를 볼 수 있는 페이지</h2>
 
 <div>
@@ -81,7 +94,72 @@
 
 
 
+<div class="body">
+<!-- 드라이버 정보를 표시할 테이블 -->
+    <div class="table">
+        <table class="cute-table">
+            <tr>
+                <th height="30">기사 이름</th>
+                <th>기사 번호</th>
+                <th>배달 목적지</th>
+            </tr>
+            <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
+            <c:forEach items="${dlist}" var="driver" varStatus="status">
+                <tr>
+                	<!-- <td><img src="path/to/profile_images/${driver.driverNm.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
+                    <td><span><img src="../../../../resources/img/shipper/driver.png" alt="프로필 사진"></span><p id="driverNm">${driver.driverNm}</p></td>
+                    <td width="150px">${driver.driverPhone}</td>
+                    <td>${driver.driverLat}, ${driver.driverLon}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+<div id="map" style="width:700px;height:600px;"></div>
 
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <div id="chart_div"></div>
+</div>
+
+<script>
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Driver');
+
+      data.addRows([
+        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+        [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+        [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+        [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+        [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+        [66, 70], [67, 72], [68, 75], [69, 80]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Temperature'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+
+</script>
 
 
 <!-- 여까지 지우기
@@ -121,19 +199,6 @@ function autoChase(){
             
          }
          
-         
-         /*document.querySelector("#driverLat").value = data[0].driverLat;
-         document.querySelector("#driverLon").value = data[0].driverLon;
-         qq = document.querySelector("#driverLat").value; //갱신 위도
-         ww = document.querySelector("#driverLon").value; //갱신 경도
-         console.log("성공");
-         var locPosition = new kakao.maps.LatLng(qq, ww), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">'+pacontentNm+' 환자</div>'; // 인포윈도우에 표시될 내용입니다
-            
-              // 마커와 인포윈도우를 표시합니다
-              displayMarker(locPosition, message);
-         //술먹어서 생각이안남 함수발동을 위한 트리거
-         */
       },
       error:function(request,status,error){
          console.log("실패");
@@ -152,7 +217,7 @@ function autoChase(){
  
  
  
-<div id="map" style="width:700px;height:600px;"></div>
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 <script>
@@ -509,22 +574,6 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-/*
-var flag1=false;
-var hspcontent = [];
-var hspposition = [];
-var hspcustomOverlay = [];
-var contentNm1 = ["관절센터","척추센터","비뇨의학과","원무과","이비인후과","엘리베이터","엘리베이터","핵의학과","편의점","편의시설","응급의학과","병동약국"];
-var contentNm2 = ["암병원","소화기센터","가정의학과","감염내과","내분비내과","엘리베이터","엘리베이터","외과","치과","피부과","정신건강의학과","내시경실"];
-*/
-
-
-
-/* 내가 쓸 값들
-var driverLat[];
-   var driverLon[];
-   var driverNm[];
-   */
 
    
 //내가 가져옴여
@@ -576,358 +625,16 @@ function fn_gogo(){
    } //gogo()함수 종료
 
 
-
-/*
-// 본사
-var dkpos1 = new kakao.maps.LatLng(33.450707, 126.570678);
-// 판교 오피스
-var dkpos2 = new kakao.maps.LatLng(37.402054, 127.108209); 
-// 고객 센터
-var dkpos3 = new kakao.maps.LatLng(37.402827, 127.107292);
-
-
-
-// 툴팁을 노출하는 마커를 생성합니다.
-var marker1 = new TooltipMarker(dkpos1, 'kakao 본사');
-var marker2 = new TooltipMarker(dkpos2, 'kakao 판교오피스');
-var marker3 = new TooltipMarker(dkpos3, 'kakao 고객센터');
-marker1.setMap(map);
-marker2.setMap(map);
-marker3.setMap(map);
-
-// MarkerTracker를 생성합니다.
-var markerTracker1 = new MarkerTracker(map, marker1);
-var markerTracker2 = new MarkerTracker(map, marker2);
-var markerTracker3 = new MarkerTracker(map, marker3);
-
-// marker의 추적을 시작합니다.
-markerTracker1.run();
-markerTracker2.run();
-markerTracker3.run();
-*/
 </script>
 
-<script>
-jQuery(function() {
-	  jQuery('#myTab a:first').tab('show')
-	})
 
-	$(".btn-danger").click(function() {
-	  $('#cust-wrap').animate({
-	    width: 50 + '%',
-	    marginLeft: 0
-	  }, {
-	    duration: 1000
-	  });
-	  $("#cust-table").css("display", "inline-table")
-	  $("#loc-wrap").fadeIn(2000)
-	  // $("#loc-table").fadeIn(2000)
-	  $("#loc-wrap").css("display", "inline-table")
-	  $("#loc-table").css("display", "inline-table")
-	})
-
-	$(".ex").click(function() {
-	  $("#loc-table").fadeOut(1000)
-	  $('#cust-wrap').animate({
-	    width: 100 + '%',
-	    marginLeft: 0
-	  }, {
-	    duration: 1000
-	  });
-	  $("#loc-wrap").css("display", "none")
-	})
-
-
-</script>
-
-<div class="container-fluid">
-  <div id="cust-wrap">
-    <h2 id="title">Customers</h2>
-    <table id="cust-table" class="table table-fixed">
-      <thead>
-        <th class="col-xs-3">First Name</th>
-        <th class="col-xs-3">Last Name</th>
-        <th class="col-xs-3">Email</th>
-        <th class="col-xs-3">Phone</th>
-        <th class="col-xs-3">Details</th>
-      </thead>
-      <tbody>
-        <div class="scroll">
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Jill</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">John</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-
-            <td class="col-xs-3" contentEditable="true">Robert</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Sam</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Jill</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">John</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Robert</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Sam</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Jill</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">John</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Robert</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-xs-3" contentEditable="true">Sam</td>
-            <td class="col-xs-3" contentEditable="true">Smith</td>
-            <td class="col-xs-3" contentEditable="true">jsmith@test.com</td>
-            <td class="col-xs-3" contentEditable="true">(202)222-2222</td>
-            <td class="col-xs-3">
-              <button class="btn btn-danger">+</button>
-            </td>
-          </tr>
-        </div>
-      </tbody>
-    </table>
-  </div>
-  <!-- Cust Wrap -->
-  <div id="loc-wrap">
-    <h2>Location: 222 <button class="btn btn-info ex">x</button></h2>
-    <ul class="nav nav-tabs" id="myTab">
-      <li class="active" id="loctab"><a data-target="#home" data-toggle="tab">Details</a></li>
-      <li><a data-target="#profile" data-toggle="tab">Users</a></li>
-      <li><a data-target="#settings" data-toggle="tab">Notes</a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="home">
-        <table id="loc-table" class="table table-fixed">
-          <thead>
-            <th class="col-xs-4">Number</th>
-            <th class="col-xs-4">Location</th>
-            <th class="col-xs-4">Address</th>
-            <th class="col-xs-4">Account</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">1</td>
-              <td class="col-xs-4" contentEditable="true">Apple</td>
-              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Bloop</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">2</td>
-              <td class="col-xs-4" contentEditable="true">Microsoft</td>
-              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
-              <td class="col-xs-4" contentEditable="true">Beep</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">3</td>
-              <td class="col-xs-4" contentEditable="true">Linux</td>
-              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Beeoo</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">4</td>
-              <td class="col-xs-4" contentEditable="true">Sony</td>
-              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
-              <td class="col-xs-4" contentEditable="true">Bleep</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">5</td>
-              <td class="col-xs-4" contentEditable="true">Apple</td>
-              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Bloop</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">6</td>
-              <td class="col-xs-4" contentEditable="true">Microsoft</td>
-              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
-              <td class="col-xs-4" contentEditable="true">Beep</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">7</td>
-              <td class="col-xs-4" contentEditable="true">Linux</td>
-              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Beeoo</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">8</td>
-              <td class="col-xs-4" contentEditable="true">Sony</td>
-              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
-              <td class="col-xs-4" contentEditable="true">Bleep</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">9</td>
-              <td class="col-xs-4" contentEditable="true">Apple</td>
-              <td class="col-xs-4" contentEditable="true">111 Main St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Bloop</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">10</td>
-              <td class="col-xs-4" contentEditable="true">Microsoft</td>
-              <td class="col-xs-4" contentEditable="true">15 H St. NW</td>
-              <td class="col-xs-4" contentEditable="true">Beep</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">11</td>
-              <td class="col-xs-4" contentEditable="true">Linux</td>
-              <td class="col-xs-4" contentEditable="true">110 F St. NE</td>
-              <td class="col-xs-4" contentEditable="true">Beeoo</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">12</td>
-              <td class="col-xs-4" contentEditable="true">Sony</td>
-              <td class="col-xs-4" contentEditable="true">22 N St. SE</td>
-              <td class="col-xs-4" contentEditable="true">Bleep</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <td>
-            </td>
-          </tfoot>
-        </table>
-      </div>
-      <div class="tab-pane" id="profile">
-        <table id="user-table" class="table table-fixed">
-          <thead>
-            <th class="col-xs-4">User</th>
-            <th class="col-xs-4">Name</th>
-            <th class="col-xs-4">Email</th>
-            <th class="col-xs-4">Phone</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">1</td>
-              <td class="col-xs-4" contentEditable="true">Bob Ross</td>
-              <td class="col-xs-4" contentEditable="true">bobbyr@gmail.com</td>
-              <td class="col-xs-4" contentEditable="true">(202)432-6752</td>
-            </tr>
-            <tr>
-              <td class="col-xs-4" contentEditable="true">1</td>
-              <td class="col-xs-4" contentEditable="true">Betsy Ross</td>
-              <td class="col-xs-4" contentEditable="true">bossross@gmail.com</td>
-              <td class="col-xs-4" contentEditable="true">(202)222-2222</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <td>
-              <button class="btn btn-info ex">x</button>
-            </td>
-          </tfoot>
-        </table>
-      </div>
-      <div class="tab-pane" id="settings">
-        <h4><ul>
-        <li>Follow up about issue 22.</li>
-           <li>Just purchased 300 new machines.</li>
-        <li>Schedule Lunch Meeting.</li></h4>
-        </ul>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon" id="sizing-addon1">New Note</span>
-          <input type="text" class="form-control" aria-describedby="sizing-addon1">
-          <table>
-        </div>
-      </div>
+ <!-- 하단 푸터 추가 -->
+    <div class="footer">
+        <!-- 여기에 푸터 내용 추가 -->
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
     </div>
-  </div>
-</div>
-<!-- Loc Wrap -->
-<!-- END CONTAINER-->
-<!-- 
-<div>
-<table border="1">
-<tr>
-<th>기사 이름</th>
-<th>기사 번호</th>
-<th>배달 목적지</th>
-</tr>
-<tr>
-<td>dd</td>
-<td>dd</td>
-<td>dd</td>
-</tr>
 
-</table>
 
-</div>
--->
 
 </body>
 </html>

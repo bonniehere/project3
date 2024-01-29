@@ -1,68 +1,113 @@
 @charset "UTF-8";
-#title {
-  width: 20%;
-}
-#cust-table {
-  width: 100%;
-  text-align: center;
-  
+
+.cute-table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-#loc-table, #user-table {
-  width: 100%;
-  text-align: center;
-/*   display: none; */
+.cute-table table {
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #dddddd;
+    text-align: left;
+    width: 100%;
 }
 
-th {
-  vertical-align: middle;
-  text-align: center;
-  background-color: #2c3e50;
-  color: #fff;
-  height: 50px; 
+.cute-table th, .cute-table td {
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
 }
 
-#loc-table th {
-  background-color: #f0a202;
+.cute-table th {
+    background-color: #f2f2f2;
 }
 
-tr {
-  min-height: 60px;
+.cute-table tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-#cust-wrap, #loc-wrap {
-  display:  inline-table;
+.cute-table tr:hover {
+    background-color: #f1f1f1;
 }
 
-#cust-wrap {
-  width: 100%;
+.cute-table img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
 }
 
-#loc-wrap {
-  width: 49%;
-  display: none;
+.body {
+    width: 90%;
+    margin: 10px auto;
 }
 
-.ex {
-  margin-left: 3rem;
+.table {
+    margin: 10px;
+    width: 500px;
+    height: 300px;
+    float: right;
+    margin-right: 240px;
+    margin-top: 50px;
 }
 
-.table-fixed thead {
-  width: 100%;
-}
-.table-fixed tbody {
-  height: 440px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-/*   float: left; */
-  border-bottom-width: 0;
+#map {
+    float: left;
 }
 
-tfoot {
-  border-top: 1px dotted #f0a202;
+#driverNm {
+    width: 55px;
+    float: right;
 }
+
+#chart_div {
+    
+	float: right;
+    margin-right: 50px;
+    width: 900px;
+    top: 300px;
+}
+
+
+
+
+
+/* 상단 메뉴 스타일 */
+.header {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+
