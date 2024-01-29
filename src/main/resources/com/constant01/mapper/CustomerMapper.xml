@@ -5,8 +5,8 @@
   
 <mapper namespace="com.constant01.mapper.CustomerMapper">
 <!-- 로그인임 -->
-<select id="login" parameterType="String" resultType="com.constant01.model.CustomerDTO">
-	select * from customer where userId=#{userId} and userPw =#{userPw};	
+<select id="login" parameterType="String" resultType="com.constant01.model.CMember">
+	select * from CMember where m_userId=#{m_userId} and m_userPw =#{m_userId};	
 </select>
 
 </mapper>

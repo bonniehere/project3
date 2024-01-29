@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.constant01.model.BoardDTO;
 import com.constant01.model.Criteria;
+import com.constant01.model.cartVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.constant01.mapper.ReleaseMapper;
@@ -56,6 +58,15 @@ public class ReleaseServiceImpl implements ReleaseService{
 	}
 	public int getTotal5() {
 		return rm.getTotal5();
+	}
+	
+	//주문현황
+	public ArrayList<cartVO> orderlist(Criteria cri){
+		return rm.orderlist(cri);
+	}
+	
+	public int getTotal_order() {
+		return rm.getTotal_order();
 	}
 	
 }

@@ -17,6 +17,14 @@
             <%@ include file="top.jsp" %>
         </div>
         <div id="leftwrap">
+        <c:choose>
+    <c:when test="${not empty sessionScope.login}">
+        <p>${sessionScope.login.m_name}님 환영합니다.</p>
+    </c:when>
+    <c:otherwise>
+        로그인을 해주세요.
+    </c:otherwise>
+</c:choose>
             <%@ include file="left.jsp" %>
         </div>
 

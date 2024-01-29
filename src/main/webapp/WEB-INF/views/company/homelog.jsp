@@ -30,8 +30,8 @@ function fn_CheckForm(){
 	G_Util.newFormSubmit({
 		"action" : "/company/homelog.do",
 		"param"  : {
-			"userId" : $("#userId").val().trim(),
-			"userPw" : $("#userPw").val()
+			"m_userId" : $("#userId").val().trim(),
+			"m_userPw" : $("#userPw").val()
 		}
 	});
 }
