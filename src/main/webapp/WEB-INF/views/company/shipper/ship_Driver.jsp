@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>C-Market</title>
 <link rel="stylesheet" href="https://t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/6af7869e/roughmapLander.css">
 <script src="//ssl.daumcdn.net/dmaps/map_js_init/v3.js?autoload=false"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.14/v3.js"></script>
@@ -14,8 +14,25 @@
 <script type="text/javascript" src="../../../../resources/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="../../../../resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Driver.css">
+
 </head>
 <body>
+
+<!-- 상단 메뉴 추가 -->
+    <div class="header">
+        <!-- 여기에 메뉴 내용 추가 -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
 		
 		<% 
 			DriverDTO driver = (DriverDTO)session.getAttribute("login");
@@ -26,7 +43,7 @@
 		%>
 
 	
-	<h2>택배 기사가 띄우고 있어야 되는 지도 페이지렁이</h2>
+	<h2>Driver Page</h2>
 	<h2>기사 이름 뜰까용? <%=driver.getDriverNm()%> </h2>
 
  <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
@@ -171,7 +188,11 @@
 
 
 
-
+<!-- 하단 푸터 추가 -->
+    <div class="footer">
+        <!-- 여기에 푸터 내용 추가 -->
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
 
 </body>
 </html>

@@ -11,12 +11,49 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+    /* 상단 메뉴 스타일 */
+		.header {
+		    background-color: #9EBEC4;
+		    color: white;
+		    padding: 10px;
+		    text-align: center;
+		}
+		
+		.header nav ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		
+		.header nav ul li {
+		    display: inline;
+		    margin-right: 10px;
+		}
+		
+		.header nav ul li a {
+		    color: white;
+		    text-decoration: none;
+		}
+		
+		/* 푸터 스타일 */
+		.footer {
+		    background-color: #9EBEC4;
+		    color: white;
+		    padding: 10px;
+		    text-align: center;
+		    position: fixed;
+		    bottom: 0;
+		    width: 100%;
+		}
+		    
+    
         body {
+        	margin: 0;
             background-color: #f8f9fa;
         }
 
         #join {
-            color: #324028;
+            color: #565656;
             opacity: 0.5;
             font-size: 2rem;
             font-weight: bold;
@@ -32,7 +69,7 @@
 
         .custom-list div {
             padding: 10px;
-            background-color: #007bff;
+            background-color: #3498db;
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
@@ -40,12 +77,23 @@
         }
 
         .custom-list div:hover {
-            background-color: #0056b3;
+            background-color: #297fb8;
         }
 		
     </style>
 </head>
 <body>
+<!-- 상단 메뉴 추가 -->
+    <div class="header">
+        <!-- 여기에 메뉴 내용 추가 -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container-md mt-5 mb-5">
         <div class="row">
             
@@ -63,6 +111,13 @@
             </div>
             
         </div>
+    </div>
+    
+    
+<!-- 하단 푸터 추가 -->
+    <div class="footer">
+        <!-- 여기에 푸터 내용 추가 -->
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
     </div>
 </body>
 </html>
