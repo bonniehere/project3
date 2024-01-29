@@ -15,6 +15,7 @@ public interface ReleaseMapper {
 	public ArrayList<BoardDTO> boardpage4(Criteria cri);
 	public ArrayList<BoardDTO> boardpage5(Criteria cri);
 	
+	
 	public int getTotal();
 	public int getTotal2();
 	public int getTotal3();

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +17,12 @@
     
     <ul>
         <li><a href="release" class="item"><div>제품주문</div></a></li>
-        <li><a href="orderlist" class="item"><div>주문현황</div></a></li>
+        <li><a href="orderlist?m_userId=${sessionScope.login.m_userId}" class="item"><div>주문현황</div></a></li>
         <li><a href="test2" class="item"><div>배송관리</div></a></li>
         <li><a href="test3" class="item"><div>#</div></a></li>
         <li><a href="#" class="item"><div>Q&A</div></a></li>
-        <li><a href="list" class="item"><div>장바구니</div></a></li>
+        <li><a href="list?m_userId=${sessionScope.login.m_userId}" class="item"><div>장바구니</div></a></li>
+        
     </ul>
 </div>
     

@@ -12,8 +12,7 @@ public class CustomerDTO {
 	
 	private String m_userId; // 회원구분
 	private String m_userPw; // 회원구분
-	
-	
+		
 	private String m_hspNm; // 병원명
 	private String m_name; // 담당자 이름
 	private String m_phone; // 담당자 휴대폰번호
