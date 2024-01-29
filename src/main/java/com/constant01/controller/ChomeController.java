@@ -37,7 +37,7 @@ public class ChomeController {
 		System.out.println("회원로그인콘솔체크");
 		System.out.println(cs.login(customer));
 		System.out.println(cs.login2(customer));
-		System.out.println(cs.login2(customer).getM_userStat());
+
 		if(cs.login(customer) != null) {
 			// 로그인 해라 (session에 select값 저장)
 			System.out.println("회원 로그인");
