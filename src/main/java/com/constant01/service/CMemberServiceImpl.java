@@ -12,7 +12,7 @@ import com.constant01.model.CMember;
 public class CMemberServiceImpl implements CMemberService{
 	@Autowired
 	private CMemberMapper md;
-
+	
 	@Override
 	public CMember select(String m_email) {// 회원가입 아이디 중복체크, 로그인할때 사용하는 로직
 		return md.select(m_email);
@@ -22,7 +22,12 @@ public class CMemberServiceImpl implements CMemberService{
 	public void insert(CMember member) { // 회원가입
 		md.insert(member);
 	}
+	@Override
+	public void insert2(CMember member) { // 회원가입
+		md.insert2(member);
+	}
 
+    
 	@Override
 	public CMember selectFindId(String m_tel, String m_name) {
 		// TODO Auto-generated method stub

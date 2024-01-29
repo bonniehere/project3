@@ -33,8 +33,8 @@ function fn_CheckForm(){
 	G_Util.newFormSubmit({
 		"action" : "/company/homelog.do",
 		"param"  : {
-			"userId" : $("#userId").val().trim(),
-			"userPw" : $("#userPw").val()
+			"m_userId" : $("#userId").val().trim(),
+			"m_userPw" : $("#userPw").val()
 		}
 	});
 }
@@ -60,8 +60,8 @@ function fn_CheckForm(){
           <span class="placeholder">Password</span>
         </div>
       </form>
-        
-       <input type="button" class="btn btn-hollow btn-hover" value="Login" href="javascript:void(0);" onclick="javascript:fn_CheckForm();">
+       
+        <input type="button" class="btn btn-hollow btn-hover" value="Login" href="javascript:void(0);" onclick="javascript:fn_CheckForm();">
        <!--  <button id="login" class="btn btn-solid btn-hover" type="submit" value="Submit" form="loginform" onclick="javascript:fn_CheckForm(); return false;">Sign In</button>  -->
        <!-- 
        <div class="checkbox-container">
