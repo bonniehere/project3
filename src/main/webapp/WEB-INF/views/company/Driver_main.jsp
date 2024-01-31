@@ -27,9 +27,9 @@ function yaho(obj){
 	G_Util.newFormSubmit({
 		"action" : "/company/shipper/ship_Driver.do",
 		"param"  : {
-			"userId"      : oTd.find("input[name=userId]").val(),
-			"userPw"      : oTd.find("input[name=userPw]").val(),
-			"driverNm"      : oTd.find("input[name=driverNm]").val()
+			"m_userId"      : oTd.find("input[name=userId]").val(),
+			"m_userPw"      : oTd.find("input[name=userPw]").val(),
+			"m_name"      : oTd.find("input[name=driverNm]").val()
 		}
 	
 	})
@@ -65,9 +65,9 @@ function yaho(obj){
 <div>
 <c:forEach items="${list}" var="list" varStatus="status">
 
-<input type="hidden" name="userId" value="${list.userId}">
-<input type="hidden" name="userPw" value="${list.userPw}">
-<input type="hidden" name="driverNm" value="${list.driverNm}">
+<input type="hidden" name="userId" value="${list.m_userId}">
+<input type="hidden" name="userPw" value="${list.m_userPw}">
+<input type="hidden" name="driverNm" value="${list.m_name}">
 
 </c:forEach>
 <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;">
