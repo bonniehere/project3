@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="com.constant01.model.DriverDTO"%>
+<%@page import="com.constant01.model.CMember"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,22 +35,22 @@
 
 		
 		<% 
-			DriverDTO driver = (DriverDTO)session.getAttribute("login");
-			String userId = request.getParameter("userId");
-			String userPw = request.getParameter("userPw");
-			String driverNm = request.getParameter("driverNm");
-			String driverPhone = request.getParameter("driverPhone");
+			CMember customer = (CMember)session.getAttribute("login");
+			String userId = request.getParameter("m_userId");
+			String userPw = request.getParameter("m_userPw");
+			String driverNm = request.getParameter("m_name");
+			String driverPhone = request.getParameter("m_phone");
 		%>
 
 	
 	<h2>Driver Page</h2>
-	<h2>기사 이름 뜰까용? <%=driver.getDriverNm()%> </h2>
+	<h2>기사 이름 뜰까용? <%=customer.getM_name()%> </h2>
 
  <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
-	<input type="hidden" name="userId" value="<%=driver.getUserId()%>">
-	<input type="hidden" name="userPw" value="<%=driver.getUserPw()%>">
-	<input type="hidden" name="driverNm" value="<%=driver.getDriverNm()%>">
-	<input type="hidden" name="driverPhone" value="<%=driver.getDriverPhone()%>">
+	<input type="hidden" name="userId" value="<%=customer.getM_userId()%>">
+	<input type="hidden" name="userPw" value="<%=customer.getM_userPw()%>">
+	<input type="hidden" name="driverNm" value="<%=customer.getM_name()%>">
+	<input type="hidden" name="driverPhone" value="<%=customer.getM_phone()%>">
 
 
 	 <!-- 내가 가져온 지도 constant 지도-->
@@ -154,10 +154,10 @@
 					type : "POST",
 					url  : "/company/shipper/Drivermap.do",
 					data : {
-						"userId"		: userId,
-						"userPw"		: userPw,
-						"driverNm" 		: driverNm,
-						"driverPhone"	: driverPhone,
+						"m_userId"		: userId,
+						"m_userPw"		: userPw,
+						"m_name" 		: driverNm,
+						"m_phone"	: driverPhone,
 						"driverLat" 	: driverLat,
 						"driverLon"   	: driverLon
 					},

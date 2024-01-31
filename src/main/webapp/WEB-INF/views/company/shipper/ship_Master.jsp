@@ -84,8 +84,8 @@
 <div>
 <c:forEach items="${dlist}" var="dlist" varStatus="status">
 
-<input type="hidden" name="userPw" value="${dlist.userPw}">
-<input type="hidden" name="driverNm" value="${dlist.driverNm}">
+<input type="hidden" name="userPw" value="${dlist.m_userId}">
+<input type="hidden" name="driverNm" value="${dlist.m_name}">
 <input type="hidden" name="driverLat" value="${dlist.driverLat}">
 <input type="hidden" name="driverLon" value="${dlist.driverLon}">
 
@@ -106,9 +106,9 @@
             <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
             <c:forEach items="${dlist}" var="driver" varStatus="status">
                 <tr>
-                	<!-- <td><img src="path/to/profile_images/${driver.driverNm.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
-                    <td><span><img src="../../../../resources/img/shipper/driver.png" alt="프로필 사진"></span><p id="driverNm">${driver.driverNm}</p></td>
-                    <td width="150px">${driver.driverPhone}</td>
+                	<!-- <td><img src="path/to/profile_images/${driver.m_name.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
+                    <td><span><img src="../../../../resources/img/shipper/driver.png" alt="프로필 사진"></span><p id="driverNm">${driver.m_name}</p></td>
+                    <td width="150px">${driver.m_phone}</td>
                     <td>${driver.driverLat}, ${driver.driverLon}</td>
                 </tr>
             </c:forEach>
@@ -161,10 +161,6 @@ function drawBasic() {
 
 </script>
 
-
-<!-- 여까지 지우기
- <input type="hidden" name="userPw" id="userPw" value="${dlist[0].userPw}">
-  -->
  <!-- 여기가 이전 거 가져온 스크립트 -->
 <script type="text/javascript">
 
@@ -179,12 +175,12 @@ var driverNm=[];
 
 function autoChase(){
    //alert("dddd");
-   var userPw = $('input[name=userPw]').val();
+   var m_userPw = $('input[name=userPw]').val();
    $.ajax({
       type : "POST",
       url  : "/company/shipper/AdminLocLoad.do",
       data : {
-         "userPw"      : userPw
+         "m_userPw"      : m_userPw
       },
       dataType : "json",
       success  : function(data){
