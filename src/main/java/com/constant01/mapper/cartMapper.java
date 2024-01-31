@@ -13,7 +13,7 @@ public interface cartMapper {
 	
 	public void cart_add(cartVO list);
 
-	public void orderItem(cartVO item);
+	public void orderItem(List<cartVO> orderItems);
 
 	
 }
