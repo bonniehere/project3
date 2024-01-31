@@ -20,9 +20,37 @@
   insert into cart(m_userId, productname, productcode, quantity, price) values(#{m_userId},#{productname},#{productcode},#{quantity},#{price});
   
   </insert>
-  <insert id="orderItem">
-  insert into cartorder(m_userId, productname, productcode, quantity, price, subtotal) values(#{m_userId},#{productname},#{productcode},#{quantity},#{price}, #{subtotal});
   
-  </insert>
+  <insert id="orderItem" parameterType="java.util.List">
+    INSERT INTO cartorder (
+        m_userId, 
+        productname, 
+        productcode, 
+        quantity, 
+        price, 
+        subtotal, 
+        name, 
+        phone, 
+        zipCd, 
+        addr, 
+        addr_detail
+    ) 
+    VALUES
+    <foreach collection="list" item="item" separator=",">
+        (
+            #{item.m_userId}, 
+            #{item.productname}, 
+            #{item.productcode}, 
+            #{item.quantity}, 
+            #{item.price}, 
+            #{item.subtotal}, 
+            #{item.name}, 
+            #{item.phone}, 
+            #{item.zipCd}, 
+            #{item.addr}, 
+            #{item.addr_detail}
+        )
+    </foreach>
+</insert>
   
   </mapper>

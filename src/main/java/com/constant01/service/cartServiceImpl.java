@@ -31,8 +31,8 @@ public class cartServiceImpl implements cartService{
 //		cm.orderItem(orderItems);
 //	}
 	public void orderItem(List<cartVO> orderItems) {
-	    for (cartVO item : orderItems) {
-	        cm.orderItem(item);
-	    }
+	   
+	        cm.orderItem(orderItems);
+	    
 	}
 }

@@ -276,9 +276,9 @@ public class ReleaseController {
 	    @ResponseBody
 	    public ResponseEntity<String> placeOrder(@RequestBody List<cartVO> orderItems) {
 	        // 주문 항목 처리 로직
-	        for (cartVO orderItem : orderItems) {
-	            System.out.println(orderItem.toString());
-	        }
+	        
+	        System.out.println(orderItems);
+	        
 	        cs.orderItem(orderItems);		
 	        return ResponseEntity.ok("Order placed successfully");
 	    }

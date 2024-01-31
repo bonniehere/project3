@@ -21,22 +21,24 @@
         </div>
 
         <div id="tabViewer" class="tabViewer">
-            //
+            
             <table class="rwd-table" border="1">
                 <tbody>
                     <tr>
                         <th>주문자</th>
                         <th>품목명</th>
+                        <th>주문수량</th>
                         <th>총가격</th>
                         <th>승인여부</th>
                         
                     </tr>
                     <c:forEach items="${orderlist}" var="board">
                         <tr>
-                            <th>${board.m_userId}</th>
+                            <th>${board.m_userId}${board.name}</th>
                         <th>${board.productname}</th>
+                        <th>${board.quantity}</th>
                         <th>${board.subtotal}</th>
-                        <th>승인버튼</th>
+                        <th>${board.confirm}</th>
                         </tr>
                     </c:forEach>
                 </tbody>
