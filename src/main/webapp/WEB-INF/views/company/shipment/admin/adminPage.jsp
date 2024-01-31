@@ -88,9 +88,9 @@
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="adminPage.do">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="logout">logout</a></li>
             </ul>
         </nav>
     </div>
@@ -98,7 +98,7 @@
         <div class="row">
             
             <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;"><!-- 중앙 정렬 추가 -->
-                <h2 class="mt-5 text-start" id="join">　관리자 페이지<br>　</h2>
+                <h2 class="mt-5 text-start" id="join">　관리자 페이지<br>　Staff ${login.m_name}님<br>　</h2>
                 <ul class="custom-list">
                     <li><div onclick="location.href='contactResultList.do'">제휴문의 리스트</div></li>
                     <li><div onclick="location.href='adminQnAList.do'">1:1문의 리스트</div></li>
@@ -117,7 +117,7 @@
 <!-- 하단 푸터 추가 -->
     <div class="footer">
         <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; ConstantCompany</p>
     </div>
 </body>
 </html>

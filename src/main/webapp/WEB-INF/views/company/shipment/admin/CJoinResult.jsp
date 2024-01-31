@@ -171,6 +171,23 @@ function takeScreenshotAndSaveAsImage() {
         link.click();
     });
 }
+function emailGogo(){
+	var m_email = $("#email").val();
+	
+	$.ajax({
+        type: "POST",
+        url: "/company/CjoinEmail.do",
+        data: { m_email: m_email },
+        success: function(response) {
+            // 서버 응답을 처리하는 코드
+            console.log(response);
+        },
+        error: function(error) {
+            // 에러 발생 시 처리하는 코드
+            console.error("Error:", error);
+        }
+    });
+}
 </script>
 </head>
 <body>
@@ -291,7 +308,8 @@ function takeScreenshotAndSaveAsImage() {
 						</div>
 						<div class="btn_area">
 							<a href="javascript:void(0);" onclick="javascript:takeScreenshotAndSaveAsImage();" class="btn_ty01_sty01"><span>이미지 저장</span></a>
-							<a href="/adminPage.do" class="btn_ty01_sty0"><span>홈으로</span></a>
+							<a href="javascript:void(0);" onclick="emailGogo();" class="btn_ty01_sty01"><span>이메일 전송</span></a>
+							<a href="adminPage.do" class="btn_ty01_sty0"><span>홈으로</span></a>
 						</div>
 					</div>
 </form>
