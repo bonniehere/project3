@@ -44,5 +44,7 @@ AND num IN (
 	]]>
 	</delete>
 	
-
+	<select id="temp" resultType="com.constant01.model.TempDTO">
+	select * from temp;
+	</select>
 </mapper>

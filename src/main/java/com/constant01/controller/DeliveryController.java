@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
+import com.constant01.model.TempDTO;
 import com.constant01.service.DeliveryService;
 
 @Controller
@@ -79,14 +80,30 @@ public class DeliveryController {
 			
 		}
 	
+	//모든 드라이버 위치 추적
 	@ResponseBody
 	
 	@RequestMapping(value = "company/shipper/AdminLocLoad.do", method = RequestMethod.POST)
-	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery, Model model, HttpSession session) {
+	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery,TempDTO temp, Model model, HttpSession session) {
 		model.addAttribute("dlist", ds.dlist(delivery));
+		model.addAttribute("temp", ds.temp(temp));
+		//System.out.println(ds.temp(temp));
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
+	
+	
+	//온도 가져오는 거
+	@ResponseBody
+	@RequestMapping(value = "/company/shipper/AdminTempLoad.do", method = RequestMethod.GET)
+	public ResponseEntity<?> AdminTempLoad(TempDTO temp, Model model) {
+		
+		model.addAttribute("temp", ds.temp(temp));
+		System.out.println(ds.temp(temp));
+		return new ResponseEntity<>(ds.temp(temp), HttpStatus.OK);
+	
+	}
+	
 	
 	
 	
