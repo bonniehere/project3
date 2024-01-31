@@ -15,5 +15,7 @@ public interface cartMapper {
 
 	public void orderItem(List<cartVO> orderItems);
 
+	public void deleteOrder(String order_no);
+
 	
 }

@@ -4,7 +4,7 @@ body{
 	background-color:#EBF5FF;
 }
 
-.product_link:hover{
+a:hover{
 	background-color:#FFBEFF;
 	color:black;
 	

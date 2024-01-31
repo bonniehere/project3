@@ -17,15 +17,20 @@
             <%@ include file="top.jsp" %>
         </div>
         <div id="leftwrap">
+        
         <c:choose>
     <c:when test="${not empty sessionScope.login}">
         <p>${sessionScope.login.m_name}님 환영합니다.</p>
+        <p><a href="/logout">로그아웃</a></p>
+        
+        <input type="hidden" name="sessionId" value="${sessionScope.login.m_userId}">
     </c:when>
     <c:otherwise>
         로그인을 해주세요.
     </c:otherwise>
 </c:choose>
-
+    
+       
             <%@ include file="left.jsp" %>
         </div>
 
@@ -74,6 +79,7 @@
                             </td>
                             <td>${board.price}</td>
                             <td>${board.manufacturer}</td>
+                            
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -108,6 +114,17 @@
         const productCodes = document.querySelectorAll('.productcode');
         const productNames = document.querySelectorAll('.productname');
 
+        const sessionId = document.querySelector('input[name="sessionId"]').value;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         plusButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 const amountElement = amounts[index];
@@ -152,7 +169,7 @@
             button.addEventListener('click', () => {
                 const amountElement = amounts[index];
                 const priceElement = prices[index];
-                
+                const totalElement = totals[index];
 
                 let amount = parseInt(amountElement.textContent);
                 let price = parseInt(priceElement.textContent);
@@ -164,11 +181,23 @@
                 
 
                 addToCart({
+                	m_userId: sessionId,
                 	productname: productname,
                     productcode: productcode,
                     quantity: amount,
                     price: price
                 });
+                
+                function resetamount(){
+              	  amount = 0;
+              	let total = 0;
+              	  amountElement.textContent = amount;
+              	totalElement.textContent = total;
+              	
+                };
+                
+                resetamount();
+                add_alert();
             });
         });
 
@@ -185,6 +214,9 @@
                     console.error("Error adding product to cart:", error);
                 }
             });
+        }
+        function add_alert(){
+        	alert("장바구니에 해당 물품이 들어갔습니다.")
         }
     </script>
 </body>

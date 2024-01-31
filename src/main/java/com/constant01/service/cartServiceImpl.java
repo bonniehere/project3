@@ -35,4 +35,7 @@ public class cartServiceImpl implements cartService{
 	        cm.orderItem(orderItems);
 	    
 	}
+	public void deleteOrder(String order_no) {
+		cm.deleteOrder(order_no);
+	}
 }
