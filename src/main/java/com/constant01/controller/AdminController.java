@@ -1,13 +1,19 @@
 package com.constant01.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,12 +46,24 @@ public class AdminController {
 	private QnAService qs;
 	@Autowired
 	private QnArService qrs;
+	@Autowired
+	private JavaMailSender jMailSender;
 	
-	@RequestMapping(value = "/company/adminPage.do", method = RequestMethod.POST)
+	@RequestMapping(value = "company/adminPage.do", method = RequestMethod.POST)
 	public String adminPage() {
 		return "/company/shipment/admin/adminPage";
 	}
-	@RequestMapping(value = "contactResultList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminPage.do", method = RequestMethod.GET)
+	public String adminPage2() {
+		return "/company/shipment/admin/adminPage";
+	}
+	// 로그 아웃
+		@RequestMapping(value = "company/logout", method = RequestMethod.GET)
+		public String logout(HttpSession session) {
+			session.invalidate();
+			return "/company/homelog";
+		}
+	@RequestMapping(value = "/company/contactResultList.do", method = RequestMethod.GET)
 	public String contactResultList(Affi affi, String pageNum, Model model) {
 		
 		if (pageNum == null || pageNum.equals("")) {
@@ -71,7 +89,7 @@ public class AdminController {
 		
 		return "/company/shipment/admin/contactResultList";
 	}
-	@RequestMapping(value = "contactResultView.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/contactResultView.do", method = RequestMethod.GET)
 	public String contactResult(int af_no, String pageNum, Model model) {
 		Affi affi = as.selectAF(af_no);
 
@@ -91,6 +109,45 @@ public class AdminController {
 		ms.insert(member);
 		return "/company/shipment/admin/CJoinResult";
 	}
+	
+	@RequestMapping(value = "/company/CjoinEmail.do", method = RequestMethod.POST)
+	public String CjoinEmail(String m_email, Model model) {
+		CMember member2 = ms.select(m_email);
+		int result = 0;
+
+		System.out.println(member2);
+		if (member2 != null) {
+			result = 1;
+
+			// bpe.encode() ()속에는 String만 됨
+			// vCode가 숫자라 뒤에 +""넣어주면 String취급
+			// 임시발급번호를 암호화한 데이터를 저장하기 위해
+
+
+			MimeMessage mm = jMailSender.createMimeMessage();
+			try {
+				MimeMessageHelper mmh = new MimeMessageHelper(mm, true, "utf-8");
+				mmh.setSubject("회원가입 완료 되었습니다.");
+				mmh.setText("ConstantCompany 회원가입 완료되었습니다.\n"
+						+ "ID : " + member2.getM_userId() + "\n"
+								+ "PW : " + member2.getM_userPw());
+				mmh.setTo(member2.getM_email());
+				mmh.setFrom("yphl1@naver.com");
+				jMailSender.send(mm);
+
+			} catch (Exception e) {
+				result = 0;
+				model.addAttribute("msg", e.getMessage());
+			}
+
+
+		} else {
+			result = -1;
+		}
+		model.addAttribute("result", result);
+		return "company/CJoinResult";
+	}
+	
 	@RequestMapping(value = "/company/CJoinResult2.do", method = RequestMethod.POST)
 	public String CJoinResult2(CMember member,Model model) {
 		System.out.println(member);
@@ -99,7 +156,7 @@ public class AdminController {
 		return "/company/shipment/admin/CJoinResult2";
 	}
 
-	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/orderList.do", method = RequestMethod.GET)
 	public String orderList(M_order m_order, String pageNum, Model model) {
 		
 		if (pageNum == null || pageNum.equals("")) {
@@ -125,7 +182,7 @@ public class AdminController {
 		
 		return "/company/shipment/admin/orderList";
 	}
-	@RequestMapping(value = "orderDetail.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/orderDetail.do", method = RequestMethod.GET)
 	public String orderDetail(int order_no, String pageNum, Model model) {
 		M_order m_order = os.selectOD(order_no);
 		
@@ -133,7 +190,7 @@ public class AdminController {
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderDetail";
 	}
-	@RequestMapping(value = "orderCheck.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/orderCheck.do", method = RequestMethod.GET)
 	public String orderCehck(int order_no, String pageNum, Model model) {
 		int result = 0;
 
@@ -143,7 +200,7 @@ public class AdminController {
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderCheck";
 	}
-	@RequestMapping(value = "orderCancel.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/orderCancel.do", method = RequestMethod.GET)
 	public String orderCancel(int order_no, String pageNum, Model model) {
 		int result = 0;
 
@@ -153,12 +210,12 @@ public class AdminController {
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderCancel";
 	}
-	@RequestMapping(value = "adminCoupon.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/adminCoupon.do", method = RequestMethod.GET)
 	public String adminCoupon() {
 
 		return "/company/shipment/admin/adminCoupon";
 	}
-	@RequestMapping(value = "couponInsert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "company/couponInsert.do", method = RequestMethod.POST)
 	public String couponInsert(Coupon coupon, Model model) {
 		int result = 0;
 		result = cps.insert(coupon);
@@ -166,7 +223,7 @@ public class AdminController {
 		model.addAttribute("result", result);
 		return "/company/shipment/admin/couponInsert";
 	}
-	@RequestMapping(value = "adminMbList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/adminMbList.do", method = RequestMethod.GET)
 	public String adminMbList(CMember member, String pageNum, Model model) {
 		
 		if (pageNum == null || pageNum.equals("")) {
@@ -191,7 +248,7 @@ public class AdminController {
 		
 		return "/company/shipment/admin/adminMbList";
 	}
-	@RequestMapping(value = "adminMbView.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminMbView.do", method = RequestMethod.GET)
 	public String adminMbView(String m_userId, String pageNum, Model model) {
 		CMember member = ms.select(m_userId);
 
@@ -199,13 +256,13 @@ public class AdminController {
 
 		return "/company/shipment/admin/adminMbView";
 	}
-	@RequestMapping(value = "adminMbDelete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminMbDelete.do", method = RequestMethod.GET)
 	public String adminMbDelete(String m_userId, String pageNum, Model model) {
 		int result = ms.adminMbDelete(m_userId);
 		model.addAttribute("result", result);
 		return "/company/shipment/admin/adminMbDelete";
 	}
-	@RequestMapping(value = "adminQnAList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/adminQnAList.do", method = RequestMethod.GET)
 	public String adminQnAList(QnA qna, Model model, String pageNum, HttpSession session) {
 		
 		if (pageNum == null || pageNum.equals("")) {
@@ -230,7 +287,7 @@ public class AdminController {
 		
 		return "/company/shipment/admin/adminQnAList";
 	}
-	@RequestMapping(value = "adminQnAView.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminQnAView.do", method = RequestMethod.GET)
 	public String adminQnAView(Integer qa_no, String pageNum, Model model) {
 		QnA qna = qs.selectQnA(qa_no);
 		
@@ -242,7 +299,7 @@ public class AdminController {
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/adminQnAView";
 	}
-	@RequestMapping(value = "adminQnAReplyInsert.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminQnAReplyInsert.do", method = RequestMethod.GET)
 	public String adminQnAReplyInsert(int qa_no, QnAr qnar, String pageNum, Model model) {
 		int result = 0;
 		
@@ -254,7 +311,7 @@ public class AdminController {
 		model.addAttribute("qa_no", qa_no);
 		return "/company/shipment/admin/adminQnAReplyInsert";
 	}
-	@RequestMapping(value = "adminQnACheck.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminQnACheck.do", method = RequestMethod.GET)
 	public String adminQnACheck(int qa_no, String pageNum, Model model) {
 		int result = 0;
 		result = qs.updateChk(qa_no);
@@ -263,7 +320,7 @@ public class AdminController {
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/adminQnACheck";
 	}
-	@RequestMapping(value = "adminQnAReply.do", method = RequestMethod.GET)
+	@RequestMapping(value = "company/adminQnAReply.do", method = RequestMethod.GET)
 	public String adminQnAReply() {
 		
 		return "/company/shipment/admin/adminQnaReply";

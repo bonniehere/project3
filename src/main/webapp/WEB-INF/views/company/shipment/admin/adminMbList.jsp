@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 목록</title>
 <c:set var="path" value="${pageContext.request.contextPath }"></c:set>
 <script type="text/javascript" src="${path }/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${path }/resources/js/scripts.js"></script>
@@ -75,8 +75,17 @@ ul {
 #gohome{
 	text-decoration: none; color: #007bff; font-weight: bold;
 }
-</style>
+<!-- 추가 -->
+.pagination .page-item.active-page .page-link {
+  background-color: #007bff; /* 현재 페이지 배경 색상 */
+  color: #fff; /* 현재 페이지 텍스트 색상 */
+}
 
+.pagination .page-link:hover {
+  background-color: #007bff; /* 페이지 링크 호버시 배경 색상 */
+  color: #fff; /* 페이지 링크 호버시 텍스트 색상 */
+}
+</style>
 
 </head>
 <body>
@@ -96,18 +105,19 @@ ul {
 					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">회원 목록</h2>
 				<table class="table">	
 						<tr><th>병원명</th>
-							<th>이메일</th><th>담당자</th><th>휴대전화번호</th><th>전화번호</th><th>우편번호</th><th>주소</th><th>상세주소</th>
+							<th>아이디</th>
+							<th>이메일</th><th>담당자</th><th>휴대전화번호</th><th>전화번호</th><th>우편번호</th><th>주소</th>
 							<th>가입일자</th><th>누적금액</th><th>회원구분</th><th>탈퇴여부</th>
 							<th>상세정보</th></tr>
 					<c:forEach var="mb" items="${mbList }">
 						<tr><th>${mb.m_hspNm}</th>
+						<td>${mb.m_userId }</td>
 						<td>${mb.m_email }</td>
 						<td>${mb.m_name }</td>
 						<td>${mb.m_phone }</td>
 						<td>${mb.m_tel }</td>
 						<td>${mb.m_zipCd }</td>
 						<td>${mb.m_addr }</td>
-						<td>${mb.m_addr_detail }</td>
 						<td>${mb.join_date }</td>
 						<td>${mb.amount }</td>
 						<td>${mb.m_userStat }</td>
@@ -134,7 +144,7 @@ ul {
 					<!-- 현재 머물고 있는 페이지가 몇 페이지인지 구별할 때 -->
 					<c:if test="${pb.currentPage == i }">
 						<li class="page-item"><a href="adminMbList.do?pageNum=${i }"
-							class="page-link">ㅤ${i}ㅤ</a></li>
+							class="page-link" style=" background-color: #007bff; color: #fff;">ㅤ${i}ㅤ</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
 						<li class="page-item"><a href="adminMbList.do?pageNum=${i }"
