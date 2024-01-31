@@ -7,6 +7,10 @@
 		select *
 		from CMember where m_userId=#{m_userId}
 	</select>
+	<select id="select2" resultType="com.constant01.model.CMember">
+		select *
+		from Staff where m_userId=#{m_userId}
+	</select>
 
 	<!-- 회원가입 --> <!-- table img default값 지우기 -->
 	<insert id="insert">

@@ -6,11 +6,11 @@
 	<insert id="insert">
 		insert into coupon(coupon_no,
 		coupon_type, coupon_use, coupon_max_date,
-		use_price, m_email)
+		use_price, m_userId)
 		values(0,
 		#{coupon_type},
 		#{coupon_use}, #{coupon_max_date},
-		#{use_price}, #{m_email})
+		#{use_price}, #{m_userId})
 	</insert>
 
 	<select id="getWLTotal" resultType="int">

@@ -167,8 +167,23 @@ function takeScreenshotAndSaveAsImage() {
         // 가상의 링크를 생성하고 다운로드
         var link = document.createElement('a');
         link.href = imageData;
-        link.download = hspNm+'_'+name+'.jpg';
+        link.download = 'Staff '+name+'.jpg';
         link.click();
+    });
+}
+function emailGogo(){
+	var m_userId = $("#userId").val();
+	
+	$.ajax({
+        type: "GET",
+        url: "/company/CjoinEmail2.do",
+        data: { m_userId: m_userId },
+        success: function(response) {
+        	alert("메일 전송 완료");
+        },
+        error: function(error) {
+        	alert("메일 전송 실패");
+        }
     });
 }
 </script>
@@ -278,6 +293,7 @@ function takeScreenshotAndSaveAsImage() {
 						</div>
 						<div class="btn_area">
 							<a href="javascript:void(0);" onclick="javascript:takeScreenshotAndSaveAsImage();" class="btn_ty01_sty01"><span>이미지 저장</span></a>
+							<a href="javascript:void(0);" onclick="emailGogo();" class="btn_ty01_sty01"><span>이메일 전송</span></a>
 							<a href="adminPage.do" class="btn_ty01_sty0"><span>홈으로</span></a>
 						</div>
 					</div>
