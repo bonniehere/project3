@@ -123,9 +123,9 @@
       select *
 			from( 
 				select @rownum:=@rownum+1 rownum, b.*
-				from cartorder b, (select @rownum:=0) as tmp
+				from m_order b, (select @rownum:=0) as tmp
 				where m_userId=#{m_userId}
-			    order by no desc
+			    order by order_no desc
 			) as orderlist
 			<![CDATA[
 			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
@@ -134,7 +134,7 @@
   
   <select id="getTotal_order" resultType="int">
     
-        select count(*) from cartorder
+        select count(*) from m_order
     
     </select>
   

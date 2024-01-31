@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,6 +47,14 @@ public class ReleaseController {
 	
 	@Autowired
 	CustomerService ccs;
+	
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "company/homelog";
+	}
+	
 	
 	//메인 겸 주문 페이지, 왼쪽 사이드 메뉴1, All누르면
 	@RequestMapping(value = "/release", method = RequestMethod.GET)
@@ -230,13 +239,7 @@ public class ReleaseController {
 		    
 	        model.addAttribute("list", cs.cart_list(list));
 	       
-	      
-	        
-
-
-	        
-	        
-	        
+	     
 	        if(loginAttribute != null) {
 
 	        	 model.addAttribute("list", cs.cart_list(list));
@@ -276,9 +279,9 @@ public class ReleaseController {
 	    @ResponseBody
 	    public ResponseEntity<String> placeOrder(@RequestBody List<cartVO> orderItems) {
 	        // 주문 항목 처리 로직
-	        
+		 System.out.println("aaa");
 	        System.out.println(orderItems);
-	        
+	        System.out.println("aaa");
 	        cs.orderItem(orderItems);		
 	        return ResponseEntity.ok("Order placed successfully");
 	    }
@@ -287,7 +290,13 @@ public class ReleaseController {
 	 
 	//왼쪽 사이드 메뉴2, 주문현황
 		@RequestMapping(value = "orderlist", method = RequestMethod.GET)
-		public String orderlist (Model model, Criteria cri) {
+		public String orderlist (Model model, Criteria cri,HttpServletRequest request) {
+			
+			 HttpSession session = request.getSession();
+		        Object loginAttribute = session.getAttribute("login");
+		        model.addAttribute("login", loginAttribute);
+		        
+			
 			
 			model.addAttribute("orderlist", rs.orderlist(cri) );
 			int total = rs.getTotal_order();
@@ -298,7 +307,14 @@ public class ReleaseController {
 		}
 	 
 	 
-	 //주문현황보기
+	 //주문현황에서 주문취소
+		@PostMapping("/deleteOrder")
+	    @ResponseBody
+	    public String deleteOrder(@RequestParam("order_no") String order_no) {
+	        // orderId를 이용하여 주문을 삭제하는 서비스 메서드 호출
+	        cs.deleteOrder(order_no);
+	        return "success";
+	    }
 	
 		
 		

@@ -17,9 +17,20 @@
 <body>
 <div id="input_wrap">
 <h3>배송정보 세부입력</h3>
+<h3><a href="/release">메인페이지</a></h3>
 <input type="text" id="name" name="name" class="input-field" placeholder="수령자이름"><br>
 <input type="text" id="phone" name="phone" class="input-field" placeholder="수령자연락처">
 
+
+<!-- 세션값 -->
+ 
+            <input type="hidden" id="m_email" value="${sessionScope.login.m_email}">
+            <input type="hidden" id="m_name" value="${sessionScope.login.m_name}">
+            <input type="hidden" id="m_phone" value="${sessionScope.login.m_phone} ">
+            <input type="hidden" id="m_zipCd" value="${sessionScope.login.m_zipCd} ">
+            <input type="hidden" id="m_addr" value="${sessionScope.login.m_addr} ">
+            <input type="hidden" id="m_addr_detail" value="${sessionScope.login.m_addr_detail} ">
+<!-- 세션값 -->
 
 <div class="address-search-container">
 <div class="address-search-wrapper">
@@ -48,6 +59,7 @@
         <li id="item-${item.no}">
             <span>제품명: ${item.productname}</span>
             <span>코드: ${item.productcode}</span>
+            <span>이미지:<img src="../../resources/img/release/${item.productcode}.png" style="width:40px;height:40px;"></span>
             <span>수량: ${item.quantity}</span>
             <span>단가: ${item.price}</span>
             <span>금액: <span class="subtotal">${item.quantity * item.price}</span></span>
@@ -57,6 +69,8 @@
             <input type="hidden" name="price" value="${item.price}">
             <input type="hidden" name="subtotal" value="${item.quantity * item.price}">
             <input type="hidden" name="m_userId" value="${item.m_userId}">
+            
+           
             
             <button class="remove-from-cart" onclick="removeFromCart(${item.no}, '${item.productcode}', ${item.quantity * item.price})">삭제</button>
         </li>
@@ -132,7 +146,15 @@
                     phone: $('#phone').val(), // 사용자가 입력한 수령자 연락처
                     zipCd: $('#zipCd').val(), // 사용자가 입력한 우편번호
                     addr: $('#addr').val(), // 사용자가 입력한 주소
-                    addr_detail: $('#detlAddr').val() // 사용자가 입력한 상세주소
+                    addr_detail: $('#detlAddr').val(),
+                    m_email: $('#m_email').val(),
+                    m_name: $('#m_name').val(),
+                    m_phone: $('#m_phone').val(),
+                    m_zipCd: $('#m_zipCd').val(),
+                    m_addr: $('#m_addr').val(),
+                    m_addr_detail: $('#m_addr_detail').val()
+                   
+               
                     
                 };
                 cartItems.push(item);
@@ -145,13 +167,24 @@
                 contentType: "application/json",
                 data: JSON.stringify(cartItems),
                 success: function(response) {
+                	alert("주문성공.")
                     console.log("Order placed successfully");
-                    // 주문 성공 후, 페이지를 새로고침하거나 다른 작업을 수행할 수 있습니다.
+                	 $('.cart-items li').each(function() {
+                         var no = $(this).attr('id').split('-')[1]; // 상품 번호 추출
+                         var productcode = $(this).find('input[name="productcode"]').val();
+                         var subtotal = $(this).find('.subtotal').text();
+                         removeFromCart(no, productcode, subtotal);
+                     });
+                     updateTotalAmount();
                 },
                 error: function(error) {
                     console.error("Error placing order:", error);
                 }
             });
+            
+            
+
+            
         }
         
         //--------------------------------------------------------------------------------------------------
@@ -206,6 +239,9 @@
             }
         }).open();
     }
+        
+        
+        
     </script>
 </body>
 </html>
