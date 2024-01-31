@@ -15,6 +15,12 @@
   
   </delete>
   
+  <delete id="deleteOrder">
+  
+  delete from m_order where order_no=#{order_no};
+  
+  </delete>
+  
   
   <insert id="cart_add">
   insert into cart(m_userId, productname, productcode, quantity, price) values(#{m_userId},#{productname},#{productcode},#{quantity},#{price});
@@ -22,18 +28,25 @@
   </insert>
   
   <insert id="orderItem" parameterType="java.util.List">
-    INSERT INTO cartorder (
+    INSERT INTO M_order (
         m_userId, 
         productname, 
         productcode, 
-        quantity, 
+        order_quantity, 
         price, 
-        subtotal, 
-        name, 
-        phone, 
-        zipCd, 
-        addr, 
-        addr_detail
+        total_price, 
+        SU_name, 
+        SU_tel, 
+        SU_zipCd, 
+        SU_addr, 
+        SU_addr_detail,
+        M_email,
+        JU_name,
+        JU_tel,
+        JU_zipCd,
+        JU_addr,
+        JU_addr_detail
+        
     ) 
     VALUES
     <foreach collection="list" item="item" separator=",">
@@ -48,7 +61,13 @@
             #{item.phone}, 
             #{item.zipCd}, 
             #{item.addr}, 
-            #{item.addr_detail}
+            #{item.addr_detail},
+            #{item.m_email},
+            #{item.m_name},
+            #{item.m_phone},
+            #{item.m_zipCd},
+            #{item.m_addr},
+            #{item.m_addr_detail}
         )
     </foreach>
 </insert>

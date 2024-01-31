@@ -25,20 +25,34 @@
             <table class="rwd-table" border="1">
                 <tbody>
                     <tr>
-                        <th>주문자</th>
+                    <th>주문날짜</th>
+                        <th>받는사람</th>
+                        <th>이미지</th>                      
                         <th>품목명</th>
+                        <th>단가</th>
+                        
                         <th>주문수량</th>
                         <th>총가격</th>
                         <th>승인여부</th>
+                        <th>주문삭제</th>
                         
                     </tr>
                     <c:forEach items="${orderlist}" var="board">
                         <tr>
-                            <th>${board.m_userId}${board.name}</th>
-                        <th>${board.productname}</th>
-                        <th>${board.quantity}</th>
-                        <th>${board.subtotal}</th>
+                        <th>${board.order_date}</th>
+                            <th>${board.SU_name}</th>
+                        <th><img src="../../resources/img/release/${board.productcode}.png" style="width:40px;height:40px;"></th>
+                        <th>
+                        <a href="javascript:void(window.open('/release/detail?productcode=${board.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">
+                                    ${board.productname}</a>
+                                    </th>
+                        <th>${board.price}</th>
+                        <th>${board.order_quantity}</th>
+                        <th>${board.total_price}</th>
                         <th>${board.confirm}</th>
+                        <th>
+        <button class="delete-button" onclick="deleteOrder('${board.order_no}')">주문취소</button>
+    </th>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -47,7 +61,7 @@
             <div class="paging">
                 <!-- prev(이전)이 true이면 이전버튼 활성화 -->
                 <c:if test="${pageMaker.prev}">
-                    <a href="/orderlist?pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}">이전</a>
+                    <a href="/orderlist?m_userId=${sessionScope.login.m_userId}&pageNum=${pageMaker.startPage-1}&amount=${pageMaker.cri.amount}">이전</a>
                 </c:if>
 
                 <!-- begin(1)이 end(10)될 동안 반복(1일 10일 될 동안 반복) -->
@@ -63,4 +77,27 @@
         </div>
     </div>
 </body>
+
+<script>
+function deleteOrder(order_no) {
+    if (confirm('정말로 주문을 취소하시겠습니까?')) {
+        $.ajax({
+            type: 'POST',
+            url: '/deleteOrder', // 적절한 URL로 변경해야 합니다.
+            data: {
+                order_no: order_no
+            },
+            success: function(response) {
+                alert('주문이 취소되었습니다.');
+                window.location.reload();
+            },
+            error: function(xhr, status, error) {
+                console.error('주문 취소 중 오류가 발생했습니다:', error);
+            }
+        });
+    }
+}
+
+
+</script>
 </html>
