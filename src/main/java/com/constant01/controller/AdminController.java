@@ -7,6 +7,8 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.constant01.model.Affi;
 import com.constant01.model.Coupon;
@@ -109,20 +112,14 @@ public class AdminController {
 		ms.insert(member);
 		return "/company/shipment/admin/CJoinResult";
 	}
-	
-	@RequestMapping(value = "/company/CjoinEmail.do", method = RequestMethod.POST)
-	public String CjoinEmail(String m_email, Model model) {
-		CMember member2 = ms.select(m_email);
-		int result = 0;
+	@ResponseBody
+	@RequestMapping(value = "/company/CjoinEmail.do", method = RequestMethod.GET)
+	public ResponseEntity<String> CjoinEmail(String m_userId, Model model) {
 
-		System.out.println(member2);
+		CMember member2 = ms.select(m_userId); // 쿼리문 성공
+
+		System.out.println("CjoinEmail :"+member2);
 		if (member2 != null) {
-			result = 1;
-
-			// bpe.encode() ()속에는 String만 됨
-			// vCode가 숫자라 뒤에 +""넣어주면 String취급
-			// 임시발급번호를 암호화한 데이터를 저장하기 위해
-
 
 			MimeMessage mm = jMailSender.createMimeMessage();
 			try {
@@ -130,22 +127,23 @@ public class AdminController {
 				mmh.setSubject("회원가입 완료 되었습니다.");
 				mmh.setText("ConstantCompany 회원가입 완료되었습니다.\n"
 						+ "ID : " + member2.getM_userId() + "\n"
-								+ "PW : " + member2.getM_userPw());
+								+ "PW : " + member2.getM_userPw() + "\n로그인후 즉시 비밀번호를 변경해 주세요.");
 				mmh.setTo(member2.getM_email());
 				mmh.setFrom("yphl1@naver.com");
 				jMailSender.send(mm);
-
+				return new ResponseEntity<String>("success", HttpStatus.OK);
 			} catch (Exception e) {
-				result = 0;
+				
 				model.addAttribute("msg", e.getMessage());
+				
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
 			}
 
 
-		} else {
-			result = -1;
 		}
-		model.addAttribute("result", result);
-		return "company/CJoinResult";
+		
+		return new ResponseEntity<>("company/CJoinResult", HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/company/CJoinResult2.do", method = RequestMethod.POST)
@@ -155,7 +153,39 @@ public class AdminController {
 		ms.insert2(member);
 		return "/company/shipment/admin/CJoinResult2";
 	}
+	@ResponseBody
+	@RequestMapping(value = "/company/CjoinEmail2.do", method = RequestMethod.GET)
+	public ResponseEntity<String> CjoinEmail2(String m_userId, Model model) {
 
+		CMember member2 = ms.select2(m_userId); // 쿼리문 성공
+
+		System.out.println("CjoinEmail :"+member2);
+		if (member2 != null) {
+
+			MimeMessage mm = jMailSender.createMimeMessage();
+			try {
+				MimeMessageHelper mmh = new MimeMessageHelper(mm, true, "utf-8");
+				mmh.setSubject("회원가입 완료 되었습니다.");
+				mmh.setText("ConstantCompany Staff Welcome\n"
+						+ "ID : " + member2.getM_userId() + "\n"
+								+ "PW : " + member2.getM_userPw() + "\n로그인후 즉시 비밀번호를 변경해 주세요.");
+				mmh.setTo(member2.getM_email());
+				mmh.setFrom("yphl1@naver.com");
+				jMailSender.send(mm);
+				return new ResponseEntity<String>("success", HttpStatus.OK);
+			} catch (Exception e) {
+				
+				model.addAttribute("msg", e.getMessage());
+				
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+			}
+
+
+		}
+		
+		return new ResponseEntity<>("company/CJoinResult", HttpStatus.OK);
+	}
 	@RequestMapping(value = "/company/orderList.do", method = RequestMethod.GET)
 	public String orderList(M_order m_order, String pageNum, Model model) {
 		
@@ -217,10 +247,12 @@ public class AdminController {
 	}
 	@RequestMapping(value = "company/couponInsert.do", method = RequestMethod.POST)
 	public String couponInsert(Coupon coupon, Model model) {
+
 		int result = 0;
 		result = cps.insert(coupon);
-
+		
 		model.addAttribute("result", result);
+
 		return "/company/shipment/admin/couponInsert";
 	}
 	@RequestMapping(value = "/company/adminMbList.do", method = RequestMethod.GET)

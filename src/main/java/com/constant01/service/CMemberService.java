@@ -10,6 +10,8 @@ import com.constant01.model.CMember;
 public interface CMemberService {
 
 	CMember select(String m_email);
+	
+	CMember select2(String m_email);
 
 	void insert(CMember member);
 	

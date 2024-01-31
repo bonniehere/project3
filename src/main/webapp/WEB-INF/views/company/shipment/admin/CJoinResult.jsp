@@ -172,19 +172,17 @@ function takeScreenshotAndSaveAsImage() {
     });
 }
 function emailGogo(){
-	var m_email = $("#email").val();
+	var m_userId = $("#userId").val();
 	
 	$.ajax({
-        type: "POST",
+        type: "GET",
         url: "/company/CjoinEmail.do",
-        data: { m_email: m_email },
+        data: { m_userId: m_userId },
         success: function(response) {
-            // 서버 응답을 처리하는 코드
-            console.log(response);
+        	alert("메일 전송 완료");
         },
         error: function(error) {
-            // 에러 발생 시 처리하는 코드
-            console.error("Error:", error);
+        	alert("메일 전송 실패");
         }
     });
 }
@@ -204,7 +202,7 @@ function emailGogo(){
 								
 									
 									
-									<input type="hidden" id="email" name="m_email">
+									
 								
 							
 							<p class="bul_point1"><em class="m_color2"></em></p>

@@ -11,7 +11,8 @@ public class Coupon {
 	private String coupon_use;
 	private Date coupon_max_date;
 	private int use_price;
-	private String m_email;
+	private String m_userId;
+	
 	public int getCoupon_no() {
 		return coupon_no;
 	}
@@ -42,17 +43,19 @@ public class Coupon {
 	public void setUse_price(int use_price) {
 		this.use_price = use_price;
 	}
-	public String getM_email() {
-		return m_email;
+	
+	public String getM_userId() {
+		return m_userId;
 	}
-	public void setM_email(String m_email) {
-		this.m_email = m_email;
+	public void setM_userId(String m_userId) {
+		this.m_userId = m_userId;
 	}
 	@Override
 	public String toString() {
 		return "Coupon [coupon_no=" + coupon_no + ", coupon_type=" + coupon_type + ", coupon_use=" + coupon_use
-				+ ", coupon_max_date=" + coupon_max_date + ", use_price=" + use_price + ", m_email=" + m_email + "]";
+				+ ", coupon_max_date=" + coupon_max_date + ", use_price=" + use_price + ", m_userId=" + m_userId + "]";
 	}
+	
 	
 	
 }
