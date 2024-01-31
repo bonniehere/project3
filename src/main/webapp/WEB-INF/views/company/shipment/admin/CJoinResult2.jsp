@@ -278,7 +278,7 @@ function takeScreenshotAndSaveAsImage() {
 						</div>
 						<div class="btn_area">
 							<a href="javascript:void(0);" onclick="javascript:takeScreenshotAndSaveAsImage();" class="btn_ty01_sty01"><span>이미지 저장</span></a>
-							<a href="/adminPage.do" class="btn_ty01_sty0"><span>홈으로</span></a>
+							<a href="adminPage.do" class="btn_ty01_sty0"><span>홈으로</span></a>
 						</div>
 					</div>
 </form>

@@ -30,6 +30,13 @@
 			</exclusions>
 		</dependency>
 		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+
+		
 				<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -50,8 +57,21 @@
 		    <version>1.18.12</version>
 		    <scope>provided</scope>
 		</dependency>
+		<!-- 자바 메일 --> 
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+	
+		<dependency>
+	       <groupId>javax.activation</groupId>
+	       <artifactId>activation</artifactId>
+	       <version>1.1</version>
+	  	</dependency>
 
-		
+   
+		<!--  -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -119,7 +139,7 @@
 		    <version>2.7.4</version>
 		</dependency>
 				
-
+		
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
