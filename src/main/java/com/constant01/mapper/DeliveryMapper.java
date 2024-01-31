@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.constant01.model.AdminDTO;
 import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
+import com.constant01.model.TempDTO;
 
 public interface DeliveryMapper {
 	
@@ -24,5 +25,6 @@ public interface DeliveryMapper {
 	
 	public void delete(DeliveryDTO delivery);
 	
+	public ArrayList<TempDTO> temp(TempDTO temp);
 
 }
