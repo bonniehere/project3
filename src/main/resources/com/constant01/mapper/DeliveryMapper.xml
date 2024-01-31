@@ -5,8 +5,8 @@
 
  <mapper namespace="com.constant01.mapper.DeliveryMapper">
 	
-	<select id="login" parameterType="String" resultType="com.constant01.model.DriverDTO">
-		select * from driver where userId=#{userId} and userPw = #{userPw};
+	<select id="login" parameterType="String" resultType="com.constant01.model.CMember">
+		select * from Staff where m_userId=#{m_userId} and m_userPw =#{m_userPw};	
 	</select>
 	
 		
@@ -16,31 +16,31 @@
 	
 	
 	<!--ship_driver로 보내기 위한 list -->
-	<select id="list" resultType="com.constant01.model.DriverDTO">
-		select * from driver;
+	<select id="list" resultType="com.constant01.model.CMember">
+		select * from Staff;
 	</select>
 	
 	<!-- 배달기사 위치 db에 insert -->
 	<insert id="write">
-		insert into customermap values(#{userId},#{userPw},#{driverNm},#{driverPhone},#{driverLat},#{driverLon},0,default);
+		insert into customermap values(#{m_userId},#{m_userPw},#{m_name},#{m_phone},#{driverLat},#{driverLon},0,default);
 	</insert>
 
 	<!-- 기사 위치임 -->
 	<select id="dlist" resultType="com.constant01.model.DeliveryDTO">
 		SELECT *
 FROM customermap
-WHERE (drivernm = '홍배달' OR drivernm = '나배달')
+WHERE (m_name = '홍배달' OR m_name = '나배달')
 AND num IN (
     SELECT MAX(num)
     FROM customermap
-    WHERE drivernm = '홍배달' OR drivernm = '나배달'
-    GROUP BY drivernm
+    WHERE m_name = '홍배달' OR m_name = '나배달'
+    GROUP BY m_name
 )ORDER BY num DESC;
 	</select>
 	
 	<delete id="delete">
 	<![CDATA[
-		delete from customermap where userPw = #{userPw} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
+		delete from customermap where m_userPw = #{m_userPw} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
 	]]>
 	</delete>
 	
