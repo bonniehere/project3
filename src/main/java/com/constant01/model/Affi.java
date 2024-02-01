@@ -2,16 +2,14 @@ package com.constant01.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
-//import lombok.Data;
-//import lombok.Setter;
 
-//@Data
 public class Affi {
 	private int af_no;
 	private String af_name;
 	private String af_tel;
 	private String af_email;
 	private String af_title;
+	private String af_homepage;
 	private String af_content;
 	private String af_file;
 	
@@ -74,6 +72,16 @@ public class Affi {
 	}
 
 
+	public String getAf_homepage() {
+		return af_homepage;
+	}
+
+
+	public void setAf_homepage(String af_homepage) {
+		this.af_homepage = af_homepage;
+	}
+
+
 	public String getAf_content() {
 		return af_content;
 	}
@@ -127,9 +135,10 @@ public class Affi {
 	@Override
 	public String toString() {
 		return "Affi [af_no=" + af_no + ", af_name=" + af_name + ", af_tel=" + af_tel + ", af_email=" + af_email
-				+ ", af_title=" + af_title + ", af_content=" + af_content + ", af_file=" + af_file + ", startRow="
-				+ startRow + ", endRow=" + endRow + ", file=" + file + "]";
+				+ ", af_title=" + af_title + ", af_homepage=" + af_homepage + ", af_content=" + af_content
+				+ ", af_file=" + af_file + ", startRow=" + startRow + ", endRow=" + endRow + ", file=" + file + "]";
 	}
-    
+
+
     
 }

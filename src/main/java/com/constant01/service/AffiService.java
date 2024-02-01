@@ -15,7 +15,7 @@ public interface AffiService {
 
 	Affi selectAF(int AF_no);
 
-
+	int updateAF(int af_no);
 
 
 }
