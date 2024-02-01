@@ -23,6 +23,8 @@ public interface DeliveryMapper {
 	//여기에 최종 기사 위치 저장 !!
 	public ArrayList<DriverDTO> dlist(DeliveryDTO delivery);
 	
+	public ArrayList<DriverDTO> dlist2(DeliveryDTO delivery);
+	
 	public void delete(DeliveryDTO delivery);
 	
 	public ArrayList<TempDTO> temp(TempDTO temp);

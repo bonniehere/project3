@@ -38,6 +38,18 @@ AND num IN (
 )ORDER BY num DESC;
 	</select>
 	
+	<select id="dlist2" resultType="com.constant01.model.DeliveryDTO">
+		SELECT *
+FROM customermap
+WHERE m_name = #{m_name}
+AND num IN (
+    SELECT MAX(num)
+    FROM customermap
+    WHERE m_name = #{m_name}
+    GROUP BY m_name
+)ORDER BY num DESC;
+	</select>
+	
 	<delete id="delete">
 	<![CDATA[
 		delete from customermap where m_userPw = #{m_userPw} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)

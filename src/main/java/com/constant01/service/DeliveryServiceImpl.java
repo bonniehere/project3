@@ -9,6 +9,7 @@ import com.constant01.mapper.DeliveryMapper;
 import com.constant01.model.AdminDTO;
 import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
+import com.constant01.model.TempDTO;
 
 @Service
 public class DeliveryServiceImpl implements DeliveryService{
@@ -38,9 +39,17 @@ public class DeliveryServiceImpl implements DeliveryService{
 
 		return dm.dlist(delivery);
 	}
-	
+	public ArrayList<DriverDTO> dlist2(DeliveryDTO delivery) {
+
+		return dm.dlist2(delivery);
+	}
 	public void delete(DeliveryDTO delivery) {
 		dm.delete(delivery);
+	}
+	
+	public ArrayList<TempDTO> temp(TempDTO temp) {
+
+		return dm.temp(temp);
 	}
 
 

@@ -66,6 +66,8 @@
 <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 </head>
 </head>
+
+
 <body>
    <!-- 상단 메뉴 추가 -->
     <div class="header">
@@ -116,9 +118,34 @@
     </div>
 <div id="map" style="width:700px;height:600px;"></div>
 
+
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <div id="chart_div"></div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var driverCells = document.querySelectorAll("table.cute-table td:first-child");
+
+        driverCells.forEach(function (driverCell) {
+            driverCell.addEventListener("click", function () {
+                // 클릭한 기사의 이름과 전화번호를 가져옵니다.
+                var selectedDriverName = this.parentElement.querySelector("td:nth-child(1)").innerText;
+                var selectedDriverPhone = this.parentElement.querySelector("td:nth-child(2)").innerText;
+
+                // 현재 페이지의 URL에서 호스트 부분을 추출합니다.
+                var currentHost = window.location.origin;
+
+                // 생성할 URL 경로
+                var destinationPath = "/company/shipper/ship_MD.do";
+
+                // 페이지 이동
+                window.location.href = currentHost + destinationPath + "?m_name=" + encodeURIComponent(selectedDriverName) + "&m_phone=" + encodeURIComponent(selectedDriverPhone);
+            });
+        });
+    });
+</script>
+
 
 
 
@@ -126,59 +153,53 @@
 google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawBasic);
 
+var date = [];
 var temp = [];
 
 function drawBasic() {
 
-	 $.ajax({
-	      type : "GET",
-	      url  : "/company/shipper/AdminTempLoad.do",
-	      
-	      /*data : {
-	         "liveTime"	: liveTime,
-	         "temp"		: temp
-	      },*/
-	      dataType : "json",
-	      success  : function(data){
-	    	  alert((data));
-	         for(i=0;i<data.length;i++){
-	        	 
-	        	 temp[i] = data[i];
-	         
-	         }
-	         
-	      },
-	      error:function(request,status,error){
-	         console.log("실패");
-	         alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
-	      }
-	   });
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('datetime', '등록일');
-      data.addColumn('number', 'Temp');
+    $.ajax({
+        type: "GET",
+        url: "/company/shipper/AdminTempLoad.do",
+        dataType: "json",
+        success: function (data) {
+            for (i = 0; i < data.length; i++) {
+                date[i] = new Date(data[i]["liveTime"]);
+                temp[i] = parseInt(data[i]["temp"]);
+            }
 
-     
-		for(i=0; i < temp.length; i++){
-			 
-			data.addRows([ new Date(temp[i].liveTime),parseInt(temp[i].temp)]);
-			
-		}
-     
+            console.log(date); // 날짜 데이터 확인용 로그
 
-      var options = {
-        hAxis: {
-          title: 'Time'
+            var chartData = new google.visualization.DataTable();
+            chartData.addColumn('datetime', 'Time');
+            chartData.addColumn('number', 'Temperature');
+
+            for (j = 0; j < temp.length; j++) {
+                chartData.addRows([[date[j], temp[j]]]);
+            }
+
+            var options = {
+                hAxis: {
+                    title: 'Time',
+                    format: 'HH:mm'  // 시간 표시 형식 설정 (원하는 형식으로 변경 가능)
+                },
+                vAxis: {
+                    title: 'Temperature'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(chartData, options);
         },
-        vAxis: {
-          title: 'Temperature'
+        error: function (request, status, error) {
+            console.log("실패");
+            alert("처리 중 오류가 발생되었습니다.\nerror:" + error + "request:" + request + "status:" + status);
         }
-      };
+    });
+}
 
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
-      chart.draw(data, options);
-    }
 
 </script>
 
@@ -189,6 +210,7 @@ $(document).ready(function(){
 	
    setInterval('autoChase()', 3000); // 3초 마다 함수실행   
    setInterval('fn_gogo()', 3000); // 3초 마다 함수실행
+   setInterval('drawBasic()', 3000); // 3초 마다 그래프 함수실행 
 
 
 })

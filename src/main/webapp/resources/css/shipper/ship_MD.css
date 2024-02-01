@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/*
+.map_area{
+	display: inline-block;
+	
+}
+
+.driver_profile{
+	display: inline-block;
+	margin: 50px;
+}*/
+
+.cute-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.cute-table table {
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #dddddd;
+    text-align: left;
+    width: 100%;
+}
+
+.cute-table th, .cute-table td {
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+.cute-table th {
+    background-color: #f2f2f2;
+}
+/*
+.cute-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cute-table tr:hover {
+    background-color: #f1f1f1;
+}
+*/
+
+#driverNameParagraph{
+	width: 10px;
+}
+
+
+body {
+    margin: 0;
+}
+
+.cute-table img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.body {
+    width: 90%;
+    margin: 10px auto;
+}
+
+
+#driver{
+	width:200px;
+	height:200px;
+}
+
+.driver_profile {
+    margin: 10px;
+    width: 500px;
+    height: 300px;
+    float: right;
+    margin-right: 300px; /* Adjusted margin-right */
+    margin-top: 50px;
+}
+
+
+#map {
+    float: left;
+    margin-right: 100px;
+}
+
+#chart_div{
+	margin: 10px;
+	width: 900px;
+	height: 200px;
+	
+	
+	position: absolute;
+	bottom: 200px;
+	left: 850px;
+	
+}
+
+/* 상단 메뉴 스타일 */
+.header {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #9EBEC4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
