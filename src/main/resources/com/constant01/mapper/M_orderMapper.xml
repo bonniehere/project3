@@ -15,8 +15,8 @@
 	<select id="odList" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
 		select *
          from(select  a.*, @rownum:=@rownum+1 rn
-            from affi a, (select @rownum:=0) as tmp
-             order by AF_no desc) as boardlist where rn between #{startRow} and #{endRow};
+            from m_order a, (select @rownum:=0) as tmp
+             order by order_no desc) as boardlist where rn between #{startRow} and #{endRow};
 	</select>
 
 	<select id="selectOD" parameterType="integer"

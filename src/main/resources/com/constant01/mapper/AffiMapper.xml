@@ -4,11 +4,11 @@
 <mapper namespace="com.constant01.mapper.AffiMapper">
 	<!-- 제휴 등록 -->
 	<insert id="insert">
-		insert into affi(af_no,
-		af_name, af_tel, af_email, af_title, af_content, af_file)
-		values((select nvl(max(af_no), 0)+1 from affi),
+		insert into affi(
+		af_name, af_tel, af_email, af_title, af_homepage, af_content, af_file)
+		values(
 		#{af_name}, #{af_tel},
-		#{af_email}, #{af_title}, #{af_content}, #{af_file})
+		#{af_email}, #{af_title}, #{af_homepage}, #{af_content}, #{af_file})
 	</insert>
 
 	<select id="selectAF" resultType="com.constant01.model.Affi">
@@ -36,5 +36,11 @@
              order by AF_no desc) as boardlist
 		where rn between #{startRow} and #{endRow}
 	</select>
+	
+	<update id="updateAF" parameterType="com.constant01.model.Affi">
+		update Affi set
+		af_title='--처리되었습니다--'
+		where af_no=#{af_no}
+	</update>
 
 </mapper> 

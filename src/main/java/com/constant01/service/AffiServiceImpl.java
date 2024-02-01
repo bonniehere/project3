@@ -37,7 +37,11 @@ public class AffiServiceImpl implements AffiService {
 		return ad.selectAF(AF_no);
 	}
 
-
+	@Override
+	public int updateAF(int AF_no) {
+		// TODO Auto-generated method stub
+		return ad.updateAF(AF_no);
+	}
 	
 	
 }

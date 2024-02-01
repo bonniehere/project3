@@ -12,4 +12,6 @@ public interface AffiMapper {
 	public ArrayList<Affi> afList(Affi affi);
 
 	public Affi selectAF(int AF_no);
+	
+	public int updateAF(int AF_no);
 }

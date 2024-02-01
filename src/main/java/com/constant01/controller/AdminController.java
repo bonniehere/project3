@@ -101,6 +101,17 @@ public class AdminController {
 
 		return "/company/shipment/admin/contactResultView";
 	}
+	@RequestMapping(value = "/company/contactCheck.do", method = RequestMethod.GET)
+	public String contactCheck(int af_no, String pageNum, Model model) {
+		int result = 0;
+
+		result = as.updateAF(af_no);
+
+		model.addAttribute("result", result);
+		model.addAttribute("pageNum", pageNum);
+		return "/company/shipment/admin/contactResultView2";
+
+	}
 	@RequestMapping(value = "/company/CJoin.do", method = RequestMethod.GET)
 	public String CJoin() {
 		return "/company/shipment/admin/CJoin";
@@ -200,7 +211,6 @@ public class AdminController {
 		m_order.setStartRow(startRow);
 		m_order.setEndRow(endRow);
 		List<M_order> odList = os.odList(m_order);
-
 		int num = total - startRow + 1;
 		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
 		String[] title = { "이름", "내용", "제목+내용" };

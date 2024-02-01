@@ -4,8 +4,11 @@ import java.sql.Date;
 
 public class M_order {
 	private int order_no;
+	private String m_userId;
 	private String m_email;
 	private int p_no;
+	private String productname;
+	private String productcode;
 	private Date order_date;
 	private int order_quantity;
 	private String refund_chk;
@@ -13,9 +16,11 @@ public class M_order {
 	private String status;
 	private String ju_name;
 	private String ju_tel;
+	private String ju_zipCd;
 	private String ju_addr;
 	private String ju_addr_detail;
 	private String su_name;
+	private String su_zipCd;
 	private String su_tel;
 	private String su_addr;
 	private String su_addr_detail;
@@ -44,6 +49,14 @@ public class M_order {
 		this.order_no = order_no;
 	}
 
+	public String getM_userId() {
+		return m_userId;
+	}
+
+	public void setM_userId(String m_userId) {
+		this.m_userId = m_userId;
+	}
+
 	public String getM_email() {
 		return m_email;
 	}
@@ -58,6 +71,22 @@ public class M_order {
 
 	public void setP_no(int p_no) {
 		this.p_no = p_no;
+	}
+
+	public String getProductname() {
+		return productname;
+	}
+
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+
+	public String getProductcode() {
+		return productcode;
+	}
+
+	public void setProductcode(String productcode) {
+		this.productcode = productcode;
 	}
 
 	public Date getOrder_date() {
@@ -116,6 +145,14 @@ public class M_order {
 		this.ju_tel = ju_tel;
 	}
 
+	public String getJu_zipCd() {
+		return ju_zipCd;
+	}
+
+	public void setJu_zipCd(String ju_zipCd) {
+		this.ju_zipCd = ju_zipCd;
+	}
+
 	public String getJu_addr() {
 		return ju_addr;
 	}
@@ -138,6 +175,14 @@ public class M_order {
 
 	public void setSu_name(String su_name) {
 		this.su_name = su_name;
+	}
+
+	public String getSu_zipCd() {
+		return su_zipCd;
+	}
+
+	public void setSu_zipCd(String su_zipCd) {
+		this.su_zipCd = su_zipCd;
 	}
 
 	public String getSu_tel() {
@@ -230,14 +275,16 @@ public class M_order {
 
 	@Override
 	public String toString() {
-		return "M_order [order_no=" + order_no + ", m_email=" + m_email + ", p_no=" + p_no + ", order_date="
-				+ order_date + ", order_quantity=" + order_quantity + ", refund_chk=" + refund_chk + ", total_price="
-				+ total_price + ", status=" + status + ", ju_name=" + ju_name + ", ju_tel=" + ju_tel + ", ju_addr="
-				+ ju_addr + ", ju_addr_detail=" + ju_addr_detail + ", su_name=" + su_name + ", su_tel=" + su_tel
-				+ ", su_addr=" + su_addr + ", su_addr_detail=" + su_addr_detail + ", startRow=" + startRow + ", endRow="
-				+ endRow + ", su_pass=" + su_pass + ", su_deliv=" + su_deliv + ", su_memo=" + su_memo + ", p_sal="
-				+ p_sal + ", p_name=" + p_name + ", coupon_use=" + coupon_use + "]";
+		return "M_order [order_no=" + order_no + ", m_userId=" + m_userId + ", m_email=" + m_email + ", p_no=" + p_no
+				+ ", productname=" + productname + ", productcode=" + productcode + ", order_date=" + order_date
+				+ ", order_quantity=" + order_quantity + ", refund_chk=" + refund_chk + ", total_price=" + total_price
+				+ ", status=" + status + ", ju_name=" + ju_name + ", ju_tel=" + ju_tel + ", ju_zipCd=" + ju_zipCd
+				+ ", ju_addr=" + ju_addr + ", ju_addr_detail=" + ju_addr_detail + ", su_name=" + su_name + ", su_zipCd="
+				+ su_zipCd + ", su_tel=" + su_tel + ", su_addr=" + su_addr + ", su_addr_detail=" + su_addr_detail
+				+ ", startRow=" + startRow + ", endRow=" + endRow + ", su_pass=" + su_pass + ", su_deliv=" + su_deliv
+				+ ", su_memo=" + su_memo + ", p_sal=" + p_sal + ", p_name=" + p_name + ", coupon_use=" + coupon_use
+				+ "]";
 	}
-	
+
 	
 }
