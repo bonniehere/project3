@@ -173,6 +173,29 @@
 				});
 				
 				
+				$.ajax({
+					type : "POST",
+					url  : "/company/shipper/MDmap.do",
+					data : {
+						"m_userId"		: userId,
+						"m_userPw"		: userPw,
+						"m_name" 		: driverNm,
+						"m_phone"	: driverPhone,
+						"driverLat" 	: driverLat,
+						"driverLon"   	: driverLon
+					},
+					dataType : "text",
+					success  : function(){
+						
+						console.log("성공");
+					},
+					error:function(request,status,error){
+						console.log("실패");
+						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
+					}
+				});
+				
+				
 			}
 			   
 			
