@@ -12,5 +12,19 @@
 	select * from Staff where m_userId=#{m_userId} and m_userPw =#{m_userPw};	
 </select>
 
+<select id="checkCoupon" resultType="com.constant01.model.Coupon">
+	select * from coupon where m_userId=#{m_userId};	
+</select>
+
+<update id="applyCoupon">
+    update cart set price = price * (100 - #{use_price}) / 100
+    where m_userId = #{m_userId}
+</update>
+<update id="changeCoupon">
+    update coupon set coupon_use = 'y'
+    where coupon_no = #{coupon_no}
+</update>
+
+
 
 </mapper>
