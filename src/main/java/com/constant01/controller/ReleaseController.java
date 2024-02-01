@@ -3,6 +3,7 @@ package com.constant01.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.constant01.mapper.cartMapper;
 import com.constant01.model.BoardDTO;
 import com.constant01.model.CMember;
+import com.constant01.model.Coupon;
 import com.constant01.model.Criteria;
 import com.constant01.model.CustomerDTO;
 import com.constant01.model.PageMakerDTO;
@@ -47,6 +49,7 @@ public class ReleaseController {
 	
 	@Autowired
 	CustomerService ccs;
+	
 	
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -317,10 +320,40 @@ public class ReleaseController {
 	    }
 	
 		
-		
+		@RequestMapping(value = "checkCoupon", method = RequestMethod.GET)
+		public String checkCoupon(Coupon coupon,Model model ,HttpServletRequest request) {
+			
+			HttpSession session = request.getSession();
+	        Object loginAttribute = session.getAttribute("login");
+	        model.addAttribute("login", loginAttribute);
+	        
+			
+			
+		ccs.checkCoupon(coupon);
+//		System.out.println(ccs.checkCoupon(coupon));
+			model.addAttribute("coupon", ccs.checkCoupon(coupon));
+			
+			
+			return "company/release/checkCoupon";
+		}
 	
 		
 		
+		//장바구니에서 쿠폰적용
+		@PostMapping("/applyCoupon")
+	    @ResponseBody
+	    public String applyCoupon(Coupon coupon) {
+	        
+			
+			
+			
+			
+	        ccs.applyCoupon(coupon);
+	        ccs.changeCoupon(coupon);
+	      
+	        
+	        return "쿠폰이 적용되었습니다.";
+	    }
 		
 		
 	//----------------------------------------------------------------------------------

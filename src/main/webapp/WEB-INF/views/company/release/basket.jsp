@@ -15,35 +15,7 @@
     
 </head>
 <body>
-<div id="input_wrap">
-<h3>배송정보 세부입력</h3>
-<h3><a href="/release">메인페이지</a></h3>
-<input type="text" id="name" name="name" class="input-field" placeholder="수령자이름"><br>
-<input type="text" id="phone" name="phone" class="input-field" placeholder="수령자연락처">
 
-
-<!-- 세션값 -->
- 
-            <input type="hidden" id="m_email" value="${sessionScope.login.m_email}">
-            <input type="hidden" id="m_name" value="${sessionScope.login.m_name}">
-            <input type="hidden" id="m_phone" value="${sessionScope.login.m_phone} ">
-            <input type="hidden" id="m_zipCd" value="${sessionScope.login.m_zipCd} ">
-            <input type="hidden" id="m_addr" value="${sessionScope.login.m_addr} ">
-            <input type="hidden" id="m_addr_detail" value="${sessionScope.login.m_addr_detail} ">
-<!-- 세션값 -->
-
-<div class="address-search-container">
-<div class="address-search-wrapper">
-<input type="text" id="zipCd" name="m_zipCd" class="input-field" placeholder="우편번호">
-<input type="button"  class="address-search-button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
- </div>
- <div class="address-search-wrapper">
-<input type="text" id="addr" name="m_addr" class="input-field" placeholder="주소"><br>
-<input type="text" id="detlAddr" name="m_addr_detail" class="input-field" placeholder="상세주소">
-<input type="text" id="sample6_extraAddress" class="input-field"  placeholder="참고항목">
-</div>
-</div>
-</div>
 
 
     <div class="cart">
@@ -78,17 +50,55 @@
 </ul>
             
             <p class="total1">
-          
-            총 가격: <span id="totalAmount">0.00</span>&nbsp;&nbsp;원&nbsp;&nbsp;  <button id="orderButton" onclick="placeOrder()" > 주문</button></p>
+            총 가격: <span id="totalAmount">0.00</span>&nbsp;&nbsp;원&nbsp;&nbsp;  
+            
+            <button id="coupon" onclick="checkCoupon()" > 쿠폰확인하기</button>
+            
+            </p>
             
         </div>
     </div>
+    
+    <div id="input_wrap">
+<h3>배송정보 세부입력</h3>
+<h3><a href="/release">메인페이지</a></h3>
+<input type="text" id="name" name="name" class="input-field" placeholder="수령자이름"><br>
+<input type="text" id="phone" name="phone" class="input-field" placeholder="수령자연락처 예) 010-1234-5678">
+
+
+<!-- 세션값 -->
+ 
+            <input type="hidden" id="m_email" value="${sessionScope.login.m_email}">
+            <input type="hidden" id="m_name" value="${sessionScope.login.m_name}">
+            <input type="hidden" id="m_phone" value="${sessionScope.login.m_phone} ">
+            <input type="hidden" id="m_zipCd" value="${sessionScope.login.m_zipCd} ">
+            <input type="hidden" id="m_addr" value="${sessionScope.login.m_addr} ">
+            <input type="hidden" id="m_addr_detail" value="${sessionScope.login.m_addr_detail} ">
+<!-- 세션값 -->
+
+<div class="address-search-container">
+<div class="address-search-wrapper">
+<input type="text" id="zipCd" name="m_zipCd" class="input-field" placeholder="우편번호 5자리">
+<input type="button"  class="address-search-button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+ </div>
+ <div class="address-search-wrapper">
+<input type="text" id="addr" name="m_addr" class="input-field" placeholder="주소"><br>
+<input type="text" id="detlAddr" name="m_addr_detail" class="input-field" placeholder="상세주소">
+<input type="text" id="sample6_extraAddress" class="input-field"  placeholder="참고항목">
+</div>
+</div>
+ <p class="total1">
+<button id="orderButton" onclick="placeOrder()" > 주문</button>
+</p>
+</div>
     
     
     
    
 
     <script>
+    
+   
         // 페이지 로드 시 총 가격 계산
         $(document).ready(function () {
         	
@@ -96,6 +106,53 @@
         	updateTotalAmount();
             
         });
+        
+        
+        //유효성검사
+        
+        function validateForm() {
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var zipCd = document.getElementById('zipCd').value;
+    var addr = document.getElementById('addr').value;
+    var detlAddr = document.getElementById('detlAddr').value;
+
+    var nameRegex = /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]{2,}$/;
+    if (!nameRegex.test(name)) {
+        alert("이름은 한글, 영문으로 2자 이상 입력해주세요.");
+        return false;
+    }
+    // 전화번호 유효성 검사
+    var phoneRegex = /^\d{3}-\d{3,4}-\d{4}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("올바른 전화번호 형식이 아닙니다. (예: 010-1234-5678)");
+        return false;
+    }
+
+    // 우편번호 유효성 검사
+    var zipCdRegex = /^\d{5}$/;
+    if (!zipCdRegex.test(zipCd)) {
+        alert("우편번호는 5자리 숫자로 입력해주세요.");
+        return false;
+    }
+
+    // 주소 유효성 검사 (한글, 영문, 숫자, 특수문자 허용)
+    var addrRegex = /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣0-9\s!@#$%^&*(),.?":{}|<>~\-_]+$/;
+    if (!addrRegex.test(addr)) {
+        alert("주소는 한글, 영문, 숫자, 특수문자만 입력해주세요.");
+        return false;
+    }
+
+    // 상세주소 유효성 검사 (한글, 영문, 숫자, 특수문자 허용)
+    var detlAddrRegex = /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣0-9\s!@#$%^&*(),.?":{}|<>~\-_]+$/;
+
+    if (!detlAddrRegex.test(detlAddr)) {
+        alert("상세주소는 한글, 영문, 숫자, 특수문자만 입력해주세요.");
+        return false;
+    }
+    return true;
+ }
+        
 
         // 삭제 버튼 클릭 시 실행되는 함수
         function removeFromCart(no,productname, productcode, subtotal) {
@@ -130,62 +187,67 @@
                 //---------------------------------------------주문
         
         //주문하기 함수
-        function placeOrder() {
-            // 장바구니에 있는 각 상품의 정보를 가져와서 배열에 담습니다.
-            var cartItems = [];
+        // 주문하기 함수
+// 주문하기 함수
+function placeOrder() {
+	
+    if (!validateForm()) {
+    	alert("if문");
+        return; // 유효성 검사 실패 시 함수 종료
+    }
+    else{
+   
+    	alert("else문");
+    // 장바구니에 있는 각 상품의 정보를 가져와서 배열에 담습니다.
+    var cartItems = [];
+    $('.cart-items li').each(function() {
+        var item = {
+            m_userId: $(this).find('input[name="m_userId"]').val(),
+            productname: $(this).find('input[name="productname"]').val(),
+            productcode: $(this).find('input[name="productcode"]').val(),
+            quantity: $(this).find('input[name="quantity"]').val(),
+            price: $(this).find('input[name="price"]').val(),
+            subtotal: $(this).find('input[name="subtotal"]').val(),
+            name: $('#name').val(), // 사용자가 입력한 수령자 이름
+            phone: $('#phone').val(), // 사용자가 입력한 수령자 연락처
+            zipCd: $('#zipCd').val(), // 사용자가 입력한 우편번호
+            addr: $('#addr').val(), // 사용자가 입력한 주소
+            addr_detail: $('#detlAddr').val(),
+            m_email: $('#m_email').val(),
+            m_name: $('#m_name').val(),
+            m_phone: $('#m_phone').val(),
+            m_zipCd: $('#m_zipCd').val(),
+            m_addr: $('#m_addr').val(),
+            m_addr_detail: $('#m_addr_detail').val()
+        };
+        cartItems.push(item);
+    });
+
+    // AJAX를 사용하여 서버에 주문 정보를 전송합니다.
+    $.ajax({
+        type: "POST",
+        url: "order",
+        contentType: "application/json",
+        data: JSON.stringify(cartItems),
+        success: function(response) {
+            alert("주문성공.")
+            console.log("Order placed successfully");
             $('.cart-items li').each(function() {
-                var item = {
-                    m_userId: $(this).find('input[name="m_userId"]').val(),
-                    productname: $(this).find('input[name="productname"]').val(),
-
-                    productcode: $(this).find('input[name="productcode"]').val(),
-                    quantity: $(this).find('input[name="quantity"]').val(),
-                    price: $(this).find('input[name="price"]').val(),
-                    subtotal: $(this).find('input[name="subtotal"]').val(),
-                    name: $('#name').val(), // 사용자가 입력한 수령자 이름
-                    phone: $('#phone').val(), // 사용자가 입력한 수령자 연락처
-                    zipCd: $('#zipCd').val(), // 사용자가 입력한 우편번호
-                    addr: $('#addr').val(), // 사용자가 입력한 주소
-                    addr_detail: $('#detlAddr').val(),
-                    m_email: $('#m_email').val(),
-                    m_name: $('#m_name').val(),
-                    m_phone: $('#m_phone').val(),
-                    m_zipCd: $('#m_zipCd').val(),
-                    m_addr: $('#m_addr').val(),
-                    m_addr_detail: $('#m_addr_detail').val()
-                   
-               
-                    
-                };
-                cartItems.push(item);
+                var no = $(this).attr('id').split('-')[1]; // 상품 번호 추출
+                var productcode = $(this).find('input[name="productcode"]').val();
+                var subtotal = $(this).find('.subtotal').text();
+                removeFromCart(no, productcode, subtotal);
             });
-
-            // AJAX를 사용하여 서버에 주문 정보를 전송합니다.
-            $.ajax({
-                type: "POST",
-                url: "order",
-                contentType: "application/json",
-                data: JSON.stringify(cartItems),
-                success: function(response) {
-                	alert("주문성공.")
-                    console.log("Order placed successfully");
-                	 $('.cart-items li').each(function() {
-                         var no = $(this).attr('id').split('-')[1]; // 상품 번호 추출
-                         var productcode = $(this).find('input[name="productcode"]').val();
-                         var subtotal = $(this).find('.subtotal').text();
-                         removeFromCart(no, productcode, subtotal);
-                     });
-                     updateTotalAmount();
-                },
-                error: function(error) {
-                    console.error("Error placing order:", error);
-                }
-            });
-            
-            
-
-            
+            updateTotalAmount();
+        },
+        error: function(error) {
+            console.error("Error placing order:", error);
         }
+    });
+    }
+}
+
+
         
         //--------------------------------------------------------------------------------------------------
         // 상세입력
@@ -240,7 +302,23 @@
         }).open();
     }
         
+    //-----------------------------쿠폰확인
+    function checkCoupon(){
+    	var popupURL = "checkCoupon?m_userId=${sessionScope.login.m_userId}";
+
+        // 팝업 창의 속성
         
+        var popupOptions = 'width = 700, height = 700, top = 100, left = 600, location = no';
+
+        // 팝업 창 열기
+        var popupWindow = window.open(popupURL, "CheckCouponPopup", popupOptions);
+
+        // 팝업 창이 차단되었을 때 처리
+        if (popupWindow == null || typeof(popupWindow) == 'undefined') {
+            alert("팝업 창이 차단되었습니다. 팝업 차단을 해제하고 다시 시도해주세요.");
+        }
+    	
+    }
         
     </script>
 </body>

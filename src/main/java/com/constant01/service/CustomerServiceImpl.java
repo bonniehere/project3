@@ -1,5 +1,7 @@
 package com.constant01.service;
 
+import java.util.ArrayList;
+
 //import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.constant01.mapper.CustomerMapper;
 import com.constant01.model.CMember;
+import com.constant01.model.Coupon;
 import com.constant01.model.CustomerDTO;
 
 @Service
@@ -27,6 +30,17 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	public CMember login2(CMember customer) {
 		return cm.login2(customer);
+	}
+	public ArrayList<Coupon> checkCoupon(Coupon coupon) {
+		return cm.checkCoupon(coupon);
+	}
+	
+	public void applyCoupon(Coupon coupon) {
+		cm.applyCoupon(coupon);
+	}
+	
+	public void changeCoupon(Coupon coupon) {
+		cm.changeCoupon(coupon);
 	}
 	
 }
