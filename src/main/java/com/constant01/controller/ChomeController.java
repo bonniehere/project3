@@ -1,5 +1,10 @@
 package com.constant01.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.UUID;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.constant01.model.AdminDTO;
+import com.constant01.model.Affi;
 import com.constant01.model.CMember;
 import com.constant01.model.CustomerDTO;
 import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
+import com.constant01.service.AffiService;
 import com.constant01.service.CustomerService;
 import com.constant01.service.DeliveryService;
+
 
 @Controller
 public class ChomeController {
@@ -24,6 +32,14 @@ public class ChomeController {
 	CustomerService cs;
 	@Autowired
 	DeliveryService ds;
+	@Autowired
+	AffiService as;
+	@RequestMapping(value = "company/home.do", method = RequestMethod.GET)
+	public String home () {
+		return "company/home";
+
+	}
+	
 	
 	@RequestMapping(value = "company/homelog.do", method = RequestMethod.GET)
 	public String homelog () {
@@ -78,6 +94,23 @@ public class ChomeController {
 		
 	}
 	
+	@RequestMapping(value = "company/homeContact.do", method = RequestMethod.GET)
+	public String homeContact () {
+		return "company/homeContact";
+
+	}
 	
+	@RequestMapping(value = "company/homeContactResult.do", method = RequestMethod.POST)
+	public String contactResult(Affi affi, Model model) throws IOException {
+		// 제휴 등록
+		System.out.println(affi);
+		int result = 0;
+			
+			result = as.insert(affi);
+
+		
+		model.addAttribute("result", result);
+		return "company/homeContactResult";
+	}
 	
 }

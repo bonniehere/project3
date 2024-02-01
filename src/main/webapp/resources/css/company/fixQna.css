@@ -1,0 +1,82 @@
+.btn_apply,.btn_apply.btn2:visited,.btn_apply:link{font-family:SUIT,sans-serif;font-size:16px;font-weight:700;line-height:50px;display:inline-block;padding:0 25px;border-radius:15px;min-width:22vw;color:#FFF;background-color:#000;border:none;-webkit-box-sizing:border-box;box-sizing:border-box;margin-top:8px;position:relative;text-transform:uppercase;vertical-align:middle;white-space:nowrap;transform:translateZ(0);transition:box-shadow .5s cubic-bezier(.39,.5,.15,1.36)}
+@media screen and (max-width:767px){.btn_apply,.btn_apply.btn2:visited,.btn_apply:link{padding:0 20% 0 5%;line-height:5vh}}
+.btn_apply.btn2:visited:hover,.btn_apply.btn2:visited:link:hover,.btn_apply.btn2:visited:visited:hover,.btn_apply:hover,.btn_apply:link:hover,.btn_apply:link:link:hover,.btn_apply:link:visited:hover,.btn_apply:visited:hover{box-shadow:0 0 0 28px rgba(72,14,103,.9) inset;transition-duration:.5s}.btn_apply.btn2:visited:active,.btn_apply.btn2:visited:link:active,.btn_apply.btn2:visited:visited:active,.btn_apply:active,.btn_apply:link:active,.btn_apply:link:link:active,.btn_apply:link:visited:active,.btn_apply:visited:active{transform:translateY(3px)}
+
+
+
+
+.quickQna{position:fixed; right:-190px; bottom:140px; z-index:5; font-family: SUIT,sans-serif;}
+.quickQna .fixQnaWrap{width:200px; box-sizing:border-box; padding:10px; background:rgba(0,0,0,.7); border-radius:10px; position:relative; font-size:14px; text-align:center;}
+.quickQna .fixQnaWrap .fixQnaTit{width:40px; height:40px; padding:0; position:absolute; top:50%; transform:translateY(-50%); left:-40px; background:#000000; color:#ffffff; border-top-left-radius:10px; border-bottom-left-radius:10px; cursor:pointer;}
+.quickQna .fixQnaWrap .fixQnaTit span{display:inline-block; width:100%; height:100%; position:relative;}
+.quickQna .fixQnaWrap .fixQnaTit span::before{content:''; display:inline-block; width:18px; height:18px; position:absolute; top:50%; left:50%; border-top:1px solid #ffffff; border-right:1px solid #ffffff; transform: translate(-25%,-50%) rotate(-135deg);}
+.quickQna .fixQnaWrap .fixQnaTit span::before{ -webkit-transition-property:all ;
+		-moz-transition-property: 	all ;
+		transition-property: 		all ;
+		-webkit-transition-duration: 0.3s, 0.3s;
+		-moz-transition-duration: 0.3s, 0.3s;
+		transition-duration: 0.3s, 0.3s; 
+		-webkit-transition-timing function: linear, ease-in-out;
+		-moz-transition-timing function: linear, ease-in-out; 
+		transition-timing function: linear, ease-in-out;
+		transition:0.3s;
+		-moz-transition:0.3s;
+		-webkit-transition:0.3s;
+		box-sizing:border-box;}
+		
+.fixQnaActive .fixQnaWrap .fixQnaTit span::before{transform: translate(-50%,-50%) rotate(45deg);}
+
+.quickQna .fixQnaWrap .fixFormTit{width:100%; text-align:center; font-size:1.2em; font-weight:600; padding:10px 0; color:#ffffff;}
+.quickQna .fixQnaWrap .fixQnaForm{width:100%; box-sizing:border-box; padding:10px;}
+.quickQna .fixQnaWrap .fixQnaForm .fixQna{width:100%; padding:2px 0;}
+.quickQna .fixQnaWrap .fixQnaForm .fixQna input{width:100%; border:1px solid #f1f1f1; background:#ffffff; line-height:30px; box-sizing:border-box; padding:0 5px;}
+.quickQna .fixQnaWrap .fixQnaForm .fixQna textarea{width:100%; height:50px; border:1px solid #f1f1f1; background:#ffffff; line-height:24px; box-sizing:border-box; padding:5px;}
+
+.quickQna{
+        -webkit-transition-property:all ;
+		-moz-transition-property: 	all ;
+		transition-property: 		all ;
+		-webkit-transition-duration: 0.3s, 0.3s;
+		-moz-transition-duration: 0.3s, 0.3s;
+		transition-duration: 0.3s, 0.3s; 
+		-webkit-transition-timing function: linear, ease-in-out;
+		-moz-transition-timing function: linear, ease-in-out; 
+		transition-timing function: linear, ease-in-out;
+		transition:0.3s;
+		-moz-transition:0.3s;
+		-webkit-transition:0.3s;
+		box-sizing:border-box;
+}
+
+
+
+
+
+.fixQnaActive{right:10px;
+        -webkit-transition-property:all ;
+		-moz-transition-property: 	all ;
+		transition-property: 		all ;
+		-webkit-transition-duration: 0.3s, 0.3s;
+		-moz-transition-duration: 0.3s, 0.3s;
+		transition-duration: 0.3s, 0.3s; 
+		-webkit-transition-timing function: linear, ease-in-out;
+		-moz-transition-timing function: linear, ease-in-out; 
+		transition-timing function: linear, ease-in-out;
+		transition:0.3s;
+		-moz-transition:0.3s;
+		-webkit-transition:0.3s;
+		box-sizing:border-box;
+}
+
+
+.quickQna .fixQnaWrap .qna_btnbox{float:none; margin-top:0 !important;}
+.quickQna .fixQnaWrap .btn_apply{width:100%; padding:0 10px; min-width:100px; font-size:14px; line-height:40px; margin-top:0 !important; cursor:pointer; border:1px solid #a0a0a0;}
+
+@media screen and (max-width:640px){
+	
+	.quickQna{right:-140px; bottom:100px;}
+    .quickQna .fixQnaWrap{width:150px;}
+	
+	.fixQnaActive{right:10px;}
+	
+}
