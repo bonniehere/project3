@@ -4,8 +4,7 @@ package com.constant01.model;
 
 public class BoardDTO {
 
-		//등록번호 (등록순서대로 번호부여)
-		private int bno;
+		
 		//	제품코드 
 		private String productcode;
 		//분류코드
@@ -22,12 +21,7 @@ public class BoardDTO {
 		private String price;
 		//제조원
 		private String manufacturer;
-		public int getBno() {
-			return bno;
-		}
-		public void setBno(int bno) {
-			this.bno = bno;
-		}
+		
 		public String getProductcode() {
 			return productcode;
 		}
@@ -76,11 +70,12 @@ public class BoardDTO {
 		public void setManufacturer(String manufacturer) {
 			this.manufacturer = manufacturer;
 		}
-		
 		@Override
 		public String toString() {
-			return "BoardDTO [bno=" + bno + ", productcode=" + productcode + ", classificationcode="
-					+ classificationcode + ", productname=" + productname + ", standard=" + standard + ", unit=" + unit
-					+ ", quantity=" + quantity + ", price=" + price + ", manufacturer=" + manufacturer + "]";
+			return "BoardDTO [productcode=" + productcode + ", classificationcode=" + classificationcode
+					+ ", productname=" + productname + ", standard=" + standard + ", unit=" + unit + ", quantity="
+					+ quantity + ", price=" + price + ", manufacturer=" + manufacturer + "]";
 		}
+		
+		
 }

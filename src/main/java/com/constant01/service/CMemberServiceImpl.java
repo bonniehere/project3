@@ -81,6 +81,12 @@ public class CMemberServiceImpl implements CMemberService{
 		// TODO Auto-generated method stub
 		return md.mbList(member);
 	}
+	
+	@Override
+	public List<CMember> stList(CMember member) {
+		// TODO Auto-generated method stub
+		return md.stList(member);
+	}
 
 	@Override
 	public int adminMbDelete(String m_email) {

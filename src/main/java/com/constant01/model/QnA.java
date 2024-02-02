@@ -17,6 +17,7 @@ public class QnA {
     private int qa_refLevel;
 	private String qa_del;
 	private String m_email;
+	private String m_userId;
 	
 	//paging용
     private int startRow;
@@ -148,14 +149,21 @@ public class QnA {
 		this.m_name = m_name;
 	}
 
+	public String getM_userId() {
+		return m_userId;
+	}
+
+	public void setM_userId(String m_userId) {
+		this.m_userId = m_userId;
+	}
+
 	@Override
 	public String toString() {
 		return "QnA [qa_no=" + qa_no + ", qa_subject=" + qa_subject + ", qa_content=" + qa_content + ", qa_fileName="
 				+ qa_fileName + ", reg_date=" + reg_date + ", qa_condition=" + qa_condition + ", qa_ref=" + qa_ref
 				+ ", qa_refStep=" + qa_refStep + ", qa_refLevel=" + qa_refLevel + ", qa_del=" + qa_del + ", m_email="
-				+ m_email + ", startRow=" + startRow + ", endRow=" + endRow + ", file=" + file + ", m_name=" + m_name
-				+ "]";
+				+ m_email + ", m_userId=" + m_userId + ", startRow=" + startRow + ", endRow=" + endRow + ", file="
+				+ file + ", m_name=" + m_name + "]";
 	}
-	
-	
+
 }
