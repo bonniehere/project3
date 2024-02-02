@@ -5,26 +5,26 @@
 	<!-- qna 마지막 번호 -->
 	<select id="getMaxNum" resultType="integer">
 		select ifnull(max(qa_no),0)+1
-		from QnA
+		from qna
 	</select>
 
 	<!-- qna 답변 작성 -->
 	<update id="updateStep" parameterType="com.constant01.model.QnA">
-		update QnA set
+		update qna set
 		qa_refStep=qa_refStep+1 where qa_ref=#{qa_ref} and
 		qa_refStep>#{qa_refStep}
 	</update>
 
 	<!-- qna 작성 -->
 	<insert id="insert" parameterType="com.constant01.model.QnA">
-		insert into QnA values
+		insert into qna values
 		(#{qa_no}, #{qa_subject}, #{qa_content}, null, sysdate,
 		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_email})
 	</insert>
 
 	<!-- qna 첨부파일 작성 -->
 	<insert id="insertFile" parameterType="com.constant01.model.QnA">
-		insert into QnA values
+		insert into qna values
 		(#{qa_no}, #{qa_subject}, #{qa_content}, #{qa_fileName}, sysdate,
 		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_email})
 	</insert>
@@ -32,7 +32,7 @@
 	<!-- 회원당 qna 총 갯수 -->
 	<select id="getTotal" parameterType="com.constant01.model.QnA" resultType="integer">
 		select
-		count(*) from QnA where qa_ref in (select qa_ref from QnA where
+		count(*) from qna where qa_ref in (select qa_ref from qna where
 		M_email=#{m_email})
 		and qa_del='n'
 	</select>
@@ -60,12 +60,12 @@
 	<!-- qna 선택 -->
 	<select id="select" parameterType="integer" resultType="com.constant01.model.QnA">
 		select *
-		from QnA where qa_no=#{num}
+		from qna where qa_no=#{num}
 	</select>
 
 	<!-- qna 글 삭제 -->
 	<update id="delete" parameterType="integer">
-		update QnA set qa_del='y'
+		update qna set qa_del='y'
 		where qa_ref=#{num}
 	</update>
 
