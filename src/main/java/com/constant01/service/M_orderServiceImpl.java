@@ -19,6 +19,7 @@ public class M_orderServiceImpl implements M_orderService {
 		return od.getODTotal(m_order);
 	}
 
+
 	@Override
 	public List<M_order> odList(M_order m_order) {
 		// TODO Auto-generated method stub
@@ -35,6 +36,12 @@ public class M_orderServiceImpl implements M_orderService {
 	public int updateOD(int order_no) {
 		// TODO Auto-generated method stub
 		return od.updateOD(order_no);
+	}
+	
+	@Override
+	public void updateOD2(M_order m_order) {
+		// TODO Auto-generated method stub
+		od.updateOD2(m_order);
 	}
 
 	@Override

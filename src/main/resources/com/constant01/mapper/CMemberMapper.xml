@@ -99,6 +99,14 @@
              order by m_hspNm desc) as boardlist
 		where rn between #{startRow} and #{endRow}
 	</select>
+	
+	<select id="stList" resultType="com.constant01.model.CMember">
+		select *
+         from(select  b.*, @rownum:=@rownum+1 rn
+            from Staff b, (select @rownum:=0) as tmp
+             order by m_name desc) as boardlist
+		where m_userStat = '출하직원';
+	</select>
 
 	<update id="updateAmount">
 		update Cmember set

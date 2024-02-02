@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.constant01.model.Affi;
+import com.constant01.model.BoardDTO;
 import com.constant01.model.Coupon;
 import com.constant01.model.M_order;
 import com.constant01.model.CMember;
@@ -29,6 +30,7 @@ import com.constant01.model.QnA;
 import com.constant01.model.QnAr;
 import com.constant01.service.AffiService;
 import com.constant01.service.CouponService;
+import com.constant01.service.CustomerService;
 import com.constant01.service.M_orderService;
 import com.constant01.service.CMemberService;
 import com.constant01.service.PagingBean;
@@ -49,6 +51,8 @@ public class AdminController {
 	private QnAService qs;
 	@Autowired
 	private QnArService qrs;
+	@Autowired
+	CustomerService cs;
 	@Autowired
 	private JavaMailSender jMailSender;
 	
@@ -212,6 +216,7 @@ public class AdminController {
 		m_order.setEndRow(endRow);
 		List<M_order> odList = os.odList(m_order);
 		int num = total - startRow + 1;
+		
 		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
 		String[] title = { "이름", "내용", "제목+내용" };
 
@@ -229,6 +234,20 @@ public class AdminController {
 		model.addAttribute("m_order", m_order);
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderDetail";
+	}
+	@RequestMapping(value = "company/orderSelectStaff.do", method = RequestMethod.GET)
+	public String orderSelectStaff(CMember member, Model model) {
+		
+		List<CMember> stList = ms.stList(member);
+		model.addAttribute("stList", stList);
+		return "/company/shipment/admin/orderSelectStaff";
+	}
+	@RequestMapping(value = "company/orderSelectDriver.do", method = RequestMethod.GET)
+	public String orderSelectDriver(Model model, M_order m_order) {
+		
+		os.updateOD2(m_order);
+		
+		return "redirect:orderList.do";
 	}
 	@RequestMapping(value = "company/orderCheck.do", method = RequestMethod.GET)
 	public String orderCehck(int order_no, String pageNum, Model model) {
@@ -339,6 +358,7 @@ public class AdminController {
 		model.addAttribute("qa_no", qa_no);
 		model.addAttribute("qna", qna);
 		model.addAttribute("pageNum", pageNum);
+		System.out.println(qnarList);
 		return "/company/shipment/admin/adminQnAView";
 	}
 	@RequestMapping(value = "company/adminQnAReplyInsert.do", method = RequestMethod.GET)

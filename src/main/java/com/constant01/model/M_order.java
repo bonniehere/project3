@@ -24,6 +24,8 @@ public class M_order {
 	private String su_tel;
 	private String su_addr;
 	private String su_addr_detail;
+	private String m_userStat;
+	private String m_driver;
 	
 	// paging용
     private int startRow;
@@ -273,6 +275,22 @@ public class M_order {
 		this.coupon_use = coupon_use;
 	}
 
+	public String getM_userStat() {
+		return m_userStat;
+	}
+
+	public void setM_userStat(String m_userStat) {
+		this.m_userStat = m_userStat;
+	}
+
+	public String getM_driver() {
+		return m_driver;
+	}
+
+	public void setM_driver(String m_driver) {
+		this.m_driver = m_driver;
+	}
+
 	@Override
 	public String toString() {
 		return "M_order [order_no=" + order_no + ", m_userId=" + m_userId + ", m_email=" + m_email + ", p_no=" + p_no
@@ -281,10 +299,11 @@ public class M_order {
 				+ ", status=" + status + ", ju_name=" + ju_name + ", ju_tel=" + ju_tel + ", ju_zipCd=" + ju_zipCd
 				+ ", ju_addr=" + ju_addr + ", ju_addr_detail=" + ju_addr_detail + ", su_name=" + su_name + ", su_zipCd="
 				+ su_zipCd + ", su_tel=" + su_tel + ", su_addr=" + su_addr + ", su_addr_detail=" + su_addr_detail
-				+ ", startRow=" + startRow + ", endRow=" + endRow + ", su_pass=" + su_pass + ", su_deliv=" + su_deliv
-				+ ", su_memo=" + su_memo + ", p_sal=" + p_sal + ", p_name=" + p_name + ", coupon_use=" + coupon_use
-				+ "]";
+				+ ", m_userStat=" + m_userStat + ", m_driver=" + m_driver + ", startRow=" + startRow + ", endRow="
+				+ endRow + ", su_pass=" + su_pass + ", su_deliv=" + su_deliv + ", su_memo=" + su_memo + ", p_sal="
+				+ p_sal + ", p_name=" + p_name + ", coupon_use=" + coupon_use + "]";
 	}
 
+	
 	
 }

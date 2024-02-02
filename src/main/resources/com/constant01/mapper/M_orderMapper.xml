@@ -18,6 +18,7 @@
             from m_order a, (select @rownum:=0) as tmp
              order by order_no desc) as boardlist where rn between #{startRow} and #{endRow};
 	</select>
+	
 
 	<select id="selectOD" parameterType="integer"
 		resultType="com.constant01.model.M_order">
@@ -27,6 +28,12 @@
 	<update id="updateOD" parameterType="com.constant01.model.M_order">
 		update m_order set
 		status='발송완료(택배사이동중)'
+		where order_no=#{order_no}
+	</update>
+	
+	<update id="updateOD2" parameterType="com.constant01.model.M_order">
+		update m_order set
+		m_driver=#{m_driver}
 		where order_no=#{order_no}
 	</update>
 
