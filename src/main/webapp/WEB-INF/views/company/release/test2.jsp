@@ -17,14 +17,14 @@
 <%@ include file="top.jsp" %>
 </div>
 <div id="leftwrap">
-//
+<p><a href="/logout">로그아웃</a></p>
        
    
 <%@ include file="left.jsp" %>
 </div>
 
 	   <div id="tabViewer" class="tabViewer">
-	테스트2
+	배송관리
 	</div>
 
 

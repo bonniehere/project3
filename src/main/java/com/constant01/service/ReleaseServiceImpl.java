@@ -3,7 +3,10 @@ package com.constant01.service;
 import java.util.ArrayList;
 
 import com.constant01.model.BoardDTO;
+import com.constant01.model.CMember;
 import com.constant01.model.Criteria;
+import com.constant01.model.QnA;
+import com.constant01.model.QnAr;
 import com.constant01.model.cartVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,4 +73,35 @@ public class ReleaseServiceImpl implements ReleaseService{
 		return rm.getTotal_order();
 	}
 	
+	
+	
+	//qna
+		public ArrayList<QnA> qna(Criteria cri){
+			return rm.qna(cri);
+		}
+		public int getTotal_qna(Criteria cri) {
+			return rm.getTotal_qna(cri);
+		}
+		
+		public void qna_write(QnA qna) {
+		 rm.qna_write(qna);
+		}
+		
+		public ArrayList<QnA> WriteDetail(QnA qna) {
+			return rm.WriteDetail(qna);
+		}
+		
+		public ArrayList<QnAr> detail_answer(QnAr qnar){
+			return rm.detail_answer(qnar);
+		}
+		//member_detail
+		public ArrayList<CMember> member_detail(CMember member){
+			return rm.member_detail(member);
+		}
+		
+		//비밀번호변경
+		public void changePassword(CMember member) {
+			rm.changePassword(member);
+		}
+		
 }

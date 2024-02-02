@@ -3,7 +3,10 @@ package com.constant01.service;
 import java.util.ArrayList;
 
 import com.constant01.model.BoardDTO;
+import com.constant01.model.CMember;
 import com.constant01.model.Criteria;
+import com.constant01.model.QnA;
+import com.constant01.model.QnAr;
 import com.constant01.model.cartVO;
 
 
@@ -27,5 +30,15 @@ public interface ReleaseService {
 	//주문현황
 	public ArrayList<cartVO> orderlist(Criteria cri);
 	public int getTotal_order();
+	
+	//qna
+	public ArrayList<QnA> qna(Criteria cri);
+	public int getTotal_qna(Criteria cri);
+	public void qna_write(QnA qna);
+	public ArrayList<QnA> WriteDetail(QnA qna);
+	public ArrayList<QnAr> detail_answer(QnAr qnar);
+	//member_detail
+	public ArrayList<CMember> member_detail(CMember member);
+	public void changePassword(CMember member);
 	
 }
