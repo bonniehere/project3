@@ -141,3 +141,33 @@ width:25%;
     .delete-button:hover {
         background-color: #c82333; /* 마우스 호버 시 배경색 변경 */
     }
+    
+    
+.qna_button{
+	float:right;
+}
+
+.qna_button{
+  display: inline-block;
+  padding: 5px 20px;
+  background-color: #007bff; /* 배경색 */
+  color: white; /* 글자색 */
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 버튼에 호버 효과 추가 */
+.qna_button:hover {
+  background-color: #0056b3; /* 호버 시 배경색 */
+}
+
+textarea {
+    width: 99%;
+    height: 300px;
+    
+   
+  }

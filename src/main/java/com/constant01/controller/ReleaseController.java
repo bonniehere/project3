@@ -26,6 +26,8 @@ import com.constant01.model.Coupon;
 import com.constant01.model.Criteria;
 import com.constant01.model.CustomerDTO;
 import com.constant01.model.PageMakerDTO;
+import com.constant01.model.QnA;
+import com.constant01.model.QnAr;
 import com.constant01.model.cartVO;
 import com.constant01.service.CustomerService;
 import com.constant01.service.ReleaseService;
@@ -66,7 +68,7 @@ public class ReleaseController {
 		HttpSession session = request.getSession();
         Object loginAttribute = session.getAttribute("login");
         model.addAttribute("login", loginAttribute);
-        System.out.println(loginAttribute);
+//        System.out.println(loginAttribute);
         
 		if(loginAttribute != null) {
 
@@ -171,7 +173,7 @@ public class ReleaseController {
 		
         if(loginAttribute != null) {
 
-			model.addAttribute("boardlist5", rs.boardpage5(cri) );
+			model.addAttribute("boardlist5", rs.boardpage5(cri));
 
 			int total = rs.getTotal5();
 			PageMakerDTO pagemake = new PageMakerDTO(cri, total);
@@ -191,11 +193,142 @@ public class ReleaseController {
 		return "company/release/test2";
 	}
 	
-	//왼쪽 사이드 메뉴4
-	@RequestMapping(value = "test3", method = RequestMethod.GET)
-	public String main4 () {
-		return "company/release/test3";
+	//왼쪽 사이드 메뉴 QnA
+	@RequestMapping(value = "QnA", method = RequestMethod.GET)
+	public String qna (Model model, Criteria cri, HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+        Object loginAttribute = session.getAttribute("login");
+        model.addAttribute("login", loginAttribute);
+        System.out.println(loginAttribute);
+        
+		if(loginAttribute != null) {
+
+			model.addAttribute("qna", rs.qna(cri) );
+			System.out.println(rs.qna(cri));
+			
+			int total = rs.getTotal_qna(cri);
+			System.out.println(total);
+			
+			PageMakerDTO pagemake = new PageMakerDTO(cri, total);
+			model.addAttribute("pageMaker",pagemake);
+			
+			
+			
+			
+			return "company/release/QnA";
+	}else {	// 그렇지 않으면 메인화면으로 이동...
+		
+		
+		return "company/homelog";
 	}
+	}
+		
+		//왼쪽 사이드 메뉴 내정보변경
+		
+		
+		
+		@RequestMapping(value = "myInfo", method = RequestMethod.GET)
+		public String qna (Model model, HttpServletRequest request,CMember member) {
+
+			HttpSession session = request.getSession();
+	        Object loginAttribute = session.getAttribute("login");
+	        model.addAttribute("login", loginAttribute);
+	        System.out.println(loginAttribute);
+	        
+			if(loginAttribute != null) {
+			//로그인시 화면이동.
+				model.addAttribute("detail",rs.member_detail(member));
+			
+				
+			
+
+				
+				
+				
+				
+				return "company/release/myInfo";
+		}else {	// 그렇지 않으면 메인화면으로 이동...
+			
+			
+			return "company/homelog";
+		}
+		}
+		
+	//비밀번호 변경
+			
+			@RequestMapping(value = "changePassword", method = RequestMethod.POST)
+			public String changePassword (CMember member,  HttpSession session) {
+				
+				Object loginAttribute = session.getAttribute("login");
+				String userId = ((CMember) loginAttribute).getM_userId();
+				
+				rs.changePassword(member);
+				
+//				System.out.println("member:"+member);
+						return "redirect:myInfo?m_userId=" + userId;
+					}
+			
+			
+	//=========================================================================
+	
+	//qna 글쓰기버튼
+	@RequestMapping(value = "write_button", method = RequestMethod.GET)
+	public String qna_write(HttpServletRequest request,Model model) {
+		HttpSession session = request.getSession();
+        Object loginAttribute = session.getAttribute("login");
+        model.addAttribute("login", loginAttribute);
+        
+        
+		return "company/release/QnAwrite";
+	}
+	
+	//qna 글쓰기 페이지에서 작성버튼
+	@RequestMapping(value = "qna_write", method = RequestMethod.POST,produces = "text/html;charset=UTF-8")
+	public String write(QnA qna, HttpSession session) {
+		
+		// 세션에서 사용자 정보를 가져옵니다.
+	    Object loginAttribute = session.getAttribute("login");
+		
+		
+		 // 로그인 정보가 있는 경우에만 사용자 아이디 값을 가져옵니다.
+	    if (loginAttribute != null && loginAttribute instanceof Object) {
+	        String userId = ((CMember) loginAttribute).getM_userId();
+	        
+	        // qna_write 메서드 호출하여 qna 객체를 DB에 저장합니다.
+	        rs.qna_write(qna);
+	        
+	        // 리다이렉트할 URL을 생성합니다. 세션 아이디 값을 URL에 추가합니다.
+	        String redirectUrl = "redirect:QnA?m_userId=" + userId;
+	        
+	        return redirectUrl;
+	    } else {
+	        // 로그인 정보가 없을 경우에 대한 처리
+	        return "redirect:/login"; // 로그인 페이지로 리다이렉트 혹은 다른 처리를 하십시오.
+	    }
+	}
+	
+	// 글쓰기 디테일
+	
+	@RequestMapping(value = "WriteDetail", method = RequestMethod.GET)
+	public String popup (Model model, QnA qna, QnAr qnar) {
+		
+		
+		
+		
+		model.addAttribute("detail",rs.WriteDetail(qna));
+		model.addAttribute("detail_answer",rs.detail_answer(qnar));
+
+		
+		
+		System.out.println(rs.WriteDetail(qna));
+		return "company/release/WriteDetail";
+	}
+	//----------------------------------------------------------
+	
+	
+	
+	
 	
 	//----------------------------------------------------------------
 	//상품 디테일 페이지	
@@ -356,6 +489,6 @@ public class ReleaseController {
 	    }
 		
 		
-	//----------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------
 }
 

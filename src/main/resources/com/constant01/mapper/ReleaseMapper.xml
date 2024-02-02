@@ -87,6 +87,10 @@
 			]]>
     </select>
     
+      
+    
+    
+    
     <select id="getTotal" resultType="int">
     
         select count(*) from board
@@ -137,5 +141,57 @@
         select count(*) from m_order
     
     </select>
+  
+  
+  
+  
+  <select id="qna" resultType="com.constant01.model.QnA">
+    
+      select *
+			from( 
+				select @rownum:=@rownum+1 rownum, b.*
+				from qna b, (select @rownum:=0) as tmp
+				where m_userId = #{m_userId}
+			    order by QA_no desc
+			) as board
+			<![CDATA[
+			where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+			]]> 
+    </select>
+  
+  <select id="getTotal_qna" resultType="int">
+    
+        select count(*) from qna where m_userId = #{m_userId}
+    
+    </select>
+  
+  <insert id="qna_write">
+  insert into qna (QA_subject, QA_content, m_userId) 
+  values(#{qa_subject},#{qa_content},#{m_userId})
+  
+  </insert>
+  
+  <select id="WriteDetail"  resultType="com.constant01.model.QnA">
+  
+  select * from qna where qa_no=#{qa_no}
+  
+  </select>
+  
+  <select id="detail_answer"  resultType="com.constant01.model.QnAr">
+  
+  select * from qnar where qa_no=#{qa_no}
+  
+  </select>
+  
+  <select id="member_detail"  resultType="com.constant01.model.CMember">
+  
+  select * from CMember where m_userId=#{m_userId}
+  
+  </select>
+  
+  <update id="changePassword">
+  update CMember set M_userPw= #{m_userPw} where m_userId=#{m_userId}
+  </update>
+  
   
   </mapper>
