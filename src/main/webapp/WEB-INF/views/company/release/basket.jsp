@@ -192,12 +192,12 @@
 function placeOrder() {
 	
     if (!validateForm()) {
-    	alert("if문");
+    	alert("유효성검사실패.");
         return; // 유효성 검사 실패 시 함수 종료
     }
     else{
    
-    	alert("else문");
+    	
     // 장바구니에 있는 각 상품의 정보를 가져와서 배열에 담습니다.
     var cartItems = [];
     $('.cart-items li').each(function() {

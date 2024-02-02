@@ -28,7 +28,7 @@
   </insert>
   
   <insert id="orderItem" parameterType="java.util.List">
-    INSERT INTO M_order (
+    INSERT INTO m_order (
         m_userId, 
         productname, 
         productcode, 
