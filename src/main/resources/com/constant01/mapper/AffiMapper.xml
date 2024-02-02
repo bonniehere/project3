@@ -38,7 +38,7 @@
 	</select>
 	
 	<update id="updateAF" parameterType="com.constant01.model.Affi">
-		update Affi set
+		update affi set
 		af_title='--처리되었습니다--'
 		where af_no=#{af_no}
 	</update>

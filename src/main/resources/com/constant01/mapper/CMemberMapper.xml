@@ -53,13 +53,13 @@
 
 	<!-- 회원 탈퇴 -->
 	<update id="delete">
-		update Cmember set del='y'
+		update CMember set del='y'
 		where m_userId=#{m_userId}
 	</update>
 
 	<!-- 회원 정보 수정 -->
 	<update id="update">
-		update Cmember set
+		update CMember set
 		M_password=#{m_password}, M_tel=#{m_tel},
 		M_addr=#{m_addr}, M_addr_detail=#{m_addr_detail},
 		M_birth=#{m_birth}
@@ -70,7 +70,7 @@
 	</update>
 	<!-- 프로필 상세 -->
 	<select id="selectNum" resultType="com.constant01.model.CMember">
-		select * from Cmember where M_email=#{m_email}
+		select * from CMember where M_email=#{m_email}
 	</select>
 
 	<!-- 주문 취소 -->
@@ -82,20 +82,20 @@
 
 	<!-- 관리자 회원 정보 삭제 -->
 	<update id="adminMbDelete" parameterType="string">
-		update Cmember set
+		update CMember set
 		del='Y' where m_userId=#{m_userId}
 	</update>
 
 	<!-- 관리자 회원 수 확인 -->
 	<select id="getMbTotal" resultType="int">
-		select count(*) from Cmember	<!-- member 행 갯수 -->
+		select count(*) from CMember	<!-- member 행 갯수 -->
 		<!-- 회원 검색 기능 추가 -->
 	</select>
 	<!-- 관리자 회원 목록 -->
 	<select id="mbList" resultType="com.constant01.model.CMember">
 		select *
          from(select  b.*, @rownum:=@rownum+1 rn
-            from Cmember b, (select @rownum:=0) as tmp
+            from CMember b, (select @rownum:=0) as tmp
              order by m_hspNm desc) as boardlist
 		where rn between #{startRow} and #{endRow}
 	</select>
@@ -109,12 +109,12 @@
 	</select>
 
 	<update id="updateAmount">
-		update Cmember set
+		update CMember set
 		amount=#{amount} where m_email=#{m_email}
 	</update>
 
 	<update id="updateAmount2">
-		update Cmember set
+		update CMember set
 		amount=#{amount} where m_email=#{m_email}
 	</update>
 </mapper> 
