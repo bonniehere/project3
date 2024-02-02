@@ -148,7 +148,7 @@
 
 
 
-
+<!-- 
 <script>
 google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawBasic);
@@ -202,6 +202,8 @@ function drawBasic() {
 
 
 </script>
+ -->
+
 
  <!-- 여기가 이전 거 가져온 스크립트 -->
 <script type="text/javascript">

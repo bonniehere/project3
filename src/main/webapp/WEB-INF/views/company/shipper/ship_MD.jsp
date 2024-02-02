@@ -217,6 +217,7 @@ google.charts.setOnLoadCallback(drawBasic);
 
 var date = [];
 var temp = [];
+var maxDataPoints = 15;  // 최대 데이터 포인트 수 설정
 
 function drawBasic() {
 
@@ -236,13 +237,14 @@ function drawBasic() {
             var chartData = new google.visualization.DataTable();
             chartData.addColumn('datetime', 'Time');
             chartData.addColumn('number', 'Temperature');
+            
 
-            for (j = 0; j < temp.length; j++) {
-                chartData.addRows([[date[j], temp[j]);
+            for (j = Math.max(0, temp.length - maxDataPoints); j < temp.length; j++) {
+                chartData.addRows([[date[j], temp[j]]]);
             }
+            //alert(chartData.addRows(1));
 
             var options = {
-            	
                 hAxis: {
                     title: 'Time',
                     format: 'HH:mm'  // 시간 표시 형식 설정 (원하는 형식으로 변경 가능)
@@ -250,8 +252,6 @@ function drawBasic() {
                 vAxis: {
                     title: 'Temperature'
                 }
-                
-                
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
@@ -262,7 +262,8 @@ function drawBasic() {
             alert("처리 중 오류가 발생되었습니다.\nerror:" + error + "request:" + request + "status:" + status);
         }
     });
-}
+    
+}setInterval('drawBasic()', 3000); // 3초 마다 함수실행
 
 
 
