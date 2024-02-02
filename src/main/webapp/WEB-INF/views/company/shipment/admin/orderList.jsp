@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>주문 리스트</title>
 <c:set var="path" value="${pageContext.request.contextPath }"></c:set>
 <script type="text/javascript" src="${path }/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${path }/resources/js/scripts.js"></script>
@@ -104,11 +104,11 @@ ul {
 
 			<div class="col col-md-9">
 			
-					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문</h2>
+					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2>
 				<table class="table">	
 						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th><th>주문자 email</th>
 							<th>수령자 이름</th><th>수령자 우편번호</th><th>수령자 주소</th><th>수령자 상세주소</th>
-							<th>주문일자</th><th>주문상태</th><th>확인</th></tr>
+							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>주문상태</th><th>출하기사</th><th>확인</th></tr>
 					<c:forEach var="m_order" items="${odList }">
 						<tr><th>${m_order.order_no}</th>
 						<td>${m_order.m_userId }</td>
@@ -119,7 +119,10 @@ ul {
 						<td>${m_order.su_addr }</td>
 						<td>${m_order.su_addr_detail }</td>
 						<td>${m_order.order_date }</td>
+						<td>${m_order.productname }</td>
+						<td>${m_order.order_quantity }</td>
 						<td>${m_order.status }</td>
+						<td>${m_order.m_driver }</td>
 						<td><button type="button" class="btn btn-info" 
 						onclick="location.href='orderDetail.do?order_no=${m_order.order_no}' ">
 						확인</button></td></tr>
@@ -138,7 +141,7 @@ ul {
 					<!-- 현재 머물고 있는 페이지가 몇 페이지인지 구별할 때 -->
 					<c:if test="${pb.currentPage == i }">
 						<li class="page-item"><a href="orderList.do?pageNum=${i }"
-							class="page-link">ㅤ${i}ㅤ</a></li>
+							class="page-link" style=" background-color: #007bff; color: #fff;">ㅤ${i}ㅤ</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
 						<li class="page-item"><a href="orderList.do?pageNum=${i }"

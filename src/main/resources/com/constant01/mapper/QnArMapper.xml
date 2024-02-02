@@ -4,7 +4,7 @@
 <mapper namespace="com.constant01.mapper.QnArMapper">
 	<!-- qna 마지막 번호 -->
 	<select id="getMaxNum" resultType="integer">
-		select nvl(max(qa_no),0)+1 from QnA
+		select ifnull(max(qa_no),0)+1 from QnA
 	</select>
 	
 	<!-- qna 답변 작성 -->
@@ -13,9 +13,8 @@
 	</update>
 
 	<insert id="insert" parameterType="com.constant01.model.QnAr">
-		insert into qnar(qar_no, qar_content, qar_regDate, qa_no)
-	values((select nvl(max(qar_no), 0)+1 from qnar), 
-	                          #{qar_content}, sysdate, #{qa_no})
+		insert into qnar(qar_content, qa_no)
+	values( #{qar_content}, #{qa_no})
 	</insert>
 	
 	<!-- 회원당 qna 총 갯수 -->
@@ -45,16 +44,12 @@
 		select count(*) from qna
 	</select>
 		<select id="qnarList" parameterType="integer" resultType="com.constant01.model.QnAr">
-		select * from (select a.*, rowNum rn from (select * from qnar
-<!-- 			<where>
-				<if test="keyword!=null and keyword!=''">
-						${search} like '%' || #{keyword} || '%'
-				</if>
-			</where> -->
-			order by qar_no desc) a)
-			where qa_no=#{qa_no} and rn between 1 and 20
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from qnar a, (select @rownum:=0) as tmp
+             order by rn desc) as boardlist where qa_no = #{qa_no};
 	</select>
-		<select id="selectQnA" parameterType="integer"
+	<select id="selectQnA" parameterType="integer"
 		resultType="com.constant01.model.QnA">
 		select * from qna where qa_no=#{qa_no}
 	</select>

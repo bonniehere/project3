@@ -130,7 +130,7 @@ ul {
 					</c:forEach>
 				</table>
 				
-		<div style="display: flex; justify-content: center;">		
+		<div style="display: flex; justify-content: center;">
 		<nav aria-label="..." id="page_btn">
 			<ul class="pagination pagination-lg justify-content-center" >
 				<!-- 시작페이지가 pagePerBlock(10)보다 크면 앞에 보여줄 페이지가 있다 -->

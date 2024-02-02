@@ -13,6 +13,8 @@ public interface M_orderService {
 	M_order selectOD(int order_no);
 
 	int updateOD(int order_no);
+	
+	void updateOD2(M_order m_order);
 
 	int insert(M_order order);
 
