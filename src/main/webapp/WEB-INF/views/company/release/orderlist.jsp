@@ -17,6 +17,7 @@
             <%@ include file="top.jsp" %>
         </div>
         <div id="leftwrap">
+        <p><a href="/logout">로그아웃</a></p>
             <%@ include file="left.jsp" %>
         </div>
 
