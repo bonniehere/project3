@@ -68,7 +68,6 @@ public class DeliveryController {
 	
 	
 	
-	
 	//ship_Master으로 가기 위한 값 받아오기 -------------------
 	// ship_Driver에서 Master로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/company/shipper/ship_Master.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -86,13 +85,13 @@ public class DeliveryController {
 	@RequestMapping(value = "company/shipper/AdminLocLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery,TempDTO temp, Model model, HttpSession session) {
 		model.addAttribute("dlist", ds.dlist(delivery));
-		model.addAttribute("temp", ds.temp(temp));
+		//model.addAttribute("temp", ds.temp(temp));
 		//System.out.println(ds.temp(temp));
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
 	
-	
+	/*
 	//온도 가져오는 거
 	@ResponseBody
 	@RequestMapping(value = "/company/shipper/AdminTempLoad.do", method = RequestMethod.GET)
@@ -102,14 +101,15 @@ public class DeliveryController {
 		System.out.println(ds.temp(temp));
 		return new ResponseEntity<>(ds.temp(temp), HttpStatus.OK);
 	
-	}
+	}*/
 	
 	
 	//ship_Master에서 기사 이름을 클릭했을 때 이동
 	@RequestMapping(value = "/company/shipper/MDmap.do", method = RequestMethod.POST)
-	public String MDLocSave(DeliveryDTO delivery,Model model) {
+	public String MDLocSave(DeliveryDTO delivery, TempDTO temp, Model model) {
 		System.out.println("실시간유저좌표저장");
 		model.addAttribute("dlist", ds.dlist(delivery));
+		model.addAttribute("temp", ds.temp(temp));
 		System.out.println(ds.dlist(delivery));
 		return "/company/shipper/ship_MD";
 		
@@ -117,23 +117,35 @@ public class DeliveryController {
 	
 	
 	
-	
-	
 	@RequestMapping(value = "company/shipper/ship_MD.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String MD(DeliveryDTO delivery,Model model) {
+	public String MD(DeliveryDTO delivery, Model model) {
 		System.out.println("선택한 기사 맵");
 		model.addAttribute("dlist", ds.dlist2(delivery));
 		System.out.println(ds.dlist(delivery));
 		return "company/shipper/ship_MD";
 		
 	}
-	@ResponseBody
 	
+	
+	//클릭한 기사의 위치 가져오기
+	@ResponseBody
 	@RequestMapping(value = "company/shipper/MasterLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> MasterLocLoad(DeliveryDTO delivery, Model model, HttpSession session) {
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
+	
+	
+	//온도 가져오는 거
+	@ResponseBody
+	@RequestMapping(value = "/company/shipper/AdminTempLoad.do", method = RequestMethod.GET)
+	public ResponseEntity<?> AdminTempLoad(TempDTO temp, Model model) {
+		model.addAttribute("temp", ds.temp(temp));
+		System.out.println(ds.temp(temp));
+		return new ResponseEntity<>(ds.temp(temp), HttpStatus.OK);
+	
+	}
+	
 	
 	
 	
