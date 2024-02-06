@@ -25,9 +25,9 @@
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                 <li><a href="../homelog.do">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
@@ -208,6 +208,21 @@
 	</div>
 
 <!--  </div>  -->
+
+<div style="display: flex; justify-content: center;">
+<a id="home" href="#" onClick="history.go(-1);" style="text-decoration: none;">홈으로</a>
+</div>	
+
+<div>
+<button type=submit value="--배송완료--" onclick="deliverydone();">배송완료</button>
+</div>
+
+<script>
+function deliverydone(){
+	
+}
+
+</script>
 
 
 

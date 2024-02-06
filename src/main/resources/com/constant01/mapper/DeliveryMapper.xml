@@ -22,7 +22,7 @@
 	
 	<!-- 배달기사 위치 db에 insert -->
 	<insert id="write">
-		insert into customermap values(#{m_userId},#{m_userPw},#{m_name},#{m_phone},#{driverLat},#{driverLon},0,default);
+		insert into customermap values(#{m_userId},#{m_userPw},#{m_name},#{m_phone},#{driverLat},#{driverLon},0,CURRENT_TIMESTAMP);
 	</insert>
 
 	<!-- 기사 위치임 -->
@@ -59,4 +59,10 @@ AND num IN (
 	<select id="temp" resultType="com.constant01.model.TempDTO">
 	select * from temp;
 	</select>
+	 
+	<!-- M_order update문 -->
+	<update id="deliverydone">
+	
+	</update> 
+	 
 </mapper>

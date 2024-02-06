@@ -18,7 +18,7 @@
     <ul>
         <li><a href="release" class="item"><div>제품주문</div></a></li>
         <li><a href="orderlist?m_userId=${sessionScope.login.m_userId}" class="item"><div>주문현황</div></a></li>
-        <li><a href="test2" class="item"><div>배송관리</div></a></li>
+        <li><a href="../company/shipper/ship_Customer?m_userId=${sessionScope.login.m_userId}" class="item"><div>배송관리</div></a></li>
         <li><a href="list?m_userId=${sessionScope.login.m_userId}" class="item"><div>장바구니</div></a></li>
         <li><a href="QnA?m_userId=${sessionScope.login.m_userId}" class="item"><div>Q&A</div></a></li>
         <li><a href="myInfo?m_userId=${sessionScope.login.m_userId}" class="item"><div>내정보변경</div></a></li>

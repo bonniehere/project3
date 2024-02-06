@@ -51,6 +51,11 @@ public class DeliveryServiceImpl implements DeliveryService{
 
 		return dm.temp(temp);
 	}
+	
+	//고객 담당 기사 select
+	public ArrayList<DriverDTO> clist(DeliveryDTO delivery){
+		return dm.clist(delivery);
+	}
 
 
 }

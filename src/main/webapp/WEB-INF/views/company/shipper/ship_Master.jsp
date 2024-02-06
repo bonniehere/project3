@@ -9,6 +9,11 @@
 <link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Master.css">
 
 <style>
+
+
+
+
+
 .node {
     position: absolute;
     background-image: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/sign-info-64.png);
@@ -74,9 +79,9 @@
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" onClick="history.go(-1);" style="text-decoration: none;">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
@@ -118,10 +123,16 @@
     </div>
 <div id="map" style="width:700px;height:600px;"></div>
 
-
+	<!-- 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <div id="chart_div"></div>
+   -->
+  <div id=homediv>
+	<a id="home" href="../adminPage.do">홈으로</a>
+	</div>
 </div>
+
+	
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
