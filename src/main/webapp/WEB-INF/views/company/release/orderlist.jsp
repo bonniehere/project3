@@ -10,8 +10,29 @@
     <link rel="stylesheet" href="../../resources/css/release/table.css">
     <script type="text/javascript" src="../../../../resources/js/release/ReleaseMain.js"></script>
     <script type="text/javascript" src="../../../../resources/js/release/table.js"></script>
+    <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 </head>
 <body>
+
+
+<div>
+<!-- 
+<c:forEach items="${dlist}" var="dlist" varStatus="status">
+
+<input type="hidden" name="m_userPw" value="${dlist.m_userPw}">
+
+<input type="hidden" name="driverLat" value="${dlist.driverLat}">
+<input type="hidden" name="driverLon" value="${dlist.driverLon}">
+
+</c:forEach>
+ -->
+
+</div>
+
+
+
+
+
     <div id="wholewrap">
         <div id="topwrap">
             <%@ include file="top.jsp" %>
@@ -30,31 +51,46 @@
                         <th>받는사람</th>
                         <th>이미지</th>                      
                         <th>품목명</th>
-                        <th>단가</th>
+
                         
                         <th>주문수량</th>
                         <th>총가격</th>
-                        <th>승인여부</th>
+
                         <th>주문삭제</th>
+                        <th>배송현황</th>
                         
                     </tr>
+                    
                     <c:forEach items="${orderlist}" var="board">
+                    
+                    
+                    
                         <tr>
                         <th>${board.order_date}</th>
-                            <th>${board.SU_name}</th>
+                            <th>${board.su_name}</th>
                         <th><img src="../../resources/img/release/${board.productcode}.png" style="width:40px;height:40px;"></th>
                         <th>
                         <a href="javascript:void(window.open('/release/detail?productcode=${board.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">
                                     ${board.productname}</a>
                                     </th>
-                        <th>${board.price}</th>
+                        
                         <th>${board.order_quantity}</th>
                         <th>${board.total_price}</th>
-                        <th>${board.confirm}</th>
+
                         <th>
         <button class="delete-button" onclick="deleteOrder('${board.order_no}')">주문취소</button>
-    </th>
-                        </tr>
+    </th>				
+	    					
+	    	<c:set var="buttonClass" value="${board.status eq '배송중' ? 'delivery-button' : ''}" />
+			<th>
+			  <span class="${buttonClass}" <c:if test="${buttonClass eq 'delivery-button'}">onclick="javascript:hohoho(this);" </c:if> >${board.status}</span>
+			  
+			  <!-- ${board.m_driver} -->
+			  <input type="hidden" name="m_name" value="${board.m_driver}">
+
+			</th>
+                   </tr>
+                       
                     </c:forEach>
                 </tbody>
             </table><br>
@@ -101,4 +137,36 @@ function deleteOrder(order_no) {
 
 
 </script>
+
+
+<script>
+
+	
+	
+	//고객 페이지 가기~
+	function hohoho(obj){
+		//if문
+		var oTd = $(obj).parent();
+		
+		G_Util.newFormSubmit({
+			"action" : "company/shipper/ship_Customer2.do",
+			"param"  : {
+				//"m_userPw"      : oTd.find("input[name=m_userPw]").val(),
+				"m_name"      : oTd.find("input[name=m_name]").val(),
+				//"driverLat"      : oTd.find("input[name=driverLat]").val(),
+				//"driverLon"      : oTd.find("input[name=driverLon]").val()
+			}
+		
+		})
+	}
+	
+	
+	
+	
+	
+	</script>
+
+
+
+
 </html>
