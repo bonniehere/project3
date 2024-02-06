@@ -1,8 +1,10 @@
 package com.constant01.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.constant01.model.BoardDTO;
+import com.constant01.model.DeliveryDTO;
 import com.constant01.model.M_order;
 
 public interface M_orderMapper {
@@ -50,4 +52,7 @@ public interface M_orderMapper {
 	int bdUpdate(BoardDTO board);
 
 //	int insertAmount(String m_email);
+	
+	//고객 담당 기사 select
+	public ArrayList<M_order> delist(DeliveryDTO delivery);
 }
