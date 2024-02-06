@@ -119,6 +119,7 @@ ul {
 </style>
 </head>
 <body>
+
 	<div class="container-md mt-5 mb-5">
 	
 		<div class="row justify-content-center">
@@ -252,5 +253,6 @@ function updateAmountDisplay(button) {
 }
 
 </script>
+
 </body>
 </html>

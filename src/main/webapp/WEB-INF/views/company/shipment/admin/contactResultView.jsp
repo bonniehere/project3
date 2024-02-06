@@ -59,6 +59,7 @@ table {
 </script>
 </head>
 <body>
+
 	<div class="container-md mt-5 mb-5">
 		<p></p>
 		<p></p>
@@ -97,6 +98,5 @@ table {
 		<a href="contactCheck.do?af_no=${affi.af_no }" style="text-decoration: none;">처리완료</a>
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>

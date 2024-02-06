@@ -76,6 +76,8 @@ function validateForm() {
 </head>
 <body>
 
+<jsp:include page="adminHeader.jsp"></jsp:include>
+
 <div class="container-md mt-5 mb-5">
     <p></p><p></p><p></p><p></p><p></p><p></p>
     <br/><br/><br/><br/><br/>
@@ -103,5 +105,8 @@ function validateForm() {
 
     </div>
 </div>
+
+<jsp:include page="adminFooter.jsp"></jsp:include>
+
 </body>
 </html>

@@ -91,6 +91,7 @@ ul {
 </script>
 </head>
 <body>
+
 	<div class="container-md mt-5 mb-5">
 		<p></p>
 		<p></p>
@@ -121,6 +122,5 @@ ul {
 	<div style="display: flex; justify-content: center;">
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>
