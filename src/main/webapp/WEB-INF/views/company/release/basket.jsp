@@ -20,6 +20,7 @@
 
     <div class="cart">
         <div class="cart-content">
+        <h3><a href="/release">메인페이지</a></h3>
             <h3>${sessionScope.login.m_name}님의 장바구니</h3>
             
             
@@ -61,7 +62,7 @@
     
     <div id="input_wrap">
 <h3>배송정보 세부입력</h3>
-<h3><a href="/release">메인페이지</a></h3>
+
 <input type="text" id="name" name="name" class="input-field" placeholder="수령자이름"><br>
 <input type="text" id="phone" name="phone" class="input-field" placeholder="수령자연락처 예) 010-1234-5678">
 
