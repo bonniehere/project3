@@ -11,6 +11,7 @@ public class M_order {
 	private String productcode;
 	private Date order_date;
 	private int order_quantity;
+	private int quantity;
 	private String refund_chk;
 	private int total_price;
 	private String status;
@@ -26,7 +27,7 @@ public class M_order {
 	private String su_addr_detail;
 	private String m_userStat;
 	private String m_driver;
-	
+	private String classificationcode;
 	// paging용
     private int startRow;
     private int endRow;
@@ -105,6 +106,14 @@ public class M_order {
 
 	public void setOrder_quantity(int order_quantity) {
 		this.order_quantity = order_quantity;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public String getRefund_chk() {
@@ -211,6 +220,22 @@ public class M_order {
 		this.su_addr_detail = su_addr_detail;
 	}
 
+	public String getM_userStat() {
+		return m_userStat;
+	}
+
+	public void setM_userStat(String m_userStat) {
+		this.m_userStat = m_userStat;
+	}
+
+	public String getM_driver() {
+		return m_driver;
+	}
+
+	public void setM_driver(String m_driver) {
+		this.m_driver = m_driver;
+	}
+
 	public int getStartRow() {
 		return startRow;
 	}
@@ -275,35 +300,27 @@ public class M_order {
 		this.coupon_use = coupon_use;
 	}
 
-	public String getM_userStat() {
-		return m_userStat;
+	public String getClassificationcode() {
+		return classificationcode;
 	}
 
-	public void setM_userStat(String m_userStat) {
-		this.m_userStat = m_userStat;
-	}
-
-	public String getM_driver() {
-		return m_driver;
-	}
-
-	public void setM_driver(String m_driver) {
-		this.m_driver = m_driver;
+	public void setClassificationcode(String classificationcode) {
+		this.classificationcode = classificationcode;
 	}
 
 	@Override
 	public String toString() {
 		return "M_order [order_no=" + order_no + ", m_userId=" + m_userId + ", m_email=" + m_email + ", p_no=" + p_no
 				+ ", productname=" + productname + ", productcode=" + productcode + ", order_date=" + order_date
-				+ ", order_quantity=" + order_quantity + ", refund_chk=" + refund_chk + ", total_price=" + total_price
-				+ ", status=" + status + ", ju_name=" + ju_name + ", ju_tel=" + ju_tel + ", ju_zipCd=" + ju_zipCd
-				+ ", ju_addr=" + ju_addr + ", ju_addr_detail=" + ju_addr_detail + ", su_name=" + su_name + ", su_zipCd="
-				+ su_zipCd + ", su_tel=" + su_tel + ", su_addr=" + su_addr + ", su_addr_detail=" + su_addr_detail
-				+ ", m_userStat=" + m_userStat + ", m_driver=" + m_driver + ", startRow=" + startRow + ", endRow="
-				+ endRow + ", su_pass=" + su_pass + ", su_deliv=" + su_deliv + ", su_memo=" + su_memo + ", p_sal="
-				+ p_sal + ", p_name=" + p_name + ", coupon_use=" + coupon_use + "]";
+				+ ", order_quantity=" + order_quantity + ", quantity=" + quantity + ", refund_chk=" + refund_chk
+				+ ", total_price=" + total_price + ", status=" + status + ", ju_name=" + ju_name + ", ju_tel=" + ju_tel
+				+ ", ju_zipCd=" + ju_zipCd + ", ju_addr=" + ju_addr + ", ju_addr_detail=" + ju_addr_detail
+				+ ", su_name=" + su_name + ", su_zipCd=" + su_zipCd + ", su_tel=" + su_tel + ", su_addr=" + su_addr
+				+ ", su_addr_detail=" + su_addr_detail + ", m_userStat=" + m_userStat + ", m_driver=" + m_driver
+				+ ", classificationcode=" + classificationcode + ", startRow=" + startRow + ", endRow=" + endRow
+				+ ", su_pass=" + su_pass + ", su_deliv=" + su_deliv + ", su_memo=" + su_memo + ", p_sal=" + p_sal
+				+ ", p_name=" + p_name + ", coupon_use=" + coupon_use + "]";
 	}
 
-	
 	
 }

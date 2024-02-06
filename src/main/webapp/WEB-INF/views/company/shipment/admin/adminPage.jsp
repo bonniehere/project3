@@ -109,7 +109,7 @@
                     <li><div onclick="location.href='/company/CJoin.do'">ID 발급</div></li>
                     <li><div onclick="location.href='adminMbList.do'">회원 리스트</div></li>
                     <li><div onclick="location.href='orderList.do'">주문 리스트</div></li>
-                    <li><div onclick="location.href='#'">재고 현황</div></li>
+                    <li><div onclick="location.href='boardList.do'">재고 현황</div></li>
                     <li><div onclick="location.href='adminCoupon.do'">쿠폰발급창</div></li>
                     <li><div onclick="javascript:gogo(this);">모든 배송 현황</div></li>
                 </ul>

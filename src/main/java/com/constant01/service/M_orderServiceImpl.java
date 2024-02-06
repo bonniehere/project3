@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.constant01.mapper.M_orderMapper;
+import com.constant01.model.BoardDTO;
 import com.constant01.model.M_order;
 
 @Service
@@ -31,19 +32,37 @@ public class M_orderServiceImpl implements M_orderService {
 		// TODO Auto-generated method stub
 		return od.selectOD(order_no);
 	}
-
+	
 	@Override
-	public int updateOD(int order_no) {
+	public void updateOD(M_order m_order) {
 		// TODO Auto-generated method stub
-		return od.updateOD(order_no);
+		od.updateOD(m_order);
 	}
 	
 	@Override
-	public void updateOD2(M_order m_order) {
+	public int updateOD2(M_order m_order) {
 		// TODO Auto-generated method stub
-		od.updateOD2(m_order);
+		return od.updateOD2(m_order);
 	}
-
+	
+	@Override
+	public int updateOD22(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.updateOD22(m_order);
+	}
+	
+	@Override
+	public int updateOD3(int order_no) {
+		// TODO Auto-generated method stub
+		return od.updateOD3(order_no);
+	}
+	
+	@Override
+	public int updateOD4(int order_no) {
+		// TODO Auto-generated method stub
+		return od.updateOD4(order_no);
+	}
+	
 	@Override
 	public int insert(M_order order) {
 		// TODO Auto-generated method stub
@@ -81,9 +100,15 @@ public class M_orderServiceImpl implements M_orderService {
 	}
 	
 	@Override
-	public int updateCC(int order_no) {
+	public int updateCC(M_order m_order) {
 		// TODO Auto-generated method stub
-		return od.updateCC(order_no);
+		return od.updateCC(m_order);
+	}
+	
+	@Override
+	public int updateCCC(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.updateCCC(m_order);
 	}
 
 	@Override
@@ -97,7 +122,24 @@ public class M_orderServiceImpl implements M_orderService {
 		// TODO Auto-generated method stub
 		return od.selectTotal(m_email);
 	}
-
+	
+	@Override
+	public int getBDTotal(BoardDTO board) {
+		// TODO Auto-generated method stub
+		return od.getBDTotal(board);
+	}
+	
+	@Override
+	public List<M_order> bdList(BoardDTO board) {
+		// TODO Auto-generated method stub
+		return od.bdList(board); 
+	}
+	
+	@Override
+	public int bdUpdate(BoardDTO board) {
+		// TODO Auto-generated method stub
+		return od.bdUpdate(board);
+	}
 //	@Override
 //	public int insertAmount(String m_email) {
 //		// TODO Auto-generated method stub

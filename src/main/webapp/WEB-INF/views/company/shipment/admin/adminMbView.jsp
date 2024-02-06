@@ -95,7 +95,7 @@ function del() {
 						<tr><th>상세주소</th><td>${member.m_addr_detail }</td></tr>
 						<tr><th>가입일</th><td>${member.join_date }</td></tr>
 						<tr><th>탈퇴여부</th><td>${member.del }</td></tr>
-						<tr><th>누적금액</th><td>${amonut }</td></tr>
+						<!-- <tr><th>누적금액</th><td>${amonut }</td></tr> -->
 						<tr><th>탈퇴시키기</th><td><button type="button" class="btn btn-danger" 
 						onclick="del()">
 						탈퇴시키기</button></td></tr>

@@ -85,6 +85,25 @@ ul {
   background-color: #007bff; /* 페이지 링크 호버시 배경 색상 */
   color: #fff; /* 페이지 링크 호버시 텍스트 색상 */
 }
+.waiting{
+
+}
+.processing {
+    background-color: #E8DB6B; /* 배경 색상 */
+    color: #fff; /* 글자 색상 */
+}
+.delivered {
+    background-color: #5954ED; /* 배경 색상 */
+    color: #fff; /* 글자 색상 */
+}
+.end {
+    background-color: #86E57F; /* 배경 색상 */
+    color: #fff; /* 글자 색상 */
+}
+.cancel {
+    background-color: red; /* 배경 색상 */
+    color: #fff; /* 글자 색상 */
+}
 </style>
 <script type="text/javascript">
 
@@ -106,26 +125,27 @@ ul {
 			
 					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2>
 				<table class="table">	
-						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th><th>주문자 email</th>
-							<th>수령자 이름</th><th>수령자 우편번호</th><th>수령자 주소</th><th>수령자 상세주소</th>
-							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>주문상태</th><th>출하기사</th><th>확인</th></tr>
+						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th>
+							<th>수령자 이름</th><th>수령자 주소</th><th>수령자 상세주소</th>
+							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>재고</th><th>창고코드</th><th>주문상태</th><th>출하기사</th><th>상태변경</th></tr>
 					<c:forEach var="m_order" items="${odList }">
 						<tr><th>${m_order.order_no}</th>
 						<td>${m_order.m_userId }</td>
 						<td>${m_order.ju_name }</td>
-						<td>${m_order.m_email }</td>
 						<td>${m_order.su_name }</td>
-						<td>${m_order.su_zipCd }</td>
 						<td>${m_order.su_addr }</td>
 						<td>${m_order.su_addr_detail }</td>
 						<td>${m_order.order_date }</td>
 						<td>${m_order.productname }</td>
 						<td>${m_order.order_quantity }</td>
-						<td>${m_order.status }</td>
+						<td>${m_order.quantity }</td>
+						<td>${m_order.classificationcode }</td>
+						<td class="${m_order.status eq '취소완료' ? 'cancel' : (m_order.status eq '--배송완료--' ? 'end' : (m_order.status eq '배송중' ? 'delivered' : (m_order.status eq '출고완료' ? 'processing' : (m_order.status eq '상품준비중' ? 'waiting' : ''))))}">
+						${m_order.status }</td>
 						<td>${m_order.m_driver }</td>
 						<td><button type="button" class="btn btn-info" 
 						onclick="location.href='orderDetail.do?order_no=${m_order.order_no}' ">
-						확인</button></td></tr>
+						상태변경</button></td></tr>
 						
 					</c:forEach>
 				</table>	<nav aria-label="..." id="page_btn">

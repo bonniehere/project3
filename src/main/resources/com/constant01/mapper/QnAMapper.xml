@@ -19,21 +19,21 @@
 	<insert id="insert" parameterType="com.constant01.model.QnA">
 		insert into qna values
 		(#{qa_no}, #{qa_subject}, #{qa_content}, null, sysdate,
-		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_email})
+		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_userId})
 	</insert>
 
 	<!-- qna 첨부파일 작성 -->
 	<insert id="insertFile" parameterType="com.constant01.model.QnA">
 		insert into qna values
 		(#{qa_no}, #{qa_subject}, #{qa_content}, #{qa_fileName}, sysdate,
-		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_email})
+		'답변대기', #{qa_ref}, #{qa_refStep}, #{qa_refLevel}, 'n', #{m_userId})
 	</insert>
 
 	<!-- 회원당 qna 총 갯수 -->
 	<select id="getTotal" parameterType="com.constant01.model.QnA" resultType="integer">
 		select
 		count(*) from qna where qa_ref in (select qa_ref from qna where
-		M_email=#{m_email})
+		m_userId=#{m_userId})
 		and qa_del='n'
 	</select>
 
@@ -43,7 +43,7 @@
     SELECT b.*, @rownum:=@rownum+1 AS rn
     FROM qna b, (SELECT @rownum:=0) AS tmp
     WHERE qa_ref IN (
-        SELECT qa_ref FROM qna WHERE M_email = #{m_email}
+        SELECT qa_ref FROM qna WHERE m_userId = #{m_userId}
     )
     ORDER BY qa_ref DESC, qa_refStep
 	) AS boardlist
