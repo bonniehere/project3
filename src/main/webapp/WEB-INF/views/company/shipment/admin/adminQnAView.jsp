@@ -106,6 +106,7 @@ table {
 </script>
 </head>
 <body>
+
 	<div class="container-md mt-5 mb-5">
 		<p></p>
 		<p></p>
@@ -149,6 +150,5 @@ table {
 		<a href="adminQnAList.do" style="text-decoration: none;">QnA리스트</a>
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>

@@ -107,13 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function showAlert() {
-    alert("출고서 출력 기능이 수행됩니다."); // 원하는 메시지로 변경 가능
-    // location.href = '이동할 페이지 URL'; // 이동할 페이지 URL을 설정하고 주석 해제할 수 있습니다.
+    //alert("출고서 출력 기능이 수행됩니다."); // 원하는 메시지로 변경 가능
+    window.print();
 };
 
 </script>
 </head>
 <body>
+
 	<div class="container-md mt-5 mb-5">
 		
 		<div class="row">
@@ -174,6 +175,5 @@ function showAlert() {
 		<a href="orderList.do" style="text-decoration: none;">주문리스트</a>
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>

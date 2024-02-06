@@ -87,17 +87,8 @@
     </style>
 </head>
 <body>
-<!-- 상단 메뉴 추가 -->
-    <div class="header">
-        <!-- 여기에 메뉴 내용 추가 -->
-        <nav>
-            <ul>
-                <li><a href="adminPage.do">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="logout">logout</a></li>
-            </ul>
-        </nav>
-    </div>
+<jsp:include page="adminHeader.jsp"></jsp:include>
+
     <div class="container-md mt-5 mb-5">
         <div class="row">
             
@@ -158,9 +149,6 @@ function gogo(obj){
 </script>
     
 <!-- 하단 푸터 추가 -->
-    <div class="footer">
-        <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; ConstantCompany</p>
-    </div>
+<jsp:include page="adminFooter.jsp"></jsp:include>
 </body>
 </html>
