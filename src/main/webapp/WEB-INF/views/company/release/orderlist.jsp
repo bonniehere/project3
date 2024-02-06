@@ -38,6 +38,7 @@
             <%@ include file="top.jsp" %>
         </div>
         <div id="leftwrap">
+        <p>${sessionScope.login.m_name}님 환영합니다.</p>
         <p><a href="/logout">로그아웃</a></p>
             <%@ include file="left.jsp" %>
         </div>
@@ -75,7 +76,7 @@
                                     </th>
                         
                         <th>${board.order_quantity}</th>
-                        <th>${board.total_price}</th>
+                        <th>₩<script>document.write(new Intl.NumberFormat('ko-KR').format(${board.total_price}))</script></th>
 
                         <th>
         <button class="delete-button" onclick="deleteOrder('${board.order_no}')">주문취소</button>
@@ -103,12 +104,12 @@
 
                 <!-- begin(1)이 end(10)될 동안 반복(1일 10일 될 동안 반복) -->
                 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
-                    <a href="/orderlist?&pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
+                    <a href="/orderlist?m_userId=${sessionScope.login.m_userId}&pageNum=${num}&amount=${pageMaker.cri.amount}">${num}</a>
                 </c:forEach>
 
                 <!-- next(다음)이 true이면 다음버튼 활성화 -->
                 <c:if test="${pageMaker.next}">
-                    <a href="/orderlist?&pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
+                    <a href="/orderlist?m_userId=${sessionScope.login.m_userId}&pageNum=${pageMaker.endPage+1}&amount=${pageMaker.cri.amount}">다음</a>
                 </c:if>
             </div>
         </div>

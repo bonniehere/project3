@@ -5,6 +5,14 @@
             background-color: #f4f4f4;
         }
 
+.image-text-container {
+    display: flex; /* 요소를 행 방향으로 배치합니다. */
+    align-items: center; /* 요소를 세로 중간에 배치합니다. */
+}
+
+
+
+
 /* .subtotal{ */
 /* 	display:none; */
 /* } */
