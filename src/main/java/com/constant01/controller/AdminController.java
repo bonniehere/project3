@@ -15,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -208,7 +209,7 @@ public class AdminController {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		int rowPerPage = 5;
+		int rowPerPage = 10;
 		int total = os.getODTotal(m_order);
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
@@ -245,30 +246,91 @@ public class AdminController {
 	@RequestMapping(value = "company/orderSelectDriver.do", method = RequestMethod.GET)
 	public String orderSelectDriver(Model model, M_order m_order) {
 		
-		os.updateOD2(m_order);
+		os.updateOD(m_order);
 		
 		return "redirect:orderList.do";
 	}
-	@RequestMapping(value = "company/orderCheck.do", method = RequestMethod.GET)
-	public String orderCehck(int order_no, String pageNum, Model model) {
+	@RequestMapping(value = "company/orderCheck2.do", method = RequestMethod.GET)
+	public String orderCehck2(M_order m_order, String pageNum, Model model) {
+		//출고 작업
 		int result = 0;
 
-		result = os.updateOD(order_no);
+		result = os.updateOD2(m_order);
+		result = os.updateOD22(m_order);
+		
+		model.addAttribute("result", result);
+		model.addAttribute("pageNum", pageNum);
+		return "/company/shipment/admin/orderCheck";
+	}
+	@RequestMapping(value = "company/orderCheck3.do", method = RequestMethod.GET)
+	public String orderCehck3(int order_no, String pageNum, Model model) {
+		int result = 0;
+
+		result = os.updateOD3(order_no);
+
+		model.addAttribute("result", result);
+		model.addAttribute("pageNum", pageNum);
+		return "/company/shipment/admin/orderCheck";
+	}
+	@RequestMapping(value = "company/orderCheck4.do", method = RequestMethod.GET)
+	public String orderCehck4(int order_no, String pageNum, Model model) {
+		int result = 0;
+
+		result = os.updateOD4(order_no);
 
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderCheck";
 	}
 	@RequestMapping(value = "company/orderCancel.do", method = RequestMethod.GET)
-	public String orderCancel(int order_no, String pageNum, Model model) {
+	public String orderCancel(M_order m_order, String pageNum, Model model) {
 		int result = 0;
 
-		result = os.updateCC(order_no);
+		result = os.updateCC(m_order);
+		result = os.updateCCC(m_order);
 
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
 		return "/company/shipment/admin/orderCancel";
 	}
+	@RequestMapping(value = "/company/boardList.do", method = RequestMethod.GET)
+	public String boardList(BoardDTO board, String pageNum, Model model) {
+			
+			if (pageNum == null || pageNum.equals("")) {
+				pageNum = "1";
+			}
+			int currentPage = Integer.parseInt(pageNum);
+			int rowPerPage = 100;
+			int total = os.getBDTotal(board);
+			int startRow = (currentPage - 1) * rowPerPage + 1;
+			int endRow = startRow + rowPerPage - 1;
+			board.setStartRow(startRow);
+			board.setEndRow(endRow);
+			List<M_order> bdList = os.bdList(board);
+			int num = total - startRow + 1;
+			
+			PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+			String[] title = { "이름", "내용", "제목+내용" };
+
+			model.addAttribute("title", title);
+			model.addAttribute("pb", pb);
+			model.addAttribute("bdList", bdList);
+			model.addAttribute("num", num);
+			
+			return "/company/shipment/admin/boardList";
+		
+	}
+	@PutMapping("/company/updateQuantity")
+    public ResponseEntity<Integer> updateQuantity(@RequestBody BoardDTO board,Model model) {
+        
+		int result = 0;
+        
+		result = os.bdUpdate(board);
+
+		System.out.println(result);
+        return ResponseEntity.ok(result);
+    }
+	
 	@RequestMapping(value = "/company/adminCoupon.do", method = RequestMethod.GET)
 	public String adminCoupon() {
 

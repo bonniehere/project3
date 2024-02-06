@@ -22,6 +22,12 @@ public class BoardDTO {
 		//제조원
 		private String manufacturer;
 		
+		// paging용
+	    private int startRow;
+	    private int endRow;
+		
+		
+		
 		public String getProductcode() {
 			return productcode;
 		}
@@ -70,12 +76,26 @@ public class BoardDTO {
 		public void setManufacturer(String manufacturer) {
 			this.manufacturer = manufacturer;
 		}
+		public int getStartRow() {
+			return startRow;
+		}
+		public void setStartRow(int startRow) {
+			this.startRow = startRow;
+		}
+		public int getEndRow() {
+			return endRow;
+		}
+		public void setEndRow(int endRow) {
+			this.endRow = endRow;
+		}
 		@Override
 		public String toString() {
 			return "BoardDTO [productcode=" + productcode + ", classificationcode=" + classificationcode
 					+ ", productname=" + productname + ", standard=" + standard + ", unit=" + unit + ", quantity="
-					+ quantity + ", price=" + price + ", manufacturer=" + manufacturer + "]";
+					+ quantity + ", price=" + price + ", manufacturer=" + manufacturer + ", startRow=" + startRow
+					+ ", endRow=" + endRow + "]";
 		}
+		
 		
 		
 }

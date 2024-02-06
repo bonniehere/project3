@@ -15,25 +15,47 @@
 	<select id="odList" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
 		select *
          from(select  a.*, @rownum:=@rownum+1 rn
-            from m_order a, (select @rownum:=0) as tmp
-             order by order_no desc) as boardlist where rn between #{startRow} and #{endRow};
+            from m_order a , (select @rownum:=0) as tmp
+             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow};
 	</select>
 	
 
 	<select id="selectOD" parameterType="integer"
 		resultType="com.constant01.model.M_order">
-		select * from m_order where order_no=#{order_no}
+		
+		SELECT m_order.*, board.productcode AS board_productcode
+		FROM m_order
+		JOIN board ON m_order.productcode = board.productcode
+		WHERE m_order.order_no = #{order_no};
 	</select>
-
+	
 	<update id="updateOD" parameterType="com.constant01.model.M_order">
 		update m_order set
-		status='발송완료(택배사이동중)'
+		m_driver=#{m_driver}
 		where order_no=#{order_no}
 	</update>
 	
 	<update id="updateOD2" parameterType="com.constant01.model.M_order">
 		update m_order set
-		m_driver=#{m_driver}
+		status='출고완료'
+		where order_no=#{order_no}
+	</update>
+	
+	<update id="updateOD22" parameterType="com.constant01.model.M_order">
+		update board 
+		SET quantity = quantity-#{order_quantity}
+		where productcode=#{productcode}
+	</update>
+	
+	<update id="updateOD3" parameterType="com.constant01.model.M_order">
+		update m_order set
+		status='배송중'
+		where order_no=#{order_no}
+	</update>
+	
+	<update id="updateOD4" parameterType="com.constant01.model.M_order">
+		update m_order set
+		status='--배송완료--'
 		where order_no=#{order_no}
 	</update>
 
@@ -111,6 +133,12 @@
 		status='취소완료'
 		where order_no=#{order_no}
 	</update>
+	
+	<update id="updateCCC" parameterType="com.constant01.model.M_order">
+		UPDATE board 
+	    SET quantity = quantity + #{order_quantity}
+	    WHERE productcode = #{productcode}
+	</update>
 
 	<select id="selectTotal" parameterType="string"
 		resultType="integer">
@@ -120,6 +148,23 @@
 		M_email=#{m_email} and refund_chk='n'
 	</select>
 
+	<select id="getBDTotal" parameterType="com.constant01.model.BoardDTO" resultType="integer">
+		select count(*) from board;
+	</select>
+
+	<select id="bdList" parameterType="com.constant01.model.BoardDTO" resultType="com.constant01.model.BoardDTO">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from board a , (select @rownum:=0) as tmp
+            ) as boardlist where rn between #{startRow} and #{endRow};
+	</select>
+	
+	<update id="bdUpdate" parameterType="com.constant01.model.BoardDTO">
+		UPDATE board 
+	    SET quantity = quantity + #{quantity}
+	    WHERE productcode = #{productcode}
+	</update>
+	
 <!-- 	<insert id="insertAmount" parameterType="string">
 		INSERT INTO MEMBER (amount)
 		SELECT SUM(total_price) AS total_price
