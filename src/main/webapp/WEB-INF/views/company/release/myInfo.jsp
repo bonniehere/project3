@@ -81,10 +81,10 @@
                     
                 </tr>
                 <tr>
-                    <td>비밀번호:</td><td><input type="hidden" id="present_userpw" value="${detail.m_userPw}">${detail.m_userPw}</td>
+                    <td>비밀번호:</td><td><input type="password" id="present_userpw" value="${detail.m_userPw}" readonly></td>
                 </tr>
                 <tr>
-                    <td><input id="newPassword" type="text" style="width:100%;border:none;" placeholder="변경하고싶은 비밀번호를 입력하세요."></td>
+                    <td><input id="newPassword" type="password" style="width:100%;border:none;" placeholder="변경하고싶은 비밀번호를 입력하세요."></td>
                     <td><button id="changePasswordButton" class="change-password-button">비밀번호 변경</button></td>
                 </tr>
                 <tr>
