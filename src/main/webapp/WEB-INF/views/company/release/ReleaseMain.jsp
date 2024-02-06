@@ -140,6 +140,7 @@
                 let total = amount * price;
 
                 totalElement.textContent = formatCurrency(total);
+                document.cookie = `product_${index}_amount=${amount}`;
             });
         });
 
@@ -162,6 +163,7 @@
                     let total = amount * price;
 
                     totalElement.textContent = formatCurrency(total);
+                    
                 }
             });
         });

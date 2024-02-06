@@ -32,9 +32,10 @@
         <li id="item-${item.no}">
             <span>제품명: ${item.productname}</span>
             <span>코드: ${item.productcode}</span>
-            <span>이미지:<img src="../../resources/img/release/${item.productcode}.png" style="width:40px;height:40px;"></span>
+            <span class="image-text-container">이미지 : <img src="../../resources/img/release/${item.productcode}.png" style="width: 40px;
+    height: 40px;"></span>
             <span>수량: ${item.quantity}</span>
-            <span>단가: ${item.price}</span>
+            <span>단가: ₩<script>document.write(new Intl.NumberFormat('ko-KR').format(${item.price}))</script></span>
             <span>금액: <span class="subtotal">${item.quantity * item.price}</span></span>
             <input type="hidden" name="productname" value="${item.productname}">
             <input type="hidden" name="productcode" value="${item.productcode}">
@@ -177,14 +178,18 @@
         }
 
         // 총 가격 업데이트 함수
-        function updateTotalAmount() {
-            let totalAmount = 0;
-            $('.subtotal').each(function() {
-                totalAmount += parseFloat($(this).text()) || 0;
-            });
-            $('#totalAmount').text(totalAmount.toFixed(2));
-            
-        }
+      function updateTotalAmount() {
+    let totalAmount = 0;
+    $('.subtotal').each(function() {
+        totalAmount += parseFloat($(this).text().replace(/,/g, '')) || 0;
+    });
+
+    // 천 단위 쉼표를 추가하여 총 가격을 형식화
+    const formatter = new Intl.NumberFormat('ko-KR');
+    const formattedTotalAmount = formatter.format(totalAmount.toFixed(2));
+
+    $('#totalAmount').text(formattedTotalAmount);
+}
                 //---------------------------------------------주문
         
         //주문하기 함수

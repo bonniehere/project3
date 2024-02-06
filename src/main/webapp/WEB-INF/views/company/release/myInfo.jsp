@@ -100,7 +100,7 @@
                     <td>주소:</td><td>${detail.m_addr}</td>
                 </tr>
                 <tr>
-                    <td>상세주소:</td><td>${detail.m_addr_detail}</td>
+                    <td>상세내용:</td><td>${detail.m_addr_detail}</td>
                 </tr>
                 <tr>
                     <td>가입일:</td><td>${detail.join_date}</td>
