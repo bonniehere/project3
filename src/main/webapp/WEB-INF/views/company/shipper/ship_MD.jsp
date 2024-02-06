@@ -73,9 +73,9 @@
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" onClick="history.go(-2);" style="text-decoration: none;">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
@@ -84,6 +84,8 @@
 
 <!-- 여기서는 ship_Driver의 위도, 경도, 배달기사의 이름을 받아와서 보여준다 -->
 <h2 >배달 기사</h2>
+
+
 
 
 <div class="body">
@@ -203,7 +205,10 @@
 			 
 	</script>		 
 					 
-					 
+		  
+  <div id=homediv>
+	<a id="home" href="../adminPage.do">이전</a>
+	</div>			 
 					 
 	</div>
 

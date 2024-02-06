@@ -122,7 +122,7 @@
   
   
   
-   <select id="orderlist" resultType="com.constant01.model.cartVO">
+   <select id="orderlist" resultType="com.constant01.model.M_order">
     
       select *
 			from( 

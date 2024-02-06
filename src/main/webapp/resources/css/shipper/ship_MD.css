@@ -94,6 +94,8 @@ body {
 	
 }
 
+
+
 /* 상단 메뉴 스타일 */
 .header {
     background-color: #9EBEC4;
@@ -117,6 +119,35 @@ body {
     color: white;
     text-decoration: none;
 }
+
+
+/*홈으로 css*/
+#homediv{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px; /* 조정 가능한 하단 여백 값 */
+}
+
+#home {
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 15px;
+	margin: 5px;
+	color: #007bff;
+	border: 1px solid #007bff;
+	text-decoration: none;
+	border-radius: 100px;
+}
+
+#home:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
 
 /* 푸터 스타일 */
 .footer {
