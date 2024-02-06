@@ -28,5 +28,8 @@ public interface DeliveryMapper {
 	public void delete(DeliveryDTO delivery);
 	
 	public ArrayList<TempDTO> temp(TempDTO temp);
+	
+	//고객 담당 기사 select
+	public ArrayList<DriverDTO> clist(DeliveryDTO delivery);
 
 }

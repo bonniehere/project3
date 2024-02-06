@@ -25,11 +25,13 @@ import com.constant01.model.CMember;
 import com.constant01.model.Coupon;
 import com.constant01.model.Criteria;
 import com.constant01.model.CustomerDTO;
+import com.constant01.model.DeliveryDTO;
 import com.constant01.model.PageMakerDTO;
 import com.constant01.model.QnA;
 import com.constant01.model.QnAr;
 import com.constant01.model.cartVO;
 import com.constant01.service.CustomerService;
+import com.constant01.service.DeliveryService;
 import com.constant01.service.ReleaseService;
 import com.constant01.service.cartService;
 
@@ -51,6 +53,9 @@ public class ReleaseController {
 	
 	@Autowired
 	CustomerService ccs;
+	
+	@Autowired
+	DeliveryService ds;
 	
 	
 	
@@ -425,20 +430,22 @@ public class ReleaseController {
 	//----------------------------------------------------------------------------------
 	 
 	//왼쪽 사이드 메뉴2, 주문현황
-		@RequestMapping(value = "orderlist", method = RequestMethod.GET)
-		public String orderlist (Model model, Criteria cri,HttpServletRequest request) {
+		@RequestMapping(value = "orderlist", method = {RequestMethod.GET, RequestMethod.POST})
+		public String orderlist (Model model, Criteria cri, DeliveryDTO delivery, HttpServletRequest request) {
 			
 			 HttpSession session = request.getSession();
 		        Object loginAttribute = session.getAttribute("login");
 		        model.addAttribute("login", loginAttribute);
-		        
-			
-			
+		        System.out.println("dddd");
+		        //주문 현황에서 기사 정보 받아오기
+		        model.addAttribute("dlist", ds.dlist(delivery));
+		        System.out.println(ds.dlist(delivery));
+		        System.out.println("222");
 			model.addAttribute("orderlist", rs.orderlist(cri) );
 			int total = rs.getTotal_order();
 			PageMakerDTO pagemake = new PageMakerDTO(cri, total);
 			model.addAttribute("pageMaker",pagemake);
-			
+			System.out.println(rs.orderlist(cri));
 			return "company/release/orderlist";
 		}
 	 

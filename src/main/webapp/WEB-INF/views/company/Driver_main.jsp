@@ -44,9 +44,9 @@ function yaho(obj){
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="homelog.do">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>

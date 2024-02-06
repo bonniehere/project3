@@ -27,6 +27,8 @@ public interface DeliveryService {
 	
 	public ArrayList<TempDTO> temp(TempDTO temp);
 	
+	public ArrayList<DriverDTO> clist(DeliveryDTO delivery); //고객 담당 기사 select
+	
 	
 
 }
