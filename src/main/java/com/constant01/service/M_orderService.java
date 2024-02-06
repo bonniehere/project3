@@ -1,8 +1,11 @@
 package com.constant01.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.constant01.model.BoardDTO;
+import com.constant01.model.DeliveryDTO;
+import com.constant01.model.DriverDTO;
 import com.constant01.model.M_order;
 
 public interface M_orderService {
@@ -50,5 +53,7 @@ public interface M_orderService {
 	int bdUpdate(BoardDTO board);
 
 //	int insertAmount(String m_email);
-
+	
+	//kmc 추가
+	public ArrayList<M_order> delist(DeliveryDTO delivery); //고객 담당 기사 select
 }
