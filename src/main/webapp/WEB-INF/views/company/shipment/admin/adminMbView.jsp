@@ -113,6 +113,5 @@ function del() {
 		<a href="adminMbList.do" style="text-decoration: none;">회원리스트</a>
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>

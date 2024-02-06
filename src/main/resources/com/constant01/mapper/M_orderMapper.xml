@@ -16,7 +16,7 @@
 		select *
          from(select  a.*, @rownum:=@rownum+1 rn
             from m_order a , (select @rownum:=0) as tmp
-             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow};
+             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by order_no desc;
 	</select>
 	
 
