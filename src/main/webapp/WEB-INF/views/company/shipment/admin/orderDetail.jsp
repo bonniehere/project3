@@ -105,6 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 기사배정 버튼에 이벤트 리스너 추가
     document.getElementById('assignButton').addEventListener('click', assignDriver);
 });
+
+function showAlert() {
+    alert("출고서 출력 기능이 수행됩니다."); // 원하는 메시지로 변경 가능
+    // location.href = '이동할 페이지 URL'; // 이동할 페이지 URL을 설정하고 주석 해제할 수 있습니다.
+};
+
 </script>
 </head>
 <body>
@@ -140,13 +146,21 @@ document.addEventListener('DOMContentLoaded', function() {
 						
 						</td>
 						</tr>
-						<tr><th class="text-center" colspan="2">
+						<tr><th>주문 상태 변경</th>
+						<td class="text-center" colspan="2">
+						<button type="button" id="" class="btn btn-primary"
+						onclick="showAlert()">출고서 출력</button>
 						<button type="button" id="assignButton" class="btn btn-primary"
 						onclick="location.href=''">기사배정</button>
 						<button type="button" class="btn btn-primary"
-						onclick="location.href='orderCheck.do?order_no=${m_order.order_no}'">발송완료</button>
+						onclick="location.href='orderCheck2.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}'">출고완료</button>
+						<button type="button" class="btn btn-primary"
+						onclick="location.href='orderCheck3.do?order_no=${m_order.order_no}'">검품확인 및 배송시작</button>
+						<button type="button" class="btn btn-primary"
+						onclick="location.href='orderCheck4.do?order_no=${m_order.order_no}'">배송완료</button>
 						<button type="button" class="btn btn-danger"
-						onclick="location.href='orderCancel.do?order_no=${m_order.order_no}'">발송취소(환불)</button></th>
+						onclick="location.href='orderCancel.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}'">발송취소(환불)</button>
+						</tr>
 						
 						
 						

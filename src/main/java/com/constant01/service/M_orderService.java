@@ -2,6 +2,7 @@ package com.constant01.service;
 
 import java.util.List;
 
+import com.constant01.model.BoardDTO;
 import com.constant01.model.M_order;
 
 public interface M_orderService {
@@ -11,10 +12,16 @@ public interface M_orderService {
 	List<M_order> odList(M_order m_order);
 
 	M_order selectOD(int order_no);
-
-	int updateOD(int order_no);
 	
-	void updateOD2(M_order m_order);
+	void updateOD(M_order m_order);
+	
+	int updateOD2(M_order m_order);
+	
+	int updateOD22(M_order m_order);
+	
+	int updateOD3(int order_no);	
+	
+	int updateOD4(int order_no);
 
 	int insert(M_order order);
 
@@ -28,11 +35,19 @@ public interface M_orderService {
 
 	int getTotal2(M_order m_order);
 	
-	int updateCC(int order_no);
+	int updateCC(M_order m_order);
+	
+	int updateCCC(M_order m_order);
 	
 	int selectMAX();
 
 	int selectTotal(String m_email);
+	
+	int getBDTotal(BoardDTO board);
+	
+	List<M_order> bdList(BoardDTO board);
+	
+	int bdUpdate(BoardDTO board);
 
 //	int insertAmount(String m_email);
 
