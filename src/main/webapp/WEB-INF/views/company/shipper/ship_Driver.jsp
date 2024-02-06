@@ -149,7 +149,7 @@
 				console.log(driverLat);
 				console.log(driverLon);
 				
-				
+				/*
 				$.ajax({
 					type : "POST",
 					url  : "/company/shipper/Drivermap.do",
@@ -170,7 +170,7 @@
 						console.log("실패");
 						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
 					}
-				});
+				});*/
 				
 				
 				$.ajax({
@@ -212,18 +212,30 @@
 <div style="display: flex; justify-content: center;">
 <a id="home" href="#" onClick="history.go(-1);" style="text-decoration: none;">홈으로</a>
 </div>	
-
+<!-- 
 <div>
+
 <button type=submit value="--배송완료--" onclick="deliverydone();">배송완료</button>
+ -->
+ 
+ <!-- 
+ <button type="button" class="btn btn-primary"
+						onclick="location.href='driverCheck.do?order_no=${m_order.order_no}'">검품확인 및 배송시작</button>
+ 
+<button type="button" class="btn btn-primary"
+onclick="location.href='driverCheck2.do?order_no=${m_order.order_no}'">배송완료</button>
+
 </div>
 
 <script>
-function deliverydone(){
-	
+function assignDriver() {
+    var driverValue = document.getElementById('driver').value;
+    var newUrl = 'orderSelectDriver.do?order_no=${m_order.order_no}&m_driver=' + encodeURIComponent(driverValue);
+    location.href = newUrl;
 }
 
 </script>
-
+ -->
 
 
 <!-- 하단 푸터 추가 -->

@@ -35,10 +35,15 @@ public class DeliveryController {
 		
 	// ship_Driver에서 Customer2로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "company/shipper/ship_Driver.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String ship_Driver(DriverDTO driver,Model model) {
+	public String ship_Driver(DriverDTO driver, M_order m_order, Model model) {
+		
 		System.out.println("driver맵");
 		model.addAttribute("list", ds.list(driver));
 		System.out.println(ds.list(driver));
+		
+		//model.addAttribute("delist", os.delist(m_order));
+		//System.out.println(os.delist(m_order));
+		
 		return "company/shipper/ship_Driver";
 		
 	}
@@ -52,28 +57,26 @@ public class DeliveryController {
 		System.out.println("실시간유저좌표저장");
 		ds.write(delivery);
 		ds.delete(delivery);
-		model.addAttribute("dlist", ds.dlist(delivery));
-		System.out.println(ds.dlist(delivery));
+		//model.addAttribute("dlist", ds.dlist(delivery));
+		//model.addAttribute("dlist", ds.dlist(delivery));
+		
+		
+		model.addAttribute("delist", os.delist(delivery));
+		System.out.println(os.delist(delivery));
 		return "/company/shipper/ship_Driver";
 		
 	}
 	
-	/*
-	// 배송현황 첫 번째 페이지 --------------------------------------------------------
-	@RequestMapping(value = "company/shipper/ship_Customer", method = {RequestMethod.GET, RequestMethod.POST})
-	public String custo2(DeliveryDTO delivery,CMember member,Model model,Criteria cri, M_order m_order, HttpServletRequest request) {
-		System.out.println("customer맵");
-		model.addAttribute("dlist", ds.dlist(delivery));
-		HttpSession session = request.getSession();
-        Object loginAttribute = session.getAttribute("login");
-        model.addAttribute("login", loginAttribute);
-		model.addAttribute("odList", os.odList(m_order));
-		System.out.println(os.odList(m_order));
-		
-		//System.out.println(rs.orderlist(cri));
-		return "company/CustomerPage";
-		
-	}*/
+	
+	
+	// 여기에 기사 배송완료 코드 넣기
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -88,6 +91,7 @@ public class DeliveryController {
 		return "company/shipper/ship_Customer2";
 		
 	}
+
 
 	@ResponseBody
 	
@@ -121,19 +125,7 @@ public class DeliveryController {
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
-	
-	/*
-	//온도 가져오는 거
-	@ResponseBody
-	@RequestMapping(value = "/company/shipper/AdminTempLoad.do", method = RequestMethod.GET)
-	public ResponseEntity<?> AdminTempLoad(TempDTO temp, Model model) {
-		
-		model.addAttribute("temp", ds.temp(temp));
-		System.out.println(ds.temp(temp));
-		return new ResponseEntity<>(ds.temp(temp), HttpStatus.OK);
-	
-	}*/
-	
+
 	
 	//ship_Master에서 기사 이름을 클릭했을 때 이동
 	@RequestMapping(value = "/company/shipper/MDmap.do", method = RequestMethod.POST)

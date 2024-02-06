@@ -59,7 +59,9 @@ AND num IN (
 	<select id="temp" resultType="com.constant01.model.TempDTO">
 	select * from temp;
 	</select>
-	 
+	
+
+	
 	<!-- M_order update문 -->
 	<update id="deliverydone">
 	
