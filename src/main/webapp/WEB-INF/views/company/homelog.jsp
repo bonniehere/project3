@@ -15,6 +15,11 @@
 	<script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 
 <script type="text/javascript">
+function Mobile() {return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);}
+if(Mobile()){
+    $(".form-container").css("width", "100%");
+    $(".form-container").css("max-width", "100%");
+}
 //로그인
 function fn_CheckForm(){
 	if( $("#userId").val() == "" ){
