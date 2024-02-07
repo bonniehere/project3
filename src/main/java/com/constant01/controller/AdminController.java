@@ -251,8 +251,82 @@ public class AdminController {
 		model.addAttribute("pb", pb);
 		model.addAttribute("odList", odList);
 		model.addAttribute("num", num);
+		return "/company/shipment/admin/orderList1";
+	}
+	@RequestMapping(value = "/company/orderList2.do", method = RequestMethod.GET)
+	public String orderList2(M_order m_order, String pageNum, Model model) {
 		
-		return "/company/shipment/admin/orderList";
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int rowPerPage = 10;
+		int total = os.getODTotal(m_order);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		m_order.setStartRow(startRow);
+		m_order.setEndRow(endRow);
+		List<M_order> odList = os.odList2(m_order);
+		int num = total - startRow + 1;
+		
+		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+		String[] title = { "이름", "내용", "제목+내용" };
+
+		model.addAttribute("title", title);
+		model.addAttribute("pb", pb);
+		model.addAttribute("odList", odList);
+		model.addAttribute("num", num);
+		return "/company/shipment/admin/orderList2";
+	}
+	@RequestMapping(value = "/company/orderList3.do", method = RequestMethod.GET)
+	public String orderList3(M_order m_order, String pageNum, Model model) {
+		
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int rowPerPage = 10000;
+		int total = os.getODTotal(m_order);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		m_order.setStartRow(startRow);
+		m_order.setEndRow(endRow);
+		List<M_order> odList = os.odList3(m_order);
+		int num = total - startRow + 1;
+		
+		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+		String[] title = { "이름", "내용", "제목+내용" };
+
+		model.addAttribute("title", title);
+		model.addAttribute("pb", pb);
+		model.addAttribute("odList", odList);
+		model.addAttribute("num", num);
+		return "/company/shipment/admin/orderList3";
+	}
+	@RequestMapping(value = "/company/orderList4.do", method = RequestMethod.GET)
+	public String orderList4(M_order m_order, String pageNum, Model model) {
+		
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int rowPerPage = 10000;
+		int total = os.getODTotal(m_order);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		m_order.setStartRow(startRow);
+		m_order.setEndRow(endRow);
+		List<M_order> odList = os.odList4(m_order);
+		int num = total - startRow + 1;
+		
+		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+		String[] title = { "이름", "내용", "제목+내용" };
+
+		model.addAttribute("title", title);
+		model.addAttribute("pb", pb);
+		model.addAttribute("odList", odList);
+		model.addAttribute("num", num);
+		return "/company/shipment/admin/orderList3";
 	}
 	@RequestMapping(value = "company/orderDetail.do", method = RequestMethod.GET)
 	public String orderDetail(int order_no, String pageNum, Model model) {

@@ -33,7 +33,25 @@ public class M_orderServiceImpl implements M_orderService {
 	@Override
 	public List<M_order> odList1(M_order m_order) {
 		// TODO Auto-generated method stub
-		return od.odList(m_order); 
+		return od.odList1(m_order); 
+	}
+	
+	@Override
+	public List<M_order> odList2(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.odList2(m_order); 
+	}
+	
+	@Override
+	public List<M_order> odList3(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.odList3(m_order); 
+	}
+	
+	@Override
+	public List<M_order> odList4(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.odList4(m_order); 
 	}
 
 	@Override
