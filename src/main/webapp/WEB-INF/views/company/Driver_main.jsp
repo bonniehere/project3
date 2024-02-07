@@ -56,19 +56,10 @@ newFormSubmit : function(json){
         <nav>
             <ul>
                 <li><a href="homelog.do">Home</a></li>
-                <li><a href="#">About Us</a></li>
                 <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
-
-
-
-<!-- 
-<a href="/company/shipper/ship_Driver.do">
- -->
-
-
 
 
 
@@ -87,22 +78,14 @@ newFormSubmit : function(json){
 <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;">
 <h2 class="mt-5 text-start" id="join">　배송기사 페이지<br>　</h2>
 <ul class="custom-list">
-<li><div onclick="location.href='/company/shipper/Drivermap.do?m_name=<%=customer.getM_name()%>'">기사 지도 페이지</div></li>
-<li><div onclick="location.href='#'">1</div></li>
-<li><div onclick="location.href='#'">2</div></li>
-<li><div onclick="location.href='#'">3</div></li>
-<li><div onclick="location.href='#'">4</div></li>
-<li><div onclick="location.href='#'">5</div></li>
+
+<li id="mappage"><div onclick="location.href='/company/shipper/Drivermap.do?m_name=<%=customer.getM_name()%>'">기사 지도 페이지</div></li>
+
 </ul>
 </div>
 
 
 
-
-
-<!-- 
-<a href="javascript:void(0);" onclick="javascript:yaho(this);">기사P</a>
- -->
 </div>
 
 
@@ -110,7 +93,7 @@ newFormSubmit : function(json){
 <!-- 하단 푸터 추가 -->
     <div class="footer">
         <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; ConstantCompany</p>
     </div>
 
 </body>

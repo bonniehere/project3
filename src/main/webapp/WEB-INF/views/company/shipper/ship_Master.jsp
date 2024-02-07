@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@page import="com.constant01.model.CMember"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,6 @@
 <link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Master.css">
 
 <style>
-
-
-
-
 
 .node {
     position: absolute;
@@ -80,13 +77,22 @@
         <nav>
             <ul>
                 <li><a href="#" onClick="history.go(-1);" style="text-decoration: none;">Home</a></li>
-                <li><a href="#">About Us</a></li>
                 <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
+	<% 
+			CMember customer = (CMember)session.getAttribute("login");
+			System.out.println(customer);
+			String userId = request.getParameter("m_userId");
+			String userPw = request.getParameter("m_userPw");
+			String driverNm = request.getParameter("m_name");
+			String driverPhone = request.getParameter("m_phone");
+		%>
 
-<h2>공급사가 배송자의 온도와 위치를 볼 수 있는 페이지</h2>
+	<div class="top">
+	<h2>모든 배송 현황</h2>
+	</div>
 
 <div>
 <c:forEach items="${dlist}" var="dlist" varStatus="status">
@@ -159,61 +165,6 @@
 
 
 
-<!-- 
-<script>
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
-
-var date = [];
-var temp = [];
-
-function drawBasic() {
-
-
-    $.ajax({
-        type: "GET",
-        url: "/company/shipper/AdminTempLoad.do",
-        dataType: "json",
-        success: function (data) {
-            for (i = 0; i < data.length; i++) {
-                date[i] = new Date(data[i]["liveTime"]);
-                temp[i] = parseInt(data[i]["temp"]);
-            }
-
-            console.log(date); // 날짜 데이터 확인용 로그
-
-            var chartData = new google.visualization.DataTable();
-            chartData.addColumn('datetime', 'Time');
-            chartData.addColumn('number', 'Temperature');
-
-            for (j = 0; j < temp.length; j++) {
-                chartData.addRows([[date[j], temp[j]]]);
-            }
-
-            var options = {
-                hAxis: {
-                    title: 'Time',
-                    format: 'HH:mm'  // 시간 표시 형식 설정 (원하는 형식으로 변경 가능)
-                },
-                vAxis: {
-                    title: 'Temperature'
-                }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-            chart.draw(chartData, options);
-        },
-        error: function (request, status, error) {
-            console.log("실패");
-            alert("처리 중 오류가 발생되었습니다.\nerror:" + error + "request:" + request + "status:" + status);
-        }
-    });
-}
-
-
-
-</script>
- -->
 
 
  <!-- 여기가 이전 거 가져온 스크립트 -->
@@ -686,7 +637,7 @@ function fn_gogo(){
  <!-- 하단 푸터 추가 -->
     <div class="footer">
         <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; ConstantCompany</p>
     </div>
 
 

@@ -17,7 +17,25 @@
 <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
 
 <link type="text/css" rel="stylesheet" href="../../../../resources/css/shipper/ship_Driver.css">
-
+<style type="text/css">
+/* 모바일 환경 스타일 */
+@media screen and (max-width: 68px) {
+    .table {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .cute-table th, .cute-table td {
+        white-space: nowrap;
+    }
+    .map {
+        width: 100%;
+        height: 250px;
+    }
+    .footer {
+        position: relative;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -27,7 +45,6 @@
         <nav>
             <ul>
                  <li><a href="../homelog.do">Home</a></li>
-                <li><a href="#">About Us</a></li>
                 <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
@@ -44,22 +61,10 @@
 			String driverPhone = request.getParameter("m_phone");
 		%>
 
-	
-	<h2>Driver Page</h2>
-	<h2>기사 이름 뜰까용? <%=customer.getM_name()%> </h2>
+	<div class="top">
+	<h2>Driver Page <%=customer.getM_name()%> 님 </h2>
+	</div>
 
-<!-- 		
-<div>
-<c:forEach items="${m_order}" var="delist">
-
-
-    <p>${delist.order_no}</p>
-    <p>${delist.productcode}</p>
-    <p>${delist.order_quantity}</p>
-
-</c:forEach>
-</div>
- -->
 
  <div class="table">
         <table class="cute-table">
@@ -69,22 +74,29 @@
                 <th>받는 사람</th>
                 <th>배달 목적지</th>
                 <th>우편 번호</th>
+                <th>배송 상태</th>
+                <th>배송 시작</th>
+                <th>배송 완료</th>
+                
             </tr>
             <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
             <c:forEach items="${m_order}" var="delist">
                 <tr>
                 	
-                    <td>${delist.order_no}</td>
-                    <td width="150px">${delist.productcode}</td>
-                    <td>${delist.su_name}</td>
-                    <td>${delist.su_addr}</td>
-                    <td>${delist.su_zipCd}</td>
+                    <td width="120px">${delist.order_no}</td>
+                    <td width="100px">${delist.productcode}</td>
+                    <td width="120px">${delist.su_name}</td>
+                    <td width="250px">${delist.su_addr}</td>
+                    <td width="120px">${delist.su_zipCd}</td>
+                    <td width="150px">${delist.status}</td>
+                    <td width="280px"><button type="button" class="btn1" id="home"
+						onclick="location.href='deliverydone.do?order_no=${delist.order_no}'">검품확인 및 배송시작</button></td>
+                    <td width="200px"><button type="button" class="btn2" id="home"
+                    	onclick="location.href='deliverydone2.do?order_no=${delist.order_no}'">배송완료</button></td>
                 </tr>
             </c:forEach>
         </table>
     </div>
-
-
 
 
 
@@ -111,7 +123,7 @@
 
 <!--  <div class="map_area">  -->
 
-<div class="map" id="map" style="width:50% ;height:380px;">					 
+<div class="map" id="map" style="width:100% ;height:700px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 	
@@ -261,7 +273,7 @@
 <!--  </div>  -->
 
 <div style="display: flex; justify-content: center;">
-<a id="home" href="#" onClick="history.go(-1);" style="text-decoration: none;">홈으로</a>
+<a id="home" href="Driver_main.do" style="text-decoration: none;">홈으로</a>
 </div>	
 
 
@@ -274,18 +286,7 @@
 
 
 <c:forEach items="${m_order}" var="delist">
-<!-- 
-<button type="button" class="btn btn-primary" id="home"
-onclick="location.href='deliverydone.do?order_no=${delist.order_no}'">검품확인 및 배송시작</button>
-  -->
-<button type="button" class="btn btn-primary" id="home"
-onclick="location.href='deliverydone2.do?order_no=${delist.order_no}'">배송완료</button>
 
-
-<!-- 
-<button type="button" class="btn btn-danger" id="home"
-onclick="location.href='deliverydone3.do?order_no=${delist.order_no}&order_quantity=${delist.order_quantity}&productcode=${delist.productcode}'">발송취소(환불)</button>
- -->
 
 </c:forEach>
 </div>
@@ -298,7 +299,7 @@ onclick="location.href='deliverydone3.do?order_no=${delist.order_no}&order_quant
 <!-- 하단 푸터 추가 -->
     <div class="footer">
         <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; ConstantCompany</p>
     </div>
 
 </body>

@@ -52,7 +52,7 @@ AND num IN (
 	
 	<delete id="delete">
 	<![CDATA[
-		delete from customermap where m_userPw = #{m_userPw} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
+		delete from customermap where m_name = #{m_name} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
 	]]>
 	</delete>
 	
