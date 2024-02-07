@@ -113,22 +113,23 @@ ul {
 
 	<div class="container-md mt-5 mb-5">
 		<p></p>
+		
 		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
-		<br /> <br /> <br /> <br /> <br />
+		<br /> 
 		<div class="row justify-content-center">
 			<div class="col col-md-1.5"></div>
 
 			<div class="col col-md-9">
 			
-					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2>
+					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2><br>
+					
+			          <div onclick="location.href='orderList1.do'">주문상태별 정렬</div>
+			        
 				<table class="table">	
 						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th>
 							<th>수령자 이름</th><th>수령자 주소</th><th>수령자 상세주소</th>
-							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>재고</th><th>창고코드</th><th>주문상태</th><th>출하기사</th><th>상태변경</th></tr>
+							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>재고</th>
+							<th>창고코드</th><th>주문상태</th><th>출하기사</th><th>상태변경</th></tr>
 					<c:forEach var="m_order" items="${odList }">
 						<tr><th>${m_order.order_no}</th>
 						<td>${m_order.m_userId }</td>
