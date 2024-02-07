@@ -29,6 +29,12 @@ public class M_orderServiceImpl implements M_orderService {
 		// TODO Auto-generated method stub
 		return od.odList(m_order); 
 	}
+	
+	@Override
+	public List<M_order> odList1(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.odList(m_order); 
+	}
 
 	@Override
 	public M_order selectOD(int order_no) {

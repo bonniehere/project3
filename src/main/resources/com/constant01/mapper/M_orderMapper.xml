@@ -16,7 +16,14 @@
 		select *
          from(select  a.*, @rownum:=@rownum+1 rn
             from m_order a , (select @rownum:=0) as tmp
-             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow};
+             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by order_no desc;
+	</select>
+	
+	<select id="odList1" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from m_order a , (select @rownum:=0) as tmp
+             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by status asc;
 	</select>
 	
 
@@ -172,7 +179,7 @@
 		WHERE M_email = #{m_email}
 	</insert> -->
 	
-	<select id="delist" parameterType="com.constant01.model.M_order">
+	<select id="delist" parameterType="com.constant01.model.DeliveryDTO" resultType="com.constant01.model.M_order">
 	SELECT * 
 	FROM m_order
 	WHERE m_driver = #{m_name}
