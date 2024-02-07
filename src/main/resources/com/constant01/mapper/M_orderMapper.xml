@@ -23,9 +23,29 @@
 		select *
          from(select  a.*, @rownum:=@rownum+1 rn
             from m_order a , (select @rownum:=0) as tmp
-             order by order_no desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by status asc;
+            order by status desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by status desc;
 	</select>
 	
+	<select id="odList2" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from m_order a , (select @rownum:=0) as tmp
+             order by SU_addr_detail desc) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by SU_addr_detail asc;
+	</select>
+	
+	<select id="odList3" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from m_order a , (select @rownum:=0) as tmp
+            ) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by classificationcode asc;
+	</select>
+	
+	<select id="odList4" parameterType="com.constant01.model.M_order" resultType="com.constant01.model.M_order">
+		select *
+         from(select  a.*, @rownum:=@rownum+1 rn
+            from m_order a , (select @rownum:=0) as tmp
+            ) as boardlist JOIN board b ON boardlist.productcode = b.productcode where rn between #{startRow} and #{endRow} order by m_driver asc;
+	</select>
 
 	<select id="selectOD" parameterType="integer"
 		resultType="com.constant01.model.M_order">
