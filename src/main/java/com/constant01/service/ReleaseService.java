@@ -40,5 +40,6 @@ public interface ReleaseService {
 	//member_detail
 	public ArrayList<CMember> member_detail(CMember member);
 	public void changePassword(CMember member);
+	public void qna_delete(QnA qna);
 	
 }

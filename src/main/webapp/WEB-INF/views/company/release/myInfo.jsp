@@ -7,7 +7,7 @@
     <title>주문 메인 페이지</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="../../resources/css/release/ReleaseMain.css">
-<!--     <link rel="stylesheet" href="../../resources/css/release/table.css"> -->
+    <link rel="stylesheet" href="../../resources/css/release/table.css">
     
     <style>
    table {
@@ -60,7 +60,7 @@
         <c:choose>
             <c:when test="${not empty sessionScope.login}">
                 <p>${sessionScope.login.m_name}님 환영합니다.</p>
-                <p><a href="/logout">로그아웃</a></p>
+                <p><a href="/logout" id="logout">로그아웃</a></p>
                 <input type="hidden" name="sessionId" value="${sessionScope.login.m_userId}">
             </c:when>
             <c:otherwise>

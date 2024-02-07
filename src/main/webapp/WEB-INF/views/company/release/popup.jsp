@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +65,7 @@
                             <!--PRICE START-->
                             <div class="generic_price_tag clearfix">	
                                 <span class="price">
-                                    <span class="sign">${detail.price}원</span>
+                                    <span class="sign"><fmt:formatNumber value="${detail.price}" pattern="#,##0"/>원</span>
                                     
                                 </span>
                             </div>

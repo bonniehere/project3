@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,11 @@
     <link rel="stylesheet" href="../../resources/css/release/table.css">
     <script type="text/javascript" src="../../../../resources/js/release/ReleaseMain.js"></script>
     <script type="text/javascript" src="../../../../resources/js/release/table.js"></script>
+    
+    <style>
+    
+    
+    </style>
 </head>
 <body>
     <div id="wholewrap">
@@ -21,7 +27,7 @@
         <c:choose>
     <c:when test="${not empty sessionScope.login}">
         <p>${sessionScope.login.m_name}님 환영합니다.</p>
-        <p><a href="/logout">로그아웃</a></p>
+        <p><a href="/logout" id="logout">로그아웃</a></p>
         
         <input type="hidden" name="sessionId" value="${sessionScope.login.m_userId}">
     </c:when>
@@ -36,7 +42,8 @@
 
         <div id="tabViewer" class="tabViewer">
             <div id="tabViewer-tabMenu" class="tabViewer-tabMenu">
-                <input type="button" value="All" class="tabViewer-tab active" onclick="location.href='/release';">
+                <input type="button" value="All" class="tabViewer-tab active" id="menu_tab" onclick="location.href='/release';">
+                
                 <input type="button" value="의료소모품" class="tabViewer-tab active" onclick="location.href='/table2';">
                 <input type="button" value="진단기구" class="tabViewer-tab active" onclick="location.href='/table3';">
                 <input type="button" value="검사/시약제품" class="tabViewer-tab active" onclick="location.href='/table4';">
@@ -77,7 +84,7 @@
                                 <span class="product_name">${board.productname}</span>
                                 <span class="total">0</span>
                             </td>
-                            <td>${board.price}</td>
+                            <td><fmt:formatNumber value="${board.price}" pattern="#,##0"/></td>
                             <td>${board.manufacturer}</td>
                             
                         </tr>

@@ -313,7 +313,7 @@ public class ReleaseController {
 	    }
 	}
 	
-	// 글쓰기 디테일
+	// qna 디테일
 	
 	@RequestMapping(value = "WriteDetail", method = RequestMethod.GET)
 	public String popup (Model model, QnA qna, QnAr qnar) {
@@ -329,6 +329,39 @@ public class ReleaseController {
 		System.out.println(rs.WriteDetail(qna));
 		return "company/release/WriteDetail";
 	}
+	
+	
+	//qna 삭제
+	@RequestMapping(value = "qna_delete", method = RequestMethod.POST)
+	public String qna_delete (QnA qna, HttpSession session) {
+		
+		// 세션에서 사용자 정보를 가져옵니다.
+	    Object loginAttribute = session.getAttribute("login");
+		
+		
+		 // 로그인 정보가 있는 경우에만 사용자 아이디 값을 가져옵니다.
+	    if (loginAttribute != null && loginAttribute instanceof Object) {
+	        String userId = ((CMember) loginAttribute).getM_userId();
+	        
+	        
+	        rs.qna_delete(qna);
+	        
+	        // 리다이렉트할 URL을 생성합니다. 세션 아이디 값을 URL에 추가합니다.
+	        String redirectUrl = "redirect:QnA?m_userId=" + userId;
+	        
+	        return redirectUrl;
+	    } else {
+	        // 로그인 정보가 없을 경우에 대한 처리
+	        return "redirect:/login"; // 로그인 페이지로 리다이렉트 혹은 다른 처리를 하십시오.
+	    }
+		
+		
+		
+		
+	}
+	
+	
+	
 	//----------------------------------------------------------
 	
 	
