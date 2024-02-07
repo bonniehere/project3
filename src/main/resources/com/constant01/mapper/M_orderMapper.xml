@@ -215,7 +215,7 @@
 	SELECT * 
 	FROM m_order
 	WHERE m_driver = #{m_name}
-	AND status = '배송중';
+	AND (status = '배송중' OR status = '출고완료');
 	</select>
 	
 </mapper> 

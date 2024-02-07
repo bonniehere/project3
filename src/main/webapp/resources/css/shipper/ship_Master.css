@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+.top {
+    text-align: center; /* 요소 안의 내용을 가운데 정렬합니다 */
+    margin-top: 50px; /* 페이지 상단으로부터의 여백을 조절합니다 */
+}
+
+.top h2 {
+    display: inline-block; /* 요소를 가로로 배치합니다 */
+}
+
 .cute-table {
     border-collapse: collapse;
     width: 100%;

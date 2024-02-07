@@ -18,7 +18,7 @@
 .cute-table table {
     font-family: 'Arial', sans-serif;
     border: 1px solid #dddddd;
-    text-align: left;
+	text-align: center;
     width: 100%;
 }
 
@@ -30,6 +30,7 @@
 
 .cute-table th {
     background-color: #f2f2f2;
+	text-align: center;
 }
 /*
 .cute-table tr:nth-child(even) {
@@ -42,7 +43,12 @@
 */
 
 #driverNameParagraph{
-	width: 10px;
+	width: 100px;
+
+}
+
+#driverPhoneParagraph{
+	float: right;
 }
 
 
@@ -93,7 +99,14 @@ body {
 	left: 850px;
 	
 }
+.top {
+    text-align: center; /* 요소 안의 내용을 가운데 정렬합니다 */
+    margin-top: 50px; /* 페이지 상단으로부터의 여백을 조절합니다 */
+}
 
+.top h2 {
+    display: inline-block; /* 요소를 가로로 배치합니다 */
+}
 
 
 /* 상단 메뉴 스타일 */

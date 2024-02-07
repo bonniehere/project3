@@ -34,6 +34,15 @@
 
 <body>
 
+ 		<% 
+			CMember customer = (CMember)session.getAttribute("login");
+			System.out.println(customer);
+			String userId = request.getParameter("m_userId");
+			String userPw = request.getParameter("m_userPw");
+			String driverNm = request.getParameter("m_name");
+			String driverPhone = request.getParameter("m_phone");
+		%>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // 현재 URL에서 Query String을 가져옵니다.
@@ -61,6 +70,7 @@
         //alert(driverName);
 
         // 이제 driverName 등의 값을 사용하여 페이지를 구성하면 됩니다.
+        document.getElementById("driverName").innerText = m_name;
         document.getElementById("driverNameParagraph").innerText = m_name;
         document.getElementById("driverPhoneParagraph").innerText = m_phone;
         
@@ -74,16 +84,15 @@
         <nav>
             <ul>
                 <li><a href="#" onClick="history.go(-2);" style="text-decoration: none;">Home</a></li>
-                <li><a href="#">About Us</a></li>
                 <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
     </div>
     
-<h2>담당자가 배송자의 위치, 온도를 볼 수 있는 페이지임</h2>
+	<div class="top">
+	<h2 > 기사 <a id="driverName"></a> 님의 배송 상태입니다.</h2>
+	</div>
 
-<!-- 여기서는 ship_Driver의 위도, 경도, 배달기사의 이름을 받아와서 보여준다 -->
-<h2 >배달 기사</h2>
 
 
 
@@ -94,10 +103,10 @@
 
 <tr>
 <td rowspan="3"><img id="driver" src="../../../../resources/img/shipper/driver.png"> </td>
-<td colspan="2">배송 기사 이름 : <p id="driverNameParagraph"></p></td>
+<td colspan="2">배송 기사 이름 : <a id="driverNameParagraph"></a></td>
 </tr>
 <tr>
-<td colspan="2">배송 기사 연락처 : <p id="driverPhoneParagraph"></p></td>
+<td colspan="2">배송 기사 연락처 : <a id="driverPhoneParagraph"></a></td>
 
 </tr>
 <tr>
@@ -317,7 +326,7 @@ setInterval('autoChase()', 3000); // 3초 마다 함수실행
 <!-- 하단 푸터 추가 -->
     <div class="footer">
         <!-- 여기에 푸터 내용 추가 -->
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; ConstantCompany</p>
     </div>
 
 
