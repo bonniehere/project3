@@ -100,6 +100,14 @@
 		where rn between #{startRow} and #{endRow}
 	</select>
 	
+	<select id="mbList1" resultType="com.constant01.model.CMember">
+		select *
+         from(select  b.*, @rownum:=@rownum+1 rn
+            from CMember b, (select @rownum:=0) as tmp
+             order by amount desc) as boardlist
+		where rn between #{startRow} and #{endRow}
+	</select>
+	
 	<select id="stList" resultType="com.constant01.model.CMember">
 		select *
          from(select  b.*, @rownum:=@rownum+1 rn

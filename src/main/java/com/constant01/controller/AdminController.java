@@ -326,7 +326,7 @@ public class AdminController {
 		model.addAttribute("pb", pb);
 		model.addAttribute("odList", odList);
 		model.addAttribute("num", num);
-		return "/company/shipment/admin/orderList3";
+		return "/company/shipment/admin/orderList4";
 	}
 	@RequestMapping(value = "company/orderDetail.do", method = RequestMethod.GET)
 	public String orderDetail(int order_no, String pageNum, Model model) {
@@ -357,6 +357,7 @@ public class AdminController {
 
 		result = os.updateOD2(m_order);
 		result = os.updateOD22(m_order);
+		result = os.updateOD222(m_order);
 		
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
@@ -388,6 +389,7 @@ public class AdminController {
 
 		result = os.updateCC(m_order);
 		result = os.updateCCC(m_order);
+		result = os.updateCCCC(m_order);
 
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
@@ -470,6 +472,31 @@ public class AdminController {
 		model.addAttribute("num", num); // 목록 번호 생성 위한 num
 		
 		return "/company/shipment/admin/adminMbList";
+	}
+	@RequestMapping(value = "/company/adminMbListRanking.do", method = RequestMethod.GET)
+	public String adminMbListRanking(CMember member, String pageNum, Model model) {
+		
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int rowPerPage = 100; // 한 화면에 보여주는 게시글 갯수
+		int total = ms.getMbTotal(member);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		member.setStartRow(startRow);
+		member.setEndRow(endRow);
+		List<CMember> mbList = ms.mbList1(member);
+		int num = total - startRow + 1;
+		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+		String[] title = { "아이디", "이름", "닉네임", "성별", "가입일" };
+
+		model.addAttribute("title", title);
+		model.addAttribute("pb", pb); // paginbean pb
+		model.addAttribute("mbList", mbList);
+		model.addAttribute("num", num); // 목록 번호 생성 위한 num
+		
+		return "/company/shipment/admin/adminMbList1";
 	}
 	@RequestMapping(value = "company/adminMbView.do", method = RequestMethod.GET)
 	public String adminMbView(String m_userId, String pageNum, Model model) {

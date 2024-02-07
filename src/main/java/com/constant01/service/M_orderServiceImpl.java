@@ -79,6 +79,12 @@ public class M_orderServiceImpl implements M_orderService {
 	}
 	
 	@Override
+	public int updateOD222(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.updateOD222(m_order);
+	}
+	
+	@Override
 	public int updateOD3(int order_no) {
 		// TODO Auto-generated method stub
 		return od.updateOD3(order_no);
@@ -136,6 +142,12 @@ public class M_orderServiceImpl implements M_orderService {
 	public int updateCCC(M_order m_order) {
 		// TODO Auto-generated method stub
 		return od.updateCCC(m_order);
+	}
+	
+	@Override
+	public int updateCCCC(M_order m_order) {
+		// TODO Auto-generated method stub
+		return od.updateCCCC(m_order);
 	}
 
 	@Override

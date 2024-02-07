@@ -74,6 +74,12 @@
 		where productcode=#{productcode}
 	</update>
 	
+	<update id="updateOD222" parameterType="com.constant01.model.M_order">
+		update CMember 
+		SET amount = amount+#{total_price}
+		where m_userId=#{m_userId}
+	</update>
+	
 	<update id="updateOD3" parameterType="com.constant01.model.M_order">
 		update m_order set
 		status='배송중'
@@ -165,6 +171,12 @@
 		UPDATE board 
 	    SET quantity = quantity + #{order_quantity}
 	    WHERE productcode = #{productcode}
+	</update>
+	
+	<update id="updateCCCC" parameterType="com.constant01.model.M_order">
+		update CMember 
+		SET amount = amount-#{total_price}
+		where m_userId=#{m_userId}
 	</update>
 
 	<select id="selectTotal" parameterType="string"

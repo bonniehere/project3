@@ -154,13 +154,13 @@ function showAlert() {
 						<button type="button" id="assignButton" class="btn btn-primary"
 						onclick="location.href=''">기사배정</button>
 						<button type="button" class="btn btn-primary"
-						onclick="location.href='orderCheck2.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}'">출고완료</button>
+						onclick="location.href='orderCheck2.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}&m_userId=${m_order.m_userId}&total_price=${m_order.total_price}'">출고완료</button>
 						<button type="button" class="btn btn-primary"
 						onclick="location.href='orderCheck3.do?order_no=${m_order.order_no}'">검품확인 및 배송시작</button>
 						<button type="button" class="btn btn-primary"
 						onclick="location.href='orderCheck4.do?order_no=${m_order.order_no}'">배송완료</button>
 						<button type="button" class="btn btn-danger"
-						onclick="location.href='orderCancel.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}'">발송취소(환불)</button>
+						onclick="location.href='orderCancel.do?order_no=${m_order.order_no}&order_quantity=${m_order.order_quantity}&productcode=${m_order.productcode}&m_userId=${m_order.m_userId}&total_price=${m_order.total_price}'">발송취소(환불)</button>
 						</tr>
 						
 						
