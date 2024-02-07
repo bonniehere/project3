@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +12,33 @@
     <title>쇼핑몰 장바구니</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <style>
+  #home_button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  color: #007bff;
+  border: 1px solid #007bff;
+  text-decoration: none;
+  border-radius: 100px;
+}
+#home_button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
     
+    </style>
     
 </head>
 <body>
 
-
+<div id="topwrap">
+            <%@ include file="top.jsp" %>
+        </div>
 
     <div class="cart">
         <div class="cart-content">
-        <h3><a href="/release">메인페이지</a></h3>
+        
             <h3>${sessionScope.login.m_name}님의 장바구니</h3>
             
             
@@ -35,8 +53,8 @@
             <span class="image-text-container">이미지 : <img src="../../resources/img/release/${item.productcode}.png" style="width: 40px;
     height: 40px;"></span>
             <span>수량: ${item.quantity}</span>
-            <span>단가: ₩<script>document.write(new Intl.NumberFormat('ko-KR').format(${item.price}))</script></span>
-            <span>금액: <span class="subtotal">${item.quantity * item.price}</span></span>
+            <span>단가: <script>document.write(new Intl.NumberFormat('ko-KR').format(${item.price}))</script></span>
+            <span>금액: <span class="subtotal"><fmt:formatNumber value="${item.quantity * item.price}" pattern="#,##0"/></span></span>
             <input type="hidden" name="productname" value="${item.productname}">
             <input type="hidden" name="productcode" value="${item.productcode}">
             <input type="hidden" name="quantity" value="${item.quantity}">
@@ -92,6 +110,10 @@
  <p class="total1">
 <button id="orderButton" onclick="placeOrder()" > 주문</button>
 </p>
+
+<div style="display: flex; justify-content: center;">
+    	<a href="/release" style="text-decoration: none;" id="home_button">홈으로</a>
+	</div>
 </div>
     
     

@@ -183,6 +183,14 @@
   
   </select>
   
+  <delete id="qna_delete">
+  delete from qna where qa_no=#{qa_no}
+  
+  </delete>
+  
+  
+  
+  
   <select id="member_detail"  resultType="com.constant01.model.CMember">
   
   select * from CMember where m_userId=#{m_userId}

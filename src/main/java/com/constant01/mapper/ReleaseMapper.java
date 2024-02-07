@@ -38,5 +38,6 @@ public interface ReleaseMapper {
 	public ArrayList<QnAr> detail_answer(QnAr qnar);
 	public ArrayList<CMember> member_detail(CMember member);
 	public void changePassword(CMember member);
+	public void qna_delete(QnA qna);
 	
 }
