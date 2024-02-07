@@ -17,7 +17,7 @@
 	
 	<!--ship_driver로 보내기 위한 list -->
 	<select id="list" resultType="com.constant01.model.CMember">
-		select * from Staff;
+		select * from Staff where m_userID = #{m_userID};
 	</select>
 	
 	<!-- 배달기사 위치 db에 insert -->

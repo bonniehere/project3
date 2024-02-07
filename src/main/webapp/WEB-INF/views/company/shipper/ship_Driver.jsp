@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page import="com.constant01.model.CMember"%>
 <!DOCTYPE html>
 <html>
@@ -36,6 +37,7 @@
 		
 		<% 
 			CMember customer = (CMember)session.getAttribute("login");
+			System.out.println(customer);
 			String userId = request.getParameter("m_userId");
 			String userPw = request.getParameter("m_userPw");
 			String driverNm = request.getParameter("m_name");
@@ -46,13 +48,62 @@
 	<h2>Driver Page</h2>
 	<h2>기사 이름 뜰까용? <%=customer.getM_name()%> </h2>
 
+<!-- 		
+<div>
+<c:forEach items="${m_order}" var="delist">
+
+
+    <p>${delist.order_no}</p>
+    <p>${delist.productcode}</p>
+    <p>${delist.order_quantity}</p>
+
+</c:forEach>
+</div>
+ -->
+
+ <div class="table">
+        <table class="cute-table">
+            <tr>
+                <th height="30">주문 번호</th>
+                <th>상품 코드</th>
+                <th>받는 사람</th>
+                <th>배달 목적지</th>
+                <th>우편 번호</th>
+            </tr>
+            <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
+            <c:forEach items="${m_order}" var="delist">
+                <tr>
+                	
+                    <td>${delist.order_no}</td>
+                    <td width="150px">${delist.productcode}</td>
+                    <td>${delist.su_name}</td>
+                    <td>${delist.su_addr}</td>
+                    <td>${delist.su_zipCd}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
  <!--출고 전 공급사측에서 확인할 수 있는 db에 추가하면 될 듯  -->
+ 
+ <form id="frm" name="frm" method="post" action="/company/shipper/deliverydone.do">
+	
+	
+	<input type="hidden" value="yphl1@naver.com"> <!-- 메일 발송할 주소 -->
+
 	<input type="hidden" name="userId" value="<%=customer.getM_userId()%>">
 	<input type="hidden" name="userPw" value="<%=customer.getM_userPw()%>">
 	<input type="hidden" name="driverNm" value="<%=customer.getM_name()%>">
 	<input type="hidden" name="driverPhone" value="<%=customer.getM_phone()%>">
 
-
+</form>
 	 <!-- 내가 가져온 지도 constant 지도-->
 
 					 
@@ -60,7 +111,7 @@
 
 <!--  <div class="map_area">  -->
 
-<div class="map" id="map" style="width:100% ;height:380px;">					 
+<div class="map" id="map" style="width:50% ;height:380px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
 	
@@ -136,51 +187,28 @@
 			    
 			    
 			 // 마커 생성후 마커 위도,경도,이름,패스워드 DB저장위한 폼
-			 	var userId = $('input[name=userId]').val();
-				var userPw = $('input[name=userPw]').val();
-				var driverNm = $('input[name=driverNm]').val();
-				var driverPhone = $('input[name=driverPhone]').val();
+			 	var m_userId = $('input[name=userId]').val();
+				var m_userPw = $('input[name=userPw]').val();
+				var m_name = $('input[name=driverNm]').val();
+				var m_phone = $('input[name=driverPhone]').val();
 				
 				
-				console.log(userId);
-				console.log(userPw);
-				console.log(driverNm);
-				console.log(driverPhone);
+				console.log(m_userId);
+				console.log(m_userPw);
+				console.log(m_name);
+				console.log(m_phone);
 				console.log(driverLat);
 				console.log(driverLon);
 				
-				/*
+				
 				$.ajax({
 					type : "POST",
 					url  : "/company/shipper/Drivermap.do",
 					data : {
-						"m_userId"		: userId,
-						"m_userPw"		: userPw,
-						"m_name" 		: driverNm,
-						"m_phone"	: driverPhone,
-						"driverLat" 	: driverLat,
-						"driverLon"   	: driverLon
-					},
-					dataType : "text",
-					success  : function(){
-						
-						console.log("성공");
-					},
-					error:function(request,status,error){
-						console.log("실패");
-						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
-					}
-				});*/
-				
-				
-				$.ajax({
-					type : "POST",
-					url  : "/company/shipper/MDmap.do",
-					data : {
-						"m_userId"		: userId,
-						"m_userPw"		: userPw,
-						"m_name" 		: driverNm,
-						"m_phone"	: driverPhone,
+						"m_userId"		: m_userId,
+						"m_userPw"		: m_userPw,
+						"m_name" 		: m_name,
+						"m_phone"	: m_phone,
 						"driverLat" 	: driverLat,
 						"driverLon"   	: driverLon
 					},
@@ -194,6 +222,29 @@
 						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
 					}
 				});
+				
+				/*
+				$.ajax({
+					type : "POST",
+					url  : "/company/shipper/MDmap.do",
+					data : {
+						"m_userId"		: m_userId,
+						"m_userPw"		: m_userPw,
+						"m_name" 		: m_name,
+						"m_phone"	: m_phone,
+						"driverLat" 	: driverLat,
+						"driverLon"   	: driverLon
+					},
+					dataType : "text",
+					success  : function(){
+						
+						console.log("성공");
+					},
+					error:function(request,status,error){
+						console.log("실패");
+						alert("처리 중 오류가 발생되었습니다.\nerror:"+error+"request:"+request+"status:"+status);
+					}
+				});*/
 				
 				
 			}
@@ -212,30 +263,36 @@
 <div style="display: flex; justify-content: center;">
 <a id="home" href="#" onClick="history.go(-1);" style="text-decoration: none;">홈으로</a>
 </div>	
-<!-- 
+
+
+
+
+
+
+
 <div>
 
-<button type=submit value="--배송완료--" onclick="deliverydone();">배송완료</button>
- -->
- 
- <!-- 
- <button type="button" class="btn btn-primary"
-						onclick="location.href='driverCheck.do?order_no=${m_order.order_no}'">검품확인 및 배송시작</button>
- 
-<button type="button" class="btn btn-primary"
-onclick="location.href='driverCheck2.do?order_no=${m_order.order_no}'">배송완료</button>
 
+<c:forEach items="${m_order}" var="delist">
+<!-- 
+<button type="button" class="btn btn-primary" id="home"
+onclick="location.href='deliverydone.do?order_no=${delist.order_no}'">검품확인 및 배송시작</button>
+  -->
+<button type="button" class="btn btn-primary" id="home"
+onclick="location.href='deliverydone2.do?order_no=${delist.order_no}'">배송완료</button>
+
+
+<!-- 
+<button type="button" class="btn btn-danger" id="home"
+onclick="location.href='deliverydone3.do?order_no=${delist.order_no}&order_quantity=${delist.order_quantity}&productcode=${delist.productcode}'">발송취소(환불)</button>
+ -->
+
+</c:forEach>
 </div>
 
-<script>
-function assignDriver() {
-    var driverValue = document.getElementById('driver').value;
-    var newUrl = 'orderSelectDriver.do?order_no=${m_order.order_no}&m_driver=' + encodeURIComponent(driverValue);
-    location.href = newUrl;
-}
+ 
 
-</script>
- -->
+
 
 
 <!-- 하단 푸터 추가 -->

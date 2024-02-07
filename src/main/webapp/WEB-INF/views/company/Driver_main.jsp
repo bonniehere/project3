@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@page import="com.constant01.model.CMember"%>
 
 <!DOCTYPE html>
 <html>
@@ -21,20 +21,31 @@
 
 </head>
 <script>
-//기사 페이지 가기~
-function yaho(obj){
-	var oTd = $(obj).parent();
-	G_Util.newFormSubmit({
-		"action" : "/company/shipper/ship_Driver.do",
-		"param"  : {
-			"m_userId"      : oTd.find("input[name=userId]").val(),
-			"m_userPw"      : oTd.find("input[name=userPw]").val(),
-			"m_name"      : oTd.find("input[name=driverNm]").val()
-		}
-	
-	})
-}
 
+var G_Util = {
+newFormSubmit : function(json){
+	if( json != undefined ){
+		$("form#tmpForm").remove();
+		var oForm = $("<form/>",{
+			id     : "tmpForm",
+			name   : "tmpForm",
+			method : "GET",
+			action : json.action
+		});
+		$.each(json.param,function(key,value){
+			var oHidden = $("<input/>",{
+				type  : "hidden",
+				id    : key,
+				name  : key,
+				value : value
+			});
+			oForm.append(oHidden);
+		});
+		$("body").append(oForm);
+		oForm.submit();
+	}
+}
+}
 </script>
 
 
@@ -63,17 +74,20 @@ function yaho(obj){
 
 
 <div>
-<c:forEach items="${list}" var="list" varStatus="status">
 
-<input type="hidden" name="userId" value="${list.m_userId}">
-<input type="hidden" name="userPw" value="${list.m_userPw}">
-<input type="hidden" name="driverNm" value="${list.m_name}">
-
-</c:forEach>
+ 		<% 
+			CMember customer = (CMember)session.getAttribute("login");
+			System.out.println(customer);
+			String userId = request.getParameter("m_userId");
+			String userPw = request.getParameter("m_userPw");
+			String driverNm = request.getParameter("m_name");
+			String driverPhone = request.getParameter("m_phone");
+		%>
+ 
 <div class="col-md-5 text-center" style="margin-left:auto; margin-right:auto;">
 <h2 class="mt-5 text-start" id="join">　배송기사 페이지<br>　</h2>
 <ul class="custom-list">
-<li><div onclick="javascript:yaho(this);">기사 지도 페이지</div></li>
+<li><div onclick="location.href='/company/shipper/Drivermap.do?m_name=<%=customer.getM_name()%>'">기사 지도 페이지</div></li>
 <li><div onclick="location.href='#'">1</div></li>
 <li><div onclick="location.href='#'">2</div></li>
 <li><div onclick="location.href='#'">3</div></li>

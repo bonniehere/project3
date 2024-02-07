@@ -76,7 +76,7 @@ public class ChomeController {
 			
 			session.setAttribute("login", cs.login2(customer)); //로그인한 세션 값
 			
-			model.addAttribute("list", ds.list(driver)); //list select한 값
+			//model.addAttribute("list", ds.list(driver)); //list select한 값
 			
 			return "/company/Driver_main";
 			
