@@ -12,6 +12,8 @@ public interface M_orderMapper {
 	int getODTotal(M_order m_order);
 
 	List<M_order> odList(M_order m_order);
+	
+	List<M_order> odList1(M_order m_order);
 
 	M_order selectOD(int order_no);
 
