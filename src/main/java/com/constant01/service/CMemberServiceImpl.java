@@ -83,6 +83,12 @@ public class CMemberServiceImpl implements CMemberService{
 	}
 	
 	@Override
+	public List<CMember> mbList1(CMember member) {
+		// TODO Auto-generated method stub
+		return md.mbList1(member);
+	}
+	
+	@Override
 	public List<CMember> stList(CMember member) {
 		// TODO Auto-generated method stub
 		return md.stList(member);

@@ -35,6 +35,8 @@ public interface CMemberService {
 
 	List<CMember> mbList(CMember member);
 	
+	List<CMember> mbList1(CMember member);
+	
 	List<CMember> stList(CMember member);
 
 	int adminMbDelete(String m_email);

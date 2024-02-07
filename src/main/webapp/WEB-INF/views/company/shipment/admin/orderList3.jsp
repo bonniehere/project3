@@ -110,7 +110,9 @@ ul {
 </script>
 </head>
 <body>
-
+<div style="display: flex; justify-content: center;">
+    <a href="adminPage.do" style="text-decoration: none;">홈으로</a>
+	</div>
 	<div class="container-md mt-5 mb-5">
 		<p></p>
 		
@@ -123,7 +125,7 @@ ul {
 			
 					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2><br>
 					
-			          <a href="orderList1.do">주문상태별 정렬</a><a href="orderList2.do">배송위치별 정렬</a><a href="orderList3.do">출고담당자별(코드) 정렬</a><a href="orderList4.do">출하담당자별 정렬</a>
+			          <a href="orderList1.do">주문상태별 정렬</a><a href="orderList2.do">배송위치별 정렬</a><a href="orderList3.do" style=" background-color: #007bff; color: #fff;">출고담당자별(코드) 정렬</a><a href="orderList4.do">출하담당자별 정렬</a>
 			        
 				<table class="table">	
 						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th>

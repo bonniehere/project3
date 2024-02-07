@@ -29,6 +29,8 @@ public interface M_orderMapper {
 	
 	int updateOD22(M_order m_order);
 	
+	int updateOD222(M_order m_order);
+	
 	int updateOD3(int order_no);
 	
 	int updateOD4(int order_no);
@@ -48,6 +50,8 @@ public interface M_orderMapper {
 	int updateCC(M_order m_order);
 	
 	int updateCCC(M_order m_order);
+	
+	int updateCCCC(M_order m_order);
 	
 	int selectMAX();
 

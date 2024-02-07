@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문 리스트</title>
+<title>회원 목록</title>
 <c:set var="path" value="${pageContext.request.contextPath }"></c:set>
 <script type="text/javascript" src="${path }/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${path }/resources/js/scripts.js"></script>
@@ -85,112 +85,94 @@ ul {
   background-color: #007bff; /* 페이지 링크 호버시 배경 색상 */
   color: #fff; /* 페이지 링크 호버시 텍스트 색상 */
 }
-.waiting{
-
-}
-.processing {
-    background-color: #E8DB6B; /* 배경 색상 */
-    color: #fff; /* 글자 색상 */
-}
-.delivered {
-    background-color: #5954ED; /* 배경 색상 */
-    color: #fff; /* 글자 색상 */
-}
-.end {
-    background-color: #86E57F; /* 배경 색상 */
-    color: #fff; /* 글자 색상 */
-}
-.cancel {
-    background-color: red; /* 배경 색상 */
-    color: #fff; /* 글자 색상 */
-}
 </style>
-<script type="text/javascript">
 
-</script>
 </head>
 <body>
-<div style="display: flex; justify-content: center;">
-    <a href="adminPage.do" style="text-decoration: none;">홈으로</a>
-	</div>
 	<div class="container-md mt-5 mb-5">
 		<p></p>
-		
 		<p></p>
-		<br /> 
-		<div class="row justify-content-center">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<br /> <br /> <br /> <br /> <br />
+		<div class="row">
 			<div class="col col-md-1.5"></div>
 
 			<div class="col col-md-9">
 			
-					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">주문 현황</h2><br>
-					
-			          <a href="orderList1.do">주문상태별 정렬</a><a href="orderList2.do">배송위치별 정렬</a><a href="orderList3.do">출고담당자별(코드) 정렬</a><a href="orderList4.do" style=" background-color: #007bff; color: #fff;">출하담당자별 정렬</a>
-			        
+					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">회원 목록</h2><br>
+					<a href="adminMbListRanking.do" style=" background-color: #007bff; color: #fff;">호구랭킹</a>
 				<table class="table">	
-						<tr><th>주문번호</th><th>주문자 ID</th><th>주문자 이름</th>
-							<th>수령자 이름</th><th>수령자 주소</th><th>수령자 상세주소</th>
-							<th>주문일자</th><th>물품명</th><th>물품 개수</th><th>재고</th>
-							<th>창고코드</th><th>출하기사</th><th>주문상태</th><th>상태변경</th></tr>
-					<c:forEach var="m_order" items="${odList }">
-						<tr><th>${m_order.order_no}</th>
-						<td>${m_order.m_userId }</td>
-						<td>${m_order.ju_name }</td>
-						<td>${m_order.su_name }</td>
-						<td>${m_order.su_addr }</td>
-						<td>${m_order.su_addr_detail }</td>
-						<td>${m_order.order_date }</td>
-						<td>${m_order.productname }</td>
-						<td>${m_order.order_quantity }</td>
-						<td>${m_order.quantity }</td>
-						<td>${m_order.classificationcode }</td>
-						<td>${m_order.m_driver }</td>
-						<td class="${m_order.status eq '취소완료' ? 'cancel' : (m_order.status eq '--배송완료--' ? 'end' : (m_order.status eq '배송중' ? 'delivered' : (m_order.status eq '출고완료' ? 'processing' : (m_order.status eq '상품준비중' ? 'waiting' : ''))))}">
-						${m_order.status }</td>
+						<tr><th>병원명</th>
+							<th>아이디</th>
+							<th>이메일</th><th>담당자</th><th>휴대전화번호</th><th>전화번호</th><th>우편번호</th><th>주소</th>
+							<th>가입일자</th><th>누적금액</th><th>회원구분</th><th>탈퇴여부</th>
+							<th>상세정보</th></tr>
+					<c:forEach var="mb" items="${mbList }">
+						<tr><th>${mb.m_hspNm}</th>
+						<td>${mb.m_userId }</td>
+						<td>${mb.m_email }</td>
+						<td>${mb.m_name }</td>
+						<td>${mb.m_phone }</td>
+						<td>${mb.m_tel }</td>
+						<td>${mb.m_zipCd }</td>
+						<td>${mb.m_addr }</td>
+						<td>${mb.join_date }</td>
+						<td>${mb.amount }</td>
+						<td>${mb.m_userStat }</td>
+						<td>${mb.del }</td>
 						<td><button type="button" class="btn btn-info" 
-						onclick="location.href='orderDetail.do?order_no=${m_order.order_no}' ">
-						상태변경</button></td></tr>
+						onclick="location.href='adminMbView.do?m_userId=${mb.m_userId}' ">
+						상세정보</button></td>
+						</tr>
 						
 					</c:forEach>
-				</table>	<nav aria-label="..." id="page_btn">
-			<ul class="pagination pagination-lg justify-content-center">
+				</table>
+				
+		<div style="display: flex; justify-content: center;">
+		<nav aria-label="..." id="page_btn">
+			<ul class="pagination pagination-lg justify-content-center" >
 				<!-- 시작페이지가 pagePerBlock(10)보다 크면 앞에 보여줄 페이지가 있다 -->
 				<c:if test="${pb.startPage > pb.pagePerBlock }">
-					<li class="page-item"><a href="orderList4.do?pageNum=1"
-							class="page-link"><span aria-current="page"></span></a></li>
-					<li class="page-item"><a href="orderList4.do?pageNum=${pb.startPage - 1 }"
-						class="page-link"><span aria-current="page"></span></a></li>
+					<li class="page-item"><a href="adminMbList1.do?pageNum=1"
+							class="page-link"><span aria-current="page"><<</span></a></li>
+					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.startPage - 1 }"
+						class="page-link"><span aria-current="page"><</span></a></li>
 				</c:if>
 				<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
 					<!-- 현재 머물고 있는 페이지가 몇 페이지인지 구별할 때 -->
 					<c:if test="${pb.currentPage == i }">
-						<li class="page-item"><a href="orderList4.do?pageNum=${i }"
+						<li class="page-item"><a href="adminMbList1.do?pageNum=${i }"
 							class="page-link" style=" background-color: #007bff; color: #fff;">ㅤ${i}ㅤ</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
-						<li class="page-item"><a href="orderList4.do?pageNum=${i }"
+						<li class="page-item"><a href="adminMbList1.do?pageNum=${i }"
 							class="page-link">ㅤ${i}ㅤ</a></li>
 					</c:if>
 				</c:forEach>
 				<!-- 보여줄 페이지가 뒤에 남아있는 경우(다음 버튼 활성화)=> endPage < totalPage인 경우 -->
 				<c:if test="${pb.endPage < pb.totalPage }">
-					<li class="page-item"><a href="orderList4.do?pageNum=${pb.endPage + 1 }"
-						class="page-link"><span aria-current="page"></span>
+					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.endPage + 1 }"
+						class="page-link"><span aria-current="page">></span>
 					</a></li>
-					<li class="page-item"><a href="orderList4.do?pageNum=${pb.totalPage }"
-						class="page-link"><span aria-current="page"></span>
+					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.totalPage }"
+						class="page-link"><span aria-current="page">>></span>
 					</a></li>
 				</c:if>
+				
 			</ul>
-		</nav>	
-					<div></div>
+		</nav>
+			</div>		
+			<!-- 	</div> -->
 			</div>
-			<div class="col col-md-1.5"></div>
+			
+			
 		</div>
 	</div>
 	<div style="display: flex; justify-content: center;">
-    <a href="adminPage.do" style="text-decoration: none;">홈으로</a>
+    	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
-
 </body>
 </html>
