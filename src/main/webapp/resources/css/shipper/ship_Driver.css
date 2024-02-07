@@ -23,6 +23,31 @@
     text-decoration: none;
 }
 
+/* table css */
+.cute-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.cute-table table {
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #dddddd;
+    text-align: left;
+    width: 100%;
+}
+
+.cute-table th, .cute-table td {
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+.cute-table th {
+    background-color: #f2f2f2;
+}
+
+
+
 
 #home{
   display: inline-block;

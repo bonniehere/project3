@@ -33,48 +33,52 @@ public class DeliveryController {
 	@Autowired
 	private M_orderService os;
 		
-	// ship_Driver에서 Customer2로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
-	@RequestMapping(value = "company/shipper/ship_Driver.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String ship_Driver(DriverDTO driver, M_order m_order, Model model) {
-		
-		System.out.println("driver맵");
-		model.addAttribute("list", ds.list(driver));
-		System.out.println(ds.list(driver));
-		
-		//model.addAttribute("delist", os.delist(m_order));
-		//System.out.println(os.delist(m_order));
-		
-		return "company/shipper/ship_Driver";
-		
-	}
 	
-	
-	//이 페이지에서 M_order에 대한 update 실행할 거임
-	//여기서부터 기사 위치 가져와서 customer2로 보내기~!~!!~!~!!
+
+	//여기서부터 기사 위치 가져와서 customer2로 보내기
 	// ship_Driver에서 배달기사 위치 가져오기------------------------------------------------
-	@RequestMapping(value = "/company/shipper/Drivermap.do", method = RequestMethod.POST)
-	public String driverLocSave(DeliveryDTO delivery,M_order m_order, Model model) {
+	@RequestMapping(value = "/company/shipper/Drivermap.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String driverLocSave(DeliveryDTO delivery,DriverDTO driver, Model model) {
 		System.out.println("실시간유저좌표저장");
+		System.out.println(delivery);
+		
 		ds.write(delivery);
 		ds.delete(delivery);
-		//model.addAttribute("dlist", ds.dlist(delivery));
-		//model.addAttribute("dlist", ds.dlist(delivery));
+		System.out.println("result="+os.delist(delivery));
+		//model.addAttribute("delist", os.delist(delivery));
+		model.addAttribute("m_order", os.delist(delivery));
 		
-		
-		model.addAttribute("delist", os.delist(delivery));
-		System.out.println(os.delist(delivery));
+
 		return "/company/shipper/ship_Driver";
 		
 	}
 	
 	
 	
-	// 여기에 기사 배송완료 코드 넣기
+	// 출고 완료 & 배송 시작
+	@RequestMapping(value = "/company/shipper/deliverydone.do", method = RequestMethod.GET)
+	public String driver1(int order_no, DeliveryDTO delivery,M_order m_order, Model model) {
+		int result = 0;
+
+		result = os.updateOD3(order_no);
+
+		model.addAttribute("result", result);
+		return "/company/shipper/DeliveryDone";
+	}
 	
+	// 배송 완료
+	@RequestMapping(value = "/company/shipper/deliverydone2.do", method = RequestMethod.GET)
+	public String driver2(int order_no, DeliveryDTO delivery,M_order m_order, Model model) {
+
+		int result = 0;
+
+		result = os.updateOD4(order_no);
+
+		model.addAttribute("result", result);
+		return "/company/shipper/DeliveryDone";
+	}
 	
-	
-	
-	
+
 	
 	
 	

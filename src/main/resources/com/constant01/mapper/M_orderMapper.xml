@@ -203,7 +203,7 @@
 	SELECT * 
 	FROM m_order
 	WHERE m_driver = #{m_name}
-	AND status = '출고완료';
+	AND status = '배송중';
 	</select>
 	
 </mapper> 
