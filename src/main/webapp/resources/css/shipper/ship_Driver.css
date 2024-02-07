@@ -23,10 +23,26 @@
     text-decoration: none;
 }
 
+.top {
+    text-align: center; /* 요소 안의 내용을 가운데 정렬합니다 */
+    margin-top: 50px; /* 페이지 상단으로부터의 여백을 조절합니다 */
+}
+
+.top h2 {
+    display: inline-block; /* 요소를 가로로 배치합니다 */
+}
+
 /* table css */
+.table{
+	width: 1000px;
+	margin: 0 auto; /* 페이지 중앙 정렬을 위한 추가 */
+}
+
+
 .cute-table {
     border-collapse: collapse;
-    width: 100%;
+    width: 1000px;
+    margin: 0 auto; /* 페이지 중앙 정렬을 위한 추가 */
 }
 
 .cute-table table {
@@ -46,7 +62,13 @@
     background-color: #f2f2f2;
 }
 
+#map{
+	width:50%;
+	height:380px;
+	margin: 0 auto; /* 페이지 중앙 정렬을 위한 추가 */
+	margin-top: 15px;
 
+}
 
 
 #home{
@@ -62,6 +84,20 @@
   background-color: #007bff;
   color: #fff;
 }
+
+/*배송 시작 버튼*/
+.btn1{
+
+	
+}
+
+
+
+
+/*배송 완료 버튼*/
+
+
+
 
 
 /* 푸터 스타일 */
@@ -79,4 +115,9 @@
 body {
     margin: 0;
 }
+
+
+
+
+
 

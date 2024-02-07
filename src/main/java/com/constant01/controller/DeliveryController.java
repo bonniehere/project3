@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.constant01.model.AdminDTO;
 import com.constant01.model.CMember;
 import com.constant01.model.Criteria;
 import com.constant01.model.DeliveryDTO;
@@ -33,7 +34,11 @@ public class DeliveryController {
 	@Autowired
 	private M_orderService os;
 		
-	
+	@RequestMapping(value = "/company/shipper/Driver_main.do", method = RequestMethod.GET)
+	public String drivermain() {
+		
+		return "/company/Driver_main";
+	}
 
 	//여기서부터 기사 위치 가져와서 customer2로 보내기
 	// ship_Driver에서 배달기사 위치 가져오기------------------------------------------------
@@ -45,7 +50,7 @@ public class DeliveryController {
 		ds.write(delivery);
 		ds.delete(delivery);
 		System.out.println("result="+os.delist(delivery));
-		//model.addAttribute("delist", os.delist(delivery));
+
 		model.addAttribute("m_order", os.delist(delivery));
 		
 
@@ -77,12 +82,6 @@ public class DeliveryController {
 		model.addAttribute("result", result);
 		return "/company/shipper/DeliveryDone";
 	}
-	
-
-	
-	
-	
-	
 	
 	
 	//customer2로 가기 위한 값 받아오기 <기사의 현재 위치 보는 것> -------------------
