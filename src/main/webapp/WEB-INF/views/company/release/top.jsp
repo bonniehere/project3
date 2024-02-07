@@ -15,7 +15,7 @@ text-align:center;
 </head>
 <body>
 <div id="logo">
-<img src="../../resources/img/release/logo.png" style="width:500px;height:100px;">
+<a href="release"><img src="../../resources/img/release/logo.png" style="width:500px;height:100px;"></a>
 </div>
 </body>
 </html>

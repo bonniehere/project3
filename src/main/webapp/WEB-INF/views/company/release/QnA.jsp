@@ -20,7 +20,7 @@
  <c:choose>
     <c:when test="${not empty sessionScope.login}">
         <p>${sessionScope.login.m_name}님 환영합니다.</p>
-        <p><a href="/logout">로그아웃</a></p>
+        <p><a href="/logout" id="logout">로그아웃</a></p>
         
         <input type="hidden" name="sessionId" value="${sessionScope.login.m_userId}">
     </c:when>
@@ -70,6 +70,10 @@
                 </c:if>
             </div>
             <input type="button" class="qna_button" id="button_write" value="글쓰기">
+            
+            
+            
+            
             
         </div>
    

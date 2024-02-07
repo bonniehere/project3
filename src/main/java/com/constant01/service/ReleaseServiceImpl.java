@@ -94,6 +94,14 @@ public class ReleaseServiceImpl implements ReleaseService{
 		public ArrayList<QnAr> detail_answer(QnAr qnar){
 			return rm.detail_answer(qnar);
 		}
+		
+		//qna 삭제
+		public void qna_delete(QnA qna) {
+			rm.qna_delete(qna);
+		}
+		
+		
+		
 		//member_detail
 		public ArrayList<CMember> member_detail(CMember member){
 			return rm.member_detail(member);

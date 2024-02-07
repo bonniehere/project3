@@ -11,7 +11,20 @@
     <script type="text/javascript" src="../../../../resources/js/release/ReleaseMain.js"></script>
     <script type="text/javascript" src="../../../../resources/js/release/table.js"></script>
     <script type="text/javascript" src="../../../../resources/js/CommonUtil.c3r-custom.js"></script>
+    
+    <style>
+    
+    a{
+    text-decoration-line: none;
+    }
+    
+    
+    </style>
+    
+    
 </head>
+
+
 <body>
 
 
@@ -39,7 +52,7 @@
         </div>
         <div id="leftwrap">
         <p>${sessionScope.login.m_name}님 환영합니다.</p>
-        <p><a href="/logout">로그아웃</a></p>
+        <p><a href="/logout" id="logout">로그아웃</a></p>
             <%@ include file="left.jsp" %>
         </div>
 
@@ -80,9 +93,10 @@
 
                         <th>
         <button class="delete-button" onclick="deleteOrder('${board.order_no}')">주문취소</button>
+        <span class="delivery-status"></span>
     </th>				
 	    					
-	    	<c:set var="buttonClass" value="${board.status eq '배송중' ? 'delivery-button' : ''}" />
+	    	<c:set var="buttonClass" value="${board.status eq '배송중' ? 'delivery-button' : 'status'}" />
 			<th>
 			  <span class="${buttonClass}" <c:if test="${buttonClass eq 'delivery-button'}">onclick="javascript:hohoho(this);" </c:if> >${board.status}</span>
 			  
@@ -116,7 +130,26 @@
     </div>
 </body>
 
+
+
 <script>
+
+$(document).ready(function() {
+    $('tr').each(function() {
+        var status = $(this).find('.status').text().trim(); // 주문 상태 가져오기
+        if (status === '취소완료') {
+            $(this).find('.delete-button').hide(); // 주문 취소 버튼 숨기기
+            $(this).find('.delivery-status').text('취소완료'); // 배송 현황 텍스트 변경
+        }
+        else if (status === '--배송완료--') {
+            $(this).find('.delete-button').hide(); // 주문 취소 버튼 숨기기
+            $(this).find('.delivery-status').text('--배송완료--'); // 배송 현황 텍스트 변경
+        }
+    });
+});
+
+
+
 function deleteOrder(order_no) {
     if (confirm('정말로 주문을 취소하시겠습니까?')) {
         $.ajax({
