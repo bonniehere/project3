@@ -104,7 +104,7 @@
     <div class="table">
         <table class="cute-table">
             <tr>
-                <th height="30">기사 이름</th>
+                <th height="30" width="50px;">기사 이름</th>
                 <th>기사 번호</th>
                 
             </tr>
@@ -113,7 +113,7 @@
                 <tr>
                 	<!-- <td><img src="pat	h/to/profile_images/${driver.m_name.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
                     <td><span><img src="../../../../resources/img/shipper/driver.png" alt="프로필 사진"></span><p id="driverNm">${driver.m_name}</p></td>
-                    <td width="150px">${driver.m_phone}</td>
+                    <td width="80px">${driver.m_phone}</td>
                     
                 </tr>
             </c:forEach>

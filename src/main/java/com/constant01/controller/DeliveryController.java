@@ -148,7 +148,7 @@ public class DeliveryController {
 	}*/
 	
 	
-	
+	//MD 메인 페이지
 	@RequestMapping(value = "company/shipper/ship_MD.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String MD(DeliveryDTO delivery,TempDTO temp, Model model) {
 		System.out.println("선택한 기사 맵");
@@ -166,6 +166,8 @@ public class DeliveryController {
 		return "company/shipper/ship_MD";
 		
 	}
+	
+	
 	
 	
 	//클릭한 기사의 위치 가져오기
