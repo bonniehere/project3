@@ -108,6 +108,10 @@
 
 </div>
 
+<!-- include를 사용하여 스크롤 가능한 테이블 삽입 -->
+<%@ include file="ship_MD2.jsp" %>
+
+<!-- 
 <div class="deliverytable">
 <table class="cute-table">
 <tr>
@@ -125,7 +129,7 @@
 </table>
 
 </div>
-
+ -->
 
 
 
