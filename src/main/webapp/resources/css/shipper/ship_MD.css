@@ -72,7 +72,7 @@ body {
     height: 300px;
     float: right;
     margin-right: 10px; /* Adjusted margin-right */
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 
@@ -89,7 +89,7 @@ body {
 	
 	
 	position: absolute;
-	bottom: 150px;
+	bottom: 200px;
 	left: 900px;
 	
 }
