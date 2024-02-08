@@ -142,12 +142,12 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <div id="chart_div"></div>
 
-<input type="hidden" name="userId" id="userId" value="${dlist[0].m_userId}">
-<input type="hidden" name="userPw" id="userPw" value="${dlist[0].m_userPw}">
-<input type="hidden" name="driverNm" value="${dlist[0].m_name}">
-<input type="hidden" name="driverPhone" value="${dlist[0].m_phone}">
-<input type="hidden" name="driverLat" id="driverLat" value="${dlist[0].driverLat}">
-<input type="hidden" name="driverLon" id="driverLon" value="${dlist[0].driverLon}">
+
+<input type="hidden" name="userPw" id="userPw" value="${dlist.m_userPw}">
+<input type="hidden" name="driverNm" value="${dlist.m_name}">
+<input type="hidden" name="driverPhone" value="${dlist.m_phone}">
+<input type="hidden" name="driverLat" id="driverLat" value="${dlist.driverLat}">
+<input type="hidden" name="driverLon" id="driverLon" value="${dlist.driverLon}">
 
 
 
@@ -308,17 +308,19 @@ function drawBasic() {
 
 <script type="text/javascript">
 function autoChase(){
-	var userPw = $('input[name=userPw]').val();
+	var driverNm = $('input[name=driverNm]').val();
+	var driverPhone = $('input[name=driverPhone]').val();
 	$.ajax({
 		type : "POST",
 		url  : "/company/shipper/MasterLoad.do",
 		data : {
-			"userPw"		: userPw
+			"m_name"		: driverNm,
+			"m_phone"		: driverPhone
 		},
 		dataType : "json",
 		success  : function(data){
-			document.querySelector("#driverLat").value = data[0].driverLat;
-			document.querySelector("#driverLon").value = data[0].driverLon;
+			document.querySelector("#driverLat").value = data.driverLat;
+			document.querySelector("#driverLon").value = data.driverLon;
 			qq = document.querySelector("#driverLat").value; //갱신 위도
 			ww = document.querySelector("#driverLon").value; //갱신 경도
 			console.log("성공");

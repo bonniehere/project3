@@ -41,12 +41,21 @@ JOIN (
     GROUP BY m_userId
 ) max_nums ON c.m_userId = max_nums.m_userId AND c.num = max_nums.max_num;
 	</select>
-
-<!-- 
 	<select id="dlist2" resultType="com.constant01.model.DeliveryDTO">
-	select * from Staff where M_userStat = "출하직원";
+SELECT c.*
+FROM customermap c
+JOIN (
+    SELECT m_userId, MAX(num) AS max_num
+    FROM customermap
+    WHERE m_userId IN (
+        SELECT m_userId
+        FROM Staff
+        WHERE m_name = #{m_name} and m_phone = #{m_phone}
+    )
+    GROUP BY m_userId
+) max_nums ON c.m_userId = max_nums.m_userId AND c.num = max_nums.max_num;
 	</select>
- -->
+
 	<delete id="delete">
 	<![CDATA[
 		delete from customermap where m_name = #{m_name} and liveTime < DATE_ADD(NOW(), INTERVAL -60 SECOND)
