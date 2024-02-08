@@ -174,5 +174,6 @@ ul {
 	<div style="display: flex; justify-content: center;">
     	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
+	
 </body>
 </html>
