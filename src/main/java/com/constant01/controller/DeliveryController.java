@@ -126,6 +126,7 @@ public class DeliveryController {
 	@RequestMapping(value = "company/shipper/AdminLocLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> AdminLocLoad(DeliveryDTO delivery,TempDTO temp, Model model, HttpSession session) {
 		model.addAttribute("dlist", ds.dlist(delivery));
+		System.out.println(ds.dlist(delivery));
 		//model.addAttribute("temp", ds.temp(temp));
 		//System.out.println(ds.temp(temp));
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
@@ -154,15 +155,13 @@ public class DeliveryController {
 		System.out.println("선택한 기사 맵");
 		
 
-		model.addAttribute("dlist", ds.dlist(delivery));
+		model.addAttribute("dlist", ds.dlist2(delivery));
 		model.addAttribute("temp", ds.temp(temp));
+
 		
 		
-		//System.out.println(ds.dlist(delivery));
-		
-		
-		System.out.println("result="+os.delist(delivery));
-		model.addAttribute("m_order", os.delist(delivery));
+		System.out.println(ds.dlist2(delivery));
+		//model.addAttribute("m_order", os.delist(delivery));
 		return "company/shipper/ship_MD";
 		
 	}
@@ -174,7 +173,7 @@ public class DeliveryController {
 	@ResponseBody
 	@RequestMapping(value = "company/shipper/MasterLoad.do", method = RequestMethod.POST)
 	public ResponseEntity<?> MasterLocLoad(DeliveryDTO delivery, Model model, HttpSession session) {
-		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
+		return new ResponseEntity<>(ds.dlist2(delivery), HttpStatus.OK);
 	
 	}
 	
