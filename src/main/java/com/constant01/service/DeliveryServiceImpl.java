@@ -39,7 +39,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 
 		return dm.dlist(delivery);
 	}
-	public ArrayList<DriverDTO> dlist2(DeliveryDTO delivery) {
+	public DeliveryDTO dlist2(DeliveryDTO delivery) {
 
 		return dm.dlist2(delivery);
 	}
