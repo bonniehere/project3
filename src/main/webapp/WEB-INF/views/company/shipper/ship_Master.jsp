@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@page import="com.constant01.model.CMember"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,14 +81,6 @@
             </ul>
         </nav>
     </div>
-	<% 
-			CMember customer = (CMember)session.getAttribute("login");
-			System.out.println(customer);
-			String userId = request.getParameter("m_userId");
-			String userPw = request.getParameter("m_userPw");
-			String driverNm = request.getParameter("m_name");
-			String driverPhone = request.getParameter("m_phone");
-		%>
 
 	<div class="top">
 	<h2>모든 배송 현황</h2>
@@ -114,15 +106,15 @@
             <tr>
                 <th height="30">기사 이름</th>
                 <th>기사 번호</th>
-                <th>배달 목적지</th>
+                
             </tr>
             <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
             <c:forEach items="${dlist}" var="driver" varStatus="status">
                 <tr>
-                	<!-- <td><img src="path/to/profile_images/${driver.m_name.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
+                	<!-- <td><img src="pat	h/to/profile_images/${driver.m_name.toLowerCase()}_profile.jpg" alt="프로필 사진"></td> -->
                     <td><span><img src="../../../../resources/img/shipper/driver.png" alt="프로필 사진"></span><p id="driverNm">${driver.m_name}</p></td>
                     <td width="150px">${driver.m_phone}</td>
-                    <td>${driver.driverLat}, ${driver.driverLon}</td>
+                    
                 </tr>
             </c:forEach>
         </table>

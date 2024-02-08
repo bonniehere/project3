@@ -217,5 +217,6 @@
 	WHERE m_driver = #{m_name}
 	AND (status = '배송중' OR status = '출고완료');
 	</select>
+
 	
 </mapper> 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="com.constant01.model.CMember"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,14 +34,7 @@
 
 <body>
 
- 		<% 
-			CMember customer = (CMember)session.getAttribute("login");
-			System.out.println(customer);
-			String userId = request.getParameter("m_userId");
-			String userPw = request.getParameter("m_userPw");
-			String driverNm = request.getParameter("m_name");
-			String driverPhone = request.getParameter("m_phone");
-		%>
+ 
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -109,14 +102,35 @@
 <td colspan="2">배송 기사 연락처 : <a id="driverPhoneParagraph"></a></td>
 
 </tr>
-<tr>
-<td>흠</td>
-<td>일단 추가함</td>
-</tr>
+
 
 </table>
 
 </div>
+
+<div class="deliverytable">
+<table class="cute-table">
+<tr>
+	<th width="100px;">주문 번호</th>
+	<th width="100px;">받는 사람</th>
+	<th>배송 목적지</th>
+</tr>
+<c:forEach items="${m_order}" var ="delist">
+<tr>
+	<td>${delist.order_no}</td>
+	<td>${delist.su_name}</td>
+	<td>${delist.ju_addr}</td>
+</tr>
+</c:forEach>
+</table>
+
+</div>
+
+
+
+
+
+
 
 	<div class="map" id="map" style="width:600px;height:600px;">	
 </div>
@@ -216,7 +230,7 @@
 					 
 		  
   <div id=homediv>
-	<a id="home" href="../adminPage.do">이전</a>
+	<a id="home" onclick=" window.history.back();">이전</a>
 	</div>			 
 					 
 	</div>
