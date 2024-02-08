@@ -190,5 +190,6 @@ public class M_orderServiceImpl implements M_orderService {
 	public ArrayList<M_order> delist(DeliveryDTO delivery){
 		return od.delist(delivery);
 	}
+	
 
 }

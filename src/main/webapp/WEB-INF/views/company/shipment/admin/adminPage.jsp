@@ -118,7 +118,7 @@ $(document).ready(function() {
                     <li><div onclick="location.href='orderList.do'">주문 리스트</div></li>
                     <li><div onclick="location.href='boardList.do'">재고 현황</div></li>
                     <li><div onclick="location.href='adminCoupon.do'">쿠폰발급창</div></li>
-                    <li><div onclick="javascript:gogo(this);">모든 배송 현황</div></li>
+                    <li><div onclick="location.href='shipper/ship_Master.do'">모든 배송 현황</div></li>
                 </ul>
             </div>
             
@@ -140,29 +140,6 @@ $(document).ready(function() {
  -->
 </div>
     
-<!-- 모든 배송 현황 보는 페이지로 넘어가는 스크립트 -->
-<script type="text/javascript">
-
-function gogo(obj){
-	var oTd = $(obj).parent();
-	G_Util.newFormSubmit({
-		"action" : "/company/shipper/ship_Master.do",
-		"param"  : {
-			
-			"userPw"      : oTd.find("input[name=userPw]").val(),
-			"driverLat"      : oTd.find("input[name=driverLat]").val(),
-			"driverLon"      : oTd.find("input[name=driverLon]").val(),
-			"driverNm"      : oTd.find("input[name=driverNm]").val()
-			
-			
-		}
-	
-	})
-}
-
-
-
-</script>
     
 <!-- 하단 푸터 추가 -->
 <jsp:include page="adminFooter.jsp"></jsp:include>
