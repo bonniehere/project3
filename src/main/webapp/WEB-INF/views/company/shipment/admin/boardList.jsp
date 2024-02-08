@@ -29,7 +29,7 @@
 .table thead th {
   vertical-align: middle; /* 테이블 헤더 세로 중앙 정렬 */
 }
-a {
+#a {
   display: inline-block;
   padding: 10px 15px;
   margin: 5px;
@@ -38,7 +38,7 @@ a {
   text-decoration: none;
   border-radius: 100px;
 }
-a:hover {
+#a:hover {
   background-color: #007bff;
   color: #fff;
 }
@@ -119,7 +119,7 @@ ul {
 </style>
 </head>
 <body>
-
+<jsp:include page="RemoteControler.jsp"></jsp:include>
 	<div class="container-md mt-5 mb-5">
 	
 		<div class="row justify-content-center">
@@ -150,7 +150,7 @@ ul {
                         	<img src="../../resources/img/release/${bdList.productcode}.png" style="width:40px;height:40px;">
                         </td>
 						<td class="product_link">
-                            <a href="javascript:void(window.open('/release/detail?productcode=${bdList.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">
+                            <a id="a"  href="javascript:void(window.open('/release/detail?productcode=${bdList.productcode}', 'name','width = 700, height = 700, top = 100, left = 600, location = no'))">
                                 상세보기
                             </a>
                         </td>
@@ -161,28 +161,28 @@ ul {
 			<ul class="pagination pagination-lg justify-content-center">
 				<!-- 시작페이지가 pagePerBlock(10)보다 크면 앞에 보여줄 페이지가 있다 -->
 				<c:if test="${pb.startPage > pb.pagePerBlock }">
-					<li class="page-item"><a href="boardList.do?pageNum=1"
+					<li class="page-item"><a id="a"  href="boardList.do?pageNum=1"
 							class="page-link"><span aria-current="page"></span></a></li>
-					<li class="page-item"><a href="boardList.do?pageNum=${pb.startPage - 1 }"
+					<li class="page-item"><a id="a"  href="boardList.do?pageNum=${pb.startPage - 1 }"
 						class="page-link"><span aria-current="page"></span></a></li>
 				</c:if>
 				<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
 					<!-- 현재 머물고 있는 페이지가 몇 페이지인지 구별할 때 -->
 					<c:if test="${pb.currentPage == i }">
-						<li class="page-item"><a href="boardList.do?pageNum=${i }"
+						<li class="page-item"><a id="a"  href="boardList.do?pageNum=${i }"
 							class="page-link" style=" background-color: #007bff; color: #fff;">ㅤ${i}ㅤ</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
-						<li class="page-item"><a href="boardList.do?pageNum=${i }"
+						<li class="page-item"><a id="a"  href="boardList.do?pageNum=${i }"
 							class="page-link">ㅤ${i}ㅤ</a></li>
 					</c:if>
 				</c:forEach>
 				<!-- 보여줄 페이지가 뒤에 남아있는 경우(다음 버튼 활성화)=> endPage < totalPage인 경우 -->
 				<c:if test="${pb.endPage < pb.totalPage }">
-					<li class="page-item"><a href="boardList.do?pageNum=${pb.endPage + 1 }"
+					<li class="page-item"><a id="a"  href="boardList.do?pageNum=${pb.endPage + 1 }"
 						class="page-link"><span aria-current="page"></span>
 					</a></li>
-					<li class="page-item"><a href="boardList.do?pageNum=${pb.totalPage }"
+					<li class="page-item"><a id="a"  href="boardList.do?pageNum=${pb.totalPage }"
 						class="page-link"><span aria-current="page"></span>
 					</a></li>
 				</c:if>
@@ -194,7 +194,7 @@ ul {
 		</div>
 	</div>
 	<div style="display: flex; justify-content: center;">
-    <a href="adminPage.do" style="text-decoration: none;">홈으로</a>
+    <a id="a"  href="adminPage.do" style="text-decoration: none;">홈으로</a>
 	</div>
 <script type="text/javascript">
 let currentAmount = 0;

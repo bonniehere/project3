@@ -24,6 +24,8 @@ public interface CMemberMapper {
 	int delete(String m_email);
 
 	int update(CMember member);
+	
+	void updateStat(CMember member);
 
 	CMember selectNum(String m_email);
 

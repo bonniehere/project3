@@ -31,7 +31,7 @@
 .table thead th {
   vertical-align: middle; /* 테이블 헤더 세로 중앙 정렬 */
 }
-a {
+#a {
   display: inline-block;
   padding: 10px 15px;
   margin: 5px;
@@ -103,7 +103,7 @@ ul {
 			<div class="col col-md-9">
 			
 					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">회원 목록</h2><br>
-					<a href="adminMbListRanking.do" style=" background-color: #007bff; color: #fff;">호구랭킹</a>
+					<a href="adminMbListRanking.do" style=" background-color: #007bff; color: #fff;" id="a">호구랭킹</a>
 				<table class="table">	
 						<tr><th>병원명</th>
 							<th>아이디</th>
@@ -136,28 +136,28 @@ ul {
 			<ul class="pagination pagination-lg justify-content-center" >
 				<!-- 시작페이지가 pagePerBlock(10)보다 크면 앞에 보여줄 페이지가 있다 -->
 				<c:if test="${pb.startPage > pb.pagePerBlock }">
-					<li class="page-item"><a href="adminMbList1.do?pageNum=1"
+					<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=1"
 							class="page-link"><span aria-current="page"><<</span></a></li>
-					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.startPage - 1 }"
+					<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=${pb.startPage - 1 }"
 						class="page-link"><span aria-current="page"><</span></a></li>
 				</c:if>
 				<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
 					<!-- 현재 머물고 있는 페이지가 몇 페이지인지 구별할 때 -->
 					<c:if test="${pb.currentPage == i }">
-						<li class="page-item"><a href="adminMbList1.do?pageNum=${i }"
+						<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=${i }"
 							class="page-link" style=" background-color: #007bff; color: #fff;">ㅤ${i}ㅤ</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
-						<li class="page-item"><a href="adminMbList1.do?pageNum=${i }"
+						<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=${i }"
 							class="page-link">ㅤ${i}ㅤ</a></li>
 					</c:if>
 				</c:forEach>
 				<!-- 보여줄 페이지가 뒤에 남아있는 경우(다음 버튼 활성화)=> endPage < totalPage인 경우 -->
 				<c:if test="${pb.endPage < pb.totalPage }">
-					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.endPage + 1 }"
+					<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=${pb.endPage + 1 }"
 						class="page-link"><span aria-current="page">></span>
 					</a></li>
-					<li class="page-item"><a href="adminMbList1.do?pageNum=${pb.totalPage }"
+					<li class="page-item"><a id="a" href="adminMbList1.do?pageNum=${pb.totalPage }"
 						class="page-link"><span aria-current="page">>></span>
 					</a></li>
 				</c:if>
@@ -172,7 +172,8 @@ ul {
 		</div>
 	</div>
 	<div style="display: flex; justify-content: center;">
-    	<a href="adminPage.do" style="text-decoration: none;">홈으로</a>
+    	<a href="adminPage.do" style="text-decoration: none;" id="a" >홈으로</a>
 	</div>
+	<jsp:include page="RemoteControler.jsp"></jsp:include>
 </body>
 </html>

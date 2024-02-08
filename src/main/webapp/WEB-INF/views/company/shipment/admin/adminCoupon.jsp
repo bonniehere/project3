@@ -35,6 +35,19 @@ hr {
     resize: none;
     overflow: auto;
 }
+#a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  color: #9EBEC4;
+  border: 1px solid #9EBEC4;
+  text-decoration: none;
+  border-radius: 100px;
+}
+#a:hover {
+  background-color: #9EBEC4;
+  color: #fff;
+}
 </style>
 <script type="text/javascript">
 function validateForm() {
@@ -105,7 +118,9 @@ function validateForm() {
 
     </div>
 </div>
-
+<div style="display: flex; justify-content: center;">
+    <a id="a"  href="adminPage.do" id="a" style="text-decoration: none;">홈으로</a>
+</div>
 <jsp:include page="adminFooter.jsp"></jsp:include>
 
 </body>

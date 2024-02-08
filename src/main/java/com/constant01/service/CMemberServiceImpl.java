@@ -53,6 +53,11 @@ public class CMemberServiceImpl implements CMemberService{
 	public int update(CMember member) {
 		return md.update(member);
 	}
+	
+	@Override
+	public void updateStat(CMember member) {
+		md.updateStat(member);
+	}
 
 	@Override
 	public CMember selectNum(String m_email) {

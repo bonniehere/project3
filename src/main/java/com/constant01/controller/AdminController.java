@@ -506,6 +506,12 @@ public class AdminController {
 
 		return "/company/shipment/admin/adminMbView";
 	}
+	@RequestMapping(value = "company/adminMbViewUpdate.do", method = RequestMethod.POST)
+	public String adminMbViewUpdate(CMember member, String pageNum, Model model) {
+		ms.updateStat(member);
+		model.addAttribute("member", member);
+		return "redirect:/company/adminMbView.do";
+	}
 	@RequestMapping(value = "company/adminMbDelete.do", method = RequestMethod.GET)
 	public String adminMbDelete(String m_userId, String pageNum, Model model) {
 		int result = ms.adminMbDelete(m_userId);

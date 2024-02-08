@@ -85,6 +85,22 @@
         }
 		
     </style>
+<script type="text/javascript">
+// 로그인 세션값 체크 및 리다이렉트 함수
+function checkSessionAndRedirect() {
+    // 여기에 로그인 세션값을 확인하는 로직을 추가하고,
+    // 세션값이 없으면 홈페이지로 리다이렉트합니다.
+    if (!<%= session.getAttribute("login") %>) {
+    	alert("세션아웃");
+        location.href = "homelog.do";
+    }
+}
+
+// 페이지 로드 시 호출하여 세션값 확인
+$(document).ready(function() {
+    checkSessionAndRedirect();
+});
+</script>
 </head>
 <body>
 <jsp:include page="adminHeader.jsp"></jsp:include>

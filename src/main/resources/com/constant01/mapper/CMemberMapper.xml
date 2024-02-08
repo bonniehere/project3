@@ -68,6 +68,12 @@
 		</if>
 		where M_email=#{m_email}
 	</update>
+	
+	<update id="updateStat">
+		update CMember set
+		m_userStat = #{m_userStat}
+		where m_userId=#{m_userId}
+	</update>
 	<!-- 프로필 상세 -->
 	<select id="selectNum" resultType="com.constant01.model.CMember">
 		select * from CMember where M_email=#{m_email}
