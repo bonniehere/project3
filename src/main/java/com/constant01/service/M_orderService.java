@@ -68,4 +68,6 @@ public interface M_orderService {
 	
 	//kmc 추가
 	public ArrayList<M_order> delist(DeliveryDTO delivery); //고객 담당 기사 select
+	
+	
 }

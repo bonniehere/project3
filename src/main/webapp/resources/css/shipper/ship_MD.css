@@ -1,14 +1,5 @@
 @charset "UTF-8";
-/*
-.map_area{
-	display: inline-block;
-	
-}
 
-.driver_profile{
-	display: inline-block;
-	margin: 50px;
-}*/
 
 .cute-table {
     border-collapse: collapse;
@@ -32,15 +23,7 @@
     background-color: #f2f2f2;
 	text-align: center;
 }
-/*
-.cute-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 
-.cute-table tr:hover {
-    background-color: #f1f1f1;
-}
-*/
 
 #driverNameParagraph{
 	width: 100px;
@@ -73,12 +56,22 @@ body {
 	height:200px;
 }
 
+.deliverytable {
+	height: 200px;
+    width: 400px;/* 원하는 너비로 조정합니다 */
+    margin-left: 700px;
+    margin-top: 60px;
+    float: none; /* 부동 속성을 해제합니다 */
+}
+
+
+
 .driver_profile {
     margin: 10px;
     width: 500px;
     height: 300px;
     float: right;
-    margin-right: 300px; /* Adjusted margin-right */
+    margin-right: 10px; /* Adjusted margin-right */
     margin-top: 50px;
 }
 
@@ -86,6 +79,7 @@ body {
 #map {
     float: left;
     margin-right: 100px;
+    bottom: 200px;
 }
 
 #chart_div{
@@ -95,8 +89,8 @@ body {
 	
 	
 	position: absolute;
-	bottom: 200px;
-	left: 850px;
+	bottom: 150px;
+	left: 900px;
 	
 }
 .top {
