@@ -12,6 +12,8 @@ public interface CMemberService {
 	CMember select(String m_email);
 	
 	CMember select2(String m_email);
+	
+	CMember selectName(CMember member);
 
 	void insert(CMember member);
 	
