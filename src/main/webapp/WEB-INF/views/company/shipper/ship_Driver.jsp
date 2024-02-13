@@ -44,7 +44,7 @@
         <!-- 여기에 메뉴 내용 추가 -->
         <nav>
             <ul>
-                 <li><a href="../homelog.do">Home</a></li>
+                 <li><a href="#" onClick="history.go(-1);">Home</a></li>
                 <li><a href="../logout">logout</a></li>
             </ul>
         </nav>
