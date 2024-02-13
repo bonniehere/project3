@@ -62,6 +62,7 @@
     background-color: #f2f2f2;
 }
 
+
 #map{
 	width:50%;
 	height:380px;
@@ -71,7 +72,7 @@
 }
 
 
-#home{
+.btn{
   display: inline-block;
   padding: 10px 15px;
   margin: 5px;
@@ -80,22 +81,10 @@
   text-decoration: none;
   border-radius: 100px;
 }
-#home:hover {
+.btn:hover {
   background-color: #007bff;
   color: #fff;
 }
-
-/*배송 시작 버튼*/
-.btn1{
-
-	
-}
-
-
-
-
-/*배송 완료 버튼*/
-
 
 
 
