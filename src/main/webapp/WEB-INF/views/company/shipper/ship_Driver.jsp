@@ -65,7 +65,7 @@
 	<h2>Driver Page <%=customer.getM_name()%> 님 </h2>
 	</div>
 
-
+<!-- 여까지 지우기 -->
  <div class="table">
         <table class="cute-table">
             <tr>
@@ -80,26 +80,30 @@
                 
             </tr>
             <!-- dlist의 길이만큼 반복하여 테이블 행 생성 -->
-            <c:forEach items="${m_order}" var="delist">
-                <tr>
-                	
-                    <td width="120px">${delist.order_no}</td>
-                    <td width="100px">${delist.productcode}</td>
-                    <td width="120px">${delist.su_name}</td>
-                    <td width="250px">${delist.su_addr}</td>
-                    <td width="120px">${delist.su_zipCd}</td>
-                    <td width="150px">${delist.status}</td>
-                    <td width="280px"><button type="button" class="btn1" id="home"
-						onclick="location.href='deliverydone.do?order_no=${delist.order_no}'">검품확인 및 배송시작</button></td>
-                    <td width="200px"><button type="button" class="btn2" id="home"
-                    	onclick="location.href='deliverydone2.do?order_no=${delist.order_no}'">배송완료</button></td>
-                </tr>
-            </c:forEach>
+  <c:forEach items="${m_order}" var="delist">
+            <tr>
+                <td width="120px">${delist.order_no}</td>
+                <td width="100px">${delist.productcode}</td>
+                <td width="120px">${delist.su_name}</td>
+                <td width="250px">${delist.su_addr}</td>
+                <td width="120px">${delist.su_zipCd}</td>
+                <td width="150px">${delist.status}</td>
+                <td width="280px">
+                    <c:if test="${delist.status == '출고완료'}">
+                        <button type="button" class="btn" id="start_${delist.order_no}"
+                            onclick="location.href='deliverydone.do?order_no=${delist.order_no}'">검품확인 및 배송시작</button>
+                    </c:if>
+                </td>
+                <td width="200px">
+                    <c:if test="${delist.status == '배송중'}">
+                        <button type="button" class="btn" id="complete_${delist.order_no}"
+                            onclick="location.href='deliverydone2.do?order_no=${delist.order_no}'">배송완료</button>
+                    </c:if>
+                </td>
+            </tr>
+        </c:forEach>
         </table>
     </div>
-
-
-
 
 
 
