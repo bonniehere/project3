@@ -103,7 +103,7 @@ ul {
 			<div class="col col-md-9">
 			
 					<h2 class="mt-5 text-start" id="join" style="opacity: 0.5">회원 목록</h2><br>
-					<a href="adminMbListRanking.do">호구랭킹</a>
+					<a href="adminMbListRanking.do">누적 금액순</a>
 				<table class="table">	
 						<tr><th>병원명</th>
 							<th>아이디</th>
