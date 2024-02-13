@@ -279,7 +279,7 @@ function drawBasic() {
             var options = {
                 hAxis: {
                     title: 'Time',
-                    format: 'HH:mm'  // 시간 표시 형식 설정 (원하는 형식으로 변경 가능)
+                    format: 'HH:mm:ss'  // 시간 표시 형식 설정 (원하는 형식으로 변경 가능)
                 },
                 vAxis: {
                     title: 'Temperature'
