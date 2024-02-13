@@ -161,7 +161,7 @@ public class DeliveryController {
 		
 		
 		System.out.println(ds.dlist2(delivery));
-		//model.addAttribute("m_order", os.delist(delivery));
+		model.addAttribute("m_order", os.delist(delivery));
 		return "company/shipper/ship_MD";
 		
 	}
