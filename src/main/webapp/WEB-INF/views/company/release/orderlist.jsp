@@ -28,17 +28,22 @@
 <body>
 
 
-<div>
-<!-- 
+<div id="abcd">
+
 <c:forEach items="${dlist}" var="dlist" varStatus="status">
 
+<input type="hidden" name="m_userId" value="${dlist.m_userId}">
 <input type="hidden" name="m_userPw" value="${dlist.m_userPw}">
-
+<input type="hidden" name="m_name" value="${dlist.m_name}">
+<input type="hidden" name="m_phone" value="${dlist.m_phone}">
 <input type="hidden" name="driverLat" value="${dlist.driverLat}">
 <input type="hidden" name="driverLon" value="${dlist.driverLon}">
 
 </c:forEach>
- -->
+
+
+
+
 
 </div>
 
@@ -89,7 +94,7 @@
                                     </th>
                         
                         <th>${board.order_quantity}</th>
-                        <th>₩<script>document.write(new Intl.NumberFormat('ko-KR').format(${board.total_price}))</script></th>
+                        <th>₩<script>document.write(new Intl.NumberFormat('ko-KR').format(${board.total_price}));</script></th>
 
                         <th>
         <button class="delete-button" onclick="deleteOrder('${board.order_no}')">주문취소</button>
@@ -98,7 +103,7 @@
 	    					
 	    	<c:set var="buttonClass" value="${board.status eq '배송중' ? 'delivery-button' : 'status'}" />
 			<th>
-			  <span class="${buttonClass}" <c:if test="${buttonClass eq 'delivery-button'}">onclick="javascript:hohoho(this);" </c:if> >${board.status}</span>
+			  <span class="${buttonClass}" <c:if test="${buttonClass eq 'delivery-button'}">onclick="javascript:hohoho('${board.m_driver}');" </c:if> >${board.status}</span>
 			  
 			  <!-- ${board.m_driver} -->
 			  <input type="hidden" name="m_name" value="${board.m_driver}">
@@ -178,22 +183,48 @@ function deleteOrder(order_no) {
 	
 	
 	//고객 페이지 가기~
-	function hohoho(obj){
-		//if문
-		var oTd = $(obj).parent();
-		
-		G_Util.newFormSubmit({
-			"action" : "company/shipper/ship_Customer2.do",
-			"param"  : {
-				//"m_userPw"      : oTd.find("input[name=m_userPw]").val(),
-				"m_name"      : oTd.find("input[name=m_name]").val(),
-				//"driverLat"      : oTd.find("input[name=driverLat]").val(),
-				//"driverLon"      : oTd.find("input[name=driverLon]").val()
-			}
-		
-		})
-	}
-	
+	function hohoho(driver){
+    $.ajax({
+        url: '/company/shipper/ship_Customer.do', // 'customer2' 컨트롤러의 엔드포인트
+        method: 'POST', // 데이터를 전송할 HTTP 메서드 (POST를 사용할 수도 있음)
+        data: { m_name : driver }, // 보낼 데이터 객체
+        dataType : "json",
+        success: function(response) {
+        	console.log(response.m_name)
+            // 새 form 생성
+            var form = $('<form>', {
+                'method': 'post',
+                'action': '/company/shipper/ship_Customer2.do' // '/company/shipper/ship_Customer2.do'로 설정
+            });
+
+            // form에 필요한 input 추가 (선택사항)
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': 'm_name', // 필요에 따라 key 변경
+                'id'  : 'm_name',
+                'value': response.m_name // 필요에 따라 value 변경
+            }));
+            form.append($('<input>', {
+                'type': 'hidden',
+                'name': 'm_phone', // 필요에 따라 key 변경
+                'id'  : 'm_phone',
+                'value': response.m_phone // 필요에 따라 value 변경
+            }));
+
+            // body에 form 추가
+            $('body').append(form);
+
+            // form 서브밋
+            form.submit();
+        },
+        error: function(xhr, status, error) {
+            // 오류가 발생했을 때 수행할 작업
+            console.error('Ajax 요청이 실패했습니다.');
+            console.error('상태 코드:', status);
+            console.error('에러 내용:', error);
+        }
+    });
+};
 	
 	
 	

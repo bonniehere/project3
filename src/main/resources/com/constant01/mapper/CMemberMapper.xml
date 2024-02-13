@@ -11,6 +11,11 @@
 		select *
 		from Staff where m_userId=#{m_userId}
 	</select>
+	
+	<select id="selectName" resultType="com.constant01.model.CMember">
+		select *
+		from Staff where m_name=#{m_name}
+	</select>
 
 	<!-- 회원가입 --> <!-- table img default값 지우기 -->
 	<insert id="insert">
