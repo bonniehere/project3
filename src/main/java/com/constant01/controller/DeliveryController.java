@@ -19,6 +19,7 @@ import com.constant01.model.DeliveryDTO;
 import com.constant01.model.DriverDTO;
 import com.constant01.model.M_order;
 import com.constant01.model.TempDTO;
+import com.constant01.service.CMemberService;
 import com.constant01.service.DeliveryService;
 import com.constant01.service.M_orderService;
 import com.constant01.service.ReleaseService;
@@ -30,6 +31,9 @@ public class DeliveryController {
 	
 	@Autowired
 	ReleaseService rs;
+	
+	@Autowired
+	CMemberService ms;
 	
 	@Autowired
 	private M_orderService os;
@@ -85,12 +89,19 @@ public class DeliveryController {
 		return "/company/shipper/DeliveryDone";
 	}
 	
-	
+	@RequestMapping(value = "company/shipper/ship_Customer.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public ResponseEntity<?> ship_Customer(CMember member, Model model) {
+		model.addAttribute("selectName", ms.selectName(member));
+		System.out.println(ms.selectName(member));
+		return new ResponseEntity<>(ms.selectName(member), HttpStatus.OK);
+		
+	}
 	//customer2로 가기 위한 값 받아오기 <기사의 현재 위치 보는 것> -------------------
 	// ship_Driver에서 Customer2로 보내기 위한 list값 가져오기    ------------------------------------------------------------------------------------------------
 	@RequestMapping(value = "company/shipper/ship_Customer2.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String custo(DeliveryDTO delivery,Model model) {
 		System.out.println("customer맵");
+		System.out.println(delivery);
 		model.addAttribute("dlist2", ds.dlist2(delivery));
 		System.out.println(ds.dlist2(delivery));
 		return "company/shipper/ship_Customer2";

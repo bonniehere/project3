@@ -469,11 +469,9 @@ public class ReleaseController {
 			 HttpSession session = request.getSession();
 		        Object loginAttribute = session.getAttribute("login");
 		        model.addAttribute("login", loginAttribute);
-		        System.out.println("dddd");
 		        //주문 현황에서 기사 정보 받아오기
 		        model.addAttribute("dlist", ds.dlist(delivery));
 		        System.out.println(ds.dlist(delivery));
-		        System.out.println("222");
 			model.addAttribute("orderlist", rs.orderlist(cri) );
 			int total = rs.getTotal_order();
 			PageMakerDTO pagemake = new PageMakerDTO(cri, total);

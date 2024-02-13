@@ -33,21 +33,17 @@
 <body>
 
  <!-- 상단 메뉴 추가 -->
-    <div class="header">
+    
+    
+<div class="header">
         <!-- 여기에 메뉴 내용 추가 -->
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">logout</a></li>
+        <nav id="hn">
+            <ul id="hu">
+                <li id="hl"><a href="#" id="ha" onclick="history.go(-1);">뒤로가기</a></li>
+              
             </ul>
         </nav>
     </div>
-    
-<h2>클라이언트가 배송자의 위치를 볼 수 있는 페이지임</h2>
-
-<!-- 여기서는 ship_Driver의 위도, 경도, 배달기사의 이름을 받아와서 보여준다 -->
-<h2>배달 기사 : ${dlist2[0].m_name} </h2>
 
 
 <div class="body">
@@ -56,16 +52,13 @@
 
 <tr>
 <td rowspan="3"><img id="driver" src="../../../../resources/img/shipper/driver.png"> </td>
-<td colspan="2">배송 기사 이름 : ${dlist2[0].m_name}</td>
+<td colspan="2">배송 기사 이름 : ${dlist2.m_name}</td>
 </tr>
 <tr>
-<td colspan="2">배송 기사 연락처 : ${dlist2[0].m_phone}</td>
+<td colspan="2">배송 기사 연락처 : ${dlist2.m_phone}</td>
 
 </tr>
-<tr>
-<td>흠</td>
-<td>일단 추가함</td>
-</tr>
+
 
 </table>
 
@@ -76,12 +69,12 @@
 
 
 
-<input type="hidden" name="m_userId" id="m_userId" value="${dlist2[0].m_userId}">
-<input type="hidden" name="m_userPw" id="m_userPw" value="${dlist2[0].m_userPw}">
-<input type="hidden" name="m_name" value="${dlist2[0].m_name}">
-<input type="hidden" name="m_phone" value="${dlist2[0].m_phone}">
-<input type="hidden" name="driverLat" id="driverLat" value="${dlist2[0].driverLat}">
-<input type="hidden" name="driverLon" id="driverLon" value="${dlist2[0].driverLon}">
+<input type="hidden" name="m_userId" id="m_userId" value="${dlist2.m_userId}">
+<input type="hidden" name="m_userPw" id="m_userPw" value="${dlist2.m_userPw}">
+<input type="hidden" name="m_name" value="${dlist2.m_name}">
+<input type="hidden" name="m_phone" value="${dlist2.m_phone}">
+<input type="hidden" name="driverLat" id="driverLat" value="${dlist2.driverLat}">
+<input type="hidden" name="driverLon" id="driverLon" value="${dlist2.driverLon}">
 
 
 

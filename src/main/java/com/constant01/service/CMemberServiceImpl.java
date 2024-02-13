@@ -21,6 +21,10 @@ public class CMemberServiceImpl implements CMemberService{
 	public CMember select2(String m_email) {// 회원가입 아이디 중복체크, 로그인할때 사용하는 로직
 		return md.select2(m_email);
 	}
+	@Override
+	public CMember selectName(CMember member) {// 회원가입 아이디 중복체크, 로그인할때 사용하는 로직
+		return md.selectName(member);
+	}
 
 	@Override
 	public void insert(CMember member) { // 회원가입
