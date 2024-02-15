@@ -122,12 +122,20 @@
 
     <script>
     
-   
+    let tempValues = {};
         // 페이지 로드 시 총 가격 계산
         $(document).ready(function () {
         	
         	
         	updateTotalAmount();
+        	if (localStorage.getItem('tempValues')) {
+                var tempValues = JSON.parse(localStorage.getItem('tempValues'));
+                $('#name').val(tempValues.name);
+                $('#phone').val(tempValues.phone);
+                $('#zipCd').val(tempValues.zipCd);
+                $('#addr').val(tempValues.addr);
+                $('#detlAddr').val(tempValues.detlAddr);
+            }
             
         });
         
@@ -190,14 +198,33 @@
         	        console.log(`Product ${productcode} removed successfully`);
         	        $(`#item-${no}`).remove();
         	        updateTotalAmount();
-        	        window.location.reload();
+        	        
+        	      
+        	        
+        	        
         	    },
         	    error: function(error) {
         	        console.error(`Error removing product ${productcode}:`, error);
         	    }
         	});
 
+        	  tempValues = {
+  	                name: $('#name').val(),
+  	                phone: $('#phone').val(),
+  	                zipCd: $('#zipCd').val(),
+  	                addr: $('#addr').val(),
+  	                detlAddr: $('#detlAddr').val()
+  	            };
+  	        
+        	  localStorage.setItem('tempValues', JSON.stringify(tempValues));
+
+        	  
+        	  window.location.reload();
+            
         }
+        
+        
+      
 
         // 총 가격 업데이트 함수
       function updateTotalAmount() {
@@ -267,6 +294,7 @@ function placeOrder() {
                 removeFromCart(no, productcode, subtotal);
             });
             updateTotalAmount();
+            localStorage.removeItem('tempValues');
         },
         error: function(error) {
             console.error("Error placing order:", error);
