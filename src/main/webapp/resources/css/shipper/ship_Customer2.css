@@ -1,26 +1,39 @@
 @charset "UTF-8";
-/*
-.map_area{
-	display: inline-block;
-	
+.table{
+	width: 800px;
+	height: 200px;
+	float: right;
+    margin-right: 200px;
+    margin-top: 50px;
+    position: relative;
+    /*top: 100px;*/
+    bottom: 250px;
+    /*left: 10px;*/
+    
 }
 
-.driver_profile{
-	display: inline-block;
-	margin: 50px;
-}*/
-
-.cute-table {
+.p_table {
     border-collapse: collapse;
-    width: 100%;
+    width: 800px;
 }
 
-.cute-table table {
+.p_table table {
     font-family: 'Arial', sans-serif;
     border: 1px solid #dddddd;
     text-align: left;
-    width: 100%;
+    width: 500px;
 }
+
+.p_table th, .p_table td {
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+.p_table th {
+    background-color: #f2f2f2;
+}
+
 
 .cute-table th, .cute-table td {
     padding: 8px;
@@ -31,15 +44,7 @@
 .cute-table th {
     background-color: #f2f2f2;
 }
-/*
-.cute-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 
-.cute-table tr:hover {
-    background-color: #f1f1f1;
-}
-*/
 .cute-table img {
     width: 50px;
     height: auto;
@@ -62,14 +67,16 @@
     width: 500px;
     height: 500px;
     float: right;
-    margin-right: 400px; /* Adjusted margin-right */
-    margin-top: 50px;
+    margin-right: 500px; /* Adjusted margin-right */
+    margin-top: 100px;
 }
 
 
 #map {
     float: left;
-    margin-right: 200px;
+    /*margin-right: 200px;*/
+    position: relative;
+    bottom: 550px;
 }
 
 

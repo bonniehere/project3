@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,31 @@
 
 </div>
 
-	<div class="map" id="map" style="width:400px;height:400px;">	
+<div class="table">
+        <table class="p_table">
+            <tr>
+                <th height="30">주문 번호</th>
+                <th>상품 코드</th>
+                <th>상품 내용</th>
+                <th>받는 사람</th>
+                <th>배달 목적지</th>
+                <th>배송 상태</th>
+            </tr>
+  <c:forEach items="${m_order}" var="delist">
+            <tr>
+                <td width="120px">${delist.order_no}</td>
+                <td width="100px">${delist.productcode}</td>
+                <td width="120px">${delist.productname}</td>
+                <td width="120px">${delist.su_name}</td>
+                <td width="250px">${delist.su_addr}</td>
+                <td width="150px">${delist.status}</td>
+            </tr>
+        </c:forEach>
+        </table>
+    </div>
+
+
+	<div class="map" id="map" style="width:600px;height:600px;">	
 </div>
 
 
@@ -86,7 +111,7 @@
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { 
 			        center: new kakao.maps.LatLng(35.542990773269565, 129.33653130703433), // 지도의 중심좌표
-			        level: 2 // 지도의 확대 레벨 
+			        level: 1 // 지도의 확대 레벨 
 			}; 
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 			
