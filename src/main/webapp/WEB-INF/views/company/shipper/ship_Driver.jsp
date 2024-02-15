@@ -120,12 +120,7 @@
 	<input type="hidden" name="driverPhone" value="<%=customer.getM_phone()%>">
 
 </form>
-	 <!-- 내가 가져온 지도 constant 지도-->
 
-					 
-					 
-
-<!--  <div class="map_area">  -->
 
 <div class="map" id="map" style="width:100% ;height:700px;">					 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>

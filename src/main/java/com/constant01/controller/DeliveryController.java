@@ -104,6 +104,11 @@ public class DeliveryController {
 		System.out.println(delivery);
 		model.addAttribute("dlist2", ds.dlist2(delivery));
 		System.out.println(ds.dlist2(delivery));
+		
+		//주문한 거 불러오기
+		model.addAttribute("m_order", os.delist(delivery));
+		System.out.println("result="+os.delist(delivery));
+		
 		return "company/shipper/ship_Customer2";
 		
 	}
@@ -143,21 +148,6 @@ public class DeliveryController {
 		return new ResponseEntity<>(ds.dlist(delivery), HttpStatus.OK);
 	
 	}
-
-	/*
-	//ship_Master에서 기사 이름을 클릭했을 때 이동
-	@RequestMapping(value = "/company/shipper/MDmap.do", method = RequestMethod.POST)
-	public String MDLocSave(DeliveryDTO delivery, TempDTO temp, Model model) {
-		//System.out.println("실시간유저좌표저장");
-		model.addAttribute("dlist", ds.dlist(delivery));
-		model.addAttribute("temp", ds.temp(temp));
-		//System.out.println(ds.dlist(delivery));
-		
-		
-
-		return "/company/shipper/ship_MD";
-		
-	}*/
 	
 	
 	//MD 메인 페이지
@@ -176,8 +166,6 @@ public class DeliveryController {
 		return "company/shipper/ship_MD";
 		
 	}
-	
-	
 	
 	
 	//클릭한 기사의 위치 가져오기
