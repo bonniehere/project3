@@ -111,28 +111,6 @@
 <!-- include를 사용하여 스크롤 가능한 테이블 삽입 -->
 <%@ include file="ship_MD2.jsp" %>
 
-<!-- 
-<div class="deliverytable">
-<table class="cute-table">
-<tr>
-	<th width="100px;">주문 번호</th>
-	<th width="100px;">받는 사람</th>
-	<th>배송 목적지</th>
-</tr>
-<c:forEach items="${m_order}" var ="delist">
-<tr>
-	<td>${delist.order_no}</td>
-	<td>${delist.su_name}</td>
-	<td>${delist.ju_addr}</td>
-</tr>
-</c:forEach>
-</table>
-
-</div>
- -->
-
-
-
 
 
 
@@ -152,7 +130,7 @@
 
 
 
-<!-- 	<div class="map_area" style="width:400px;height:400px;"> -->
+
 							 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4964815528aa3bf5334721911ccdc6964964815528aa3bf5334721911ccdc696"></script>
 	<script>
