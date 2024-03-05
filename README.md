@@ -2,7 +2,7 @@
 
 
 ### 🏣 개요 
-1차 프로젝트에서 완성시킨 병원 사이트에서 카카오맵 api를 추가해 병원 내 구역과 본인의 위치를 확인하여 원하는 곳으로 이동할 수 있도록 하였습니다 
+출하 프로세스에 간단한 수주와 입고 프로세스를 함께 구현하고 카카오맵 API와 라즈베리파이 온도 센서를 활용하여 출하시 배달 기사의 위치와 상품 온도를 확인할 수 있게 구현하였습니다.
 
 
 
@@ -17,7 +17,7 @@
 
 
 ### 🗓 프로젝트 일정
-2023/12/28 ~ 2024/1/15
+2024/1/18 ~ 2024/2/11
 
 
 
@@ -43,57 +43,82 @@
 ### 👩‍💻프로젝트 주요 기능
 <details close>
   
-  <summary>환자 마이페이지 및 실시간 지도</summary> 
+  <summary>클라이언트 페이지</summary> 
   
-#### 환자 마이페이지 및 예약한 진료과 찾아가기
+#### 클라이언트와 공급사 제휴 맺기
 
+![그림01](https://github.com/bonniehere/project3/assets/152823482/793d0e8b-7e97-4a74-b363-d0e4741a9d71)
+##### 계약서에 기재된 고객의 정보를 기반으로 ID발급을 합니다.
 
-![012](https://github.com/bonniehere/project2/assets/152823482/94e253aa-2ea7-4ea3-bce2-9fc85543b82c)
-
-#### 층별 위치 안내
-
-![013](https://github.com/bonniehere/project2/assets/152823482/295394f4-78fd-4433-869e-12116906c9f4)
+![2](https://github.com/bonniehere/project3/assets/152823482/9e4738a0-39aa-4c47-acc5-94f7895dd27f)
+##### 이메일 전송 버튼을 누르면 회원 가입 시에 입력한 상단부의 이메일 주소로 아이디와 비밀번호를 전송하도록 설계하였습니다.
 
 </details>
 
 <details close>
   
-  <summary>환자 마이페이지 및 실시간 지도</summary> 
+  <summary>클라이언트 주문 페이지</summary> 
   
-#### 환자 마이페이지 및 예약한 진료과 찾아가기
+#### 클라이언트 주문 페이지
+
+![3](https://github.com/bonniehere/project3/assets/152823482/5e683c60-d14d-4950-9968-93d34b46e303)
 
 
-![012](https://github.com/bonniehere/project2/assets/152823482/94e253aa-2ea7-4ea3-bce2-9fc85543b82c)
 
-#### 층별 위치 안내
+#### 장바구니
 
-![013](https://github.com/bonniehere/project2/assets/152823482/295394f4-78fd-4433-869e-12116906c9f4)
+![그림02](https://github.com/bonniehere/project3/assets/152823482/0997b45a-e777-480f-9aa8-6354ae848ca6)
+
+
+#### 배송현황 확인 
+![6](https://github.com/bonniehere/project3/assets/152823482/4ee993a6-cad3-4e22-958c-ea4b0d2b3cfb)
+
+#### 배송 중일 때 기사 위치 확인
+
+![8](https://github.com/bonniehere/project3/assets/152823482/b811b5cb-b645-48c9-b442-c0bcfcb7e772)
+
 
 </details>
 
 <details close>
   
-  <summary>환자 마이페이지 및 실시간 지도</summary> 
+  <summary>관리자 페이지</summary> 
   
-#### 환자 마이페이지 및 예약한 진료과 찾아가기
+#### 관리자 주문 페이지
+
+![7](https://github.com/bonniehere/project3/assets/152823482/f98e68f4-3b84-4d4f-9626-e491f962e4af)
 
 
-![012](https://github.com/bonniehere/project2/assets/152823482/94e253aa-2ea7-4ea3-bce2-9fc85543b82c)
+#### 주문 상세 페이지
 
-#### 층별 위치 안내
+![그림03](https://github.com/bonniehere/project3/assets/152823482/a9cdb5cd-01a4-4dde-875b-2e1935310bb9)
 
-![013](https://github.com/bonniehere/project2/assets/152823482/295394f4-78fd-4433-869e-12116906c9f4)
+##### 이 페이지에서 현재 물품의 출하기사 배정 및 주문 상태 변경이 가능합니다. 
+
+#### 배송 현황 페이지
+
+![4](https://github.com/bonniehere/project3/assets/152823482/a99064f1-2d23-43e9-920c-0271a4892c15)
+
+##### 배달 기사의 위치를 모두 파악할 수 있는 모든 배송현황 페이지입니다.
+
+
+#### 배송 기사 상세 페이지
+
+![5](https://github.com/bonniehere/project3/assets/152823482/c9e59f1c-3847-4fc8-9f86-b6d8d1e35246)
+
+##### 기사의 이름을 클릭하면 그 기사의 위치와 현재 배달 중인 정보, 차 안의 온도를 파악할 수 있습니다. 이때 차 안 온도가 23도가 이상이면 출고 직원에게 알림 메일이 전송되어 대응을 할 수 있게 설계 하였습니다.
 
 </details>
 
 <details close>
   
-  <summary>의사 마이페이지 및 환자 위치 보기</summary> 
+  <summary>출하담당자(기사) 페이지</summary> 
   
-#### 의사 마이페이지 및 환자 위치 보기
+#### 출하담당자 페이지
 
-![constant2-014](https://github.com/bonniehere/project2/assets/152823482/f6862eb2-729f-4579-9b79-1b5554b6e10e)
+![그림04](https://github.com/bonniehere/project3/assets/152823482/05183875-d557-473f-aa93-7268c68fe595)
 
+##### 배달 기사가 이 페이지에서 배송 시작 및 배송 완료로 현황 업데이트가 가능합니다.
 
 </details>
 
